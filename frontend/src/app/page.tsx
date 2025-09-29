@@ -47,7 +47,7 @@ export default function HomePage() {
   
   // Create gallery images from projects using useMemo
   const galleryImages = useMemo(() => {
-    const projectImages = []
+    const projectImages: any[] = []
     
     // Get only one (primary) image from each project
     projects.forEach(project => {

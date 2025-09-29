@@ -98,7 +98,7 @@ export default function ProjectModal({ isOpen, onClose, onSuccess, mode, project
     setValue,
     watch
   } = useForm<ProjectFormData>({
-    resolver: yupResolver(schema),
+    resolver: yupResolver(schema) as any,
     defaultValues: {
       title: '',
       description: '',

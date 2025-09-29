@@ -25,12 +25,7 @@ import toast from 'react-hot-toast'
 import emailjs from '@emailjs/browser'
 import GoogleMapsLoader from '@/utils/googleMapsLoader'
 
-// Extend Window interface for Google Maps
-declare global {
-  interface Window {
-    google: any;
-  }
-}
+// Google Maps types are defined in src/types/google-maps.d.ts
 
 interface ContactFormData {
   name: string

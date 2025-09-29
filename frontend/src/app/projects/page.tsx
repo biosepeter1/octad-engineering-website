@@ -45,6 +45,14 @@ interface PaginationInfo {
   pages: number
 }
 
+interface ApiPaginationInfo {
+  page?: number
+  limit?: number
+  total?: number
+  pages?: number
+  unreadCount?: number
+}
+
 const defaultProjects: Project[] = [
   {
     _id: 'default1',
@@ -153,7 +161,12 @@ export default function ProjectsPage() {
           setProjects(response.data)
           setFilteredProjects(response.data)
           if (response.pagination) {
-            setPagination(response.pagination)
+            setPagination({
+              page: response.pagination.page || 1,
+              limit: response.pagination.limit || 9,
+              total: response.pagination.total || 0,
+              pages: response.pagination.pages || 1
+            })
           }
         }
       } catch (error) {

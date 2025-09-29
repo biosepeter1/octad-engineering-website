@@ -88,7 +88,7 @@ class GoogleMapsLoader {
   }
 
   public isGoogleMapsLoaded(): boolean {
-    return this.isLoaded && window.google && window.google.maps;
+    return this.isLoaded && !!(window.google && window.google.maps);
   }
 
   public reset(): void {
