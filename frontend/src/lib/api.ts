@@ -48,6 +48,13 @@ interface ApiResponse<T = any> {
   data?: T;
   error?: string;
   errors?: any[];
+  pagination?: {
+    page?: number;
+    limit?: number;
+    total?: number;
+    pages?: number;
+    unreadCount?: number;
+  };
 }
 
 // Auth API
