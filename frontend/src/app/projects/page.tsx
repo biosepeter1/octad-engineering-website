@@ -160,7 +160,7 @@ export default function ProjectsPage() {
         
         if (response.success && response.data) {
           // Transform localhost URLs to production URLs
-          const transformedProjects = transformProjectsImages(response.data)
+          const transformedProjects = transformProjectsImages(response.data) as Project[]
           setProjects(transformedProjects)
           setFilteredProjects(transformedProjects)
           if (response.pagination) {

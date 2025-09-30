@@ -57,7 +57,7 @@ export default function ProjectDetailsPage() {
         const response = await projectsAPI.getProject(projectId)
         if (response.success && response.data) {
           // Transform localhost URLs to production URLs
-          const transformedProject = transformProjectImages(response.data)
+          const transformedProject = transformProjectImages(response.data) as Project
           setProject(transformedProject)
         } else {
           // If the API returns nothing, show 404

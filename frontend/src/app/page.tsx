@@ -176,7 +176,7 @@ export default function HomePage() {
         
         if (projectsResponse.success) {
           // Transform localhost URLs to production URLs
-          const transformedProjects = transformProjectsImages(projectsResponse.data || [])
+          const transformedProjects = transformProjectsImages(projectsResponse.data || []) as Project[]
           setProjects(transformedProjects)
         }
       } catch (error) {
