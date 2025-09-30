@@ -356,76 +356,76 @@ export default function HomePage() {
               </p>
             </div>
 
-            <div className="space-y-24">
+            <div className="space-y-16 lg:space-y-24">
               {/* Service 1 - Residential Construction */}
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
                 <div className="relative animate-slide-in-left">
                   <img 
                     src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
                     alt="Residential Construction"
-                    className="rounded-2xl shadow-2xl w-full h-96 object-cover transform hover:scale-105 transition-transform duration-500"
+                    className="rounded-2xl shadow-2xl w-full h-64 sm:h-80 lg:h-96 object-cover transform hover:scale-105 transition-transform duration-500"
                   />
-                  <div className="absolute -bottom-4 -right-4 bg-primary text-white p-6 rounded-xl shadow-lg">
-                    <HomeIcon className="w-12 h-12" />
+                  <div className="absolute -bottom-2 -right-2 sm:-bottom-4 sm:-right-4 bg-primary text-white p-3 sm:p-4 lg:p-6 rounded-xl shadow-lg">
+                    <HomeIcon className="w-8 h-8 sm:w-10 sm:h-10 lg:w-12 lg:h-12" />
                   </div>
                 </div>
-                <div className="animate-slide-in-right">
-                  <h3 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+                <div className="animate-slide-in-right mt-8 lg:mt-0">
+                  <h3 className="text-2xl xs:text-3xl sm:text-3xl lg:text-4xl font-bold text-gray-900 mb-4 sm:mb-6">
                     Residential Construction
                   </h3>
-                  <p className="text-lg text-gray-600 mb-8 leading-relaxed">
+                  <p className="text-base sm:text-lg text-gray-600 mb-6 sm:mb-8 leading-relaxed">
                     From custom luxury homes to affordable housing solutions, we create living spaces that 
                     combine functionality, beauty, and sustainability. Our residential projects reflect 
                     modern living standards while respecting traditional architectural values.
                   </p>
-                  <div className="grid grid-cols-2 gap-4 mb-8">
+                  <div className="grid grid-cols-1 xs:grid-cols-2 gap-3 sm:gap-4 mb-6 sm:mb-8">
                     <div className="flex items-center">
-                      <CheckCircleIcon className="w-5 h-5 text-green-500 mr-3" />
-                      <span className="text-gray-700">Custom Design</span>
+                      <CheckCircleIcon className="w-4 h-4 sm:w-5 sm:h-5 text-green-500 mr-2 sm:mr-3 flex-shrink-0" />
+                      <span className="text-sm sm:text-base text-gray-700">Custom Design</span>
                     </div>
                     <div className="flex items-center">
-                      <CheckCircleIcon className="w-5 h-5 text-green-500 mr-3" />
-                      <span className="text-gray-700">Quality Materials</span>
+                      <CheckCircleIcon className="w-4 h-4 sm:w-5 sm:h-5 text-green-500 mr-2 sm:mr-3 flex-shrink-0" />
+                      <span className="text-sm sm:text-base text-gray-700">Quality Materials</span>
                     </div>
                     <div className="flex items-center">
-                      <CheckCircleIcon className="w-5 h-5 text-green-500 mr-3" />
-                      <span className="text-gray-700">Energy Efficient</span>
+                      <CheckCircleIcon className="w-4 h-4 sm:w-5 sm:h-5 text-green-500 mr-2 sm:mr-3 flex-shrink-0" />
+                      <span className="text-sm sm:text-base text-gray-700">Energy Efficient</span>
                     </div>
                     <div className="flex items-center">
-                      <CheckCircleIcon className="w-5 h-5 text-green-500 mr-3" />
-                      <span className="text-gray-700">Smart Home Ready</span>
+                      <CheckCircleIcon className="w-4 h-4 sm:w-5 sm:h-5 text-green-500 mr-2 sm:mr-3 flex-shrink-0" />
+                      <span className="text-sm sm:text-base text-gray-700">Smart Home Ready</span>
                     </div>
                   </div>
                 </div>
               </div>
 
               {/* Service 2 - Commercial Construction */}
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-                <div className="animate-slide-in-left lg:order-2">
-                  <h3 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
+                <div className="animate-slide-in-left lg:order-2 mt-8 lg:mt-0">
+                  <h3 className="text-2xl xs:text-3xl sm:text-3xl lg:text-4xl font-bold text-gray-900 mb-4 sm:mb-6">
                     Commercial Construction
                   </h3>
-                  <p className="text-lg text-gray-600 mb-8 leading-relaxed">
+                  <p className="text-base sm:text-lg text-gray-600 mb-6 sm:mb-8 leading-relaxed">
                     Build your business with our commercial construction expertise. From office buildings 
                     and retail spaces to industrial facilities, we deliver projects that enhance productivity 
                     and create impressive business environments.
                   </p>
-                  <div className="grid grid-cols-2 gap-4 mb-8">
+                  <div className="grid grid-cols-1 xs:grid-cols-2 gap-3 sm:gap-4 mb-6 sm:mb-8">
                     <div className="flex items-center">
-                      <CheckCircleIcon className="w-5 h-5 text-green-500 mr-3" />
-                      <span className="text-gray-700">Office Buildings</span>
+                      <CheckCircleIcon className="w-4 h-4 sm:w-5 sm:h-5 text-green-500 mr-2 sm:mr-3 flex-shrink-0" />
+                      <span className="text-sm sm:text-base text-gray-700">Office Buildings</span>
                     </div>
                     <div className="flex items-center">
-                      <CheckCircleIcon className="w-5 h-5 text-green-500 mr-3" />
-                      <span className="text-gray-700">Retail Spaces</span>
+                      <CheckCircleIcon className="w-4 h-4 sm:w-5 sm:h-5 text-green-500 mr-2 sm:mr-3 flex-shrink-0" />
+                      <span className="text-sm sm:text-base text-gray-700">Retail Spaces</span>
                     </div>
                     <div className="flex items-center">
-                      <CheckCircleIcon className="w-5 h-5 text-green-500 mr-3" />
-                      <span className="text-gray-700">Warehouses</span>
+                      <CheckCircleIcon className="w-4 h-4 sm:w-5 sm:h-5 text-green-500 mr-2 sm:mr-3 flex-shrink-0" />
+                      <span className="text-sm sm:text-base text-gray-700">Warehouses</span>
                     </div>
                     <div className="flex items-center">
-                      <CheckCircleIcon className="w-5 h-5 text-green-500 mr-3" />
-                      <span className="text-gray-700">Industrial Facilities</span>
+                      <CheckCircleIcon className="w-4 h-4 sm:w-5 sm:h-5 text-green-500 mr-2 sm:mr-3 flex-shrink-0" />
+                      <span className="text-sm sm:text-base text-gray-700">Industrial Facilities</span>
                     </div>
                   </div>
                 </div>
@@ -433,83 +433,83 @@ export default function HomePage() {
                   <img 
                     src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
                     alt="Commercial Construction"
-                    className="rounded-2xl shadow-2xl w-full h-96 object-cover transform hover:scale-105 transition-transform duration-500"
+                    className="rounded-2xl shadow-2xl w-full h-64 sm:h-80 lg:h-96 object-cover transform hover:scale-105 transition-transform duration-500"
                   />
-                  <div className="absolute -bottom-4 -left-4 bg-secondary text-white p-6 rounded-xl shadow-lg">
-                    <BuildingOfficeIcon className="w-12 h-12" />
+                  <div className="absolute -bottom-2 -left-2 sm:-bottom-4 sm:-left-4 bg-secondary text-white p-3 sm:p-4 lg:p-6 rounded-xl shadow-lg">
+                    <BuildingOfficeIcon className="w-8 h-8 sm:w-10 sm:h-10 lg:w-12 lg:h-12" />
                   </div>
                 </div>
               </div>
 
               {/* Service 3 - Renovation & Remodeling */}
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
                 <div className="relative animate-slide-in-left">
                   <img 
                     src="https://images.unsplash.com/photo-1581858726788-75bc0f6a952d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
                     alt="Renovation & Remodeling"
-                    className="rounded-2xl shadow-2xl w-full h-96 object-cover transform hover:scale-105 transition-transform duration-500"
+                    className="rounded-2xl shadow-2xl w-full h-64 sm:h-80 lg:h-96 object-cover transform hover:scale-105 transition-transform duration-500"
                   />
-                  <div className="absolute -bottom-4 -right-4 bg-accent text-white p-6 rounded-xl shadow-lg">
-                    <PaintBrushIcon className="w-12 h-12" />
+                  <div className="absolute -bottom-2 -right-2 sm:-bottom-4 sm:-right-4 bg-accent text-white p-3 sm:p-4 lg:p-6 rounded-xl shadow-lg">
+                    <PaintBrushIcon className="w-8 h-8 sm:w-10 sm:h-10 lg:w-12 lg:h-12" />
                   </div>
                 </div>
-                <div className="animate-slide-in-right">
-                  <h3 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+                <div className="animate-slide-in-right mt-8 lg:mt-0">
+                  <h3 className="text-2xl xs:text-3xl sm:text-3xl lg:text-4xl font-bold text-gray-900 mb-4 sm:mb-6">
                     Renovation & Remodeling
                   </h3>
-                  <p className="text-lg text-gray-600 mb-8 leading-relaxed">
+                  <p className="text-base sm:text-lg text-gray-600 mb-6 sm:mb-8 leading-relaxed">
                     Transform your existing spaces with our expert renovation services. Whether it's updating 
                     a single room or completely reimagining your property, we breathe new life into old structures 
                     while preserving their character.
                   </p>
-                  <div className="grid grid-cols-2 gap-4 mb-8">
+                  <div className="grid grid-cols-1 xs:grid-cols-2 gap-3 sm:gap-4 mb-6 sm:mb-8">
                     <div className="flex items-center">
-                      <CheckCircleIcon className="w-5 h-5 text-green-500 mr-3" />
-                      <span className="text-gray-700">Kitchen Remodels</span>
+                      <CheckCircleIcon className="w-4 h-4 sm:w-5 sm:h-5 text-green-500 mr-2 sm:mr-3 flex-shrink-0" />
+                      <span className="text-sm sm:text-base text-gray-700">Kitchen Remodels</span>
                     </div>
                     <div className="flex items-center">
-                      <CheckCircleIcon className="w-5 h-5 text-green-500 mr-3" />
-                      <span className="text-gray-700">Bathroom Upgrades</span>
+                      <CheckCircleIcon className="w-4 h-4 sm:w-5 sm:h-5 text-green-500 mr-2 sm:mr-3 flex-shrink-0" />
+                      <span className="text-sm sm:text-base text-gray-700">Bathroom Upgrades</span>
                     </div>
                     <div className="flex items-center">
-                      <CheckCircleIcon className="w-5 h-5 text-green-500 mr-3" />
-                      <span className="text-gray-700">Room Additions</span>
+                      <CheckCircleIcon className="w-4 h-4 sm:w-5 sm:h-5 text-green-500 mr-2 sm:mr-3 flex-shrink-0" />
+                      <span className="text-sm sm:text-base text-gray-700">Room Additions</span>
                     </div>
                     <div className="flex items-center">
-                      <CheckCircleIcon className="w-5 h-5 text-green-500 mr-3" />
-                      <span className="text-gray-700">Historic Restoration</span>
+                      <CheckCircleIcon className="w-4 h-4 sm:w-5 sm:h-5 text-green-500 mr-2 sm:mr-3 flex-shrink-0" />
+                      <span className="text-sm sm:text-base text-gray-700">Historic Restoration</span>
                     </div>
                   </div>
                 </div>
               </div>
 
               {/* Service 4 - Project Management */}
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-                <div className="animate-slide-in-left lg:order-2">
-                  <h3 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
+                <div className="animate-slide-in-left lg:order-2 mt-8 lg:mt-0">
+                  <h3 className="text-2xl xs:text-3xl sm:text-3xl lg:text-4xl font-bold text-gray-900 mb-4 sm:mb-6">
                     Project Management
                   </h3>
-                  <p className="text-lg text-gray-600 mb-8 leading-relaxed">
+                  <p className="text-base sm:text-lg text-gray-600 mb-6 sm:mb-8 leading-relaxed">
                     Comprehensive project management ensures your construction runs smoothly from conception 
                     to completion. Our experienced managers coordinate every aspect, maintaining timeline, 
                     budget, and quality standards.
                   </p>
-                  <div className="grid grid-cols-2 gap-4 mb-8">
+                  <div className="grid grid-cols-1 xs:grid-cols-2 gap-3 sm:gap-4 mb-6 sm:mb-8">
                     <div className="flex items-center">
-                      <CheckCircleIcon className="w-5 h-5 text-green-500 mr-3" />
-                      <span className="text-gray-700">Timeline Control</span>
+                      <CheckCircleIcon className="w-4 h-4 sm:w-5 sm:h-5 text-green-500 mr-2 sm:mr-3 flex-shrink-0" />
+                      <span className="text-sm sm:text-base text-gray-700">Timeline Control</span>
                     </div>
                     <div className="flex items-center">
-                      <CheckCircleIcon className="w-5 h-5 text-green-500 mr-3" />
-                      <span className="text-gray-700">Budget Management</span>
+                      <CheckCircleIcon className="w-4 h-4 sm:w-5 sm:h-5 text-green-500 mr-2 sm:mr-3 flex-shrink-0" />
+                      <span className="text-sm sm:text-base text-gray-700">Budget Management</span>
                     </div>
                     <div className="flex items-center">
-                      <CheckCircleIcon className="w-5 h-5 text-green-500 mr-3" />
-                      <span className="text-gray-700">Quality Assurance</span>
+                      <CheckCircleIcon className="w-4 h-4 sm:w-5 sm:h-5 text-green-500 mr-2 sm:mr-3 flex-shrink-0" />
+                      <span className="text-sm sm:text-base text-gray-700">Quality Assurance</span>
                     </div>
                     <div className="flex items-center">
-                      <CheckCircleIcon className="w-5 h-5 text-green-500 mr-3" />
-                      <span className="text-gray-700">Risk Mitigation</span>
+                      <CheckCircleIcon className="w-4 h-4 sm:w-5 sm:h-5 text-green-500 mr-2 sm:mr-3 flex-shrink-0" />
+                      <span className="text-sm sm:text-base text-gray-700">Risk Mitigation</span>
                     </div>
                   </div>
                 </div>
@@ -517,19 +517,19 @@ export default function HomePage() {
                   <img 
                     src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
                     alt="Project Management"
-                    className="rounded-2xl shadow-2xl w-full h-96 object-cover transform hover:scale-105 transition-transform duration-500"
+                    className="rounded-2xl shadow-2xl w-full h-64 sm:h-80 lg:h-96 object-cover transform hover:scale-105 transition-transform duration-500"
                   />
-                  <div className="absolute -bottom-4 -left-4 bg-green-500 text-white p-6 rounded-xl shadow-lg">
-                    <CogIcon className="w-12 h-12" />
+                  <div className="absolute -bottom-2 -left-2 sm:-bottom-4 sm:-left-4 bg-green-500 text-white p-3 sm:p-4 lg:p-6 rounded-xl shadow-lg">
+                    <CogIcon className="w-8 h-8 sm:w-10 sm:h-10 lg:w-12 lg:h-12" />
                   </div>
                 </div>
               </div>
             </div>
 
-            <div className="text-center mt-20">
-              <Link href="/services" className="btn-primary text-lg px-8 py-4">
+            <div className="text-center mt-12 sm:mt-16 lg:mt-20">
+              <Link href="/services" className="btn-primary text-base sm:text-lg px-6 sm:px-8 py-3 sm:py-4">
                 Explore All Services
-                <ArrowRightIcon className="w-6 h-6 ml-2 inline" />
+                <ArrowRightIcon className="w-5 h-5 sm:w-6 sm:h-6 ml-2 inline" />
               </Link>
             </div>
           </div>
@@ -538,18 +538,18 @@ export default function HomePage() {
         {/* What We Have Done - Projects Section */}
         <section className="section-padding bg-gray-50">
           <div className="container-custom">
-            <div className="text-center mb-20">
-              <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+            <div className="text-center mb-12 sm:mb-16 lg:mb-20">
+              <h2 className="text-3xl xs:text-4xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4 sm:mb-6">
                 What We Have <span className="text-primary">Done</span>
               </h2>
-              <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto px-4">
                 Discover our portfolio of successful projects that showcase our expertise, 
                 craftsmanship, and commitment to excellence.
               </p>
             </div>
 
             {/* Dynamic Projects Grid - 9 Images */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
               {galleryImages.map((image, index) => {
                 // Handle both real projects and placeholder images
                 const project = image.projectData
@@ -580,8 +580,8 @@ export default function HomePage() {
                       }
                     }}
                   >
-                    <div className="relative overflow-hidden rounded-2xl shadow-xl bg-white hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2">
-                      <div className="relative h-80 overflow-hidden">
+                    <div className="relative overflow-hidden rounded-xl sm:rounded-2xl shadow-xl bg-white hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2">
+                      <div className="relative h-64 sm:h-72 lg:h-80 overflow-hidden">
                         <img 
                           src={transformImageUrl(image.url)}
                           alt={image.alt || displayData.title || 'Project Image'}
@@ -591,10 +591,10 @@ export default function HomePage() {
                           }}
                         />
                         <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                        <div className="absolute bottom-6 left-6 right-6 transform translate-y-6 group-hover:translate-y-0 transition-transform duration-500 opacity-0 group-hover:opacity-100">
+                        <div className="absolute bottom-3 left-3 right-3 sm:bottom-6 sm:left-6 sm:right-6 transform translate-y-6 group-hover:translate-y-0 transition-transform duration-500 opacity-0 group-hover:opacity-100">
                           <div className="text-white">
                             {displayData.category && (
-                              <span className={`inline-block px-3 py-1 rounded-full text-sm font-medium mb-2 ${
+                              <span className={`inline-block px-2 py-1 sm:px-3 sm:py-1 rounded-full text-xs sm:text-sm font-medium mb-1 sm:mb-2 ${
                                 displayData.category === 'Residential' ? 'bg-primary' :
                                 displayData.category === 'Commercial' ? 'bg-secondary' :
                                 displayData.category === 'Industrial' ? 'bg-purple-500' :
@@ -605,15 +605,15 @@ export default function HomePage() {
                                 {displayData.category}
                               </span>
                             )}
-                            <h3 className="text-xl font-bold mb-2 line-clamp-1">
+                            <h3 className="text-lg sm:text-xl font-bold mb-1 sm:mb-2 line-clamp-1">
                               {displayData.title || 'Construction Project'}
                             </h3>
-                            <p className="text-sm text-gray-200 line-clamp-2">
+                            <p className="text-xs sm:text-sm text-gray-200 line-clamp-2">
                               {displayData.description || 'Professional construction project showcasing our expertise and quality.'}
                             </p>
-                            <div className="mt-3 flex items-center text-sm text-gray-300">
+                            <div className="mt-2 sm:mt-3 flex items-center text-xs sm:text-sm text-gray-300">
                               <span className="flex items-center">
-                                <span className={`inline-block w-2 h-2 rounded-full mr-2 ${
+                                <span className={`inline-block w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full mr-1.5 sm:mr-2 ${
                                   displayData.status === 'completed' ? 'bg-green-400' :
                                   displayData.status === 'in-progress' ? 'bg-blue-400' :
                                   displayData.status === 'planning' ? 'bg-yellow-400' :
@@ -625,7 +625,7 @@ export default function HomePage() {
                                  'Active'}
                               </span>
                               {!isRealProject && (
-                                <span className="ml-2 text-xs opacity-75">Sample Project</span>
+                                <span className="ml-2 text-xs opacity-75">Sample</span>
                               )}
                             </div>
                           </div>
@@ -645,10 +645,10 @@ export default function HomePage() {
               })}
             </div>
 
-            <div className="text-center mt-16">
-              <Link href="/projects" className="btn-primary text-lg px-8 py-4">
+            <div className="text-center mt-12 sm:mt-16">
+              <Link href="/projects" className="btn-primary text-base sm:text-lg px-6 sm:px-8 py-3 sm:py-4">
                 View Complete Portfolio
-                <ArrowRightIcon className="w-6 h-6 ml-2 inline" />
+                <ArrowRightIcon className="w-5 h-5 sm:w-6 sm:h-6 ml-2 inline" />
               </Link>
             </div>
           </div>
@@ -657,103 +657,103 @@ export default function HomePage() {
         {/* Clients Section */}
         <section className="section-padding bg-white">
           <div className="container-custom">
-            <div className="text-center mb-16">
-              <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+            <div className="text-center mb-12 sm:mb-16">
+              <h2 className="text-3xl xs:text-4xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4 sm:mb-6">
                 Trusted by <span className="text-primary">Industry Leaders</span>
               </h2>
-              <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto px-4">
                 We're proud to work with some of the most respected names in construction, 
                 real estate, and development.
               </p>
             </div>
             
             {/* Marquee Container */}
-            <div className="relative overflow-hidden bg-gray-50 rounded-2xl py-12">
-              <div className="flex space-x-16 animate-marquee">
+            <div className="relative overflow-hidden bg-gray-50 rounded-xl sm:rounded-2xl py-8 sm:py-12">
+              <div className="flex space-x-8 sm:space-x-12 lg:space-x-16 animate-marquee">
                 {/* Client Logos Row 1 */}
-                <div className="flex items-center justify-center min-w-max space-x-16">
-                  <div className="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300">
-                    <div className="w-32 h-16 bg-gray-200 rounded-lg flex items-center justify-center">
-                      <span className="text-gray-600 font-bold text-lg">ACME Corp</span>
+                <div className="flex items-center justify-center min-w-max space-x-8 sm:space-x-12 lg:space-x-16">
+                  <div className="bg-white p-3 sm:p-4 lg:p-6 rounded-lg sm:rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300">
+                    <div className="w-24 h-12 sm:w-28 sm:h-14 lg:w-32 lg:h-16 bg-gray-200 rounded-lg flex items-center justify-center">
+                      <span className="text-gray-600 font-bold text-sm sm:text-base lg:text-lg">ACME Corp</span>
                     </div>
                   </div>
-                  <div className="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300">
-                    <div className="w-32 h-16 bg-gray-200 rounded-lg flex items-center justify-center">
-                      <span className="text-gray-600 font-bold text-lg">BuildPro</span>
+                  <div className="bg-white p-3 sm:p-4 lg:p-6 rounded-lg sm:rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300">
+                    <div className="w-24 h-12 sm:w-28 sm:h-14 lg:w-32 lg:h-16 bg-gray-200 rounded-lg flex items-center justify-center">
+                      <span className="text-gray-600 font-bold text-sm sm:text-base lg:text-lg">BuildPro</span>
                     </div>
                   </div>
-                  <div className="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300">
-                    <div className="w-32 h-16 bg-gray-200 rounded-lg flex items-center justify-center">
-                      <span className="text-gray-600 font-bold text-lg">Metro Dev</span>
+                  <div className="bg-white p-3 sm:p-4 lg:p-6 rounded-lg sm:rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300">
+                    <div className="w-24 h-12 sm:w-28 sm:h-14 lg:w-32 lg:h-16 bg-gray-200 rounded-lg flex items-center justify-center">
+                      <span className="text-gray-600 font-bold text-sm sm:text-base lg:text-lg">Metro Dev</span>
                     </div>
                   </div>
-                  <div className="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300">
-                    <div className="w-32 h-16 bg-gray-200 rounded-lg flex items-center justify-center">
-                      <span className="text-gray-600 font-bold text-lg">Urban Plus</span>
+                  <div className="bg-white p-3 sm:p-4 lg:p-6 rounded-lg sm:rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300">
+                    <div className="w-24 h-12 sm:w-28 sm:h-14 lg:w-32 lg:h-16 bg-gray-200 rounded-lg flex items-center justify-center">
+                      <span className="text-gray-600 font-bold text-sm sm:text-base lg:text-lg">Urban Plus</span>
                     </div>
                   </div>
-                  <div className="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300">
-                    <div className="w-32 h-16 bg-gray-200 rounded-lg flex items-center justify-center">
-                      <span className="text-gray-600 font-bold text-lg">Elite Build</span>
+                  <div className="bg-white p-3 sm:p-4 lg:p-6 rounded-lg sm:rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300">
+                    <div className="w-24 h-12 sm:w-28 sm:h-14 lg:w-32 lg:h-16 bg-gray-200 rounded-lg flex items-center justify-center">
+                      <span className="text-gray-600 font-bold text-sm sm:text-base lg:text-lg">Elite Build</span>
                     </div>
                   </div>
-                  <div className="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300">
-                    <div className="w-32 h-16 bg-gray-200 rounded-lg flex items-center justify-center">
-                      <span className="text-gray-600 font-bold text-lg">Prime Co</span>
+                  <div className="bg-white p-3 sm:p-4 lg:p-6 rounded-lg sm:rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300">
+                    <div className="w-24 h-12 sm:w-28 sm:h-14 lg:w-32 lg:h-16 bg-gray-200 rounded-lg flex items-center justify-center">
+                      <span className="text-gray-600 font-bold text-sm sm:text-base lg:text-lg">Prime Co</span>
                     </div>
                   </div>
-                  <div className="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300">
-                    <div className="w-32 h-16 bg-gray-200 rounded-lg flex items-center justify-center">
-                      <span className="text-gray-600 font-bold text-lg">Apex Ltd</span>
+                  <div className="bg-white p-3 sm:p-4 lg:p-6 rounded-lg sm:rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300">
+                    <div className="w-24 h-12 sm:w-28 sm:h-14 lg:w-32 lg:h-16 bg-gray-200 rounded-lg flex items-center justify-center">
+                      <span className="text-gray-600 font-bold text-sm sm:text-base lg:text-lg">Apex Ltd</span>
                     </div>
                   </div>
-                  <div className="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300">
-                    <div className="w-32 h-16 bg-gray-200 rounded-lg flex items-center justify-center">
-                      <span className="text-gray-600 font-bold text-lg">Nova Group</span>
+                  <div className="bg-white p-3 sm:p-4 lg:p-6 rounded-lg sm:rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300">
+                    <div className="w-24 h-12 sm:w-28 sm:h-14 lg:w-32 lg:h-16 bg-gray-200 rounded-lg flex items-center justify-center">
+                      <span className="text-gray-600 font-bold text-sm sm:text-base lg:text-lg">Nova Group</span>
                     </div>
                   </div>
                 </div>
                 
                 {/* Duplicate for seamless loop */}
-                <div className="flex items-center justify-center min-w-max space-x-16">
-                  <div className="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300">
-                    <div className="w-32 h-16 bg-gray-200 rounded-lg flex items-center justify-center">
-                      <span className="text-gray-600 font-bold text-lg">ACME Corp</span>
+                <div className="flex items-center justify-center min-w-max space-x-8 sm:space-x-12 lg:space-x-16">
+                  <div className="bg-white p-3 sm:p-4 lg:p-6 rounded-lg sm:rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300">
+                    <div className="w-24 h-12 sm:w-28 sm:h-14 lg:w-32 lg:h-16 bg-gray-200 rounded-lg flex items-center justify-center">
+                      <span className="text-gray-600 font-bold text-sm sm:text-base lg:text-lg">ACME Corp</span>
                     </div>
                   </div>
-                  <div className="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300">
-                    <div className="w-32 h-16 bg-gray-200 rounded-lg flex items-center justify-center">
-                      <span className="text-gray-600 font-bold text-lg">BuildPro</span>
+                  <div className="bg-white p-3 sm:p-4 lg:p-6 rounded-lg sm:rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300">
+                    <div className="w-24 h-12 sm:w-28 sm:h-14 lg:w-32 lg:h-16 bg-gray-200 rounded-lg flex items-center justify-center">
+                      <span className="text-gray-600 font-bold text-sm sm:text-base lg:text-lg">BuildPro</span>
                     </div>
                   </div>
-                  <div className="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300">
-                    <div className="w-32 h-16 bg-gray-200 rounded-lg flex items-center justify-center">
-                      <span className="text-gray-600 font-bold text-lg">Metro Dev</span>
+                  <div className="bg-white p-3 sm:p-4 lg:p-6 rounded-lg sm:rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300">
+                    <div className="w-24 h-12 sm:w-28 sm:h-14 lg:w-32 lg:h-16 bg-gray-200 rounded-lg flex items-center justify-center">
+                      <span className="text-gray-600 font-bold text-sm sm:text-base lg:text-lg">Metro Dev</span>
                     </div>
                   </div>
-                  <div className="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300">
-                    <div className="w-32 h-16 bg-gray-200 rounded-lg flex items-center justify-center">
-                      <span className="text-gray-600 font-bold text-lg">Urban Plus</span>
+                  <div className="bg-white p-3 sm:p-4 lg:p-6 rounded-lg sm:rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300">
+                    <div className="w-24 h-12 sm:w-28 sm:h-14 lg:w-32 lg:h-16 bg-gray-200 rounded-lg flex items-center justify-center">
+                      <span className="text-gray-600 font-bold text-sm sm:text-base lg:text-lg">Urban Plus</span>
                     </div>
                   </div>
-                  <div className="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300">
-                    <div className="w-32 h-16 bg-gray-200 rounded-lg flex items-center justify-center">
-                      <span className="text-gray-600 font-bold text-lg">Elite Build</span>
+                  <div className="bg-white p-3 sm:p-4 lg:p-6 rounded-lg sm:rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300">
+                    <div className="w-24 h-12 sm:w-28 sm:h-14 lg:w-32 lg:h-16 bg-gray-200 rounded-lg flex items-center justify-center">
+                      <span className="text-gray-600 font-bold text-sm sm:text-base lg:text-lg">Elite Build</span>
                     </div>
                   </div>
-                  <div className="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300">
-                    <div className="w-32 h-16 bg-gray-200 rounded-lg flex items-center justify-center">
-                      <span className="text-gray-600 font-bold text-lg">Prime Co</span>
+                  <div className="bg-white p-3 sm:p-4 lg:p-6 rounded-lg sm:rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300">
+                    <div className="w-24 h-12 sm:w-28 sm:h-14 lg:w-32 lg:h-16 bg-gray-200 rounded-lg flex items-center justify-center">
+                      <span className="text-gray-600 font-bold text-sm sm:text-base lg:text-lg">Prime Co</span>
                     </div>
                   </div>
-                  <div className="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300">
-                    <div className="w-32 h-16 bg-gray-200 rounded-lg flex items-center justify-center">
-                      <span className="text-gray-600 font-bold text-lg">Apex Ltd</span>
+                  <div className="bg-white p-3 sm:p-4 lg:p-6 rounded-lg sm:rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300">
+                    <div className="w-24 h-12 sm:w-28 sm:h-14 lg:w-32 lg:h-16 bg-gray-200 rounded-lg flex items-center justify-center">
+                      <span className="text-gray-600 font-bold text-sm sm:text-base lg:text-lg">Apex Ltd</span>
                     </div>
                   </div>
-                  <div className="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300">
-                    <div className="w-32 h-16 bg-gray-200 rounded-lg flex items-center justify-center">
-                      <span className="text-gray-600 font-bold text-lg">Nova Group</span>
+                  <div className="bg-white p-3 sm:p-4 lg:p-6 rounded-lg sm:rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300">
+                    <div className="w-24 h-12 sm:w-28 sm:h-14 lg:w-32 lg:h-16 bg-gray-200 rounded-lg flex items-center justify-center">
+                      <span className="text-gray-600 font-bold text-sm sm:text-base lg:text-lg">Nova Group</span>
                     </div>
                   </div>
                 </div>
@@ -761,42 +761,42 @@ export default function HomePage() {
             </div>
             
             {/* Stats Row */}
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mt-16 animate-fade-in" style={{animationDelay: '300ms'}}>
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8 mt-12 sm:mt-16 animate-fade-in" style={{animationDelay: '300ms'}}>
               <div className="text-center">
                 <AnimatedCounter 
                   end={500} 
                   suffix="+" 
                   duration={2500}
-                  className="text-4xl md:text-5xl font-bold text-primary mb-2"
+                  className="text-3xl xs:text-4xl sm:text-4xl lg:text-5xl font-bold text-primary mb-1 sm:mb-2"
                 />
-                <div className="text-gray-600 font-medium">Projects Completed</div>
+                <div className="text-sm sm:text-base text-gray-600 font-medium">Projects Completed</div>
               </div>
               <div className="text-center">
                 <AnimatedCounter 
                   end={25} 
                   suffix="+" 
                   duration={2000}
-                  className="text-4xl md:text-5xl font-bold text-secondary mb-2"
+                  className="text-3xl xs:text-4xl sm:text-4xl lg:text-5xl font-bold text-secondary mb-1 sm:mb-2"
                 />
-                <div className="text-gray-600 font-medium">Years Experience</div>
+                <div className="text-sm sm:text-base text-gray-600 font-medium">Years Experience</div>
               </div>
               <div className="text-center">
                 <AnimatedCounter 
                   end={98} 
                   suffix="%" 
                   duration={2200}
-                  className="text-4xl md:text-5xl font-bold text-accent mb-2"
+                  className="text-3xl xs:text-4xl sm:text-4xl lg:text-5xl font-bold text-accent mb-1 sm:mb-2"
                 />
-                <div className="text-gray-600 font-medium">Client Satisfaction</div>
+                <div className="text-sm sm:text-base text-gray-600 font-medium">Client Satisfaction</div>
               </div>
               <div className="text-center">
                 <AnimatedCounter 
                   end={50} 
                   suffix="+" 
                   duration={1800}
-                  className="text-4xl md:text-5xl font-bold text-green-500 mb-2"
+                  className="text-3xl xs:text-4xl sm:text-4xl lg:text-5xl font-bold text-green-500 mb-1 sm:mb-2"
                 />
-                <div className="text-gray-600 font-medium">Expert Team Members</div>
+                <div className="text-sm sm:text-base text-gray-600 font-medium">Expert Team Members</div>
               </div>
             </div>
           </div>
@@ -805,19 +805,19 @@ export default function HomePage() {
         {/* CTA Section */}
         <section className="section-padding bg-primary text-white">
           <div className="container-custom text-center">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+            <h2 className="text-2xl xs:text-3xl sm:text-3xl lg:text-4xl font-bold mb-3 sm:mb-4">
               Ready to Start Your Project?
             </h2>
-            <p className="text-xl mb-8 max-w-2xl mx-auto">
+            <p className="text-lg sm:text-xl mb-6 sm:mb-8 max-w-2xl mx-auto px-4">
               Contact us today for a free consultation and quote. Let's bring your vision to life!
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link href="/contact" className="btn-secondary">
+            <div className="flex flex-col xs:flex-row gap-3 sm:gap-4 justify-center">
+              <Link href="/contact" className="btn-secondary px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg">
                 Get Free Quote
-                <ArrowRightIcon className="w-5 h-5 ml-2 inline" />
+                <ArrowRightIcon className="w-4 h-4 sm:w-5 sm:h-5 ml-2 inline" />
               </Link>
-              <Link href="tel:(555)123-4567" className="btn-outline border-white text-white hover:bg-white hover:text-primary">
-                Call Now: (555) 123-4567
+              <Link href="tel:(555)123-4567" className="btn-outline border-white text-white hover:bg-white hover:text-primary px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg">
+                <span className="hidden xs:inline">Call Now: </span>(555) 123-4567
               </Link>
             </div>
           </div>
