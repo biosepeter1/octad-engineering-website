@@ -68,11 +68,17 @@ const contactLimiter = rateLimit({
 // CORS configuration
 app.use(cors({
   origin: process.env.NODE_ENV === 'production' 
-    ? [process.env.FRONTEND_URL, 'https://octad-engineering-website-duaz-dxvctv8nu-allian-johns-projects.vercel.app'] 
+    ? [
+        process.env.FRONTEND_URL, 
+        'https://octad-engineering-website-duaz.vercel.app',
+        'https://octad-engineering-website-duaz-dxvctv8nu-allian-johns-projects.vercel.app',
+        /https:\/\/octad-engineering-website.*\.vercel\.app$/
+      ] 
     : ['http://localhost:3000', 'http://127.0.0.1:3000', 'http://localhost:3001', 'http://127.0.0.1:3001'],
   credentials: true,
-  methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH'],
-  allowedHeaders: ['Content-Type', 'Authorization', 'X-Requested-With', 'Accept']
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization', 'X-Requested-With', 'Accept'],
+  optionsSuccessStatus: 200
 }));
 
 // Create uploads directory if it doesn't exist
