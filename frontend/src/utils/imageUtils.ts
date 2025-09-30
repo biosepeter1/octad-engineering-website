@@ -28,12 +28,12 @@ export function transformImageUrl(url: string): string {
 /**
  * Transform image URLs in project objects
  */
-export function transformProjectImages<T extends { images?: Array<{ url: string; [key: string]: any }> }>(project: T): T {
+export function transformProjectImages(project: any): any {
   if (!project || !project.images) return project;
   
   return {
     ...project,
-    images: project.images.map(img => ({
+    images: project.images.map((img: any) => ({
       ...img,
       url: transformImageUrl(img.url)
     }))
@@ -43,6 +43,6 @@ export function transformProjectImages<T extends { images?: Array<{ url: string;
 /**
  * Transform image URLs in an array of projects
  */
-export function transformProjectsImages<T extends { images?: Array<{ url: string; [key: string]: any }> }>(projects: T[]): T[] {
+export function transformProjectsImages(projects: any[]): any[] {
   return projects.map(project => transformProjectImages(project));
 }
