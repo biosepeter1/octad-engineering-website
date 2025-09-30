@@ -396,10 +396,6 @@ export default function HomePage() {
                       <span className="text-gray-700">Smart Home Ready</span>
                     </div>
                   </div>
-                  <Link href="/services" className="btn-primary">
-                    Learn More
-                    <ArrowRightIcon className="w-5 h-5 ml-2 inline" />
-                  </Link>
                 </div>
               </div>
 
@@ -432,10 +428,6 @@ export default function HomePage() {
                       <span className="text-gray-700">Industrial Facilities</span>
                     </div>
                   </div>
-                  <Link href="/services" className="btn-primary">
-                    Learn More
-                    <ArrowRightIcon className="w-5 h-5 ml-2 inline" />
-                  </Link>
                 </div>
                 <div className="relative animate-slide-in-right lg:order-1">
                   <img 
@@ -488,10 +480,6 @@ export default function HomePage() {
                       <span className="text-gray-700">Historic Restoration</span>
                     </div>
                   </div>
-                  <Link href="/services" className="btn-primary">
-                    Learn More
-                    <ArrowRightIcon className="w-5 h-5 ml-2 inline" />
-                  </Link>
                 </div>
               </div>
 
@@ -524,10 +512,6 @@ export default function HomePage() {
                       <span className="text-gray-700">Risk Mitigation</span>
                     </div>
                   </div>
-                  <Link href="/services" className="btn-primary">
-                    Learn More
-                    <ArrowRightIcon className="w-5 h-5 ml-2 inline" />
-                  </Link>
                 </div>
                 <div className="relative animate-slide-in-right lg:order-1">
                   <img 
