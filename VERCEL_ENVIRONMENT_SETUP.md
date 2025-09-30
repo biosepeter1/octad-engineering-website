@@ -25,7 +25,14 @@ To connect your deployed frontend to the Render backend, you need to update the 
    |---------------|--------|-------------|
    | `NEXT_PUBLIC_API_URL` | `https://octad-engineering-website-2.onrender.com/api` | Production, Preview, Development |
    | `NEXT_PUBLIC_SITE_NAME` | `Octad Engineering Limited` | Production, Preview, Development |
-   | `NEXT_PUBLIC_SITE_URL` | `https://octad-engineering-website-duaz-dxvctv8nu-allian-johns-projects.vercel.app` | Production, Preview, Development |
+   | `NEXT_PUBLIC_SITE_URL` | `https://octad-engineering-website-duaz-dxvctv8nu-allian-johns-projects.vercel.app` | Production, Preview, 
+   NODE_ENV=production
+PORT=10000
+MONGODB_URI=mongodb+srv://biosejohn_db_user:CcysloGwhCaAaCUB@cluster123.q8f3jcf.mongodb.net/construction-website?retryWrites=true&w=majority
+JWT_SECRET=your-super-secret-jwt-key-here-change-in-production-xyz123
+FRONTEND_URL=https://octad-engineering-website-duaz-dxvctv8nu-allian-johns-projects.vercel.app
+   
+   Development |
 
 4. **Redeploy Your Frontend**
    - Go to "Deployments" tab
