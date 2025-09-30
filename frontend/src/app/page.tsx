@@ -19,6 +19,7 @@ import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
 import AnimatedCounter from '@/components/AnimatedCounter'
 import { servicesAPI, projectsAPI, handleApiError } from '@/lib/api'
+import { transformProjectsImages, transformImageUrl } from '@/utils/imageUtils'
 
 interface Service {
   _id: string
@@ -174,7 +175,9 @@ export default function HomePage() {
         }
         
         if (projectsResponse.success) {
-          setProjects(projectsResponse.data || [])
+          // Transform localhost URLs to production URLs
+          const transformedProjects = transformProjectsImages(projectsResponse.data || [])
+          setProjects(transformedProjects)
         }
       } catch (error) {
         handleApiError(error, 'Failed to load page content')
@@ -596,7 +599,7 @@ export default function HomePage() {
                     <div className="relative overflow-hidden rounded-2xl shadow-xl bg-white hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2">
                       <div className="relative h-80 overflow-hidden">
                         <img 
-                          src={image.url}
+                          src={transformImageUrl(image.url)}
                           alt={image.alt || displayData.title || 'Project Image'}
                           className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700"
                           onError={(e) => {

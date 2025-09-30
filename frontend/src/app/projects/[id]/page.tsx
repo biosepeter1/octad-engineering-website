@@ -14,6 +14,7 @@ import {
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
 import { projectsAPI, handleApiError } from '@/lib/api'
+import { transformProjectImages, transformImageUrl } from '@/utils/imageUtils'
 
 interface ProjectImage {
   url: string
@@ -55,7 +56,9 @@ export default function ProjectDetailsPage() {
       try {
         const response = await projectsAPI.getProject(projectId)
         if (response.success && response.data) {
-          setProject(response.data)
+          // Transform localhost URLs to production URLs
+          const transformedProject = transformProjectImages(response.data)
+          setProject(transformedProject)
         } else {
           // If the API returns nothing, show 404
           setProject(null)
@@ -110,7 +113,7 @@ export default function ProjectDetailsPage() {
         <section className="relative h-[50vh] min-h-[360px] flex items-end">
           <div className="absolute inset-0">
             <img
-              src={images[activeImageIndex]?.url}
+              src={transformImageUrl(images[activeImageIndex]?.url)}
               alt={images[activeImageIndex]?.alt || project?.title || 'Project Image'}
               className="w-full h-full object-cover"
               onError={(e) => {
@@ -148,7 +151,7 @@ export default function ProjectDetailsPage() {
             <div className="bg-white rounded-2xl shadow-xl overflow-hidden mb-8">
               <div className="relative h-[480px] bg-gray-100">
                 <img
-                  src={images[activeImageIndex]?.url}
+                  src={transformImageUrl(images[activeImageIndex]?.url)}
                   alt={images[activeImageIndex]?.alt || 'Project image'}
                   className="w-full h-full object-cover"
                 />
@@ -168,7 +171,7 @@ export default function ProjectDetailsPage() {
                       title={img.alt}
                     >
                       <img
-                        src={img.url}
+                        src={transformImageUrl(img.url)}
                         alt={img.alt}
                         className="w-full h-full object-cover"
                         onError={(e) => { e.currentTarget.src = 'https://via.placeholder.com/200x150?text=Image' }}

@@ -14,6 +14,7 @@ import {
   ExclamationTriangleIcon,
   StarIcon
 } from '@heroicons/react/24/outline'
+import { transformImageUrl } from '@/utils/imageUtils'
 
 interface Project {
   _id: string
@@ -127,7 +128,7 @@ export default function ProjectDetailsModal({ isOpen, onClose, project }: Props)
             {project.images.length > 0 ? (
               <>
                 <img
-                  src={currentImage.url}
+                  src={transformImageUrl(currentImage.url)}
                   alt={currentImage.alt || project.title}
                   className="max-w-full max-h-full object-contain"
                   onError={(e) => {
@@ -174,7 +175,7 @@ export default function ProjectDetailsModal({ isOpen, onClose, project }: Props)
                         }`}
                       >
                         <img
-                          src={image.url}
+                          src={transformImageUrl(image.url)}
                           alt={image.alt || `Thumbnail ${index + 1}`}
                           className="w-full h-full object-cover"
                           onError={(e) => {

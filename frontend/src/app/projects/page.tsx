@@ -19,6 +19,7 @@ import Footer from '@/components/Footer'
 import ProjectDetailsModal from '@/components/ProjectDetailsModal'
 import AnimatedCounter from '@/components/AnimatedCounter'
 import { projectsAPI, handleApiError } from '@/lib/api'
+import { transformProjectsImages, transformImageUrl } from '@/utils/imageUtils'
 
 interface Project {
   _id: string
@@ -158,8 +159,10 @@ export default function ProjectsPage() {
         })
         
         if (response.success && response.data) {
-          setProjects(response.data)
-          setFilteredProjects(response.data)
+          // Transform localhost URLs to production URLs
+          const transformedProjects = transformProjectsImages(response.data)
+          setProjects(transformedProjects)
+          setFilteredProjects(transformedProjects)
           if (response.pagination) {
             setPagination({
               page: response.pagination.page || 1,
@@ -342,7 +345,7 @@ export default function ProjectsPage() {
                         <div className="relative h-64 bg-gray-200 overflow-hidden">
                           {primaryImage ? (
                             <img
-                              src={primaryImage.url}
+                              src={transformImageUrl(primaryImage.url)}
                               alt={primaryImage.alt || project.title}
                               className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                               onError={(e) => {
