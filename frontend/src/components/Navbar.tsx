@@ -23,7 +23,7 @@ export default function Navbar() {
       <div className="container-custom">
         <div className="flex justify-between items-center py-4">
           {/* Logo */}
-          <Link href="/" className="flex items-center space-x-2">
+          <Link href="/" className="flex items-center space-x-2 flex-shrink-0">
             <div className="bg-primary text-white p-2 rounded-lg">
               <Image
                 src="/logo.png"
@@ -32,7 +32,10 @@ export default function Navbar() {
                 height={32}
               />
             </div>
-            <span className="text-2xl font-bold text-primary">Octad Engineering</span>
+            <span className="text-lg sm:text-xl md:text-2xl font-bold text-primary truncate">
+              <span className="hidden sm:inline">Octad Engineering</span>
+              <span className="sm:hidden">Octad</span>
+            </span>
           </Link>
 
           {/* Desktop Navigation */}
@@ -83,7 +86,8 @@ export default function Navbar() {
           <div className="md:hidden">
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="text-gray-700 hover:text-primary focus:outline-none focus:text-primary"
+              className="text-gray-700 hover:text-primary focus:outline-none focus:text-primary p-2 -m-2 rounded-md transition-colors duration-200"
+              aria-label="Toggle navigation menu"
             >
               {isOpen ? (
                 <XMarkIcon className="h-6 w-6" />
@@ -95,25 +99,27 @@ export default function Navbar() {
         </div>
 
         {/* Mobile Navigation */}
-        {isOpen && (
-          <div className="md:hidden pb-4">
-            <div className="flex flex-col space-y-4">
+        <div className={`md:hidden transition-all duration-300 ease-in-out overflow-hidden ${
+          isOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
+        }`}>
+          <div className="pb-4 pt-2 border-t border-gray-100">
+            <div className="flex flex-col space-y-1">
               {navigation.map((item) => (
                 <Link
                   key={item.name}
                   href={item.href}
-                  className="text-gray-700 hover:text-primary font-medium transition-colors duration-200 px-4 py-2"
+                  className="text-gray-700 hover:text-primary hover:bg-gray-50 font-medium transition-colors duration-200 px-4 py-3 rounded-md mx-2"
                   onClick={() => setIsOpen(false)}
                 >
                   {item.name}
                 </Link>
               ))}
-              <div className="px-4 space-y-2">
+              <div className="px-2 pt-2 mt-2 border-t border-gray-100">
                 {isAuthenticated ? (
                   <div className="flex flex-col space-y-2">
                     <Link
                       href="/admin/dashboard"
-                      className="flex items-center justify-center space-x-2 w-full px-4 py-2 text-sm font-medium text-gray-700 hover:text-primary bg-gray-50 rounded-md transition-colors duration-200"
+                      className="flex items-center space-x-2 w-full px-4 py-3 text-sm font-medium text-gray-700 hover:text-primary hover:bg-gray-50 rounded-md transition-colors duration-200"
                       onClick={() => setIsOpen(false)}
                     >
                       <CogIcon className="h-4 w-4" />
@@ -124,7 +130,7 @@ export default function Navbar() {
                         logout();
                         setIsOpen(false);
                       }}
-                      className="flex items-center justify-center space-x-2 w-full px-4 py-2 text-sm font-medium text-gray-700 hover:text-red-600 bg-gray-50 rounded-md transition-colors duration-200"
+                      className="flex items-center space-x-2 w-full px-4 py-3 text-sm font-medium text-gray-700 hover:text-red-600 hover:bg-red-50 rounded-md transition-colors duration-200"
                     >
                       <ArrowRightOnRectangleIcon className="h-4 w-4" />
                       <span>Logout</span>
@@ -133,7 +139,7 @@ export default function Navbar() {
                 ) : (
                   <Link
                     href="/admin/login"
-                    className="flex items-center justify-center space-x-2 w-full px-4 py-2 text-sm font-medium text-gray-700 hover:text-primary bg-gray-50 rounded-md transition-colors duration-200"
+                    className="flex items-center space-x-2 w-full px-4 py-3 text-sm font-medium text-gray-700 hover:text-primary hover:bg-gray-50 rounded-md transition-colors duration-200"
                     onClick={() => setIsOpen(false)}
                   >
                     <CogIcon className="h-4 w-4" />
@@ -143,7 +149,7 @@ export default function Navbar() {
               </div>
             </div>
           </div>
-        )}
+        </div>
       </div>
     </nav>
   );

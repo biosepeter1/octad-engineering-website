@@ -207,30 +207,30 @@ export default function HomePage() {
           </div>
           
           {/* Hero Content */}
-          <div className="relative z-10 container-custom text-center text-white px-4">
+          <div className="relative z-10 container-custom text-center text-white px-4 sm:px-6 lg:px-8">
             <div className="max-w-5xl mx-auto">
-              <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold mb-8 animate-fade-in">
-                <span className="block pb-4">Building Your</span>
+              <h1 className="text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold mb-6 sm:mb-8 animate-fade-in">
+                <span className="block pb-2 sm:pb-4">Building Your</span>
                 <span className="block animate-slide-up">
                   <span className="text-secondary">Future </span>
-                  <span className="bg-primary text-white text-md px-2 rounded-lg inline-block ms-2" style={{fontSize: '70px'}}>Today</span>
+                  <span className="bg-primary text-white px-2 sm:px-3 py-1 rounded-lg inline-block ml-1 sm:ml-2 text-base xs:text-lg sm:text-2xl md:text-3xl lg:text-5xl xl:text-6xl">Today</span>
                 </span>
               </h1>
-              <p className="text-xl md:text-2xl lg:text-3xl mb-12 text-gray-100 animate-slide-up max-w-4xl mx-auto leading-relaxed">
+              <p className="text-sm xs:text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl mb-8 sm:mb-12 text-gray-100 animate-slide-up max-w-4xl mx-auto leading-relaxed px-2">
                 Transforming visions into reality with expert engineering, innovative construction solutions, 
                 and unwavering commitment to excellence.
               </p>
-              <div className="flex flex-col sm:flex-row gap-6 justify-center animate-slide-up">
+              <div className="flex flex-col xs:flex-row gap-4 sm:gap-6 justify-center animate-slide-up px-4">
                 <Link 
                   href="/contact" 
-                  className="btn-secondary text-lg px-10 py-5 transform hover:scale-105 transition-all duration-300 shadow-2xl"
+                  className="btn-secondary text-sm xs:text-base sm:text-lg px-6 xs:px-8 sm:px-10 py-3 xs:py-4 sm:py-5 transform hover:scale-105 transition-all duration-300 shadow-2xl w-full xs:w-auto text-center"
                 >
                   Start Your Project
-                  <ArrowRightIcon className="w-6 h-6 ml-3 inline" />
+                  <ArrowRightIcon className="w-4 h-4 xs:w-5 xs:h-5 sm:w-6 sm:h-6 ml-2 sm:ml-3 inline" />
                 </Link>
                 <Link 
                   href="/projects" 
-                  className="btn-outline text-lg px-10 py-5 border-2 border-white text-white hover:bg-white hover:text-primary transform hover:scale-105 transition-all duration-300 shadow-2xl"
+                  className="btn-outline text-sm xs:text-base sm:text-lg px-6 xs:px-8 sm:px-10 py-3 xs:py-4 sm:py-5 border-2 border-white text-white hover:bg-white hover:text-primary transform hover:scale-105 transition-all duration-300 shadow-2xl w-full xs:w-auto text-center"
                 >
                   Explore Our Work
                 </Link>
@@ -239,9 +239,9 @@ export default function HomePage() {
           </div>
           
           {/* Scroll Indicator */}
-          <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-            <div className="w-6 h-10 border-2 border-white rounded-full flex justify-center">
-              <div className="w-1 h-3 bg-white rounded-full mt-2 animate-pulse"></div>
+          <div className="absolute bottom-4 sm:bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce hidden sm:block">
+            <div className="w-5 h-8 sm:w-6 sm:h-10 border-2 border-white rounded-full flex justify-center">
+              <div className="w-1 h-2 sm:h-3 bg-white rounded-full mt-1.5 sm:mt-2 animate-pulse"></div>
             </div>
           </div>
         </section>
@@ -249,75 +249,75 @@ export default function HomePage() {
         {/* Why Choose Us Section */}
         <section className="section-padding bg-gray-50 relative overflow-hidden">
           <div className="container-custom">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
               {/* Left Side - Content */}
               <div className="animate-slide-in-left">
-                <div className="mb-12">
-                  <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+                <div className="mb-8 lg:mb-12">
+                  <h2 className="text-2xl xs:text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4 sm:mb-6">
                     Why Choose <span className="text-primary">Octad Engineering</span>?
                   </h2>
-                  <p className="text-xl text-gray-600 leading-relaxed">
+                  <p className="text-base sm:text-lg lg:text-xl text-gray-600 leading-relaxed">
                     We combine decades of expertise with cutting-edge technology to deliver construction 
                     solutions that exceed expectations and stand the test of time.
                   </p>
                 </div>
                 
-                <div className="space-y-8">
+                <div className="space-y-6 lg:space-y-8">
                   <div className="flex items-start group">
-                    <div className="bg-primary text-white w-16 h-16 rounded-xl flex items-center justify-center mr-6 group-hover:bg-secondary transition-colors duration-300 shadow-lg">
-                      <WrenchScrewdriverIcon className="w-8 h-8" />
+                    <div className="bg-primary text-white w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 rounded-xl flex items-center justify-center mr-4 sm:mr-6 group-hover:bg-secondary transition-colors duration-300 shadow-lg flex-shrink-0">
+                      <WrenchScrewdriverIcon className="w-6 h-6 sm:w-7 sm:h-7 lg:w-8 lg:h-8" />
                     </div>
                     <div>
-                      <h3 className="text-xl font-bold text-gray-900 mb-2 group-hover:text-primary transition-colors">Quality Work</h3>
-                      <p className="text-gray-600 leading-relaxed">
+                      <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-1 sm:mb-2 group-hover:text-primary transition-colors">Quality Work</h3>
+                      <p className="text-sm sm:text-base text-gray-600 leading-relaxed">
                         Uncompromising quality standards with rigorous testing and inspection at every phase.
                       </p>
                     </div>
                   </div>
                   
                   <div className="flex items-start group">
-                    <div className="bg-secondary text-white w-16 h-16 rounded-xl flex items-center justify-center mr-6 group-hover:bg-primary transition-colors duration-300 shadow-lg">
-                      <UserGroupIcon className="w-8 h-8" />
+                    <div className="bg-secondary text-white w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 rounded-xl flex items-center justify-center mr-4 sm:mr-6 group-hover:bg-primary transition-colors duration-300 shadow-lg flex-shrink-0">
+                      <UserGroupIcon className="w-6 h-6 sm:w-7 sm:h-7 lg:w-8 lg:h-8" />
                     </div>
                     <div>
-                      <h3 className="text-xl font-bold text-gray-900 mb-2 group-hover:text-primary transition-colors">Experienced Team</h3>
-                      <p className="text-gray-600 leading-relaxed">
+                      <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-1 sm:mb-2 group-hover:text-primary transition-colors">Experienced Team</h3>
+                      <p className="text-sm sm:text-base text-gray-600 leading-relaxed">
                         Certified professionals with over 25 years of combined experience in construction excellence.
                       </p>
                     </div>
                   </div>
                   
                   <div className="flex items-start group">
-                    <div className="bg-accent text-white w-16 h-16 rounded-xl flex items-center justify-center mr-6 group-hover:bg-primary transition-colors duration-300 shadow-lg">
-                      <ClockIcon className="w-8 h-8" />
+                    <div className="bg-accent text-white w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 rounded-xl flex items-center justify-center mr-4 sm:mr-6 group-hover:bg-primary transition-colors duration-300 shadow-lg flex-shrink-0">
+                      <ClockIcon className="w-6 h-6 sm:w-7 sm:h-7 lg:w-8 lg:h-8" />
                     </div>
                     <div>
-                      <h3 className="text-xl font-bold text-gray-900 mb-2 group-hover:text-primary transition-colors">Timely Delivery</h3>
-                      <p className="text-gray-600 leading-relaxed">
+                      <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-1 sm:mb-2 group-hover:text-primary transition-colors">Timely Delivery</h3>
+                      <p className="text-sm sm:text-base text-gray-600 leading-relaxed">
                         On-schedule completion guaranteed with detailed project management and milestone tracking.
                       </p>
                     </div>
                   </div>
                   
                   <div className="flex items-start group">
-                    <div className="bg-green-500 text-white w-16 h-16 rounded-xl flex items-center justify-center mr-6 group-hover:bg-primary transition-colors duration-300 shadow-lg">
-                      <LightBulbIcon className="w-8 h-8" />
+                    <div className="bg-green-500 text-white w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 rounded-xl flex items-center justify-center mr-4 sm:mr-6 group-hover:bg-primary transition-colors duration-300 shadow-lg flex-shrink-0">
+                      <LightBulbIcon className="w-6 h-6 sm:w-7 sm:h-7 lg:w-8 lg:h-8" />
                     </div>
                     <div>
-                      <h3 className="text-xl font-bold text-gray-900 mb-2 group-hover:text-primary transition-colors">Innovative Solutions</h3>
-                      <p className="text-gray-600 leading-relaxed">
+                      <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-1 sm:mb-2 group-hover:text-primary transition-colors">Innovative Solutions</h3>
+                      <p className="text-sm sm:text-base text-gray-600 leading-relaxed">
                         Cutting-edge technology and modern construction methods for superior results.
                       </p>
                     </div>
                   </div>
                   
                   <div className="flex items-start group">
-                    <div className="bg-pink-500 text-white w-16 h-16 rounded-xl flex items-center justify-center mr-6 group-hover:bg-primary transition-colors duration-300 shadow-lg">
-                      <HeartIcon className="w-8 h-8" />
+                    <div className="bg-pink-500 text-white w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 rounded-xl flex items-center justify-center mr-4 sm:mr-6 group-hover:bg-primary transition-colors duration-300 shadow-lg flex-shrink-0">
+                      <HeartIcon className="w-6 h-6 sm:w-7 sm:h-7 lg:w-8 lg:h-8" />
                     </div>
                     <div>
-                      <h3 className="text-xl font-bold text-gray-900 mb-2 group-hover:text-primary transition-colors">Customer Focused</h3>
-                      <p className="text-gray-600 leading-relaxed">
+                      <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-1 sm:mb-2 group-hover:text-primary transition-colors">Customer Focused</h3>
+                      <p className="text-sm sm:text-base text-gray-600 leading-relaxed">
                         Your vision is our priority with personalized service and constant communication.
                       </p>
                     </div>
@@ -326,18 +326,18 @@ export default function HomePage() {
               </div>
               
               {/* Right Side - Image */}
-              <div className="relative animate-slide-in-right">
+              <div className="relative animate-slide-in-right mt-8 lg:mt-0">
                 <div className="relative z-10">
                   <img 
                     src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
                     alt="Professional Construction Team"
-                    className="rounded-2xl shadow-2xl w-full h-[600px] object-cover transform hover:scale-105 transition-transform duration-500"
+                    className="rounded-2xl shadow-2xl w-full h-[300px] sm:h-[400px] lg:h-[600px] object-cover transform hover:scale-105 transition-transform duration-500"
                   />
                 </div>
-                {/* Decorative Elements */}
-                <div className="absolute -top-4 -right-4 w-24 h-24 bg-secondary rounded-full opacity-20 animate-pulse"></div>
-                <div className="absolute -bottom-6 -left-6 w-32 h-32 bg-primary rounded-full opacity-10"></div>
-                <div className="absolute top-1/2 -right-8 w-16 h-16 bg-accent rounded-full opacity-30 animate-bounce"></div>
+                {/* Decorative Elements - Hidden on small screens */}
+                <div className="absolute -top-4 -right-4 w-16 h-16 sm:w-20 sm:h-20 lg:w-24 lg:h-24 bg-secondary rounded-full opacity-20 animate-pulse hidden sm:block"></div>
+                <div className="absolute -bottom-6 -left-6 w-20 h-20 sm:w-24 sm:h-24 lg:w-32 lg:h-32 bg-primary rounded-full opacity-10 hidden sm:block"></div>
+                <div className="absolute top-1/2 -right-8 w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 bg-accent rounded-full opacity-30 animate-bounce hidden sm:block"></div>
               </div>
             </div>
           </div>
@@ -346,11 +346,11 @@ export default function HomePage() {
         {/* What We Do Section */}
         <section className="section-padding bg-white">
           <div className="container-custom">
-            <div className="text-center mb-20">
-              <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6 animate-slide-up">
+            <div className="text-center mb-12 sm:mb-16 lg:mb-20">
+              <h2 className="text-2xl xs:text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4 sm:mb-6 animate-slide-up">
                 What We <span className="text-primary">Do</span>
               </h2>
-              <p className="text-xl text-gray-600 max-w-3xl mx-auto animate-slide-up">
+              <p className="text-base sm:text-lg lg:text-xl text-gray-600 max-w-3xl mx-auto animate-slide-up px-4">
                 From residential homes to commercial complexes, we deliver comprehensive construction solutions 
                 tailored to your unique requirements.
               </p>
