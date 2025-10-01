@@ -13,15 +13,17 @@ import {
   ArrowRightOnRectangleIcon,
   ArrowUpRightIcon,
   PlusIcon,
-  EyeIcon
+  EyeIcon,
+  TrophyIcon
 } from '@heroicons/react/24/outline'
-import { authAPI, projectsAPI, contactAPI, handleApiError } from '@/lib/api'
+import { authAPI, projectsAPI, contactAPI, successStoriesAPI, handleApiError } from '@/lib/api'
 import toast from 'react-hot-toast'
 
 interface DashboardStats {
   projects: number
   contacts: number
   unreadContacts: number
+  successStories: number
 }
 
 export default function AdminDashboard() {
@@ -29,7 +31,8 @@ export default function AdminDashboard() {
   const [stats, setStats] = useState<DashboardStats>({
     projects: 0,
     contacts: 0,
-    unreadContacts: 0
+    unreadContacts: 0,
+    successStories: 0
   })
   const [loading, setLoading] = useState(true)
   const router = useRouter()
@@ -46,10 +49,11 @@ export default function AdminDashboard() {
 
   const fetchDashboardData = async () => {
     try {
-      const [userResponse, projectsResponse, contactsResponse] = await Promise.all([
+      const [userResponse, projectsResponse, contactsResponse, storiesResponse] = await Promise.all([
         authAPI.getProfile(),
         projectsAPI.getAllProjects(),
-        contactAPI.getContacts({ limit: 1 })
+        contactAPI.getContacts({ limit: 1 }),
+        successStoriesAPI.getAllSuccessStories()
       ])
 
       if (userResponse.success) {
@@ -59,7 +63,8 @@ export default function AdminDashboard() {
       setStats({
         projects: projectsResponse.success ? projectsResponse.data?.length || 0 : 0,
         contacts: contactsResponse.success ? contactsResponse.pagination?.total || 0 : 0,
-        unreadContacts: contactsResponse.success ? contactsResponse.pagination?.unreadCount || 0 : 0
+        unreadContacts: contactsResponse.success ? contactsResponse.pagination?.unreadCount || 0 : 0,
+        successStories: storiesResponse.success ? storiesResponse.data?.length || 0 : 0
       })
 
     } catch (error) {
@@ -85,6 +90,16 @@ export default function AdminDashboard() {
       gradient: 'from-blue-600 to-blue-800',
       bgColor: 'bg-gradient-to-br from-blue-500 to-blue-700',
       shadowColor: 'shadow-blue-500/25'
+    },
+    {
+      name: 'Success Stories',
+      href: '/admin/success-stories',
+      icon: TrophyIcon,
+      description: 'Manage success stories and testimonials',
+      count: stats.successStories,
+      gradient: 'from-yellow-600 to-yellow-800',
+      bgColor: 'bg-gradient-to-br from-yellow-500 to-yellow-700',
+      shadowColor: 'shadow-yellow-500/25'
     },
     {
       name: 'Messages',
@@ -171,7 +186,7 @@ export default function AdminDashboard() {
 
         {/* Stats Cards */}
         <div className="px-4 sm:px-0 mb-6 sm:mb-8">
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
             {/* Projects Stats */}
             <div className="group bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1 p-4 sm:p-6 border border-gray-100">
               <div className="flex items-center justify-between">
@@ -205,6 +220,25 @@ export default function AdminDashboard() {
                   <p className="text-xs sm:text-sm text-gray-500 mt-1">Total messages</p>
                 </div>
                 <div className="text-emerald-200 group-hover:text-emerald-300 transition-colors">
+                  <ChartBarIcon className="w-6 h-6 sm:w-8 sm:h-8" />
+                </div>
+              </div>
+            </div>
+
+            {/* Success Stories Stats */}
+            <div className="group bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1 p-4 sm:p-6 border border-gray-100">
+              <div className="flex items-center justify-between">
+                <div>
+                  <div className="flex items-center space-x-2 sm:space-x-3 mb-2 sm:mb-3">
+                    <div className="p-2 sm:p-3 bg-gradient-to-br from-yellow-500 to-yellow-600 rounded-lg shadow-lg">
+                      <TrophyIcon className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
+                    </div>
+                    <h3 className="text-base sm:text-lg font-semibold text-gray-900">Success Stories</h3>
+                  </div>
+                  <p className="text-2xl sm:text-3xl font-bold text-yellow-600 group-hover:text-yellow-700 transition-colors">{stats.successStories}</p>
+                  <p className="text-xs sm:text-sm text-gray-500 mt-1">Total stories</p>
+                </div>
+                <div className="text-yellow-200 group-hover:text-yellow-300 transition-colors">
                   <ChartBarIcon className="w-6 h-6 sm:w-8 sm:h-8" />
                 </div>
               </div>
@@ -290,7 +324,7 @@ export default function AdminDashboard() {
                     <div className="flex-1 bg-gray-50 group-hover:bg-white/10 rounded-lg p-2 sm:p-3 transition-all duration-300">
                       <div className="flex items-center justify-between">
                         <span className="text-xs sm:text-sm font-medium text-gray-700 group-hover:text-white transition-colors">
-                          {item.name === 'Projects' ? 'Manage Projects' : 'View Messages'}
+                          {item.name === 'Projects' ? 'Manage Projects' : item.name === 'Success Stories' ? 'Manage Stories' : 'View Messages'}
                         </span>
                         <EyeIcon className="w-3 h-3 sm:w-4 sm:h-4 text-gray-500 group-hover:text-white transition-colors flex-shrink-0" />
                       </div>
