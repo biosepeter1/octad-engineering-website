@@ -1,28 +1,29 @@
 const express = require('express');
 const multer = require('multer');
-const path = require('path');
-const fs = require('fs');
+const { CloudinaryStorage } = require('multer-storage-cloudinary');
+const cloudinary = require('../../config/cloudinary');
 const { authenticate, requireAdmin } = require('../middleware/auth');
 
 const router = express.Router();
 
-// Ensure uploads directory exists
-const uploadsDir = path.join(__dirname, '../../uploads');
-if (!fs.existsSync(uploadsDir)) {
-  fs.mkdirSync(uploadsDir, { recursive: true });
-}
-
-// Configure multer for file uploads
-const storage = multer.diskStorage({
-  destination: (req, file, cb) => {
-    cb(null, uploadsDir);
-  },
-  filename: (req, file, cb) => {
-    // Generate unique filename with timestamp and random number
-    const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1E9);
-    const ext = path.extname(file.originalname);
-    const name = file.originalname.replace(ext, '').replace(/[^a-zA-Z0-9]/g, '-');
-    cb(null, `${name}-${uniqueSuffix}${ext}`);
+// Configure Cloudinary storage
+const storage = new CloudinaryStorage({
+  cloudinary: cloudinary,
+  params: {
+    folder: 'construction-website', // Upload to this folder in Cloudinary
+    allowed_formats: ['jpg', 'jpeg', 'png', 'gif', 'webp'],
+    transformation: [
+      {
+        quality: 'auto',
+        fetch_format: 'auto'
+      }
+    ],
+    public_id: (req, file) => {
+      // Generate unique public ID with timestamp
+      const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1E9);
+      const name = file.originalname.replace(/\.[^/.]+$/, '').replace(/[^a-zA-Z0-9]/g, '-');
+      return `${name}-${uniqueSuffix}`;
+    }
   }
 });
 
@@ -57,16 +58,16 @@ router.post('/images', authenticate, requireAdmin, upload.array('images', 10), (
       });
     }
 
-    // Process uploaded files
+    // Process uploaded files from Cloudinary
     const files = req.files.map(file => {
-      const baseUrl = `${req.protocol}://${req.get('host')}`;
       return {
         originalName: file.originalname,
-        filename: file.filename,
-        url: `/uploads/${file.filename}`, // Relative URL for backend serving
-        fullUrl: `${baseUrl}/api/uploads/${file.filename}`, // Full URL for frontend
+        filename: file.filename, // Cloudinary public_id
+        url: file.path, // Cloudinary URL
+        fullUrl: file.path, // Full Cloudinary URL
         size: file.size,
-        mimetype: file.mimetype
+        mimetype: file.mimetype,
+        cloudinaryId: file.filename // Store Cloudinary public_id for deletion
       };
     });
 
@@ -89,27 +90,26 @@ router.post('/images', authenticate, requireAdmin, upload.array('images', 10), (
 });
 
 // @route   DELETE /api/upload/:filename
-// @desc    Delete uploaded image
+// @desc    Delete uploaded image from Cloudinary
 // @access  Private (Admin only)
-router.delete('/:filename', authenticate, requireAdmin, (req, res) => {
+router.delete('/:filename', authenticate, requireAdmin, async (req, res) => {
   try {
     const { filename } = req.params;
-    const filePath = path.join(uploadsDir, filename);
-
-    // Check if file exists
-    if (!fs.existsSync(filePath)) {
+    
+    // Delete from Cloudinary using the public_id (filename)
+    const result = await cloudinary.uploader.destroy(`construction-website/${filename}`);
+    
+    if (result.result === 'not found') {
       return res.status(404).json({
         success: false,
         message: 'File not found'
       });
     }
 
-    // Delete the file
-    fs.unlinkSync(filePath);
-
     res.json({
       success: true,
-      message: 'File deleted successfully'
+      message: 'File deleted successfully',
+      result: result
     });
 
   } catch (error) {

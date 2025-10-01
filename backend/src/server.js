@@ -32,7 +32,7 @@ app.use(helmet({
       fontSrc: ["'self'", "https:", "data:"],
       formAction: ["'self'"],
       frameAncestors: ["'self'"],
-      imgSrc: ["'self'", "data:", "http://localhost:3000", "http://localhost:5000"],
+      imgSrc: ["'self'", "data:", "http://localhost:3000", "http://localhost:5000", "https://res.cloudinary.com", "https://cloudinary.com"],
       objectSrc: ["'none'"],
       scriptSrc: ["'self'"],
       scriptSrcAttr: ["'none'"],
@@ -214,6 +214,9 @@ app.listen(PORT, () => {
   console.log(`   JWT_SECRET: ${process.env.JWT_SECRET ? '✅ Set' : '❌ Missing'}`);
   console.log(`   GMAIL_USER: ${process.env.GMAIL_USER ? '✅ Set' : '❌ Missing'}`);
   console.log(`   GMAIL_APP_PASSWORD: ${process.env.GMAIL_APP_PASSWORD ? '✅ Set' : '❌ Missing'}`);
+  console.log(`   CLOUDINARY_CLOUD_NAME: ${process.env.CLOUDINARY_CLOUD_NAME ? '✅ Set' : '❌ Missing'}`);
+  console.log(`   CLOUDINARY_API_KEY: ${process.env.CLOUDINARY_API_KEY ? '✅ Set' : '❌ Missing'}`);
+  console.log(`   CLOUDINARY_API_SECRET: ${process.env.CLOUDINARY_API_SECRET ? '✅ Set' : '❌ Missing'}`);
   console.log(`   FRONTEND_URL: ${process.env.FRONTEND_URL ? '✅ Set' : '❌ Missing'}`);
 });
 
