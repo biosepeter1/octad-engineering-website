@@ -247,6 +247,54 @@ export const uploadAPI = {
   },
 };
 
+// Success Stories API
+export const successStoriesAPI = {
+  getSuccessStories: async (params?: { category?: string; featured?: boolean; limit?: number; page?: number }) => {
+    const { data } = await api.get<ApiResponse>('/success-stories', { params });
+    return data;
+  },
+
+  getFeaturedSuccessStory: async () => {
+    const { data } = await api.get<ApiResponse>('/success-stories/featured');
+    return data;
+  },
+
+  getAllSuccessStories: async (params?: { limit?: number; page?: number }) => {
+    const { data } = await api.get<ApiResponse>('/success-stories/admin', { params });
+    return data;
+  },
+
+  getSuccessStory: async (id: string) => {
+    const { data } = await api.get<ApiResponse>(`/success-stories/${id}`);
+    return data;
+  },
+
+  createSuccessStory: async (storyData: any) => {
+    const { data } = await api.post<ApiResponse>('/success-stories', storyData);
+    return data;
+  },
+
+  updateSuccessStory: async (id: string, storyData: any) => {
+    const { data } = await api.put<ApiResponse>(`/success-stories/${id}`, storyData);
+    return data;
+  },
+
+  deleteSuccessStory: async (id: string) => {
+    const { data } = await api.delete<ApiResponse>(`/success-stories/${id}`);
+    return data;
+  },
+
+  toggleFeatured: async (id: string) => {
+    const { data } = await api.patch<ApiResponse>(`/success-stories/${id}/featured`);
+    return data;
+  },
+
+  toggleActive: async (id: string) => {
+    const { data } = await api.patch<ApiResponse>(`/success-stories/${id}/active`);
+    return data;
+  },
+};
+
 // Error handler helper
 export const handleApiError = (error: any, defaultMessage = 'An error occurred') => {
   let message = defaultMessage;

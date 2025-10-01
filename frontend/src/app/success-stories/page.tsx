@@ -25,9 +25,11 @@ import {
 } from '@heroicons/react/24/outline'
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
+import { successStoriesAPI, handleApiError } from '@/lib/api'
+import { transformProjectsImages } from '@/utils/imageUtils'
 
 interface SuccessStory {
-  id: string
+  _id: string
   title: string
   client: string
   location: string
@@ -45,17 +47,26 @@ interface SuccessStory {
     position: string
     rating: number
   }
-  images: string[]
+  images: Array<{
+    url: string
+    alt: string
+    isPrimary: boolean
+  }>
   metrics: {
     label: string
     value: string
-    icon: any
+    icon: string
   }[]
+  isFeatured: boolean
+  isActive: boolean
+  order: number
+  createdAt: string
+  updatedAt: string
 }
 
 const successStories: SuccessStory[] = [
   {
-    id: '1',
+    _id: '1',
     title: 'Lagos Luxury Villa Complex',
     client: 'Chief Adebayo Ogundimu',
     location: 'Victoria Island, Lagos',
@@ -74,17 +85,30 @@ const successStories: SuccessStory[] = [
       rating: 5
     },
     images: [
-      'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80',
-      'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80'
+      {
+        url: 'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80',
+        alt: 'Modern Luxury Villa - Main View',
+        isPrimary: true
+      },
+      {
+        url: 'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80',
+        alt: 'Modern Luxury Villa - Side View',
+        isPrimary: false
+      }
     ],
     metrics: [
-      { label: 'Project Value', value: '₦450M', icon: BanknotesIcon },
-      { label: 'Completion Time', value: '14 Months', icon: ClockIcon },
-      { label: 'Client Satisfaction', value: '100%', icon: HeartIcon }
-    ]
+      { label: 'Project Value', value: '₦450M', icon: '💰' },
+      { label: 'Completion Time', value: '14 Months', icon: '⏱️' },
+      { label: 'Client Satisfaction', value: '100%', icon: '❤️' }
+    ],
+    isFeatured: true,
+    isActive: true,
+    order: 1,
+    createdAt: new Date().toISOString(),
+    updatedAt: new Date().toISOString()
   },
   {
-    id: '2',
+    _id: '2',
     title: 'Abuja Tech Hub Complex',
     client: 'Nigerian Tech Innovation Center',
     location: 'Central Business District, Abuja',
@@ -103,17 +127,30 @@ const successStories: SuccessStory[] = [
       rating: 5
     },
     images: [
-      'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80',
-      'https://images.unsplash.com/photo-1497366216548-37526070297c?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80'
+      {
+        url: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80',
+        alt: 'Abuja Tech Hub Complex - Main View',
+        isPrimary: true
+      },
+      {
+        url: 'https://images.unsplash.com/photo-1497366216548-37526070297c?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80',
+        alt: 'Abuja Tech Hub Complex - Interior View',
+        isPrimary: false
+      }
     ],
     metrics: [
-      { label: 'Project Value', value: '₦1.2B', icon: BanknotesIcon },
-      { label: 'Floors Built', value: '12 Stories', icon: BuildingOffice2Icon },
-      { label: 'Jobs Created', value: '500+', icon: UserGroupIcon }
-    ]
+      { label: 'Project Value', value: '₦1.2B', icon: '💰' },
+      { label: 'Floors Built', value: '12 Stories', icon: '🏢' },
+      { label: 'Jobs Created', value: '500+', icon: '👥' }
+    ],
+    isFeatured: false,
+    isActive: true,
+    order: 2,
+    createdAt: new Date().toISOString(),
+    updatedAt: new Date().toISOString()
   },
   {
-    id: '3',
+    _id: '3',
     title: 'Port Harcourt Heritage Restoration',
     client: 'Rivers State Government',
     location: 'Old GRA, Port Harcourt',
@@ -132,17 +169,30 @@ const successStories: SuccessStory[] = [
       rating: 5
     },
     images: [
-      'https://images.unsplash.com/photo-1581858726788-75bc0f6a952d?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80',
-      'https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80'
+      {
+        url: 'https://images.unsplash.com/photo-1581858726788-75bc0f6a952d?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80',
+        alt: 'Port Harcourt Heritage Building - Restored View',
+        isPrimary: true
+      },
+      {
+        url: 'https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80',
+        alt: 'Port Harcourt Heritage Building - Interior View',
+        isPrimary: false
+      }
     ],
     metrics: [
-      { label: 'Heritage Value', value: '90 Years', icon: ClockIcon },
-      { label: 'Restoration Cost', value: '₦280M', icon: BanknotesIcon },
-      { label: 'Awards Won', value: '3 Major', icon: TrophyIcon }
-    ]
+      { label: 'Heritage Value', value: '90 Years', icon: '⏱️' },
+      { label: 'Restoration Cost', value: '₦280M', icon: '💰' },
+      { label: 'Awards Won', value: '3 Major', icon: '🏆' }
+    ],
+    isFeatured: false,
+    isActive: true,
+    order: 3,
+    createdAt: new Date().toISOString(),
+    updatedAt: new Date().toISOString()
   },
   {
-    id: '4',
+    _id: '4',
     title: 'Kano Industrial Complex',
     client: 'Northern Manufacturing Ltd.',
     location: 'Bompai Industrial Area, Kano',
@@ -161,45 +211,111 @@ const successStories: SuccessStory[] = [
       rating: 5
     },
     images: [
-      'https://images.unsplash.com/photo-1565515636369-8bed5985c2ef?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80',
-      'https://images.unsplash.com/photo-1513475382585-d06e58bcb0e0?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80'
+      {
+        url: 'https://images.unsplash.com/photo-1565515636369-8bed5985c2ef?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80',
+        alt: 'Kano Industrial Complex - Main View',
+        isPrimary: true
+      },
+      {
+        url: 'https://images.unsplash.com/photo-1513475382585-d06e58bcb0e0?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80',
+        alt: 'Kano Industrial Complex - Interior View',
+        isPrimary: false
+      }
     ],
     metrics: [
-      { label: 'Factory Size', value: '15,000 sqm', icon: BuildingStorefrontIcon },
-      { label: 'Jobs Created', value: '300+', icon: UserGroupIcon },
-      { label: 'Production Capacity', value: '1M units/month', icon: WrenchScrewdriverIcon }
-    ]
+      { label: 'Factory Size', value: '15,000 sqm', icon: '🏢' },
+      { label: 'Jobs Created', value: '300+', icon: '👥' },
+      { label: 'Production Capacity', value: '1M units/month', icon: '🔧' }
+    ],
+    isFeatured: false,
+    isActive: true,
+    order: 4,
+    createdAt: new Date().toISOString(),
+    updatedAt: new Date().toISOString()
   }
 ]
 
 export default function SuccessStoriesPage() {
+  const [stories, setStories] = useState<SuccessStory[]>([])
+  const [loading, setLoading] = useState(true)
   const [currentStory, setCurrentStory] = useState(0)
   const [currentImageIndex, setCurrentImageIndex] = useState(0)
   const [isVisible, setIsVisible] = useState(false)
 
   useEffect(() => {
     setIsVisible(true)
+    fetchSuccessStories()
   }, [])
 
+  const fetchSuccessStories = async () => {
+    try {
+      const response = await successStoriesAPI.getSuccessStories()
+      if (response.success && response.data) {
+        // Transform image URLs
+        const transformedStories = response.data.map((story: any) => ({
+          ...story,
+          images: story.images.map((img: any) => ({
+            ...img,
+            url: img.url
+          }))
+        }))
+        setStories(transformedStories)
+      }
+    } catch (error) {
+      console.log('Using default stories - API not available')
+      // Keep the existing successStories as fallback
+      setStories(successStories)
+    } finally {
+      setLoading(false)
+    }
+  }
+
   const nextStory = () => {
-    setCurrentStory((prev) => (prev + 1) % successStories.length)
+    setCurrentStory((prev) => (prev + 1) % stories.length)
     setCurrentImageIndex(0)
   }
 
   const prevStory = () => {
-    setCurrentStory((prev) => (prev - 1 + successStories.length) % successStories.length)
+    setCurrentStory((prev) => (prev - 1 + stories.length) % stories.length)
     setCurrentImageIndex(0)
   }
 
   const nextImage = () => {
-    setCurrentImageIndex((prev) => (prev + 1) % successStories[currentStory].images.length)
+    setCurrentImageIndex((prev) => (prev + 1) % stories[currentStory].images.length)
   }
 
   const prevImage = () => {
-    setCurrentImageIndex((prev) => (prev - 1 + successStories[currentStory].images.length) % successStories[currentStory].images.length)
+    setCurrentImageIndex((prev) => (prev - 1 + stories[currentStory].images.length) % stories[currentStory].images.length)
   }
 
-  const story = successStories[currentStory]
+  const story = stories.length > 0 ? stories[currentStory] : null
+
+  if (loading) {
+    return (
+      <>
+        <Navbar />
+        <div className="min-h-screen bg-gray-50 flex items-center justify-center">
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary"></div>
+        </div>
+        <Footer />
+      </>
+    )
+  }
+
+  if (!story) {
+    return (
+      <>
+        <Navbar />
+        <div className="min-h-screen bg-gray-50 flex items-center justify-center">
+          <div className="text-center">
+            <h2 className="text-2xl font-bold text-gray-900 mb-4">No Success Stories Available</h2>
+            <p className="text-gray-600">Check back later for inspiring stories from Octad Engineering.</p>
+          </div>
+        </div>
+        <Footer />
+      </>
+    )
+  }
 
   return (
     <>
@@ -334,8 +450,8 @@ export default function SuccessStoriesPage() {
               <div className="relative order-1 lg:order-1">
                 <div className="relative aspect-video bg-gray-200 rounded-2xl overflow-hidden shadow-2xl">
                   <img
-                    src={story.images[currentImageIndex]}
-                    alt={story.title}
+                    src={story.images[currentImageIndex]?.url}
+                    alt={story.images[currentImageIndex]?.alt || story.title}
                     className="w-full h-full object-cover"
                   />
                   
@@ -404,8 +520,8 @@ export default function SuccessStoriesPage() {
                 <div className="grid grid-cols-3 gap-2 xs:gap-4 mb-6 xs:mb-8">
                   {story.metrics.map((metric, index) => (
                     <div key={index} className="text-center p-2 xs:p-4 bg-gray-50 rounded-xl">
-                      <div className="bg-primary text-white w-8 h-8 xs:w-10 xs:h-10 rounded-full flex items-center justify-center mx-auto mb-1 xs:mb-2">
-                        <metric.icon className="w-4 h-4 xs:w-5 xs:h-5" />
+                      <div className="bg-primary text-white w-8 h-8 xs:w-10 xs:h-10 rounded-full flex items-center justify-center mx-auto mb-1 xs:mb-2 text-xs xs:text-sm">
+                        {metric.icon}
                       </div>
                       <div className="font-bold text-sm xs:text-lg text-gray-900">{metric.value}</div>
                       <div className="text-xs text-gray-600">{metric.label}</div>
@@ -523,46 +639,49 @@ export default function SuccessStoriesPage() {
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 xs:gap-8">
-              {successStories.filter((_, index) => index !== currentStory).map((story, index) => (
-                <div
-                  key={story.id}
-                  onClick={() => {setCurrentStory(successStories.findIndex(s => s.id === story.id)); setCurrentImageIndex(0); document.getElementById('featured-story')?.scrollIntoView({ behavior: 'smooth' });}}
-                  className="group cursor-pointer bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 overflow-hidden"
-                >
-                  <div className="relative h-40 xs:h-48">
-                    <img
-                      src={story.images[0]}
-                      alt={story.title}
-                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                    />
-                    <div className="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-all duration-300"></div>
-                    <div className="absolute top-3 left-3 xs:top-4 xs:left-4 bg-primary text-white px-2 py-1 xs:px-3 xs:py-1 rounded-full text-xs xs:text-sm font-medium">
-                      {story.category}
-                    </div>
-                    <div className="absolute bottom-3 right-3 xs:bottom-4 xs:right-4 bg-white/90 text-gray-900 px-2 py-1 xs:px-3 xs:py-1 rounded-full text-xs xs:text-sm font-bold">
-                      {story.completionYear}
-                    </div>
-                  </div>
-                  
-                  <div className="p-4 xs:p-6">
-                    <h3 className="text-lg xs:text-xl font-bold text-gray-900 mb-2 group-hover:text-primary transition-colors">
-                      {story.title}
-                    </h3>
-                    <p className="text-gray-600 text-sm mb-4 line-clamp-3">
-                      {story.description}
-                    </p>
-                    <div className="flex items-center justify-between">
-                      <div className="flex items-center text-xs text-gray-500 min-w-0 flex-1 mr-2">
-                        <MapPinIcon className="w-3 h-3 xs:w-4 xs:h-4 mr-1 flex-shrink-0" />
-                        <span className="truncate">{story.location}</span>
+              {stories.filter((_, index) => index !== currentStory).map((storyItem, index) => {
+                const primaryImage = storyItem.images.find(img => img.isPrimary) || storyItem.images[0]
+                return (
+                  <div
+                    key={storyItem._id}
+                    onClick={() => {setCurrentStory(stories.findIndex(s => s._id === storyItem._id)); setCurrentImageIndex(0); document.getElementById('featured-story')?.scrollIntoView({ behavior: 'smooth' });}}
+                    className="group cursor-pointer bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 overflow-hidden"
+                  >
+                    <div className="relative h-40 xs:h-48">
+                      <img
+                        src={primaryImage?.url || storyItem.images[0]?.url}
+                        alt={primaryImage?.alt || storyItem.title}
+                        className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                      />
+                      <div className="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-all duration-300"></div>
+                      <div className="absolute top-3 left-3 xs:top-4 xs:left-4 bg-primary text-white px-2 py-1 xs:px-3 xs:py-1 rounded-full text-xs xs:text-sm font-medium">
+                        {storyItem.category}
                       </div>
-                      <div className="text-primary font-semibold text-xs xs:text-sm group-hover:text-secondary transition-colors flex-shrink-0">
-                        View Details →
+                      <div className="absolute bottom-3 right-3 xs:bottom-4 xs:right-4 bg-white/90 text-gray-900 px-2 py-1 xs:px-3 xs:py-1 rounded-full text-xs xs:text-sm font-bold">
+                        {storyItem.completionYear}
                       </div>
                     </div>
+                    
+                    <div className="p-4 xs:p-6">
+                      <h3 className="text-lg xs:text-xl font-bold text-gray-900 mb-2 group-hover:text-primary transition-colors">
+                        {storyItem.title}
+                      </h3>
+                      <p className="text-gray-600 text-sm mb-4 line-clamp-3">
+                        {storyItem.description}
+                      </p>
+                      <div className="flex items-center justify-between">
+                        <div className="flex items-center text-xs text-gray-500 min-w-0 flex-1 mr-2">
+                          <MapPinIcon className="w-3 h-3 xs:w-4 xs:h-4 mr-1 flex-shrink-0" />
+                          <span className="truncate">{storyItem.location}</span>
+                        </div>
+                        <div className="text-primary font-semibold text-xs xs:text-sm group-hover:text-secondary transition-colors flex-shrink-0">
+                          View Details →
+                        </div>
+                      </div>
+                    </div>
                   </div>
-                </div>
-              ))}
+                )
+              })}
             </div>
           </div>
         </section>
