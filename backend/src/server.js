@@ -16,6 +16,7 @@ const projectRoutes = require('./routes/projects');
 const aboutRoutes = require('./routes/about');
 const contactRoutes = require('./routes/contact');
 const uploadRoutes = require('./routes/upload');
+const successStoriesRoutes = require('./routes/successStories');
 
 const app = express();
 
@@ -149,6 +150,7 @@ app.use('/api/projects', projectRoutes);
 app.use('/api/about', aboutRoutes);
 app.use('/api/contact', contactLimiter, contactRoutes);
 app.use('/api/upload', uploadRoutes);
+app.use('/api/success-stories', successStoriesRoutes);
 
 // Handle 404 errors
 app.use('*', (req, res) => {
