@@ -359,17 +359,7 @@ export default function HomePage() {
             <div className="space-y-16 lg:space-y-24">
               {/* Service 1 - Residential Construction */}
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
-                <div className="relative animate-slide-in-left">
-                  <img 
-                    src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-                    alt="Residential Construction"
-                    className="rounded-2xl shadow-2xl w-full h-64 sm:h-80 lg:h-96 object-cover transform hover:scale-105 transition-transform duration-500"
-                  />
-                  <div className="absolute -bottom-2 -right-2 sm:-bottom-4 sm:-right-4 bg-primary text-white p-3 sm:p-4 lg:p-6 rounded-xl shadow-lg">
-                    <HomeIcon className="w-8 h-8 sm:w-10 sm:h-10 lg:w-12 lg:h-12" />
-                  </div>
-                </div>
-                <div className="animate-slide-in-right mt-8 lg:mt-0">
+                <div className="animate-slide-in-right mt-0 lg:order-2">
                   <h3 className="text-2xl xs:text-3xl sm:text-3xl lg:text-4xl font-bold text-gray-900 mb-4 sm:mb-6">
                     Residential Construction
                   </h3>
@@ -395,6 +385,16 @@ export default function HomePage() {
                       <CheckCircleIcon className="w-4 h-4 sm:w-5 sm:h-5 text-green-500 mr-2 sm:mr-3 flex-shrink-0" />
                       <span className="text-sm sm:text-base text-gray-700">Smart Home Ready</span>
                     </div>
+                  </div>
+                </div>
+                <div className="relative animate-slide-in-left mt-8 lg:mt-0 lg:order-1">
+                  <img 
+                    src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                    alt="Residential Construction"
+                    className="rounded-2xl shadow-2xl w-full h-64 sm:h-80 lg:h-96 object-cover transform hover:scale-105 transition-transform duration-500"
+                  />
+                  <div className="absolute -bottom-2 -right-2 sm:-bottom-4 sm:-right-4 bg-primary text-white p-3 sm:p-4 lg:p-6 rounded-xl shadow-lg">
+                    <HomeIcon className="w-8 h-8 sm:w-10 sm:h-10 lg:w-12 lg:h-12" />
                   </div>
                 </div>
               </div>
