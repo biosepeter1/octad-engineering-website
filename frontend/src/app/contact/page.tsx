@@ -272,56 +272,56 @@ export default function ContactPage() {
           {/* Hero Content */}
           <div className="relative z-10 container-custom text-center text-white px-4">
             <div className="max-w-5xl mx-auto">
-              <div className="inline-flex items-center justify-center w-20 h-20 bg-primary/20 backdrop-blur-sm border-2 border-white/20 rounded-full mb-8">
-                <HandRaisedIcon className="w-10 h-10" />
+              <div className="inline-flex items-center justify-center w-16 h-16 sm:w-20 sm:h-20 bg-primary/20 backdrop-blur-sm border-2 border-white/20 rounded-full mb-6 sm:mb-8">
+                <HandRaisedIcon className="w-8 h-8 sm:w-10 sm:h-10" />
               </div>
-              <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold mb-8 animate-fade-in">
-                <span className="block pb-4">Let's Build</span>
+              <h1 className="text-3xl xs:text-4xl sm:text-5xl lg:text-7xl xl:text-8xl font-bold mb-6 sm:mb-8 animate-fade-in">
+                <span className="block pb-2 sm:pb-4">Let's Build</span>
                 <span className="block text-secondary animate-slide-up">Nigeria Together</span>
               </h1>
-              <p className="text-xl md:text-2xl lg:text-3xl mb-12 text-gray-100 animate-slide-up max-w-4xl mx-auto leading-relaxed">
+              <p className="text-base sm:text-lg lg:text-xl xl:text-2xl 2xl:text-3xl mb-8 sm:mb-10 lg:mb-12 text-gray-100 animate-slide-up max-w-4xl mx-auto leading-relaxed">
                 Ready to transform your vision into reality? Connect with Nigeria's leading construction experts 
                 and let's discuss your next project. From Lagos to Abuja, we're here to serve.
               </p>
               
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-12 max-w-2xl mx-auto">
+              <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 mb-8 sm:mb-10 lg:mb-12 max-w-2xl mx-auto">
                 <div className="text-center">
-                  <div className="bg-white/10 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-2">
-                    <ShieldCheckIcon className="w-8 h-8" />
+                  <div className="bg-white/10 rounded-full w-12 h-12 sm:w-16 sm:h-16 flex items-center justify-center mx-auto mb-1 sm:mb-2">
+                    <ShieldCheckIcon className="w-6 h-6 sm:w-8 sm:h-8" />
                   </div>
-                  <div className="text-sm font-medium">CAC Certified</div>
+                  <div className="text-xs sm:text-sm font-medium">CAC Certified</div>
                 </div>
                 <div className="text-center">
-                  <div className="bg-white/10 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-2">
-                    <StarIcon className="w-8 h-8" />
+                  <div className="bg-white/10 rounded-full w-12 h-12 sm:w-16 sm:h-16 flex items-center justify-center mx-auto mb-1 sm:mb-2">
+                    <StarIcon className="w-6 h-6 sm:w-8 sm:h-8" />
                   </div>
-                  <div className="text-sm font-medium">5-Star Rated</div>
+                  <div className="text-xs sm:text-sm font-medium">5-Star Rated</div>
                 </div>
                 <div className="text-center">
-                  <div className="bg-white/10 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-2">
-                    <PhoneIcon className="w-8 h-8" />
+                  <div className="bg-white/10 rounded-full w-12 h-12 sm:w-16 sm:h-16 flex items-center justify-center mx-auto mb-1 sm:mb-2">
+                    <PhoneIcon className="w-6 h-6 sm:w-8 sm:h-8" />
                   </div>
-                  <div className="text-sm font-medium">24/7 Support</div>
+                  <div className="text-xs sm:text-sm font-medium">24/7 Support</div>
                 </div>
                 <div className="text-center">
-                  <div className="bg-white/10 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-2">
-                    <BuildingStorefrontIcon className="w-8 h-8" />
+                  <div className="bg-white/10 rounded-full w-12 h-12 sm:w-16 sm:h-16 flex items-center justify-center mx-auto mb-1 sm:mb-2">
+                    <BuildingStorefrontIcon className="w-6 h-6 sm:w-8 sm:h-8" />
                   </div>
-                  <div className="text-sm font-medium">200+ Projects</div>
+                  <div className="text-xs sm:text-sm font-medium">200+ Projects</div>
                 </div>
               </div>
               
-              <div className="flex flex-col sm:flex-row gap-6 justify-center animate-slide-up">
+              <div className="flex flex-col xs:flex-row gap-4 sm:gap-6 justify-center animate-slide-up">
                 <Link 
                   href="tel:+2348031234567" 
-                  className="btn-secondary text-lg px-10 py-5 transform hover:scale-105 transition-all duration-300 shadow-2xl"
+                  className="btn-secondary text-base sm:text-lg px-6 sm:px-8 lg:px-10 py-4 sm:py-5 transform hover:scale-105 transition-all duration-300 shadow-2xl"
                 >
-                  <PhoneIcon className="w-6 h-6 mr-3 inline" />
-                  Call Now: +234 803 123 4567
+                  <PhoneIcon className="w-5 h-5 sm:w-6 sm:h-6 mr-2 sm:mr-3 inline" />
+                  <span className="hidden xs:inline">Call Now: </span>+234 803 123 4567
                 </Link>
                 <Link 
                   href="/services" 
-                  className="btn-outline text-lg px-10 py-5 border-2 border-white text-white hover:bg-white hover:text-primary transform hover:scale-105 transition-all duration-300 shadow-2xl"
+                  className="btn-outline text-base sm:text-lg px-6 sm:px-8 lg:px-10 py-4 sm:py-5 border-2 border-white text-white hover:bg-white hover:text-primary transform hover:scale-105 transition-all duration-300 shadow-2xl"
                 >
                   View Our Services
                 </Link>
@@ -340,38 +340,38 @@ export default function ContactPage() {
         {/* Contact Info Cards */}
         <section className="section-padding bg-gray-50">
           <div className="container-custom">
-            <div className="text-center mb-16">
-              <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+            <div className="text-center mb-12 sm:mb-16">
+              <h2 className="text-3xl xs:text-4xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4 sm:mb-6">
                 Connect With <span className="text-primary">Nigeria's Best</span>
               </h2>
-              <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto px-4">
                 Multiple ways to reach us across Nigeria - from Lagos to Abuja, we're always here to serve you.
               </p>
             </div>
             
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8">
               {contactInfo.map((item, index) => (
                 <div key={index} className="group">
                   <div className="card text-center transform group-hover:scale-105 transition-all duration-300 animate-slide-up hover:shadow-2xl border-t-4 border-primary group-hover:border-secondary">
-                    <div className="bg-gradient-to-br from-primary to-primary-600 text-white w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:from-secondary group-hover:to-secondary-600 transition-all duration-300 shadow-lg">
-                      <item.icon className="w-8 h-8" />
+                    <div className="bg-gradient-to-br from-primary to-primary-600 text-white w-12 h-12 sm:w-16 sm:h-16 rounded-xl sm:rounded-2xl flex items-center justify-center mx-auto mb-4 sm:mb-6 group-hover:from-secondary group-hover:to-secondary-600 transition-all duration-300 shadow-lg">
+                      <item.icon className="w-6 h-6 sm:w-8 sm:h-8" />
                     </div>
-                    <h3 className="text-xl font-bold mb-3 group-hover:text-primary transition-colors">
+                    <h3 className="text-lg sm:text-xl font-bold mb-2 sm:mb-3 group-hover:text-primary transition-colors">
                       {item.title}
                     </h3>
                     {item.href ? (
                       <a
                         href={item.href}
-                        className="text-primary hover:text-primary-700 font-semibold block mb-3 text-lg group-hover:underline transition-all"
+                        className="text-primary hover:text-primary-700 font-semibold block mb-2 sm:mb-3 text-sm sm:text-base lg:text-lg group-hover:underline transition-all break-words"
                         target={item.href.startsWith('http') ? '_blank' : '_self'}
                         rel={item.href.startsWith('http') ? 'noopener noreferrer' : ''}
                       >
                         {item.info}
                       </a>
                     ) : (
-                      <p className="text-gray-900 font-semibold mb-3 text-lg">{item.info}</p>
+                      <p className="text-gray-900 font-semibold mb-2 sm:mb-3 text-sm sm:text-base lg:text-lg">{item.info}</p>
                     )}
-                    <p className="text-gray-600">{item.subInfo}</p>
+                    <p className="text-xs sm:text-sm text-gray-600">{item.subInfo}</p>
                   </div>
                 </div>
               ))}
@@ -382,25 +382,25 @@ export default function ContactPage() {
         {/* Contact Form & Info */}
         <section className="section-padding bg-white">
           <div className="container-custom">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12">
               {/* Enhanced Contact Form */}
               <div className="animate-slide-in-left">
-                <div className="mb-8">
-                  <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+                <div className="mb-6 sm:mb-8">
+                  <h2 className="text-2xl xs:text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4 sm:mb-6">
                     Start Your Nigerian <span className="text-primary">Dream Project</span>
                   </h2>
-                  <p className="text-xl text-gray-600 leading-relaxed">
+                  <p className="text-base sm:text-lg lg:text-xl text-gray-600 leading-relaxed">
                     Ready to build across Nigeria? Share your vision with us and our expert team will respond 
                     within 24 hours to discuss bringing your project to life.
                   </p>
-                  <div className="flex items-center space-x-6 mt-6">
+                  <div className="flex flex-col xs:flex-row items-start xs:items-center space-y-3 xs:space-y-0 xs:space-x-4 lg:space-x-6 mt-4 sm:mt-6">
                     <div className="flex items-center text-green-600">
-                      <CheckCircleIcon className="w-5 h-5 mr-2" />
-                      <span className="text-sm font-medium">EmailJS Integrated</span>
+                      <CheckCircleIcon className="w-4 h-4 sm:w-5 sm:h-5 mr-2" />
+                      <span className="text-xs sm:text-sm font-medium">EmailJS Integrated</span>
                     </div>
                     <div className="flex items-center text-blue-600">
-                      <CheckCircleIcon className="w-5 h-5 mr-2" />
-                      <span className="text-sm font-medium">24h Response</span>
+                      <CheckCircleIcon className="w-4 h-4 sm:w-5 sm:h-5 mr-2" />
+                      <span className="text-xs sm:text-sm font-medium">24h Response</span>
                     </div>
                   </div>
                 </div>
@@ -419,8 +419,8 @@ export default function ContactPage() {
                   </div>
                 )}
 
-                <form onSubmit={handleSubmit(onSubmit)} className="space-y-8 bg-gray-50 p-8 rounded-2xl shadow-lg border animate-slide-up">
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <form onSubmit={handleSubmit(onSubmit)} className="space-y-6 sm:space-y-8 bg-gray-50 p-4 sm:p-6 lg:p-8 rounded-xl sm:rounded-2xl shadow-lg border animate-slide-up">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
                     <div>
                       <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
                         Full Name *
@@ -429,7 +429,7 @@ export default function ContactPage() {
                         type="text"
                         id="name"
                         {...register('name')}
-                        className={`w-full px-5 py-4 border-2 rounded-xl focus:ring-4 focus:ring-primary/20 focus:border-primary transition-all duration-300 bg-white shadow-sm hover:shadow-md ${
+                        className={`w-full px-4 sm:px-5 py-3 sm:py-4 border-2 rounded-lg sm:rounded-xl focus:ring-4 focus:ring-primary/20 focus:border-primary transition-all duration-300 bg-white shadow-sm hover:shadow-md text-base ${
                           errors.name ? 'border-red-500 bg-red-50' : 'border-gray-200 focus:bg-white'
                         }`}
                         placeholder="Enter your full name"
@@ -450,7 +450,7 @@ export default function ContactPage() {
                         type="tel"
                         id="phone"
                         {...register('phone')}
-                        className={`w-full px-5 py-4 border-2 rounded-xl focus:ring-4 focus:ring-primary/20 focus:border-primary transition-all duration-300 bg-white shadow-sm hover:shadow-md ${
+                        className={`w-full px-4 sm:px-5 py-3 sm:py-4 border-2 rounded-lg sm:rounded-xl focus:ring-4 focus:ring-primary/20 focus:border-primary transition-all duration-300 bg-white shadow-sm hover:shadow-md text-base ${
                           errors.phone ? 'border-red-500 bg-red-50' : 'border-gray-200 focus:bg-white'
                         }`}
                         placeholder="+234 803 123 4567"
@@ -472,7 +472,7 @@ export default function ContactPage() {
                       type="email"
                       id="email"
                       {...register('email')}
-                      className={`w-full px-5 py-4 border-2 rounded-xl focus:ring-4 focus:ring-primary/20 focus:border-primary transition-all duration-300 bg-white shadow-sm hover:shadow-md ${
+                      className={`w-full px-4 sm:px-5 py-3 sm:py-4 border-2 rounded-lg sm:rounded-xl focus:ring-4 focus:ring-primary/20 focus:border-primary transition-all duration-300 bg-white shadow-sm hover:shadow-md text-base ${
                         errors.email ? 'border-red-500 bg-red-50' : 'border-gray-200 focus:bg-white'
                       }`}
                       placeholder="your@email.com"
@@ -492,7 +492,7 @@ export default function ContactPage() {
                     <select
                       id="subject"
                       {...register('subject')}
-                      className={`w-full px-5 py-4 border-2 rounded-xl focus:ring-4 focus:ring-primary/20 focus:border-primary transition-all duration-300 bg-white shadow-sm hover:shadow-md ${
+                      className={`w-full px-4 sm:px-5 py-3 sm:py-4 border-2 rounded-lg sm:rounded-xl focus:ring-4 focus:ring-primary/20 focus:border-primary transition-all duration-300 bg-white shadow-sm hover:shadow-md text-base ${
                         errors.subject ? 'border-red-500 bg-red-50' : 'border-gray-200 focus:bg-white'
                       }`}
                     >
@@ -520,9 +520,9 @@ export default function ContactPage() {
                     </label>
                     <textarea
                       id="message"
-                      rows={6}
+                      rows={5}
                       {...register('message')}
-                      className={`w-full px-5 py-4 border-2 rounded-xl focus:ring-4 focus:ring-primary/20 focus:border-primary transition-all duration-300 bg-white shadow-sm hover:shadow-md resize-none ${
+                      className={`w-full px-4 sm:px-5 py-3 sm:py-4 border-2 rounded-lg sm:rounded-xl focus:ring-4 focus:ring-primary/20 focus:border-primary transition-all duration-300 bg-white shadow-sm hover:shadow-md resize-none text-base ${
                         errors.message ? 'border-red-500 bg-red-50' : 'border-gray-200 focus:bg-white'
                       }`}
                       placeholder="Please describe your project, timeline, budget range, and any specific requirements..."
@@ -538,7 +538,7 @@ export default function ContactPage() {
                   <button
                     type="submit"
                     disabled={isSubmitting}
-                    className="w-full bg-gradient-to-r from-primary to-primary-600 hover:from-primary-600 hover:to-primary-700 text-white py-5 px-8 rounded-xl text-lg font-bold disabled:opacity-50 disabled:cursor-not-allowed transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl focus:ring-4 focus:ring-primary/20"
+                    className="w-full bg-gradient-to-r from-primary to-primary-600 hover:from-primary-600 hover:to-primary-700 text-white py-4 sm:py-5 px-6 sm:px-8 rounded-lg sm:rounded-xl text-base sm:text-lg font-bold disabled:opacity-50 disabled:cursor-not-allowed transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl focus:ring-4 focus:ring-primary/20"
                   >
                     {isSubmitting ? (
                       <>
@@ -560,62 +560,62 @@ export default function ContactPage() {
               </div>
 
               {/* Additional Info */}
-              <div className="lg:pl-8">
-                <div className="mb-8">
-                  <h3 className="text-2xl font-bold text-gray-900 mb-4">
+              <div className="lg:pl-8 mt-8 lg:mt-0">
+                <div className="mb-6 sm:mb-8">
+                  <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-3 sm:mb-4">
                     Why Choose Octad Engineering Limited?
                   </h3>
-                  <div className="space-y-4">
+                  <div className="space-y-3 sm:space-y-4">
                     <div className="flex items-start">
-                      <CheckCircleIcon className="w-6 h-6 text-green-500 mr-3 mt-0.5 flex-shrink-0" />
+                      <CheckCircleIcon className="w-5 h-5 sm:w-6 sm:h-6 text-green-500 mr-2 sm:mr-3 mt-0.5 flex-shrink-0" />
                       <div>
-                        <h4 className="font-semibold text-gray-900">Free Consultations</h4>
-                        <p className="text-gray-600 text-sm">Initial project consultation at no cost</p>
+                        <h4 className="font-semibold text-gray-900 text-sm sm:text-base">Free Consultations</h4>
+                        <p className="text-gray-600 text-xs sm:text-sm">Initial project consultation at no cost</p>
                       </div>
                     </div>
                     <div className="flex items-start">
-                      <CheckCircleIcon className="w-6 h-6 text-green-500 mr-3 mt-0.5 flex-shrink-0" />
+                      <CheckCircleIcon className="w-5 h-5 sm:w-6 sm:h-6 text-green-500 mr-2 sm:mr-3 mt-0.5 flex-shrink-0" />
                       <div>
-                        <h4 className="font-semibold text-gray-900">Licensed & Insured</h4>
-                        <p className="text-gray-600 text-sm">Fully licensed with comprehensive insurance</p>
+                        <h4 className="font-semibold text-gray-900 text-sm sm:text-base">Licensed & Insured</h4>
+                        <p className="text-gray-600 text-xs sm:text-sm">Fully licensed with comprehensive insurance</p>
                       </div>
                     </div>
                     <div className="flex items-start">
-                      <CheckCircleIcon className="w-6 h-6 text-green-500 mr-3 mt-0.5 flex-shrink-0" />
+                      <CheckCircleIcon className="w-5 h-5 sm:w-6 sm:h-6 text-green-500 mr-2 sm:mr-3 mt-0.5 flex-shrink-0" />
                       <div>
-                        <h4 className="font-semibold text-gray-900">Quality Guarantee</h4>
-                        <p className="text-gray-600 text-sm">We stand behind all our work</p>
+                        <h4 className="font-semibold text-gray-900 text-sm sm:text-base">Quality Guarantee</h4>
+                        <p className="text-gray-600 text-xs sm:text-sm">We stand behind all our work</p>
                       </div>
                     </div>
                     <div className="flex items-start">
-                      <CheckCircleIcon className="w-6 h-6 text-green-500 mr-3 mt-0.5 flex-shrink-0" />
+                      <CheckCircleIcon className="w-5 h-5 sm:w-6 sm:h-6 text-green-500 mr-2 sm:mr-3 mt-0.5 flex-shrink-0" />
                       <div>
-                        <h4 className="font-semibold text-gray-900">24/7 Support</h4>
-                        <p className="text-gray-600 text-sm">Always available for urgent matters</p>
+                        <h4 className="font-semibold text-gray-900 text-sm sm:text-base">24/7 Support</h4>
+                        <p className="text-gray-600 text-xs sm:text-sm">Always available for urgent matters</p>
                       </div>
                     </div>
                   </div>
                 </div>
 
-                <div className="mb-8">
-                  <h3 className="text-xl font-bold text-gray-900 mb-4">
+                <div className="mb-6 sm:mb-8">
+                  <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-3 sm:mb-4">
                     Service Areas
                   </h3>
-                  <div className="grid grid-cols-2 gap-3">
+                  <div className="grid grid-cols-1 xs:grid-cols-2 gap-2 sm:gap-3">
                     {serviceAreas.map((area, index) => (
-                      <div key={index} className="text-sm text-gray-600 bg-gray-50 p-3 rounded-lg text-center">
+                      <div key={index} className="text-xs sm:text-sm text-gray-600 bg-gray-50 p-2 sm:p-3 rounded-lg text-center">
                         {area}
                       </div>
                     ))}
                   </div>
                 </div>
 
-                <div className="bg-primary rounded-lg p-6 text-white">
-                  <h3 className="text-xl font-semibold mb-4">Emergency Services</h3>
-                  <p className="text-primary-100 mb-4">
+                <div className="bg-primary rounded-lg p-4 sm:p-6 text-white">
+                  <h3 className="text-lg sm:text-xl font-semibold mb-3 sm:mb-4">Emergency Services</h3>
+                  <p className="text-primary-100 mb-4 text-sm sm:text-base">
                     Need immediate assistance? We offer 24/7 emergency construction services across Nigeria for urgent repairs and situations.
                   </p>
-                  <Link href="tel:+2348031234567" className="btn-secondary inline-block">
+                  <Link href="tel:+2348031234567" className="btn-secondary inline-block text-sm sm:text-base px-4 sm:px-6 py-2 sm:py-3">
                     <PhoneIcon className="w-4 h-4 mr-2 inline" />
                     Call Emergency Line
                   </Link>
@@ -626,51 +626,51 @@ export default function ContactPage() {
         </section>
 
         {/* Map Section */}
-        <section className="bg-gray-50 py-16">
+        <section className="bg-gray-50 py-12 sm:py-16">
           <div className="container-custom">
-            <div className="text-center mb-8">
-              <h2 className="text-3xl font-bold text-gray-900 mb-4">Visit Our Lagos Office</h2>
-              <p className="text-lg text-gray-600">Find us at our modern facility in the heart of Victoria Island, Lagos</p>
+            <div className="text-center mb-6 sm:mb-8">
+              <h2 className="text-2xl xs:text-3xl sm:text-3xl font-bold text-gray-900 mb-3 sm:mb-4">Visit Our Lagos Office</h2>
+              <p className="text-base sm:text-lg text-gray-600 px-4">Find us at our modern facility in the heart of Victoria Island, Lagos</p>
             </div>
             
-            <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 sm:gap-8">
               {/* Office Information */}
               <div className="lg:col-span-1">
                 <div className="card">
-                  <div className="mb-6">
-                    <div className="bg-primary text-white w-12 h-12 rounded-full flex items-center justify-center mb-4">
-                      <MapPinIcon className="w-6 h-6" />
+                  <div className="mb-4 sm:mb-6">
+                    <div className="bg-primary text-white w-10 h-10 sm:w-12 sm:h-12 rounded-full flex items-center justify-center mb-3 sm:mb-4">
+                      <MapPinIcon className="w-5 h-5 sm:w-6 sm:h-6" />
                     </div>
-                    <h3 className="text-xl font-semibold text-gray-900 mb-2">Our Location</h3>
-                    <address className="text-gray-600 not-italic">
+                    <h3 className="text-lg sm:text-xl font-semibold text-gray-900 mb-2">Our Location</h3>
+                    <address className="text-sm sm:text-base text-gray-600 not-italic leading-relaxed">
                       15 Adeola Odeku Street<br />
                       Victoria Island, Lagos 101241<br />
                       Nigeria
                     </address>
                   </div>
                   
-                  <div className="space-y-4 mb-6">
+                  <div className="space-y-3 sm:space-y-4 mb-4 sm:mb-6">
                     <div className="flex items-center">
-                      <PhoneIcon className="w-5 h-5 text-primary mr-3" />
+                      <PhoneIcon className="w-4 h-4 sm:w-5 sm:h-5 text-primary mr-2 sm:mr-3 flex-shrink-0" />
                       <div>
-                        <p className="font-medium text-gray-900">Phone</p>
-                        <a href="tel:+2348031234567" className="text-primary hover:text-primary-700">+234 803 123 4567</a>
+                        <p className="font-medium text-gray-900 text-sm sm:text-base">Phone</p>
+                        <a href="tel:+2348031234567" className="text-primary hover:text-primary-700 text-sm sm:text-base break-words">+234 803 123 4567</a>
                       </div>
                     </div>
                     
                     <div className="flex items-center">
-                      <EnvelopeIcon className="w-5 h-5 text-primary mr-3" />
+                      <EnvelopeIcon className="w-4 h-4 sm:w-5 sm:h-5 text-primary mr-2 sm:mr-3 flex-shrink-0" />
                       <div>
-                        <p className="font-medium text-gray-900">Email</p>
-                        <a href="mailto:info@octadengineering.com" className="text-primary hover:text-primary-700">info@octadengineering.com</a>
+                        <p className="font-medium text-gray-900 text-sm sm:text-base">Email</p>
+                        <a href="mailto:info@octadengineering.com" className="text-primary hover:text-primary-700 text-sm sm:text-base break-words">info@octadengineering.com</a>
                       </div>
                     </div>
                     
-                    <div className="flex items-center">
-                      <ClockIcon className="w-5 h-5 text-primary mr-3" />
+                    <div className="flex items-start">
+                      <ClockIcon className="w-4 h-4 sm:w-5 sm:h-5 text-primary mr-2 sm:mr-3 flex-shrink-0 mt-0.5" />
                       <div>
-                        <p className="font-medium text-gray-900">Business Hours</p>
-                        <p className="text-gray-600 text-sm">
+                        <p className="font-medium text-gray-900 text-sm sm:text-base">Business Hours</p>
+                        <p className="text-gray-600 text-xs sm:text-sm leading-relaxed">
                           Mon-Fri: 8:00 AM - 6:00 PM (WAT)<br />
                           Sat: 9:00 AM - 4:00 PM (WAT)<br />
                           Sun: Closed
@@ -679,9 +679,9 @@ export default function ContactPage() {
                     </div>
                   </div>
                   
-                  <div className="pt-6 border-t border-gray-100">
-                    <h4 className="font-medium text-gray-900 mb-3">Getting Here</h4>
-                    <ul className="text-sm text-gray-600 space-y-2">
+                  <div className="pt-4 sm:pt-6 border-t border-gray-100">
+                    <h4 className="font-medium text-gray-900 mb-2 sm:mb-3 text-sm sm:text-base">Getting Here</h4>
+                    <ul className="text-xs sm:text-sm text-gray-600 space-y-1 sm:space-y-2">
                       <li>• Free parking available on-site</li>
                       <li>• Lagos BRT: CMS Station (10 min walk)</li>
                       <li>• Yellow Bus routes available</li>
@@ -692,8 +692,8 @@ export default function ContactPage() {
               </div>
               
               {/* Google Map */}
-              <div className="lg:col-span-2">
-                <div className="relative h-96 bg-gray-200 rounded-lg overflow-hidden shadow-lg">
+              <div className="lg:col-span-2 mt-6 lg:mt-0">
+                <div className="relative h-64 sm:h-80 lg:h-96 bg-gray-200 rounded-lg overflow-hidden shadow-lg">
                   {!mapLoaded ? (
                     <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-gray-100 to-gray-200">
                       <div className="text-center text-gray-600">
@@ -713,15 +713,15 @@ export default function ContactPage() {
                   />
                   
                   {/* Map controls overlay */}
-                  <div className="absolute top-4 right-4 bg-white rounded-lg shadow-lg p-3">
-                    <div className="flex flex-col gap-2">
+                  <div className="absolute top-2 sm:top-4 right-2 sm:right-4 bg-white rounded-lg shadow-lg p-2 sm:p-3">
+                    <div className="flex flex-col gap-1 sm:gap-2">
                       <button
                         onClick={() => {
                           if (mapInstanceRef.current && window.google) {
                             mapInstanceRef.current.setZoom(mapInstanceRef.current.getZoom() + 1)
                           }
                         }}
-                        className="w-8 h-8 flex items-center justify-center bg-white border border-gray-300 rounded hover:bg-gray-50 text-gray-600 font-bold"
+                        className="w-7 h-7 sm:w-8 sm:h-8 flex items-center justify-center bg-white border border-gray-300 rounded hover:bg-gray-50 text-gray-600 font-bold text-sm sm:text-base"
                         title="Zoom in"
                       >
                         +
@@ -732,7 +732,7 @@ export default function ContactPage() {
                             mapInstanceRef.current.setZoom(mapInstanceRef.current.getZoom() - 1)
                           }
                         }}
-                        className="w-8 h-8 flex items-center justify-center bg-white border border-gray-300 rounded hover:bg-gray-50 text-gray-600 font-bold"
+                        className="w-7 h-7 sm:w-8 sm:h-8 flex items-center justify-center bg-white border border-gray-300 rounded hover:bg-gray-50 text-gray-600 font-bold text-sm sm:text-base"
                         title="Zoom out"
                       >
                         −
@@ -741,15 +741,15 @@ export default function ContactPage() {
                   </div>
                   
                   {/* Directions link overlay */}
-                  <div className="absolute bottom-4 left-4">
+                  <div className="absolute bottom-2 sm:bottom-4 left-2 sm:left-4">
                     <a
                       href={`https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(GOOGLE_MAPS_CONFIG.address)}`}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="bg-primary text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-primary-700 transition-colors shadow-lg flex items-center"
+                      className="bg-primary text-white px-3 sm:px-4 py-2 rounded-lg text-xs sm:text-sm font-medium hover:bg-primary-700 transition-colors shadow-lg flex items-center"
                     >
-                      <MapPinIcon className="w-4 h-4 mr-2" />
-                      Get Directions
+                      <MapPinIcon className="w-3 h-3 sm:w-4 sm:h-4 mr-1 sm:mr-2" />
+                      <span className="hidden xs:inline">Get </span>Directions
                     </a>
                   </div>
                 </div>
@@ -778,17 +778,17 @@ export default function ContactPage() {
         {/* FAQ Section */}
         <section className="section-padding bg-gray-50">
           <div className="container-custom">
-            <div className="text-center mb-12">
-              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+            <div className="text-center mb-8 sm:mb-12 px-4">
+              <h2 className="text-2xl xs:text-3xl sm:text-3xl lg:text-4xl font-bold text-gray-900 mb-3 sm:mb-4">
                 Frequently Asked Questions
               </h2>
-              <p className="text-xl text-gray-600">
+              <p className="text-base sm:text-lg lg:text-xl text-gray-600">
                 Common questions about our Nigerian construction services
               </p>
             </div>
             
-            <div className="max-w-3xl mx-auto">
-              <div className="space-y-6">
+            <div className="max-w-3xl mx-auto px-4">
+              <div className="space-y-4 sm:space-y-6">
                 {[
                   {
                     question: "How do I get a quote for my project?",
@@ -808,10 +808,10 @@ export default function ContactPage() {
                   }
                 ].map((faq, index) => (
                   <div key={index} className="card">
-                    <h3 className="text-lg font-semibold text-gray-900 mb-2">
+                    <h3 className="text-base sm:text-lg font-semibold text-gray-900 mb-2 sm:mb-3">
                       {faq.question}
                     </h3>
-                    <p className="text-gray-600">
+                    <p className="text-sm sm:text-base text-gray-600 leading-relaxed">
                       {faq.answer}
                     </p>
                   </div>
