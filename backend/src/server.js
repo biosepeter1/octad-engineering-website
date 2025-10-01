@@ -15,6 +15,7 @@ const serviceRoutes = require('./routes/services');
 const projectRoutes = require('./routes/projects');
 const aboutRoutes = require('./routes/about');
 const contactRoutes = require('./routes/contact');
+const uploadRoutes = require('./routes/upload');
 
 const app = express();
 
@@ -140,78 +141,6 @@ app.get('/health', (req, res) => {
 });
 
 
-// Import auth middleware for upload route
-const { authenticate, requireAdmin } = require('./middleware/auth');
-
-
-// File upload endpoint with error handling
-app.post('/api/upload', (req, res) => {
-  console.log('Upload request received');
-  console.log('Headers:', req.headers);
-  
-  // Apply authentication middleware
-  authenticate(req, res, (authError) => {
-    if (authError) {
-      console.error('Auth error:', authError);
-      return;
-    }
-    
-    // Apply admin check
-    requireAdmin(req, res, (adminError) => {
-      if (adminError) {
-        console.error('Admin check error:', adminError);
-        return;
-      }
-      
-      // Apply multer upload
-      const uploadMiddleware = upload.array('images', 10);
-      uploadMiddleware(req, res, (uploadError) => {
-        if (uploadError) {
-          console.error('Multer upload error:', uploadError);
-          return res.status(500).json({
-            success: false,
-            message: 'Upload failed',
-            error: uploadError.message
-          });
-        }
-        
-        try {
-          console.log('Files received:', req.files);
-          
-          if (!req.files || req.files.length === 0) {
-            return res.status(400).json({
-              success: false,
-              message: 'No files uploaded'
-            });
-          }
-
-          const uploadedFiles = req.files.map(file => ({
-            url: `/uploads/${file.filename}`,
-          filename: file.filename,
-          originalName: file.originalname,
-          size: file.size
-        }));
-
-
-          console.log('Upload successful:', uploadedFiles);
-
-          res.json({
-            success: true,
-            message: 'Files uploaded successfully',
-            data: uploadedFiles
-          });
-        } catch (error) {
-          console.error('Upload processing error:', error);
-          res.status(500).json({
-            success: false,
-            message: 'Upload processing failed',
-            error: error.message
-          });
-        }
-      });
-    });
-  });
-});
 
 // API routes
 app.use('/api/auth', authRoutes);
@@ -219,6 +148,7 @@ app.use('/api/services', serviceRoutes);
 app.use('/api/projects', projectRoutes);
 app.use('/api/about', aboutRoutes);
 app.use('/api/contact', contactLimiter, contactRoutes);
+app.use('/api/upload', uploadRoutes);
 
 // Handle 404 errors
 app.use('*', (req, res) => {

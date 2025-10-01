@@ -193,13 +193,11 @@ export default function ProjectModal({ isOpen, onClose, onSuccess, mode, project
       if (response.success && response.data) {
         console.log('🖼️ Upload response data:', response.data)
         const newImages = response.data.map((file: any, index: number) => {
-          // Backend returns relative URL like /uploads/filename
-          // Transform it to use the correct backend URL
-          const baseUrl = process.env.NEXT_PUBLIC_API_URL?.replace('/api', '') || 'http://localhost:5000'
-          const imageUrl = file.url.startsWith('http') ? file.url : `${baseUrl}/api${file.url}`
+          // Backend now returns fullUrl which includes the complete URL
+          const imageUrl = file.fullUrl || file.url
           
           return {
-            url: transformImageUrl(imageUrl),
+            url: imageUrl,
             alt: file.originalName.replace(/\.[^/.]+$/, ''), // Remove file extension for alt text
             isPrimary: images.length === 0 && index === 0 // First image is primary if no images exist
           }

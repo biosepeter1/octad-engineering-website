@@ -238,7 +238,7 @@ export const uploadAPI = {
       
       console.log('Uploading files:', files.map(f => ({ name: f.name, size: f.size, type: f.type })));
       
-      const { data } = await uploadInstance.post<ApiResponse>('/api/upload', formData);
+      const { data } = await uploadInstance.post<ApiResponse>('/api/upload/images', formData);
       return data;
     } catch (error) {
       console.error('Upload API Error:', error);
