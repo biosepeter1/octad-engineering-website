@@ -121,6 +121,17 @@ export default function Footer() {
           </div>
         </div>
       </div>
+      
+      {/* Developer Attribution */}
+      <div className="bg-black/30 border-t border-gray-800/50">
+        <div className="container-custom py-2">
+          <div className="text-center">
+            <p className="text-xs text-gray-600">
+              Developed by <span className="text-primary/80 font-medium">Biose Peter</span>
+            </p>
+          </div>
+        </div>
+      </div>
     </footer>
   )
 }
