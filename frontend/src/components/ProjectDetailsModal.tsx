@@ -138,7 +138,7 @@ export default function ProjectDetailsModal({ isOpen, onClose, project }: Props)
                     alt={images[currentImageIndex]?.alt || project.title}
                     className="max-h-full max-w-full object-contain"
                     onError={(e) => {
-                      e.currentTarget.src = 'https://via.placeholder.com/800x600?text=Project+Image'
+                      e.currentTarget.src = 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iODAwIiBoZWlnaHQ9IjYwMCIgdmlld0JveD0iMCAwIDgwMCA2MDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSI4MDAiIGhlaWdodD0iNjAwIiBmaWxsPSIjRjNGNEY2Ii8+CjxjaXJjbGUgY3g9IjQwMCIgY3k9IjI4MCIgcj0iNDAiIGZpbGw9IiM5Q0EzQUYiLz4KPHBhdGggZD0iTTM2MCAzNjBMMzgwIDM0MEw0MjAgMzgwTDQ2MCAzNDBMNDgwIDM2MEw0MjAgNDIwTDM2MCA0MjBMMzYwIDM2MFoiIGZpbGw9IiM5Q0EzQUYiLz4KPHR5eHQgeD0iNDAwIiB5PSI0NzAiIGZvbnQtZmFtaWx5PSJBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIyNCIgZmlsbD0iIzY3NzQ4RiIgdGV4dC1hbmNob3I9Im1pZGRsZSI+UHJvamVjdCBJbWFnZTwvdGV4dD4KPC9zdmc+'
                     }}
                   />
                   
@@ -187,7 +187,7 @@ export default function ProjectDetailsModal({ isOpen, onClose, project }: Props)
                             alt={image.alt}
                             className="w-full h-full object-cover"
                             onError={(e) => {
-                              e.currentTarget.src = 'https://via.placeholder.com/64x48?text=Img'
+                              e.currentTarget.src = 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjQiIGhlaWdodD0iNDgiIHZpZXdCb3g9IjAgMCA2NCA0OCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjY0IiBoZWlnaHQ9IjQ4IiBmaWxsPSIjRjNGNEY2Ii8+Cjx0ZXh0IHg9IjMyIiB5PSIyOCIgZm9udC1mYW1pbHk9IkFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjEwIiBmaWxsPSIjNjc3NDhGIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj5JbWc8L3RleHQ+Cjwvc3ZnPg=='
                             }}
                           />
                         </button>

@@ -206,7 +206,7 @@ export default function AdminSuccessStories() {
                           alt={primaryImage.alt || story.title}
                           className="h-40 sm:h-48 w-full object-cover"
                           onError={(e) => {
-                            e.currentTarget.src = 'https://via.placeholder.com/400x300?text=No+Image'
+                            e.currentTarget.src = 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjMwMCIgdmlld0JveD0iMCAwIDQwMCAzMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSI0MDAiIGhlaWdodD0iMzAwIiBmaWxsPSIjRjNGNEY2Ii8+CjxwYXRoIGQ9Ik0xNzUgMTIwSDE4NVYxMzBIMTc1VjEyMFoiIGZpbGw9IiM5Q0EzQUYiLz4KPHA+CjwvcD4KPHA+CjxwYXRoIGQ9Ik0xNzUgMTQwSDE4NVYxNTBIMTc1VjE0MFoiIGZpbGw9IiM5Q0EzQUYiLz4KPHBhdGggZD0iTTE3NSAxNjBIMTg1VjE3MEgxNzVWMTYwWiIgZmlsbD0iIzlDQTNBRiIvPgo8dGV4dCB4PSIyMDAiIHk9IjE1NSIgZm9udC1mYW1pbHk9IkFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjE2IiBmaWxsPSIjNjc3NDhGIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj5ObyBJbWFnZTwvdGV4dD4KPC9zdmc+'
                           }}
                         />
                       ) : (

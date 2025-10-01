@@ -99,7 +99,7 @@ export default function ProjectDetailsPage() {
 
   const images = project?.images?.length ? project.images : [
     {
-      url: 'https://via.placeholder.com/1200x800?text=Project+Image',
+      url: 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTIwMCIgaGVpZ2h0PSI4MDAiIHZpZXdCb3g9IjAgMCAxMjAwIDgwMCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjEyMDAiIGhlaWdodD0iODAwIiBmaWxsPSIjRjNGNEY2Ii8+CjxjaXJjbGUgY3g9IjYwMCIgY3k9IjM2MCIgcj0iNjAiIGZpbGw9IiM5Q0EzQUYiLz4KPHBhdGggZD0iTTUyMCA0ODBMNTUwIDQ1MEw2MzAgNTMwTDcwMCA0NjBMNzMwIDQ5MEw2MzAgNTkwTDUyMCA1OTBMNTIWNDQ4MFoiIGZpbGw9IiM5Q0EzQUYiLz4KPHR5eHQgeD0iNjAwIiB5PSI2NjAiIGZvbnQtZmFtaWx5PSJBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIzNiIgZmlsbD0iIzY3NzQ4RiIgdGV4dC1hbmNob3I9Im1pZGRsZSI+UHJvamVjdCBJbWFnZTwvdGV4dD4KPC9zdmc+',
       alt: project?.title || 'Project image placeholder',
       isPrimary: true
     }
@@ -174,7 +174,7 @@ export default function ProjectDetailsPage() {
                         src={transformImageUrl(img.url)}
                         alt={img.alt}
                         className="w-full h-full object-cover"
-                        onError={(e) => { e.currentTarget.src = 'https://via.placeholder.com/200x150?text=Image' }}
+                        onError={(e) => { e.currentTarget.src = 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjE1MCIgdmlld0JveD0iMCAwIDIwMCAxNTAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSIyMDAiIGhlaWdodD0iMTUwIiBmaWxsPSIjRjNGNEY2Ii8+Cjx0ZXh0IHg9IjEwMCIgeT0iODAiIGZvbnQtZmFtaWx5PSJBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgZmlsbD0iIzY3NzQ4RiIgdGV4dC1hbmNob3I9Im1pZGRsZSI+SW1hZ2U8L3RleHQ+Cjwvc3ZnPg==' }}
                       />
                     </button>
                   ))}
