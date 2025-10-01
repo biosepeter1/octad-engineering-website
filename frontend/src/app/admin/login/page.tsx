@@ -48,19 +48,20 @@ export default function LoginPage() {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50 flex flex-col justify-center py-12 sm:px-6 lg:px-8">
+    <div className="min-h-screen bg-gray-50 flex flex-col justify-center py-8 sm:py-12 px-4 sm:px-6 lg:px-8">
       <div className="sm:mx-auto sm:w-full sm:max-w-md">
         <div className="flex justify-center">
-          <div className="bg-primary text-white p-3 rounded-lg">
+          <div className="bg-primary text-white p-2 sm:p-3 rounded-lg">
             <Image
               src="/logo.png"
               alt="Octad Engineering Limited Logo"
-              width={48}
-              height={48}
+              width={40}
+              height={40}
+              className="sm:w-12 sm:h-12"
             />
           </div>
         </div>
-        <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">
+        <h2 className="mt-4 sm:mt-6 text-center text-2xl sm:text-3xl font-extrabold text-gray-900">
           Admin Login
         </h2>
         <p className="mt-2 text-center text-sm text-gray-600">
@@ -68,9 +69,9 @@ export default function LoginPage() {
         </p>
       </div>
 
-      <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
-        <div className="bg-white py-8 px-4 shadow sm:rounded-lg sm:px-10">
-          <form className="space-y-6" onSubmit={handleSubmit(onSubmit)}>
+      <div className="mt-6 sm:mt-8 sm:mx-auto sm:w-full sm:max-w-md">
+        <div className="bg-white py-6 sm:py-8 px-4 shadow rounded-lg sm:px-10">
+          <form className="space-y-5 sm:space-y-6" onSubmit={handleSubmit(onSubmit)}>
             <div>
               <label htmlFor="username" className="block text-sm font-medium text-gray-700">
                 Username
@@ -80,11 +81,14 @@ export default function LoginPage() {
                   {...register('username')}
                   type="text"
                   autoComplete="username"
-                  className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md placeholder-gray-400 focus:outline-none focus:ring-primary focus:border-primary sm:text-sm"
+                  className="appearance-none block w-full px-4 py-3 border border-gray-300 rounded-md placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary text-base sm:text-sm transition-all duration-200"
                   placeholder="Enter your username"
                 />
                 {errors.username && (
-                  <p className="mt-1 text-sm text-red-600">{errors.username.message}</p>
+                  <p className="mt-2 text-sm text-red-600 flex items-center">
+                    <span className="w-4 h-4 rounded-full bg-red-100 text-red-600 text-xs flex items-center justify-center mr-2 flex-shrink-0">!</span>
+                    {errors.username.message}
+                  </p>
                 )}
               </div>
             </div>
@@ -98,11 +102,14 @@ export default function LoginPage() {
                   {...register('password')}
                   type="password"
                   autoComplete="current-password"
-                  className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md placeholder-gray-400 focus:outline-none focus:ring-primary focus:border-primary sm:text-sm"
+                  className="appearance-none block w-full px-4 py-3 border border-gray-300 rounded-md placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary text-base sm:text-sm transition-all duration-200"
                   placeholder="Enter your password"
                 />
                 {errors.password && (
-                  <p className="mt-1 text-sm text-red-600">{errors.password.message}</p>
+                  <p className="mt-2 text-sm text-red-600 flex items-center">
+                    <span className="w-4 h-4 rounded-full bg-red-100 text-red-600 text-xs flex items-center justify-center mr-2 flex-shrink-0">!</span>
+                    {errors.password.message}
+                  </p>
                 )}
               </div>
             </div>
@@ -111,13 +118,13 @@ export default function LoginPage() {
               <button
                 type="submit"
                 disabled={loading}
-                className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-primary hover:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary disabled:opacity-50 disabled:cursor-not-allowed"
+                className="w-full flex justify-center py-3 px-4 border border-transparent rounded-md shadow-sm text-base sm:text-sm font-medium text-white bg-primary hover:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-200 transform hover:scale-105 active:scale-95"
               >
                 {loading ? (
-                  <div className="flex items-center">
-                    <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-white mr-2"></div>
+                  <>
+                    <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white mr-2"></div>
                     Signing in...
-                  </div>
+                  </>
                 ) : (
                   'Sign in'
                 )}
@@ -125,20 +132,20 @@ export default function LoginPage() {
             </div>
           </form>
 
-          <div className="mt-6">
+          <div className="mt-5 sm:mt-6">
             <div className="relative">
               <div className="absolute inset-0 flex items-center">
                 <div className="w-full border-t border-gray-300" />
               </div>
               <div className="relative flex justify-center text-sm">
-                <span className="px-2 bg-white text-gray-500">
+                <span className="px-3 bg-white text-gray-500 text-xs sm:text-sm">
                   Octad Engineering Admin Portal
                 </span>
               </div>
             </div>
           </div>
 
-          <div className="mt-6 text-center">
+          <div className="mt-4 sm:mt-6 text-center">
             <p className="text-xs text-gray-500">
               Protected area. Authorized personnel only.
             </p>

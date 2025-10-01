@@ -443,17 +443,7 @@ export default function HomePage() {
 
               {/* Service 3 - Renovation & Remodeling */}
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
-                <div className="relative animate-slide-in-left">
-                  <img 
-                    src="https://images.unsplash.com/photo-1581858726788-75bc0f6a952d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-                    alt="Renovation & Remodeling"
-                    className="rounded-2xl shadow-2xl w-full h-64 sm:h-80 lg:h-96 object-cover transform hover:scale-105 transition-transform duration-500"
-                  />
-                  <div className="absolute -bottom-2 -right-2 sm:-bottom-4 sm:-right-4 bg-accent text-white p-3 sm:p-4 lg:p-6 rounded-xl shadow-lg">
-                    <PaintBrushIcon className="w-8 h-8 sm:w-10 sm:h-10 lg:w-12 lg:h-12" />
-                  </div>
-                </div>
-                <div className="animate-slide-in-right mt-8 lg:mt-0">
+                <div className="animate-slide-in-left lg:order-2 mt-8 lg:mt-0">
                   <h3 className="text-2xl xs:text-3xl sm:text-3xl lg:text-4xl font-bold text-gray-900 mb-4 sm:mb-6">
                     Renovation & Remodeling
                   </h3>
@@ -479,6 +469,16 @@ export default function HomePage() {
                       <CheckCircleIcon className="w-4 h-4 sm:w-5 sm:h-5 text-green-500 mr-2 sm:mr-3 flex-shrink-0" />
                       <span className="text-sm sm:text-base text-gray-700">Historic Restoration</span>
                     </div>
+                  </div>
+                </div>
+                <div className="relative animate-slide-in-right lg:order-1">
+                  <img 
+                    src="https://images.unsplash.com/photo-1581858726788-75bc0f6a952d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                    alt="Renovation & Remodeling"
+                    className="rounded-2xl shadow-2xl w-full h-64 sm:h-80 lg:h-96 object-cover transform hover:scale-105 transition-transform duration-500"
+                  />
+                  <div className="absolute -bottom-2 -left-2 sm:-bottom-4 sm:-left-4 bg-accent text-white p-3 sm:p-4 lg:p-6 rounded-xl shadow-lg">
+                    <PaintBrushIcon className="w-8 h-8 sm:w-10 sm:h-10 lg:w-12 lg:h-12" />
                   </div>
                 </div>
               </div>
