@@ -816,8 +816,8 @@ export default function HomePage() {
                 Get Free Quote
                 <ArrowRightIcon className="w-4 h-4 sm:w-5 sm:h-5 ml-2 inline" />
               </Link>
-              <Link href="tel:(555)123-4567" className="btn-outline border-white text-white hover:bg-white hover:text-primary px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg">
-                <span className="hidden xs:inline">Call Now: </span>(555) 123-4567
+              <Link href="tel:+2348031234567" className="btn-outline border-white text-white hover:bg-white hover:text-primary px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg">
+                <span className="hidden xs:inline">Call Now: </span>+234 803 123 4567
               </Link>
             </div>
           </div>

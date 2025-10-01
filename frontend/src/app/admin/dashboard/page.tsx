@@ -3,6 +3,7 @@
 import { useEffect, useState } from 'react'
 import { useRouter } from 'next/navigation'
 import Link from 'next/link'
+import Image from 'next/image'
 import Cookies from 'js-cookie'
 import { 
   BuildingStorefrontIcon, 
@@ -114,7 +115,18 @@ export default function AdminDashboard() {
           <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center py-4 sm:py-6 space-y-4 sm:space-y-0">
             <div className="flex items-center">
               <div className="bg-primary text-white p-2 rounded-lg mr-3 flex-shrink-0">
-                <BuildingStorefrontIcon className="w-5 h-5 sm:w-6 sm:h-6" />
+                <div className="w-5 h-5 sm:w-6 sm:h-6 relative">
+                  <Image
+                    src="/logo.png"
+                    alt="Octad Engineering Limited Logo"
+                    width={24}
+                    height={24}
+                    className="object-contain"
+                    onError={() => {
+                      // Show building icon if logo fails
+                    }}
+                  />
+                </div>
               </div>
               <div>
                 <h1 className="text-lg sm:text-xl lg:text-2xl font-bold text-gray-900">Octad Engineering Admin</h1>
@@ -125,7 +137,7 @@ export default function AdminDashboard() {
             <div className="flex items-center space-x-3 sm:space-x-4 w-full sm:w-auto justify-between sm:justify-end">
               <div className="text-left sm:text-right">
                 <p className="text-sm font-medium text-gray-900">Welcome back!</p>
-                <p className="text-xs sm:text-sm text-gray-500">@{user?.username}</p>
+                <p className="text-xs sm:text-sm text-gray-500">Alimi Gbolahan</p>
               </div>
               <button
                 onClick={handleLogout}
@@ -147,7 +159,7 @@ export default function AdminDashboard() {
           <div className="bg-gradient-to-r from-primary to-secondary rounded-xl sm:rounded-2xl p-4 sm:p-6 lg:p-8 text-white shadow-xl">
             <div className="flex items-center justify-between">
               <div className="animate-pulse">
-                <h2 className="text-xl xs:text-2xl sm:text-3xl font-bold mb-1 sm:mb-2">Welcome back, {user?.username}! 👋</h2>
+                <h2 className="text-xl xs:text-2xl sm:text-3xl font-bold mb-1 sm:mb-2">Welcome back, Alimi Gbolahan! 👋</h2>
                 <p className="text-white/90 text-sm sm:text-base lg:text-lg">Manage your construction projects and customer messages</p>
               </div>
               <div className="hidden sm:block animate-bounce">

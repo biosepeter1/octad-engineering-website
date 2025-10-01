@@ -272,9 +272,6 @@ export default function ContactPage() {
           {/* Hero Content */}
           <div className="relative z-10 container-custom text-center text-white px-4">
             <div className="max-w-5xl mx-auto">
-              <div className="inline-flex items-center justify-center w-16 h-16 sm:w-20 sm:h-20 bg-primary/20 backdrop-blur-sm border-2 border-white/20 rounded-full mb-6 sm:mb-8">
-                <HandRaisedIcon className="w-8 h-8 sm:w-10 sm:h-10" />
-              </div>
               <h1 className="text-3xl xs:text-4xl sm:text-5xl lg:text-7xl xl:text-8xl font-bold mb-6 sm:mb-8 animate-fade-in">
                 <span className="block pb-2 sm:pb-4">Let's Build</span>
                 <span className="block text-secondary animate-slide-up">Nigeria Together</span>
@@ -311,14 +308,7 @@ export default function ContactPage() {
                 </div>
               </div>
               
-              <div className="flex flex-col xs:flex-row gap-4 sm:gap-6 justify-center animate-slide-up">
-                <Link 
-                  href="tel:+2348031234567" 
-                  className="btn-secondary text-base sm:text-lg px-6 sm:px-8 lg:px-10 py-4 sm:py-5 transform hover:scale-105 transition-all duration-300 shadow-2xl"
-                >
-                  <PhoneIcon className="w-5 h-5 sm:w-6 sm:h-6 mr-2 sm:mr-3 inline" />
-                  <span className="hidden xs:inline">Call Now: </span>+234 803 123 4567
-                </Link>
+              <div className="flex justify-center animate-slide-up">
                 <Link 
                   href="/services" 
                   className="btn-outline text-base sm:text-lg px-6 sm:px-8 lg:px-10 py-4 sm:py-5 border-2 border-white text-white hover:bg-white hover:text-primary transform hover:scale-105 transition-all duration-300 shadow-2xl"

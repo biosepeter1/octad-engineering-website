@@ -177,10 +177,10 @@ export default function AboutPage() {
           
           <div className="relative z-10 container-custom text-center text-white px-4">
             <div className="max-w-5xl mx-auto">
-              <div className="inline-flex items-center justify-center w-16 h-16 sm:w-20 sm:h-20 bg-primary/20 backdrop-blur-sm border-2 border-white/20 rounded-full mb-6 sm:mb-8">
-                <BuildingStorefrontIcon className="w-8 h-8 sm:w-10 sm:h-10" />
+              <div className="hidden sm:inline-flex items-center justify-center w-20 h-20 bg-primary/20 backdrop-blur-sm border-2 border-white/20 rounded-full mb-8">
+                <BuildingStorefrontIcon className="w-10 h-10" />
               </div>
-              <h1 className="text-3xl xs:text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold mb-6 sm:mb-8">
+              <h1 className="text-3xl xs:text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold mb-6 sm:mb-8 sm:mt-0">
                 <span className="block pb-2 sm:pb-4">About</span>
                 <span className="block">
                   <span className="text-secondary">Octad </span>
@@ -542,7 +542,7 @@ export default function AboutPage() {
                   Start Your Project Today
                   <ArrowRightIcon className="w-5 h-5 sm:w-6 sm:h-6 ml-2 sm:ml-3 inline" />
                 </Link>
-                <Link href="/projects" className="btn-outline text-base sm:text-lg px-6 sm:px-8 lg:px-10 py-4 sm:py-5 border-2 border-white text-white hover:bg-white hover:text-primary transform hover:scale-105 transition-all duration-300 shadow-2xl">
+                <Link href="/success-stories" className="btn-outline text-base sm:text-lg px-6 sm:px-8 lg:px-10 py-4 sm:py-5 border-2 border-white text-white hover:bg-white hover:text-primary transform hover:scale-105 transition-all duration-300 shadow-2xl">
                   See Our Success Stories
                 </Link>
               </div>

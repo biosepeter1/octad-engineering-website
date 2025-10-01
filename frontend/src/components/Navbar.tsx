@@ -86,43 +86,63 @@ export default function Navbar() {
           <div className="md:hidden">
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="text-gray-700 hover:text-primary focus:outline-none focus:text-primary p-2 -m-2 rounded-md transition-colors duration-200"
+              className="relative text-gray-700 hover:text-primary focus:outline-none focus:text-primary p-2 -m-2 rounded-md transition-all duration-300 hover:bg-gray-100 active:scale-95"
               aria-label="Toggle navigation menu"
             >
-              {isOpen ? (
-                <XMarkIcon className="h-6 w-6" />
-              ) : (
-                <Bars3Icon className="h-6 w-6" />
-              )}
+              <div className="relative w-6 h-6">
+                <span className={`absolute top-1 left-0 w-6 h-0.5 bg-current rounded-full transform transition-all duration-300 ease-in-out ${
+                  isOpen ? 'rotate-45 translate-y-2.5' : 'rotate-0 translate-y-0'
+                }`}></span>
+                <span className={`absolute top-1/2 left-0 w-6 h-0.5 bg-current rounded-full transform -translate-y-0.5 transition-all duration-300 ease-in-out ${
+                  isOpen ? 'opacity-0 scale-0' : 'opacity-100 scale-100'
+                }`}></span>
+                <span className={`absolute bottom-1 left-0 w-6 h-0.5 bg-current rounded-full transform transition-all duration-300 ease-in-out ${
+                  isOpen ? '-rotate-45 -translate-y-2.5' : 'rotate-0 translate-y-0'
+                }`}></span>
+              </div>
             </button>
           </div>
         </div>
 
         {/* Mobile Navigation */}
-        <div className={`md:hidden transition-all duration-300 ease-in-out overflow-hidden ${
+        <div className={`md:hidden transition-all duration-500 ease-in-out overflow-hidden ${
           isOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
         }`}>
-          <div className="pb-4 pt-2 border-t border-gray-100">
+          <div className={`pb-4 pt-2 border-t border-gray-100 transform transition-all duration-300 ${
+            isOpen ? 'translate-y-0' : '-translate-y-4'
+          }`}>
             <div className="flex flex-col space-y-1">
-              {navigation.map((item) => (
+              {navigation.map((item, index) => (
                 <Link
                   key={item.name}
                   href={item.href}
-                  className="text-gray-700 hover:text-primary hover:bg-gray-50 font-medium transition-colors duration-200 px-4 py-3 rounded-md mx-2"
+                  className={`text-gray-700 hover:text-primary hover:bg-gray-50 font-medium transition-all duration-300 px-4 py-3 rounded-md mx-2 transform hover:translate-x-2 hover:shadow-sm ${
+                    isOpen 
+                      ? 'translate-x-0 opacity-100' 
+                      : '-translate-x-4 opacity-0'
+                  }`}
+                  style={{
+                    transitionDelay: isOpen ? `${index * 50}ms` : '0ms'
+                  }}
                   onClick={() => setIsOpen(false)}
                 >
-                  {item.name}
+                  <span className="flex items-center space-x-2">
+                    <span className="w-1.5 h-1.5 bg-primary rounded-full opacity-0 group-hover:opacity-100 transition-opacity"></span>
+                    <span>{item.name}</span>
+                  </span>
                 </Link>
               ))}
-              <div className="px-2 pt-2 mt-2 border-t border-gray-100">
+              <div className={`px-2 pt-2 mt-2 border-t border-gray-100 transform transition-all duration-300 ${
+                isOpen ? 'translate-y-0 opacity-100' : 'translate-y-2 opacity-0'
+              }`} style={{ transitionDelay: isOpen ? '250ms' : '0ms' }}>
                 {isAuthenticated ? (
                   <div className="flex flex-col space-y-2">
                     <Link
                       href="/admin/dashboard"
-                      className="flex items-center space-x-2 w-full px-4 py-3 text-sm font-medium text-gray-700 hover:text-primary hover:bg-gray-50 rounded-md transition-colors duration-200"
+                      className="flex items-center space-x-2 w-full px-4 py-3 text-sm font-medium text-gray-700 hover:text-primary hover:bg-gray-50 rounded-md transition-all duration-200 transform hover:translate-x-1 hover:shadow-sm"
                       onClick={() => setIsOpen(false)}
                     >
-                      <CogIcon className="h-4 w-4" />
+                      <CogIcon className="h-4 w-4 transition-transform hover:rotate-180" />
                       <span>Admin Panel</span>
                     </Link>
                     <button
@@ -130,19 +150,19 @@ export default function Navbar() {
                         logout();
                         setIsOpen(false);
                       }}
-                      className="flex items-center space-x-2 w-full px-4 py-3 text-sm font-medium text-gray-700 hover:text-red-600 hover:bg-red-50 rounded-md transition-colors duration-200"
+                      className="flex items-center space-x-2 w-full px-4 py-3 text-sm font-medium text-gray-700 hover:text-red-600 hover:bg-red-50 rounded-md transition-all duration-200 transform hover:translate-x-1 hover:shadow-sm"
                     >
-                      <ArrowRightOnRectangleIcon className="h-4 w-4" />
+                      <ArrowRightOnRectangleIcon className="h-4 w-4 transition-transform hover:-translate-x-0.5" />
                       <span>Logout</span>
                     </button>
                   </div>
                 ) : (
                   <Link
                     href="/admin/login"
-                    className="flex items-center space-x-2 w-full px-4 py-3 text-sm font-medium text-gray-700 hover:text-primary hover:bg-gray-50 rounded-md transition-colors duration-200"
+                    className="flex items-center space-x-2 w-full px-4 py-3 text-sm font-medium text-gray-700 hover:text-primary hover:bg-gray-50 rounded-md transition-all duration-200 transform hover:translate-x-1 hover:shadow-sm"
                     onClick={() => setIsOpen(false)}
                   >
-                    <CogIcon className="h-4 w-4" />
+                    <CogIcon className="h-4 w-4 transition-transform hover:rotate-180" />
                     <span>Admin Login</span>
                   </Link>
                 )}

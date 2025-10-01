@@ -241,22 +241,22 @@ export default function ProjectsPage() {
       <Navbar />
       <main>
         {/* Hero Section */}
-        <section className="relative bg-gradient-to-br from-primary to-primary-800 text-white">
+        <section className="relative bg-gradient-to-br from-primary to-primary-800 text-white pt-20">
           <div className="absolute inset-0 bg-black opacity-20"></div>
-          <div className="relative container-custom section-padding">
+          <div className="relative container-custom section-padding px-4 xs:px-6 sm:px-8">
             <div className="max-w-4xl mx-auto text-center">
               <h1 className="text-3xl xs:text-4xl sm:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6">
                 Our <span className="text-secondary">Projects</span>
               </h1>
-              <p className="text-lg sm:text-xl lg:text-2xl mb-6 sm:mb-8 text-gray-100 px-4">
+              <p className="text-lg sm:text-xl lg:text-2xl mb-6 sm:mb-8 text-gray-100 px-4 xs:px-0">
                 Explore our portfolio of completed construction projects and see our craftsmanship in action
               </p>
               <div className="flex flex-col xs:flex-row gap-3 sm:gap-4 justify-center">
-                <Link href="/contact" className="btn-secondary px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg">
+                <Link href="/contact" className="btn-secondary px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg min-h-[48px]">
                   Start Your Project
                   <ArrowRightIcon className="w-4 h-4 sm:w-5 sm:h-5 ml-2 inline" />
                 </Link>
-                <Link href="/about" className="btn-outline border-white text-white hover:bg-white hover:text-primary px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg">
+                <Link href="/about" className="btn-outline border-white text-white hover:bg-white hover:text-primary px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg min-h-[48px]">
                   Learn About Us
                 </Link>
               </div>
