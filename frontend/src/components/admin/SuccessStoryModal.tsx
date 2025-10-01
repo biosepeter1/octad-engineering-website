@@ -179,22 +179,27 @@ export default function SuccessStoryModal({ isOpen, onClose, onSuccess, mode, st
 
     setUploadingImages(true)
     try {
-      const uploadPromises = files.map(file => uploadAPI.uploadImages([file]))
-      const responses = await Promise.all(uploadPromises)
+      // Upload all files in a single request instead of individual requests
+      const response = await uploadAPI.uploadImages(files)
       
-      const newImages = responses.map((response, index) => ({
-        url: response.data.urls[0],
-        alt: `${formData.title} - Image ${formData.images.length + index + 1}`,
-        isPrimary: formData.images.length === 0 && index === 0
-      }))
+      if (response.success && response.data && Array.isArray(response.data)) {
+        const newImages = response.data.map((fileData, index) => ({
+          url: fileData.fullUrl || fileData.url,
+          alt: `${formData.title || 'Success Story'} - Image ${formData.images.length + index + 1}`,
+          isPrimary: formData.images.length === 0 && index === 0
+        }))
 
-      setFormData(prev => ({
-        ...prev,
-        images: [...prev.images, ...newImages]
-      }))
+        setFormData(prev => ({
+          ...prev,
+          images: [...prev.images, ...newImages]
+        }))
 
-      toast.success(`${files.length} image(s) uploaded successfully!`)
+        toast.success(`${files.length} image(s) uploaded successfully!`)
+      } else {
+        throw new Error('Invalid response format from upload API')
+      }
     } catch (error) {
+      console.error('Image upload error:', error)
       handleApiError(error, 'Failed to upload images')
     } finally {
       setUploadingImages(false)
