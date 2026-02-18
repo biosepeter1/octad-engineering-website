@@ -6,13 +6,14 @@ const {
 } = require('../controllers/aboutController');
 const { validateAbout } = require('../middleware/validation');
 const { authenticate, requireAdmin } = require('../middleware/auth');
+const { cacheMiddleware } = require('../middleware/cache');
 
 const router = express.Router();
 
 // @route   GET /api/about
 // @desc    Get about information
 // @access  Public
-router.get('/', getAbout);
+router.get('/', cacheMiddleware('about'), getAbout);
 
 // @route   GET /api/about/stats
 // @desc    Get about statistics

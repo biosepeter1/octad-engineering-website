@@ -4,8 +4,8 @@ import { useState, useEffect } from 'react'
 import { useForm } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
 import * as yup from 'yup'
-import { 
-  XMarkIcon, 
+import {
+  XMarkIcon,
   PaperAirplaneIcon,
   ExclamationTriangleIcon
 } from '@heroicons/react/24/outline'
@@ -63,9 +63,9 @@ We would be delighted to discuss your project requirements in detail. Our team c
 
 Best regards,
 Octad Engineering Limited Team
-+234 803 123 4567
-info@octadengineering.com
-15 Adeola Odeku Street, Victoria Island, Lagos, Nigeria`,
+07012629438
+octadengineering@gmail.com
+10 Alade Street, Alapere-Ketu, Lagos, Nigeria`,
 
     residential: `Dear ${contact.name},
 
@@ -83,9 +83,9 @@ We would love to help bring your dream home to life. Our experienced team can wo
 
 Best regards,
 Octad Engineering Limited Team
-+234 803 123 4567
-info@octadengineering.com
-15 Adeola Odeku Street, Victoria Island, Lagos, Nigeria`,
+07012629438
+octadengineering@gmail.com
+10 Alade Street, Alapere-Ketu, Lagos, Nigeria`,
 
     general: `Dear ${contact.name},
 
@@ -99,9 +99,9 @@ We will have a member of our team reach out to you soon to discuss your requirem
 
 Best regards,
 Octad Engineering Limited Team
-+234 803 123 4567
-info@octadengineering.com
-15 Adeola Odeku Street, Victoria Island, Lagos, Nigeria`
+07012629438
+octadengineering@gmail.com
+10 Alade Street, Alapere-Ketu, Lagos, Nigeria`
   }
 
   // Determine template based on subject content
@@ -117,7 +117,7 @@ info@octadengineering.com
 
 export default function ReplyModal({ contact, isOpen, onClose, onSuccess }: ReplyModalProps) {
   const [isSubmitting, setIsSubmitting] = useState(false)
-  
+
   const {
     register,
     handleSubmit,
@@ -147,7 +147,7 @@ export default function ReplyModal({ contact, isOpen, onClose, onSuccess }: Repl
 
   const onSubmit = async (data: ReplyData) => {
     if (!contact) return
-    
+
     setIsSubmitting(true)
     try {
       // Send reply using backend Gmail SMTP
@@ -155,7 +155,7 @@ export default function ReplyModal({ contact, isOpen, onClose, onSuccess }: Repl
         subject: data.subject,
         message: data.message
       })
-      
+
       if (response.success) {
         toast.success('✅ Reply sent successfully!')
         onSuccess() // Refresh the contacts list
@@ -252,9 +252,8 @@ export default function ReplyModal({ contact, isOpen, onClose, onSuccess }: Repl
               type="text"
               id="subject"
               {...register('subject')}
-              className={`w-full px-3 py-2 border rounded-md focus:ring-primary focus:border-primary transition-colors ${
-                errors.subject ? 'border-red-500 bg-red-50' : 'border-gray-300'
-              }`}
+              className={`w-full px-3 py-2 border rounded-md focus:ring-primary focus:border-primary transition-colors ${errors.subject ? 'border-red-500 bg-red-50' : 'border-gray-300'
+                }`}
               placeholder="Enter email subject"
             />
             {errors.subject && (
@@ -273,9 +272,8 @@ export default function ReplyModal({ contact, isOpen, onClose, onSuccess }: Repl
               id="message"
               rows={12}
               {...register('message')}
-              className={`w-full px-3 py-2 border rounded-md focus:ring-primary focus:border-primary transition-colors resize-none ${
-                errors.message ? 'border-red-500 bg-red-50' : 'border-gray-300'
-              }`}
+              className={`w-full px-3 py-2 border rounded-md focus:ring-primary focus:border-primary transition-colors resize-none ${errors.message ? 'border-red-500 bg-red-50' : 'border-gray-300'
+                }`}
               placeholder="Enter your reply message"
             />
             {errors.message && (

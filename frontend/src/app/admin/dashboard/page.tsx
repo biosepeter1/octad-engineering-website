@@ -5,9 +5,9 @@ import { useRouter } from 'next/navigation'
 import Link from 'next/link'
 import Image from 'next/image'
 import Cookies from 'js-cookie'
-import { 
-  BuildingStorefrontIcon, 
-  BriefcaseIcon, 
+import {
+  BuildingStorefrontIcon,
+  BriefcaseIcon,
   EnvelopeIcon,
   ChartBarIcon,
   ArrowRightOnRectangleIcon,
@@ -132,7 +132,7 @@ export default function AdminDashboard() {
               <div className="bg-primary text-white p-2 rounded-lg mr-3 flex-shrink-0">
                 <div className="w-5 h-5 sm:w-6 sm:h-6 relative">
                   <Image
-                    src="/logo.png"
+                    src="/logo_blue_no_bg.png"
                     alt="Octad Engineering Limited Logo"
                     width={24}
                     height={24}
@@ -148,7 +148,7 @@ export default function AdminDashboard() {
                 <p className="text-xs sm:text-sm text-gray-500">Content Management System</p>
               </div>
             </div>
-            
+
             <div className="flex items-center space-x-3 sm:space-x-4 w-full sm:w-auto justify-between sm:justify-end">
               <div className="text-left sm:text-right">
                 <p className="text-sm font-medium text-gray-900">Welcome back!</p>
@@ -275,7 +275,7 @@ export default function AdminDashboard() {
             </span>
             <div className="ml-2 sm:ml-3 w-4 sm:w-6 h-0.5 bg-gradient-to-r from-primary to-secondary rounded-full"></div>
           </h2>
-          
+
           <div className="grid grid-cols-1 gap-4 sm:gap-6 lg:gap-8 lg:grid-cols-2">
             {menuItems.map((item, index) => (
               <Link
@@ -286,7 +286,7 @@ export default function AdminDashboard() {
               >
                 {/* Gradient Background */}
                 <div className={`absolute inset-0 ${item.bgColor} opacity-0 group-hover:opacity-100 transition-opacity duration-500`}></div>
-                
+
                 {/* Content */}
                 <div className="relative p-4 sm:p-6 lg:p-8">
                   <div className="flex flex-col sm:flex-row items-start justify-between mb-4 sm:mb-6 space-y-3 sm:space-y-0">
@@ -303,7 +303,7 @@ export default function AdminDashboard() {
                         </p>
                       </div>
                     </div>
-                    
+
                     <div className="flex items-center space-x-2 sm:space-x-3 flex-shrink-0">
                       {item.count !== null && (
                         <span className="bg-gray-100 group-hover:bg-white/20 text-gray-800 group-hover:text-white px-2 sm:px-3 py-1 rounded-full text-xs sm:text-sm font-semibold transition-all duration-300">
@@ -318,7 +318,7 @@ export default function AdminDashboard() {
                       <ArrowUpRightIcon className="w-5 h-5 sm:w-6 sm:h-6 text-gray-400 group-hover:text-white transition-all duration-300 transform group-hover:translate-x-1 group-hover:-translate-y-1" />
                     </div>
                   </div>
-                  
+
                   {/* Action Buttons */}
                   <div className="flex space-x-2 sm:space-x-3">
                     <div className="flex-1 bg-gray-50 group-hover:bg-white/10 rounded-lg p-2 sm:p-3 transition-all duration-300">
@@ -329,13 +329,13 @@ export default function AdminDashboard() {
                         <EyeIcon className="w-3 h-3 sm:w-4 sm:h-4 text-gray-500 group-hover:text-white transition-colors flex-shrink-0" />
                       </div>
                     </div>
-                    
+
                     <div className="bg-gray-50 group-hover:bg-white/10 rounded-lg p-2 sm:p-3 transition-all duration-300">
                       <PlusIcon className="w-4 h-4 sm:w-5 sm:h-5 text-gray-500 group-hover:text-white transition-colors" />
                     </div>
                   </div>
                 </div>
-                
+
                 {/* Decorative Elements */}
                 <div className="absolute -top-4 -right-4 w-24 h-24 bg-white/5 rounded-full group-hover:scale-150 transition-transform duration-700"></div>
                 <div className="absolute -bottom-4 -left-4 w-16 h-16 bg-white/5 rounded-full group-hover:scale-150 transition-transform duration-700"></div>

@@ -1,4 +1,5 @@
 const Project = require('../models/Project');
+const { clearCache } = require('../middleware/cache');
 
 // Get all projects (public)
 const getProjects = async (req, res) => {
@@ -152,6 +153,7 @@ const createProject = async (req, res) => {
     });
 
     const savedProject = await project.save();
+    clearCache('projects');
 
     res.status(201).json({
       success: true,
@@ -187,6 +189,8 @@ const updateProject = async (req, res) => {
       });
     }
 
+    clearCache('projects');
+
     res.json({
       success: true,
       message: 'Project updated successfully',
@@ -215,6 +219,8 @@ const deleteProject = async (req, res) => {
         message: 'Project not found'
       });
     }
+
+    clearCache('projects');
 
     res.json({
       success: true,

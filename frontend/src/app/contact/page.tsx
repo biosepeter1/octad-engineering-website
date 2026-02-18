@@ -5,7 +5,7 @@ import Link from 'next/link'
 import { useForm } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
 import * as yup from 'yup'
-import { 
+import {
   PhoneIcon,
   EnvelopeIcon,
   MapPinIcon,
@@ -43,19 +43,14 @@ const schema = yup.object({
   message: yup.string().required('Message is required').min(20, 'Message must be at least 20 characters')
 })
 
+
+
 // Google Maps configuration - Nigerian Location
-const GOOGLE_MAPS_CONFIG = {
-  center: { lat: 6.5244, lng: 3.3792 }, // Lagos, Nigeria coordinates
-  zoom: 15,
-  address: '15 Adeola Odeku Street, Victoria Island, Lagos 101241, Nigeria'
-}
+const mapSrc = "https://maps.google.com/maps?q=10+Alade+Street,+Alapere-Ketu,+Lagos&t=&z=15&ie=UTF8&iwloc=&output=embed";
 
 export default function ContactPage() {
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [submitSuccess, setSubmitSuccess] = useState(false)
-  const [mapLoaded, setMapLoaded] = useState(false)
-  const mapRef = useRef<HTMLDivElement>(null)
-  const mapInstanceRef = useRef<any>(null)
 
   const {
     register,
@@ -65,105 +60,6 @@ export default function ContactPage() {
   } = useForm<ContactFormData>({
     resolver: yupResolver(schema)
   })
-
-  // Load Google Maps with improved singleton loader
-  useEffect(() => {
-    const loadGoogleMaps = async () => {
-      try {
-        const loader = GoogleMapsLoader.getInstance()
-        await loader.load({
-          apiKey: process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY || 'DEMO_KEY',
-          libraries: ['places']
-        })
-        
-        // Initialize map after successful load
-        initializeMap()
-      } catch (error) {
-        console.error('Google Maps failed to load:', error)
-        setMapLoaded(false)
-      }
-    }
-
-    const initializeMap = () => {
-      if (mapRef.current && window.google && window.google.maps) {
-        try {
-          const map = new window.google.maps.Map(mapRef.current, {
-            center: GOOGLE_MAPS_CONFIG.center,
-            zoom: GOOGLE_MAPS_CONFIG.zoom,
-            styles: [
-              {
-                featureType: 'all',
-                elementType: 'geometry.fill',
-                stylers: [{ color: '#f8f9fa' }]
-              },
-              {
-                featureType: 'water',
-                elementType: 'geometry',
-                stylers: [{ color: '#e1f5fe' }]
-              },
-              {
-                featureType: 'road',
-                elementType: 'geometry',
-                stylers: [{ color: '#ffffff' }]
-              }
-            ]
-          })
-
-          // Add marker
-          const marker = new window.google.maps.Marker({
-            position: GOOGLE_MAPS_CONFIG.center,
-            map: map,
-            title: 'Octad Engineering Limited',
-            icon: {
-              url: 'data:image/svg+xml;base64,' + btoa(`
-                <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <circle cx="20" cy="20" r="20" fill="#236BB5"/>
-                  <path d="M20 8L28 14V28H12V14L20 8Z" fill="white"/>
-                </svg>
-              `),
-              scaledSize: new window.google.maps.Size(40, 40),
-              anchor: new window.google.maps.Point(20, 20)
-            }
-          })
-
-          // Add info window
-          const infoWindow = new window.google.maps.InfoWindow({
-            content: `
-              <div style="padding: 10px; font-family: 'Inter', sans-serif;">
-                <h3 style="margin: 0 0 8px 0; color: #236BB5; font-size: 16px; font-weight: 600;">Octad Engineering Limited</h3>
-                <p style="margin: 0 0 8px 0; color: #6B7280; font-size: 14px;">${GOOGLE_MAPS_CONFIG.address}</p>
-                <div style="display: flex; gap: 15px; margin-top: 10px;">
-                  <a href="tel:+2348031234567" style="color: #236BB5; text-decoration: none; font-size: 14px;">📞 +234 803 123 4567</a>
-                  <a href="mailto:info@octadengineering.com" style="color: #236BB5; text-decoration: none; font-size: 14px;">✉️ Email</a>
-                </div>
-              </div>
-            `
-          })
-
-          marker.addListener('click', () => {
-            infoWindow.open(map, marker)
-          })
-
-          // Open info window by default
-          infoWindow.open(map, marker)
-
-          mapInstanceRef.current = map
-          setMapLoaded(true)
-        } catch (error) {
-          console.error('Error initializing map:', error)
-          setMapLoaded(false)
-        }
-      }
-    }
-
-    // Call the async function
-    loadGoogleMaps()
-    
-    // Cleanup function
-    return () => {
-      // No need for cleanup with the improved loader
-    }
-  }, [])
 
   // EmailJS configuration
   const EMAILJS_CONFIG = {
@@ -189,7 +85,7 @@ export default function ContactPage() {
         },
         EMAILJS_CONFIG.publicKey
       )
-      
+
       if (emailjsResult.status === 200) {
         setSubmitSuccess(true)
         reset()
@@ -220,22 +116,22 @@ export default function ContactPage() {
     {
       icon: PhoneIcon,
       title: 'Call Us',
-      info: '+234 803 123 4567',
-      subInfo: 'Mon - Fri: 8:00 AM - 6:00 PM WAT',
-      href: 'tel:+2348031234567'
+      info: '07012629438',
+      subInfo: '07062404255 • Mon - Fri: 8:00 AM - 6:00 PM WAT',
+      href: 'tel:07012629438'
     },
     {
       icon: EnvelopeIcon,
       title: 'Email Us',
-      info: 'info@octadengineering.com.ng',
+      info: 'octadengineering@gmail.com',
       subInfo: 'We respond within 24 hours',
-      href: 'mailto:info@octadengineering.com.ng'
+      href: 'mailto:octadengineering@gmail.com'
     },
     {
       icon: MapPinIcon,
       title: 'Visit Our Lagos Office',
-      info: '15 Construction Close, Victoria Island',
-      subInfo: 'Lagos State, Nigeria 101241',
+      info: '10 Alade Street, Alapere-Ketu',
+      subInfo: 'Lagos State, Nigeria',
       href: 'https://maps.google.com'
     },
     {
@@ -248,7 +144,7 @@ export default function ContactPage() {
   ]
 
   const serviceAreas = [
-    'Lagos State', 'Abuja FCT', 'Rivers State', 
+    'Lagos State', 'Abuja FCT', 'Rivers State',
     'Ogun State', 'Kano State', 'Delta State'
   ]
 
@@ -260,15 +156,15 @@ export default function ContactPage() {
         <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
           {/* Background Image with Overlay */}
           <div className="absolute inset-0 z-0">
-            <img 
-              src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80" 
-              alt="Contact Octad Engineering - Nigerian Excellence" 
+            <img
+              src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80"
+              alt="Contact Octad Engineering - Nigerian Excellence"
               className="w-full h-full object-cover"
             />
             <div className="absolute inset-0 bg-black/60"></div>
             <div className="absolute inset-0 bg-gradient-to-r from-primary/30 to-secondary/30"></div>
           </div>
-          
+
           {/* Hero Content */}
           <div className="relative z-10 container-custom text-center text-white px-4">
             <div className="max-w-5xl mx-auto">
@@ -277,10 +173,10 @@ export default function ContactPage() {
                 <span className="block text-secondary animate-slide-up">Nigeria Together</span>
               </h1>
               <p className="text-base sm:text-lg lg:text-xl xl:text-2xl 2xl:text-3xl mb-8 sm:mb-10 lg:mb-12 text-gray-100 animate-slide-up max-w-4xl mx-auto leading-relaxed">
-                Ready to transform your vision into reality? Connect with Nigeria's leading construction experts 
+                Ready to transform your vision into reality? Connect with Nigeria's leading construction experts
                 and let's discuss your next project. From Lagos to Abuja, we're here to serve.
               </p>
-              
+
               <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 mb-8 sm:mb-10 lg:mb-12 max-w-2xl mx-auto">
                 <div className="text-center">
                   <div className="bg-white/10 rounded-full w-12 h-12 sm:w-16 sm:h-16 flex items-center justify-center mx-auto mb-1 sm:mb-2">
@@ -307,10 +203,10 @@ export default function ContactPage() {
                   <div className="text-xs sm:text-sm font-medium">200+ Projects</div>
                 </div>
               </div>
-              
+
               <div className="flex justify-center animate-slide-up">
-                <Link 
-                  href="/services" 
+                <Link
+                  href="/services"
                   className="btn-outline text-base sm:text-lg px-6 sm:px-8 lg:px-10 py-4 sm:py-5 border-2 border-white text-white hover:bg-white hover:text-primary transform hover:scale-105 transition-all duration-300 shadow-2xl"
                 >
                   View Our Services
@@ -318,7 +214,7 @@ export default function ContactPage() {
               </div>
             </div>
           </div>
-          
+
           {/* Scroll Indicator */}
           <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
             <div className="w-6 h-10 border-2 border-white rounded-full flex justify-center">
@@ -338,7 +234,7 @@ export default function ContactPage() {
                 Multiple ways to reach us across Nigeria - from Lagos to Abuja, we're always here to serve you.
               </p>
             </div>
-            
+
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8">
               {contactInfo.map((item, index) => (
                 <div key={index} className="group">
@@ -380,7 +276,7 @@ export default function ContactPage() {
                     Start Your Nigerian <span className="text-primary">Dream Project</span>
                   </h2>
                   <p className="text-base sm:text-lg lg:text-xl text-gray-600 leading-relaxed">
-                    Ready to build across Nigeria? Share your vision with us and our expert team will respond 
+                    Ready to build across Nigeria? Share your vision with us and our expert team will respond
                     within 24 hours to discuss bringing your project to life.
                   </p>
                   <div className="flex flex-col xs:flex-row items-start xs:items-center space-y-3 xs:space-y-0 xs:space-x-4 lg:space-x-6 mt-4 sm:mt-6">
@@ -419,9 +315,8 @@ export default function ContactPage() {
                         type="text"
                         id="name"
                         {...register('name')}
-                        className={`w-full px-4 sm:px-5 py-3 sm:py-4 border-2 rounded-lg sm:rounded-xl focus:ring-4 focus:ring-primary/20 focus:border-primary transition-all duration-300 bg-white shadow-sm hover:shadow-md text-base ${
-                          errors.name ? 'border-red-500 bg-red-50' : 'border-gray-200 focus:bg-white'
-                        }`}
+                        className={`w-full px-4 sm:px-5 py-3 sm:py-4 border-2 rounded-lg sm:rounded-xl focus:ring-4 focus:ring-primary/20 focus:border-primary transition-all duration-300 bg-white shadow-sm hover:shadow-md text-base ${errors.name ? 'border-red-500 bg-red-50' : 'border-gray-200 focus:bg-white'
+                          }`}
                         placeholder="Enter your full name"
                       />
                       {errors.name && (
@@ -440,10 +335,9 @@ export default function ContactPage() {
                         type="tel"
                         id="phone"
                         {...register('phone')}
-                        className={`w-full px-4 sm:px-5 py-3 sm:py-4 border-2 rounded-lg sm:rounded-xl focus:ring-4 focus:ring-primary/20 focus:border-primary transition-all duration-300 bg-white shadow-sm hover:shadow-md text-base ${
-                          errors.phone ? 'border-red-500 bg-red-50' : 'border-gray-200 focus:bg-white'
-                        }`}
-                        placeholder="+234 803 123 4567"
+                        className={`w-full px-4 sm:px-5 py-3 sm:py-4 border-2 rounded-lg sm:rounded-xl focus:ring-4 focus:ring-primary/20 focus:border-primary transition-all duration-300 bg-white shadow-sm hover:shadow-md text-base ${errors.phone ? 'border-red-500 bg-red-50' : 'border-gray-200 focus:bg-white'
+                          }`}
+                        placeholder="07012629438"
                       />
                       {errors.phone && (
                         <p className="mt-1 text-sm text-red-600 flex items-center">
@@ -462,9 +356,8 @@ export default function ContactPage() {
                       type="email"
                       id="email"
                       {...register('email')}
-                      className={`w-full px-4 sm:px-5 py-3 sm:py-4 border-2 rounded-lg sm:rounded-xl focus:ring-4 focus:ring-primary/20 focus:border-primary transition-all duration-300 bg-white shadow-sm hover:shadow-md text-base ${
-                        errors.email ? 'border-red-500 bg-red-50' : 'border-gray-200 focus:bg-white'
-                      }`}
+                      className={`w-full px-4 sm:px-5 py-3 sm:py-4 border-2 rounded-lg sm:rounded-xl focus:ring-4 focus:ring-primary/20 focus:border-primary transition-all duration-300 bg-white shadow-sm hover:shadow-md text-base ${errors.email ? 'border-red-500 bg-red-50' : 'border-gray-200 focus:bg-white'
+                        }`}
                       placeholder="your@email.com"
                     />
                     {errors.email && (
@@ -482,9 +375,8 @@ export default function ContactPage() {
                     <select
                       id="subject"
                       {...register('subject')}
-                      className={`w-full px-4 sm:px-5 py-3 sm:py-4 border-2 rounded-lg sm:rounded-xl focus:ring-4 focus:ring-primary/20 focus:border-primary transition-all duration-300 bg-white shadow-sm hover:shadow-md text-base ${
-                        errors.subject ? 'border-red-500 bg-red-50' : 'border-gray-200 focus:bg-white'
-                      }`}
+                      className={`w-full px-4 sm:px-5 py-3 sm:py-4 border-2 rounded-lg sm:rounded-xl focus:ring-4 focus:ring-primary/20 focus:border-primary transition-all duration-300 bg-white shadow-sm hover:shadow-md text-base ${errors.subject ? 'border-red-500 bg-red-50' : 'border-gray-200 focus:bg-white'
+                        }`}
                     >
                       <option value="">Select project type...</option>
                       <option value="Residential Construction">Residential Construction</option>
@@ -512,9 +404,8 @@ export default function ContactPage() {
                       id="message"
                       rows={5}
                       {...register('message')}
-                      className={`w-full px-4 sm:px-5 py-3 sm:py-4 border-2 rounded-lg sm:rounded-xl focus:ring-4 focus:ring-primary/20 focus:border-primary transition-all duration-300 bg-white shadow-sm hover:shadow-md resize-none text-base ${
-                        errors.message ? 'border-red-500 bg-red-50' : 'border-gray-200 focus:bg-white'
-                      }`}
+                      className={`w-full px-4 sm:px-5 py-3 sm:py-4 border-2 rounded-lg sm:rounded-xl focus:ring-4 focus:ring-primary/20 focus:border-primary transition-all duration-300 bg-white shadow-sm hover:shadow-md resize-none text-base ${errors.message ? 'border-red-500 bg-red-50' : 'border-gray-200 focus:bg-white'
+                        }`}
                       placeholder="Please describe your project, timeline, budget range, and any specific requirements..."
                     ></textarea>
                     {errors.message && (
@@ -620,9 +511,9 @@ export default function ContactPage() {
           <div className="container-custom">
             <div className="text-center mb-6 sm:mb-8">
               <h2 className="text-2xl xs:text-3xl sm:text-3xl font-bold text-gray-900 mb-3 sm:mb-4">Visit Our Lagos Office</h2>
-              <p className="text-base sm:text-lg text-gray-600 px-4">Find us at our modern facility in the heart of Victoria Island, Lagos</p>
+              <p className="text-base sm:text-lg text-gray-600 px-4">Find us at our office in Alapere-Ketu, Lagos</p>
             </div>
-            
+
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 sm:gap-8">
               {/* Office Information */}
               <div className="lg:col-span-1">
@@ -633,29 +524,29 @@ export default function ContactPage() {
                     </div>
                     <h3 className="text-lg sm:text-xl font-semibold text-gray-900 mb-2">Our Location</h3>
                     <address className="text-sm sm:text-base text-gray-600 not-italic leading-relaxed">
-                      15 Adeola Odeku Street<br />
-                      Victoria Island, Lagos 101241<br />
+                      10 Alade Street, Alapere-Ketu<br />
+                      Lagos, Nigeria<br />
                       Nigeria
                     </address>
                   </div>
-                  
+
                   <div className="space-y-3 sm:space-y-4 mb-4 sm:mb-6">
                     <div className="flex items-center">
                       <PhoneIcon className="w-4 h-4 sm:w-5 sm:h-5 text-primary mr-2 sm:mr-3 flex-shrink-0" />
                       <div>
                         <p className="font-medium text-gray-900 text-sm sm:text-base">Phone</p>
-                        <a href="tel:+2348031234567" className="text-primary hover:text-primary-700 text-sm sm:text-base break-words">+234 803 123 4567</a>
+                        <a href="tel:07012629438" className="text-primary hover:text-primary-700 text-sm sm:text-base break-words">07012629438</a>
                       </div>
                     </div>
-                    
+
                     <div className="flex items-center">
                       <EnvelopeIcon className="w-4 h-4 sm:w-5 sm:h-5 text-primary mr-2 sm:mr-3 flex-shrink-0" />
                       <div>
                         <p className="font-medium text-gray-900 text-sm sm:text-base">Email</p>
-                        <a href="mailto:info@octadengineering.com" className="text-primary hover:text-primary-700 text-sm sm:text-base break-words">info@octadengineering.com</a>
+                        <a href="mailto:octadengineering@gmail.com" className="text-primary hover:text-primary-700 text-sm sm:text-base break-words">octadengineering@gmail.com</a>
                       </div>
                     </div>
-                    
+
                     <div className="flex items-start">
                       <ClockIcon className="w-4 h-4 sm:w-5 sm:h-5 text-primary mr-2 sm:mr-3 flex-shrink-0 mt-0.5" />
                       <div>
@@ -668,7 +559,7 @@ export default function ContactPage() {
                       </div>
                     </div>
                   </div>
-                  
+
                   <div className="pt-4 sm:pt-6 border-t border-gray-100">
                     <h4 className="font-medium text-gray-900 mb-2 sm:mb-3 text-sm sm:text-base">Getting Here</h4>
                     <ul className="text-xs sm:text-sm text-gray-600 space-y-1 sm:space-y-2">
@@ -680,60 +571,25 @@ export default function ContactPage() {
                   </div>
                 </div>
               </div>
-              
+
               {/* Google Map */}
               <div className="lg:col-span-2 mt-6 lg:mt-0">
-                <div className="relative h-64 sm:h-80 lg:h-96 bg-gray-200 rounded-lg overflow-hidden shadow-lg">
-                  {!mapLoaded ? (
-                    <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-gray-100 to-gray-200">
-                      <div className="text-center text-gray-600">
-                        <div className="animate-pulse">
-                          <MapPinIcon className="w-12 h-12 mx-auto mb-3 text-gray-400" />
-                          <p className="text-lg font-medium mb-1">Loading Interactive Map...</p>
-                          <p className="text-sm">Please wait while we load the map</p>
-                        </div>
-                      </div>
-                    </div>
-                  ) : null}
-                  
-                  <div 
-                    ref={mapRef} 
-                    className="w-full h-full"
-                    style={{ minHeight: '384px' }}
-                  />
-                  
-                  {/* Map controls overlay */}
-                  <div className="absolute top-2 sm:top-4 right-2 sm:right-4 bg-white rounded-lg shadow-lg p-2 sm:p-3">
-                    <div className="flex flex-col gap-1 sm:gap-2">
-                      <button
-                        onClick={() => {
-                          if (mapInstanceRef.current && window.google) {
-                            mapInstanceRef.current.setZoom(mapInstanceRef.current.getZoom() + 1)
-                          }
-                        }}
-                        className="w-7 h-7 sm:w-8 sm:h-8 flex items-center justify-center bg-white border border-gray-300 rounded hover:bg-gray-50 text-gray-600 font-bold text-sm sm:text-base"
-                        title="Zoom in"
-                      >
-                        +
-                      </button>
-                      <button
-                        onClick={() => {
-                          if (mapInstanceRef.current && window.google) {
-                            mapInstanceRef.current.setZoom(mapInstanceRef.current.getZoom() - 1)
-                          }
-                        }}
-                        className="w-7 h-7 sm:w-8 sm:h-8 flex items-center justify-center bg-white border border-gray-300 rounded hover:bg-gray-50 text-gray-600 font-bold text-sm sm:text-base"
-                        title="Zoom out"
-                      >
-                        −
-                      </button>
-                    </div>
-                  </div>
-                  
+                <div className="relative h-64 sm:h-80 lg:h-96 bg-gray-200 rounded-lg overflow-hidden shadow-lg group">
+                  <iframe
+                    title="Octad Engineering Location"
+                    width="100%"
+                    height="100%"
+                    style={{ border: 0, minHeight: '384px' }}
+                    src={mapSrc}
+                    allowFullScreen
+                    loading="lazy"
+                    className="w-full h-full grayscale group-hover:grayscale-0 transition-all duration-700"
+                  ></iframe>
+
                   {/* Directions link overlay */}
                   <div className="absolute bottom-2 sm:bottom-4 left-2 sm:left-4">
                     <a
-                      href={`https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(GOOGLE_MAPS_CONFIG.address)}`}
+                      href={`https://www.google.com/maps/dir/?api=1&destination=10+Alade+Street,+Alapere-Ketu,+Lagos`}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="bg-primary text-white px-3 sm:px-4 py-2 rounded-lg text-xs sm:text-sm font-medium hover:bg-primary-700 transition-colors shadow-lg flex items-center"
@@ -743,23 +599,6 @@ export default function ContactPage() {
                     </a>
                   </div>
                 </div>
-                
-                {/* Map fallback message */}
-                {!mapLoaded && (
-                  <div className="mt-4 text-center">
-                    <p className="text-gray-600 text-sm">
-                      Can't load the map? 
-                      <a 
-                        href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(GOOGLE_MAPS_CONFIG.address)}`}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-primary hover:text-primary-700 ml-1"
-                      >
-                        View on Google Maps
-                      </a>
-                    </p>
-                  </div>
-                )}
               </div>
             </div>
           </div>
@@ -776,7 +615,7 @@ export default function ContactPage() {
                 Common questions about our Nigerian construction services
               </p>
             </div>
-            
+
             <div className="max-w-3xl mx-auto px-4">
               <div className="space-y-4 sm:space-y-6">
                 {[

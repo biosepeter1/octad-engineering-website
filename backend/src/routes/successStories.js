@@ -11,18 +11,19 @@ const {
   toggleActive
 } = require('../controllers/successStoryController');
 const { authenticate, requireAdmin } = require('../middleware/auth');
+const { cacheMiddleware } = require('../middleware/cache');
 
 const router = express.Router();
 
 // @route   GET /api/success-stories
 // @desc    Get all active success stories (public)
 // @access  Public
-router.get('/', getSuccessStories);
+router.get('/', cacheMiddleware('stories'), getSuccessStories);
 
 // @route   GET /api/success-stories/featured
 // @desc    Get featured success story (public)
 // @access  Public
-router.get('/featured', getFeaturedSuccessStory);
+router.get('/featured', cacheMiddleware('stories'), getFeaturedSuccessStory);
 
 // @route   GET /api/success-stories/admin
 // @desc    Get all success stories for admin (including inactive)
@@ -32,7 +33,7 @@ router.get('/admin', authenticate, requireAdmin, getAllSuccessStories);
 // @route   GET /api/success-stories/:id
 // @desc    Get single success story
 // @access  Public
-router.get('/:id', getSuccessStory);
+router.get('/:id', cacheMiddleware('stories'), getSuccessStory);
 
 // @route   POST /api/success-stories
 // @desc    Create new success story

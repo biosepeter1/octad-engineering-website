@@ -20,7 +20,7 @@ export default function LoginPage() {
   const [loading, setLoading] = useState(false)
   const router = useRouter()
   const { login } = useAuth()
-  
+
   const {
     register,
     handleSubmit,
@@ -33,7 +33,7 @@ export default function LoginPage() {
     setLoading(true)
     try {
       const success = await login(data.username, data.password)
-      
+
       if (success) {
         toast.success('Login successful!')
         router.push('/admin/dashboard')
@@ -53,7 +53,7 @@ export default function LoginPage() {
         <div className="flex justify-center">
           <div className="bg-primary text-white p-2 sm:p-3 rounded-lg">
             <Image
-              src="/logo.png"
+              src="/logo_blue_no_bg.png"
               alt="Octad Engineering Limited Logo"
               width={40}
               height={40}

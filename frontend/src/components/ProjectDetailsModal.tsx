@@ -1,10 +1,10 @@
 'use client'
 
 import { useState } from 'react'
-import { 
-  XMarkIcon, 
-  ChevronLeftIcon, 
-  ChevronRightIcon, 
+import {
+  XMarkIcon,
+  ChevronLeftIcon,
+  ChevronRightIcon,
   MapPinIcon,
   CalendarIcon,
   UserIcon,
@@ -97,13 +97,13 @@ export default function ProjectDetailsModal({ isOpen, onClose, project }: Props)
   }
 
   return (
-    <div className="fixed inset-0 bg-black bg-opacity-75 z-50 flex items-center justify-center p-4">
+    <div className="fixed inset-0 bg-black bg-opacity-75 z-50 flex items-center justify-center p-2 sm:p-4">
       <div className="bg-white rounded-lg max-w-6xl max-h-[95vh] w-full overflow-hidden shadow-2xl">
         {/* Header */}
-        <div className="flex items-center justify-between p-6 border-b border-gray-200">
+        <div className="flex items-start justify-between p-3 sm:p-4 md:p-6 border-b border-gray-200">
           <div className="flex-1">
-            <h2 className="text-2xl font-bold text-gray-900 mb-2">{project.title}</h2>
-            <div className="flex items-center space-x-4">
+            <h2 className="text-lg sm:text-xl md:text-2xl font-bold text-gray-900 mb-2">{project.title}</h2>
+            <div className="flex items-center flex-wrap gap-2">
               <span className={`inline-flex items-center px-3 py-1 rounded-full text-sm font-medium border ${getStatusColor(project.status)}`}>
                 {getStatusIcon(project.status)}
                 <span className="ml-2 capitalize">{project.status.replace('-', ' ')}</span>
@@ -127,12 +127,12 @@ export default function ProjectDetailsModal({ isOpen, onClose, project }: Props)
           </button>
         </div>
 
-        <div className="flex flex-col lg:flex-row h-full max-h-[calc(95vh-120px)]">
+        <div className="flex flex-col lg:flex-row h-full max-h-[calc(95vh-100px)] sm:max-h-[calc(95vh-120px)]">
           {/* Image Gallery */}
           <div className="lg:w-2/3 relative bg-gray-900">
             {images.length > 0 && (
               <>
-                <div className="relative h-64 lg:h-full flex items-center justify-center">
+                <div className="relative h-52 sm:h-64 lg:h-full flex items-center justify-center">
                   <img
                     src={images[currentImageIndex]?.url}
                     alt={images[currentImageIndex]?.alt || project.title}
@@ -141,25 +141,25 @@ export default function ProjectDetailsModal({ isOpen, onClose, project }: Props)
                       e.currentTarget.src = 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iODAwIiBoZWlnaHQ9IjYwMCIgdmlld0JveD0iMCAwIDgwMCA2MDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSI4MDAiIGhlaWdodD0iNjAwIiBmaWxsPSIjRjNGNEY2Ii8+CjxjaXJjbGUgY3g9IjQwMCIgY3k9IjI4MCIgcj0iNDAiIGZpbGw9IiM5Q0EzQUYiLz4KPHBhdGggZD0iTTM2MCAzNjBMMzgwIDM0MEw0MjAgMzgwTDQ2MCAzNDBMNDgwIDM2MEw0MjAgNDIwTDM2MCA0MjBMMzYwIDM2MFoiIGZpbGw9IiM5Q0EzQUYiLz4KPHR5eHQgeD0iNDAwIiB5PSI0NzAiIGZvbnQtZmFtaWx5PSJBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIyNCIgZmlsbD0iIzY3NzQ4RiIgdGV4dC1hbmNob3I9Im1pZGRsZSI+UHJvamVjdCBJbWFnZTwvdGV4dD4KPC9zdmc+'
                     }}
                   />
-                  
+
                   {/* Navigation Arrows */}
                   {hasMultipleImages && (
                     <>
                       <button
                         onClick={prevImage}
-                        className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 hover:bg-opacity-70 text-white p-2 rounded-full transition-all"
+                        className="absolute left-2 sm:left-4 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 hover:bg-opacity-70 text-white p-1.5 sm:p-2 rounded-full transition-all"
                       >
-                        <ChevronLeftIcon className="w-6 h-6" />
+                        <ChevronLeftIcon className="w-5 h-5 sm:w-6 sm:h-6" />
                       </button>
                       <button
                         onClick={nextImage}
-                        className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 hover:bg-opacity-70 text-white p-2 rounded-full transition-all"
+                        className="absolute right-2 sm:right-4 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 hover:bg-opacity-70 text-white p-1.5 sm:p-2 rounded-full transition-all"
                       >
-                        <ChevronRightIcon className="w-6 h-6" />
+                        <ChevronRightIcon className="w-5 h-5 sm:w-6 sm:h-6" />
                       </button>
                     </>
                   )}
-                  
+
                   {/* Image Counter */}
                   {hasMultipleImages && (
                     <div className="absolute bottom-4 right-4 bg-black bg-opacity-70 text-white px-3 py-1 rounded-full text-sm">
@@ -167,7 +167,7 @@ export default function ProjectDetailsModal({ isOpen, onClose, project }: Props)
                     </div>
                   )}
                 </div>
-                
+
                 {/* Thumbnail Navigation */}
                 {hasMultipleImages && (
                   <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent p-4">
@@ -176,11 +176,10 @@ export default function ProjectDetailsModal({ isOpen, onClose, project }: Props)
                         <button
                           key={index}
                           onClick={() => goToImage(index)}
-                          className={`flex-shrink-0 w-16 h-12 rounded overflow-hidden border-2 transition-all ${
-                            index === currentImageIndex 
-                              ? 'border-white shadow-lg' 
+                          className={`flex-shrink-0 w-12 h-9 sm:w-16 sm:h-12 rounded overflow-hidden border-2 transition-all ${index === currentImageIndex
+                              ? 'border-white shadow-lg'
                               : 'border-gray-400 hover:border-gray-200'
-                          }`}
+                            }`}
                         >
                           <img
                             src={image.url}
@@ -200,12 +199,12 @@ export default function ProjectDetailsModal({ isOpen, onClose, project }: Props)
           </div>
 
           {/* Project Details */}
-          <div className="lg:w-1/3 p-6 overflow-y-auto">
-            <div className="space-y-6">
+          <div className="lg:w-1/3 p-3 sm:p-4 md:p-6 overflow-y-auto">
+            <div className="space-y-4 sm:space-y-6">
               {/* Description */}
               <div>
-                <h3 className="text-lg font-semibold text-gray-900 mb-3">Project Description</h3>
-                <p className="text-gray-700 leading-relaxed">{project.description}</p>
+                <h3 className="text-base sm:text-lg font-semibold text-gray-900 mb-2 sm:mb-3">Project Description</h3>
+                <p className="text-sm sm:text-base text-gray-700 leading-relaxed">{project.description}</p>
               </div>
 
               {/* Project Information */}
@@ -219,7 +218,7 @@ export default function ProjectDetailsModal({ isOpen, onClose, project }: Props)
                       <span>{project.location}</span>
                     </div>
                   )}
-                  
+
                   {project.client && (
                     <div className="flex items-center text-gray-600">
                       <UserIcon className="w-5 h-5 mr-3 text-gray-400" />
@@ -227,7 +226,7 @@ export default function ProjectDetailsModal({ isOpen, onClose, project }: Props)
                       <span>{project.client}</span>
                     </div>
                   )}
-                  
+
                   <div className="flex items-center text-gray-600">
                     <CalendarIcon className="w-5 h-5 mr-3 text-gray-400" />
                     <span className="font-medium mr-2">Duration:</span>

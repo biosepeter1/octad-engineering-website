@@ -1,4 +1,5 @@
 const About = require('../models/About');
+const { clearCache } = require('../middleware/cache');
 
 // Get about information (public)
 const getAbout = async (req, res) => {
@@ -48,6 +49,8 @@ const updateAbout = async (req, res) => {
       await about.save();
     }
 
+    clearCache('about');
+
     res.json({
       success: true,
       message: 'About information updated successfully',
@@ -67,7 +70,7 @@ const updateAbout = async (req, res) => {
 const getAboutStats = async (req, res) => {
   try {
     const about = await About.findOne();
-    
+
     if (!about) {
       return res.json({
         success: true,

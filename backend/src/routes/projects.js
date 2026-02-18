@@ -10,18 +10,19 @@ const {
 } = require('../controllers/projectController');
 const { validateProject } = require('../middleware/validation');
 const { authenticate, requireAdmin } = require('../middleware/auth');
+const { cacheMiddleware } = require('../middleware/cache');
 
 const router = express.Router();
 
 // @route   GET /api/projects
 // @desc    Get all projects (with filters)
 // @access  Public
-router.get('/', getProjects);
+router.get('/', cacheMiddleware('projects'), getProjects);
 
 // @route   GET /api/projects/featured
 // @desc    Get featured projects
 // @access  Public
-router.get('/featured', getFeaturedProjects);
+router.get('/featured', cacheMiddleware('projects'), getFeaturedProjects);
 
 // @route   GET /api/projects/admin
 // @desc    Get all projects for admin
@@ -31,7 +32,7 @@ router.get('/admin', authenticate, requireAdmin, getAllProjects);
 // @route   GET /api/projects/:id
 // @desc    Get single project
 // @access  Public
-router.get('/:id', getProject);
+router.get('/:id', cacheMiddleware('projects'), getProject);
 
 // @route   POST /api/projects
 // @desc    Create new project

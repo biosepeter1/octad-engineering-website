@@ -23,15 +23,15 @@ export default function Navbar() {
       <div className="container-custom">
         <div className="flex justify-between items-center py-4">
           {/* Logo */}
-          <Link href="/" className="flex items-center space-x-2 flex-shrink-0">
-            <div className="bg-primary text-white p-2 rounded-lg">
-              <Image
-                src="/logo.png"
-                alt="Octad Engineering Limited Logo"
-                width={32}
-                height={32}
-              />
-            </div>
+          <Link href="/" className="flex items-center flex-shrink-0">
+            <Image
+              src="/logo_blue_no_bg.png"
+              alt="OCTAD Engineering Logo"
+              width={60}
+              height={60}
+              className="flex-shrink-0 object-contain"
+              priority
+            />
             <span className="text-lg sm:text-xl md:text-2xl font-bold text-primary truncate">
               <span className="hidden sm:inline">Octad Engineering</span>
               <span className="sm:hidden">Octad</span>
@@ -90,37 +90,31 @@ export default function Navbar() {
               aria-label="Toggle navigation menu"
             >
               <div className="relative w-6 h-6">
-                <span className={`absolute top-1 left-0 w-6 h-0.5 bg-current rounded-full transform transition-all duration-300 ease-in-out ${
-                  isOpen ? 'rotate-45 translate-y-2.5' : 'rotate-0 translate-y-0'
-                }`}></span>
-                <span className={`absolute top-1/2 left-0 w-6 h-0.5 bg-current rounded-full transform -translate-y-0.5 transition-all duration-300 ease-in-out ${
-                  isOpen ? 'opacity-0 scale-0' : 'opacity-100 scale-100'
-                }`}></span>
-                <span className={`absolute bottom-1 left-0 w-6 h-0.5 bg-current rounded-full transform transition-all duration-300 ease-in-out ${
-                  isOpen ? '-rotate-45 -translate-y-2.5' : 'rotate-0 translate-y-0'
-                }`}></span>
+                <span className={`absolute top-1 left-0 w-6 h-0.5 bg-current rounded-full transform transition-all duration-300 ease-in-out ${isOpen ? 'rotate-45 translate-y-2.5' : 'rotate-0 translate-y-0'
+                  }`}></span>
+                <span className={`absolute top-1/2 left-0 w-6 h-0.5 bg-current rounded-full transform -translate-y-0.5 transition-all duration-300 ease-in-out ${isOpen ? 'opacity-0 scale-0' : 'opacity-100 scale-100'
+                  }`}></span>
+                <span className={`absolute bottom-1 left-0 w-6 h-0.5 bg-current rounded-full transform transition-all duration-300 ease-in-out ${isOpen ? '-rotate-45 -translate-y-2.5' : 'rotate-0 translate-y-0'
+                  }`}></span>
               </div>
             </button>
           </div>
         </div>
 
         {/* Mobile Navigation */}
-        <div className={`md:hidden transition-all duration-500 ease-in-out overflow-hidden ${
-          isOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
-        }`}>
-          <div className={`pb-4 pt-2 border-t border-gray-100 transform transition-all duration-300 ${
-            isOpen ? 'translate-y-0' : '-translate-y-4'
+        <div className={`md:hidden transition-all duration-500 ease-in-out overflow-hidden ${isOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
           }`}>
+          <div className={`pb-4 pt-2 border-t border-gray-100 transform transition-all duration-300 ${isOpen ? 'translate-y-0' : '-translate-y-4'
+            }`}>
             <div className="flex flex-col space-y-1">
               {navigation.map((item, index) => (
                 <Link
                   key={item.name}
                   href={item.href}
-                  className={`text-gray-700 hover:text-primary hover:bg-gray-50 font-medium transition-all duration-300 px-4 py-3 rounded-md mx-2 transform hover:translate-x-2 hover:shadow-sm ${
-                    isOpen 
-                      ? 'translate-x-0 opacity-100' 
-                      : '-translate-x-4 opacity-0'
-                  }`}
+                  className={`text-gray-700 hover:text-primary hover:bg-gray-50 font-medium transition-all duration-300 px-4 py-3 rounded-md mx-2 transform hover:translate-x-2 hover:shadow-sm ${isOpen
+                    ? 'translate-x-0 opacity-100'
+                    : '-translate-x-4 opacity-0'
+                    }`}
                   style={{
                     transitionDelay: isOpen ? `${index * 50}ms` : '0ms'
                   }}
@@ -132,9 +126,8 @@ export default function Navbar() {
                   </span>
                 </Link>
               ))}
-              <div className={`px-2 pt-2 mt-2 border-t border-gray-100 transform transition-all duration-300 ${
-                isOpen ? 'translate-y-0 opacity-100' : 'translate-y-2 opacity-0'
-              }`} style={{ transitionDelay: isOpen ? '250ms' : '0ms' }}>
+              <div className={`px-2 pt-2 mt-2 border-t border-gray-100 transform transition-all duration-300 ${isOpen ? 'translate-y-0 opacity-100' : 'translate-y-2 opacity-0'
+                }`} style={{ transitionDelay: isOpen ? '250ms' : '0ms' }}>
                 {isAuthenticated ? (
                   <div className="flex flex-col space-y-2">
                     <Link

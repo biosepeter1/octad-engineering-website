@@ -1,4 +1,5 @@
 const SuccessStory = require('../models/SuccessStory');
+const { clearCache } = require('../middleware/cache');
 
 // Get all success stories (public) - for the frontend page
 const getSuccessStories = async (req, res) => {
@@ -41,9 +42,9 @@ const getSuccessStories = async (req, res) => {
 // Get featured success story (public) - for the main featured story display
 const getFeaturedSuccessStory = async (req, res) => {
   try {
-    const story = await SuccessStory.findOne({ 
-      isFeatured: true, 
-      isActive: true 
+    const story = await SuccessStory.findOne({
+      isFeatured: true,
+      isActive: true
     });
 
     if (!story) {
@@ -179,6 +180,7 @@ const createSuccessStory = async (req, res) => {
     });
 
     const savedStory = await story.save();
+    clearCache('stories');
 
     res.status(201).json({
       success: true,
@@ -187,14 +189,14 @@ const createSuccessStory = async (req, res) => {
     });
   } catch (error) {
     console.error('Create success story error:', error);
-    
+
     // Handle validation errors
     if (error.name === 'ValidationError') {
       const errors = Object.values(error.errors).map(err => ({
         field: err.path,
         message: err.message
       }));
-      
+
       return res.status(400).json({
         success: false,
         message: 'Validation failed',
@@ -236,6 +238,8 @@ const updateSuccessStory = async (req, res) => {
       });
     }
 
+    clearCache('stories');
+
     res.json({
       success: true,
       message: 'Success story updated successfully',
@@ -243,14 +247,14 @@ const updateSuccessStory = async (req, res) => {
     });
   } catch (error) {
     console.error('Update success story error:', error);
-    
+
     // Handle validation errors
     if (error.name === 'ValidationError') {
       const errors = Object.values(error.errors).map(err => ({
         field: err.path,
         message: err.message
       }));
-      
+
       return res.status(400).json({
         success: false,
         message: 'Validation failed',
@@ -280,6 +284,8 @@ const deleteSuccessStory = async (req, res) => {
       });
     }
 
+    clearCache('stories');
+
     res.json({
       success: true,
       message: 'Success story deleted successfully'
@@ -298,9 +304,9 @@ const deleteSuccessStory = async (req, res) => {
 const toggleFeatured = async (req, res) => {
   try {
     const { id } = req.params;
-    
+
     const story = await SuccessStory.findById(id);
-    
+
     if (!story) {
       return res.status(404).json({
         success: false,
@@ -310,6 +316,7 @@ const toggleFeatured = async (req, res) => {
 
     story.isFeatured = !story.isFeatured;
     await story.save(); // This will trigger the pre-save hook to unfeatured others
+    clearCache('stories');
 
     res.json({
       success: true,
@@ -330,9 +337,9 @@ const toggleFeatured = async (req, res) => {
 const toggleActive = async (req, res) => {
   try {
     const { id } = req.params;
-    
+
     const story = await SuccessStory.findById(id);
-    
+
     if (!story) {
       return res.status(404).json({
         success: false,
@@ -341,13 +348,14 @@ const toggleActive = async (req, res) => {
     }
 
     story.isActive = !story.isActive;
-    
+
     // If deactivating a featured story, unfeatured it
     if (!story.isActive && story.isFeatured) {
       story.isFeatured = false;
     }
-    
+
     await story.save();
+    clearCache('stories');
 
     res.json({
       success: true,

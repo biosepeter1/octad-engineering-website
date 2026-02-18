@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
-import { 
+import {
   TrophyIcon,
   StarIcon,
   BuildingStorefrontIcon,
@@ -69,7 +69,7 @@ const successStories: SuccessStory[] = [
     _id: '1',
     title: 'Lagos Luxury Villa Complex',
     client: 'Chief Adebayo Ogundimu',
-    location: 'Victoria Island, Lagos',
+    location: 'Lekki, Lagos',
     category: 'Residential',
     duration: '14 months',
     budget: '₦450 Million',
@@ -324,20 +324,20 @@ export default function SuccessStoriesPage() {
         {/* Hero Section */}
         <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20 px-4 xs:px-6 sm:px-8">
           <div className="absolute inset-0 z-0">
-            <img 
-              src="https://images.unsplash.com/photo-1590725140246-20acdee442be?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80" 
-              alt="Success Stories Hero" 
+            <img
+              src="https://images.unsplash.com/photo-1590725140246-20acdee442be?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80"
+              alt="Success Stories Hero"
               className="w-full h-full object-cover"
             />
             <div className="absolute inset-0 bg-gradient-to-r from-primary/90 to-secondary/80"></div>
           </div>
-          
+
           <div className="relative z-10 container-custom text-center text-white">
             <div className="max-w-5xl mx-auto">
               <div className={`inline-flex items-center justify-center w-16 h-16 xs:w-20 xs:h-20 sm:w-24 sm:h-24 bg-white/10 backdrop-blur-sm border-2 border-white/30 rounded-full mb-6 xs:mb-8 transform transition-all duration-1000 ${isVisible ? 'translate-y-0 opacity-100 rotate-0' : 'translate-y-10 opacity-0 rotate-12'}`}>
                 <TrophyIcon className="w-8 h-8 xs:w-10 xs:h-10 sm:w-12 sm:h-12 text-yellow-300" />
               </div>
-              
+
               <h1 className={`text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold mb-6 xs:mb-8 transform transition-all duration-1000 delay-200 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
                 <span className="block pb-2 xs:pb-4">Our</span>
                 <span className="block">
@@ -345,18 +345,18 @@ export default function SuccessStoriesPage() {
                   <span className="text-white"> Stories</span>
                 </span>
               </h1>
-              
+
               <p className={`text-base xs:text-lg sm:text-xl lg:text-2xl xl:text-3xl mb-8 xs:mb-12 text-gray-100 max-w-4xl mx-auto leading-relaxed px-4 xs:px-0 transform transition-all duration-1000 delay-400 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
-                Discover how Octad Engineering has transformed dreams into reality across Nigeria. 
+                Discover how Octad Engineering has transformed dreams into reality across Nigeria.
                 From Lagos to Abuja, from Kano to Port Harcourt - these are our proudest achievements.
               </p>
-              
+
               <div className={`grid grid-cols-2 lg:grid-cols-4 gap-3 xs:gap-4 sm:gap-6 mb-8 xs:mb-12 max-w-3xl mx-auto px-4 xs:px-0 transform transition-all duration-1000 delay-600 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
                 <div className="text-center">
                   <div className="bg-white/10 rounded-full w-12 h-12 xs:w-14 xs:h-14 sm:w-16 sm:h-16 flex items-center justify-center mx-auto mb-2 xs:mb-3">
                     <BuildingStorefrontIcon className="w-6 h-6 xs:w-7 xs:h-7 sm:w-8 sm:h-8" />
                   </div>
-                  <div className="text-lg xs:text-xl sm:text-2xl font-bold">150+</div>
+                  <div className="text-lg xs:text-xl sm:text-2xl font-bold">200+</div>
                   <div className="text-xs xs:text-sm">Projects Completed</div>
                 </div>
                 <div className="text-center">
@@ -381,9 +381,9 @@ export default function SuccessStoriesPage() {
                   <div className="text-xs xs:text-sm">States Served</div>
                 </div>
               </div>
-              
+
               <div className={`transform transition-all duration-1000 delay-800 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
-                <button 
+                <button
                   onClick={() => document.getElementById('featured-story')?.scrollIntoView({ behavior: 'smooth' })}
                   className="inline-flex items-center bg-white/10 backdrop-blur-sm border-2 border-white/30 text-white px-6 xs:px-8 py-3 xs:py-4 rounded-full text-base xs:text-lg font-semibold hover:bg-white/20 transition-all duration-300 transform hover:scale-105 min-h-[48px]"
                 >
@@ -393,7 +393,7 @@ export default function SuccessStoriesPage() {
               </div>
             </div>
           </div>
-          
+
           {/* Floating Elements */}
           <div className="absolute top-1/4 left-10 w-20 h-20 bg-white/5 rounded-full animate-pulse"></div>
           <div className="absolute top-1/3 right-10 w-16 h-16 bg-yellow-300/10 rounded-full animate-bounce"></div>
@@ -423,19 +423,18 @@ export default function SuccessStoriesPage() {
               >
                 <ChevronLeftIcon className="w-5 h-5 xs:w-6 xs:h-6" />
               </button>
-              
+
               <div className="flex space-x-1 xs:space-x-2 mx-4 xs:mx-6">
                 {successStories.map((_, index) => (
                   <button
                     key={index}
-                    onClick={() => {setCurrentStory(index); setCurrentImageIndex(0);}}
-                    className={`w-2 h-2 xs:w-3 xs:h-3 rounded-full transition-all duration-300 min-h-[24px] min-w-[24px] flex items-center justify-center ${
-                      index === currentStory ? 'bg-primary w-6 xs:w-8' : 'bg-gray-300 hover:bg-gray-400'
-                    }`}
+                    onClick={() => { setCurrentStory(index); setCurrentImageIndex(0); }}
+                    className={`w-2 h-2 xs:w-3 xs:h-3 rounded-full transition-all duration-300 min-h-[24px] min-w-[24px] flex items-center justify-center ${index === currentStory ? 'bg-primary w-6 xs:w-8' : 'bg-gray-300 hover:bg-gray-400'
+                      }`}
                   />
                 ))}
               </div>
-              
+
               <button
                 onClick={nextStory}
                 className="p-2 xs:p-3 bg-gray-100 hover:bg-primary hover:text-white rounded-full transition-all duration-300 transform hover:scale-110 ml-3 xs:ml-4 min-h-[44px] min-w-[44px]"
@@ -454,7 +453,7 @@ export default function SuccessStoriesPage() {
                     alt={story.images[currentImageIndex]?.alt || story.title}
                     className="w-full h-full object-cover"
                   />
-                  
+
                   {/* Image Navigation */}
                   {story.images.length > 1 && (
                     <>
@@ -472,7 +471,7 @@ export default function SuccessStoriesPage() {
                       </button>
                     </>
                   )}
-                  
+
                   {/* Image Indicators */}
                   {story.images.length > 1 && (
                     <div className="absolute bottom-3 xs:bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-1 xs:space-x-2">
@@ -480,15 +479,14 @@ export default function SuccessStoriesPage() {
                         <button
                           key={index}
                           onClick={() => setCurrentImageIndex(index)}
-                          className={`w-2 h-2 rounded-full transition-all duration-300 min-h-[24px] min-w-[24px] flex items-center justify-center ${
-                            index === currentImageIndex ? 'bg-white w-4 xs:w-6' : 'bg-white/50'
-                          }`}
+                          className={`w-2 h-2 rounded-full transition-all duration-300 min-h-[24px] min-w-[24px] flex items-center justify-center ${index === currentImageIndex ? 'bg-white w-4 xs:w-6' : 'bg-white/50'
+                            }`}
                         />
                       ))}
                     </div>
                   )}
                 </div>
-                
+
                 {/* Category Badge */}
                 <div className="absolute -top-2 -left-2 xs:-top-4 xs:-left-4 bg-gradient-to-r from-primary to-secondary text-white px-3 py-1 xs:px-6 xs:py-2 rounded-full font-semibold shadow-lg text-sm xs:text-base">
                   {story.category}
@@ -607,17 +605,17 @@ export default function SuccessStoriesPage() {
               <div className="inline-flex items-center justify-center w-12 h-12 xs:w-16 xs:h-16 bg-white/10 backdrop-blur-sm rounded-full mb-6 xs:mb-8">
                 <span className="text-4xl xs:text-5xl sm:text-6xl text-yellow-300">"</span>
               </div>
-              
+
               <blockquote className="text-lg xs:text-xl sm:text-2xl lg:text-3xl font-medium leading-relaxed mb-6 xs:mb-8 px-4 xs:px-0">
                 {story.testimonial.quote}
               </blockquote>
-              
+
               <div className="flex items-center justify-center mb-4 xs:mb-6">
                 {[...Array(story.testimonial.rating)].map((_, i) => (
                   <StarIcon key={i} className="w-5 h-5 xs:w-6 xs:h-6 text-yellow-300 fill-current" />
                 ))}
               </div>
-              
+
               <div>
                 <div className="text-lg xs:text-xl font-semibold mb-1">{story.testimonial.author}</div>
                 <div className="text-primary-200 text-sm xs:text-base">{story.testimonial.position}</div>
@@ -644,7 +642,7 @@ export default function SuccessStoriesPage() {
                 return (
                   <div
                     key={storyItem._id}
-                    onClick={() => {setCurrentStory(stories.findIndex(s => s._id === storyItem._id)); setCurrentImageIndex(0); document.getElementById('featured-story')?.scrollIntoView({ behavior: 'smooth' });}}
+                    onClick={() => { setCurrentStory(stories.findIndex(s => s._id === storyItem._id)); setCurrentImageIndex(0); document.getElementById('featured-story')?.scrollIntoView({ behavior: 'smooth' }); }}
                     className="group cursor-pointer bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 overflow-hidden"
                   >
                     <div className="relative h-40 xs:h-48">
@@ -661,7 +659,7 @@ export default function SuccessStoriesPage() {
                         {storyItem.completionYear}
                       </div>
                     </div>
-                    
+
                     <div className="p-4 xs:p-6">
                       <h3 className="text-lg xs:text-xl font-bold text-gray-900 mb-2 group-hover:text-primary transition-colors">
                         {storyItem.title}
@@ -691,22 +689,22 @@ export default function SuccessStoriesPage() {
           <div className="absolute inset-0 bg-black/10"></div>
           <div className="absolute -top-10 -right-10 w-40 h-40 bg-primary/20 rounded-full"></div>
           <div className="absolute -bottom-10 -left-10 w-32 h-32 bg-white/10 rounded-full"></div>
-          
+
           <div className="container-custom text-center relative z-10 px-4 xs:px-6 sm:px-8">
             <div className="max-w-4xl mx-auto">
               <div className="inline-flex items-center justify-center w-16 h-16 xs:w-20 xs:h-20 bg-white/10 backdrop-blur-sm border-2 border-white/20 rounded-full mb-6 xs:mb-8">
                 <HandRaisedIcon className="w-8 h-8 xs:w-10 xs:h-10" />
               </div>
-              
+
               <h2 className="text-2xl xs:text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold mb-4 xs:mb-6">
                 Ready to Create Your Own <span className="text-yellow-300">Success Story</span>?
               </h2>
-              
+
               <p className="text-base xs:text-lg sm:text-xl lg:text-2xl mb-8 xs:mb-12 max-w-3xl mx-auto leading-relaxed text-gray-100 px-4 xs:px-0">
-                Join the hundreds of satisfied clients who have trusted Octad Engineering with their dreams. 
+                Join the hundreds of satisfied clients who have trusted Octad Engineering with their dreams.
                 Let's build something extraordinary together.
               </p>
-              
+
               <div className="flex flex-col xs:flex-row gap-4 xs:gap-6 justify-center">
                 <Link href="/contact" className="btn-primary text-base xs:text-lg px-6 xs:px-8 py-3 xs:py-4 bg-white text-secondary hover:bg-gray-100 transform hover:scale-105 transition-all duration-300 shadow-2xl min-h-[48px]">
                   Start Your Project Today
@@ -716,10 +714,10 @@ export default function SuccessStoriesPage() {
                   View All Projects
                 </Link>
               </div>
-              
+
               <div className="mt-8 xs:mt-12 pt-6 xs:pt-8 border-t border-white/20">
                 <p className="text-gray-200 text-sm xs:text-base">
-                  🇳🇬 Proudly Nigerian • 15+ Years Experience • 150+ Projects • 98% Satisfaction Rate
+                  🇳🇬 Proudly Nigerian • 15+ Years Experience • 200+ Projects • 98% Satisfaction Rate
                 </p>
               </div>
             </div>

@@ -2,6 +2,7 @@ const express = require('express');
 const cors = require('cors');
 const helmet = require('helmet');
 const rateLimit = require('express-rate-limit');
+const mongoSanitize = require('express-mongo-sanitize');
 const multer = require('multer');
 const path = require('path');
 const fs = require('fs');
@@ -19,6 +20,15 @@ const uploadRoutes = require('./routes/upload');
 const successStoriesRoutes = require('./routes/successStories');
 
 const app = express();
+
+// Validate required environment variables before starting
+const requiredEnvVars = ['MONGODB_URI', 'JWT_SECRET'];
+const missingVars = requiredEnvVars.filter(v => !process.env[v]);
+if (missingVars.length > 0) {
+  console.error(`❌ Missing required environment variables: ${missingVars.join(', ')}`);
+  console.error('Please set them in your .env file or deployment environment.');
+  process.exit(1);
+}
 
 // Connect to MongoDB
 connectDB();
@@ -69,13 +79,13 @@ const contactLimiter = rateLimit({
 
 // CORS configuration
 app.use(cors({
-  origin: process.env.NODE_ENV === 'production' 
+  origin: process.env.NODE_ENV === 'production'
     ? [
-        process.env.FRONTEND_URL, 
-        'https://octad-engineering-website-duaz.vercel.app',
-        'https://octad-engineering-website-duaz-dxvctv8nu-allian-johns-projects.vercel.app',
-        /https:\/\/octad-engineering-website.*\.vercel\.app$/
-      ] 
+      process.env.FRONTEND_URL,
+      'https://octad-engineering-website-duaz.vercel.app',
+      'https://octad-engineering-website-duaz-dxvctv8nu-allian-johns-projects.vercel.app',
+      /https:\/\/octad-engineering-website.*\.vercel\.app$/
+    ]
     : ['http://localhost:3000', 'http://127.0.0.1:3000', 'http://localhost:3001', 'http://127.0.0.1:3001'],
   credentials: true,
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'OPTIONS'],
@@ -110,7 +120,7 @@ const storage = multer.diskStorage({
   }
 })
 
-const upload = multer({ 
+const upload = multer({
   storage: storage,
   limits: {
     fileSize: 5 * 1024 * 1024 // 5MB limit
@@ -128,6 +138,9 @@ const upload = multer({
 // Body parser middleware
 app.use(express.json({ limit: '10mb' }));
 app.use(express.urlencoded({ extended: true, limit: '10mb' }));
+
+// Sanitize user input - prevent NoSQL injection
+app.use(mongoSanitize());
 
 // Trust proxy (important for rate limiting and IP detection)
 app.set('trust proxy', 1);
@@ -170,7 +183,7 @@ app.use((error, req, res, next) => {
       field: err.path,
       message: err.message
     }));
-    
+
     return res.status(400).json({
       success: false,
       message: 'Validation failed',

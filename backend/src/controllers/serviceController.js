@@ -1,4 +1,5 @@
 const Service = require('../models/Service');
+const { clearCache } = require('../middleware/cache');
 
 // Get all services (public)
 const getServices = async (req, res) => {
@@ -78,6 +79,7 @@ const createService = async (req, res) => {
     });
 
     const savedService = await service.save();
+    clearCache('services');
 
     res.status(201).json({
       success: true,
@@ -113,6 +115,8 @@ const updateService = async (req, res) => {
       });
     }
 
+    clearCache('services');
+
     res.json({
       success: true,
       message: 'Service updated successfully',
@@ -141,6 +145,8 @@ const deleteService = async (req, res) => {
         message: 'Service not found'
       });
     }
+
+    clearCache('services');
 
     res.json({
       success: true,

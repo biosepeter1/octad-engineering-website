@@ -3,7 +3,7 @@
 import { useEffect, useState } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
-import { 
+import {
   WrenchScrewdriverIcon,
   BuildingStorefrontIcon,
   HomeIcon,
@@ -174,15 +174,15 @@ export default function ServicesPage() {
         {/* Hero Section */}
         <section className="relative min-h-[70vh] flex items-center justify-center overflow-hidden pt-20">
           <div className="absolute inset-0 z-0">
-            <img 
-              src="https://images.unsplash.com/photo-1541976590-713941681591?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80" 
-              alt="Modern Nigerian Construction" 
+            <img
+              src="https://images.unsplash.com/photo-1541976590-713941681591?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80"
+              alt="Modern Nigerian Construction"
               className="w-full h-full object-cover"
             />
             <div className="absolute inset-0 bg-black/60"></div>
             <div className="absolute inset-0 bg-gradient-to-r from-primary/30 to-secondary/30"></div>
           </div>
-          
+
           <div className="relative z-10 container-custom text-center text-white px-4">
             <div className="max-w-5xl mx-auto">
               <h1 className="text-3xl xs:text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold mb-6 sm:mb-8">
@@ -193,7 +193,7 @@ export default function ServicesPage() {
                 </span>
               </h1>
               <p className="text-base sm:text-lg lg:text-xl xl:text-2xl mb-8 sm:mb-10 lg:mb-12 text-gray-100 max-w-4xl mx-auto leading-relaxed">
-                Comprehensive construction and engineering services tailored for Nigeria's unique climate, 
+                Comprehensive construction and engineering services tailored for Nigeria's unique climate,
                 culture, and architectural requirements. Building excellence across residential, commercial, and infrastructure projects.
               </p>
               <div className="flex flex-col xs:flex-row gap-4 sm:gap-6 justify-center">
@@ -220,39 +220,39 @@ export default function ServicesPage() {
                 Our commitment to excellence has earned us the trust of clients nationwide
               </p>
             </div>
-            
+
             <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8">
               <div className="text-center">
-                <AnimatedCounter 
-                  end={200} 
-                  suffix="+" 
+                <AnimatedCounter
+                  end={200}
+                  suffix="+"
                   duration={2500}
                   className="text-3xl xs:text-4xl sm:text-4xl lg:text-5xl font-bold text-primary mb-1 sm:mb-2"
                 />
                 <div className="text-sm sm:text-base text-gray-600 font-medium">Projects Completed</div>
               </div>
               <div className="text-center">
-                <AnimatedCounter 
-                  end={15} 
-                  suffix="+" 
+                <AnimatedCounter
+                  end={15}
+                  suffix="+"
                   duration={2000}
                   className="text-3xl xs:text-4xl sm:text-4xl lg:text-5xl font-bold text-secondary mb-1 sm:mb-2"
                 />
                 <div className="text-sm sm:text-base text-gray-600 font-medium">Years Experience</div>
               </div>
               <div className="text-center">
-                <AnimatedCounter 
-                  end={25} 
-                  suffix="" 
+                <AnimatedCounter
+                  end={25}
+                  suffix=""
                   duration={2200}
                   className="text-3xl xs:text-4xl sm:text-4xl lg:text-5xl font-bold text-accent mb-1 sm:mb-2"
                 />
                 <div className="text-sm sm:text-base text-gray-600 font-medium">States Served</div>
               </div>
               <div className="text-center">
-                <AnimatedCounter 
-                  end={95} 
-                  suffix="%" 
+                <AnimatedCounter
+                  end={98}
+                  suffix="%"
                   duration={1800}
                   className="text-3xl xs:text-4xl sm:text-4xl lg:text-5xl font-bold text-green-500 mb-1 sm:mb-2"
                 />
@@ -278,10 +278,10 @@ export default function ServicesPage() {
                 Our <span className="text-primary">Expertise</span>
               </h2>
               <p className="text-lg sm:text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed px-4">
-                From traditional Nigerian architecture to modern commercial complexes, we deliver 
+                From traditional Nigerian architecture to modern commercial complexes, we deliver
                 construction solutions that combine international quality standards with local expertise and cultural understanding.
               </p>
-              
+
               {/* Decorative Elements */}
               <div className="flex justify-center items-center space-x-3 sm:space-x-4 mt-6 sm:mt-8">
                 <div className="w-8 h-0.5 sm:w-12 sm:h-1 bg-primary rounded"></div>
@@ -289,7 +289,7 @@ export default function ServicesPage() {
                 <div className="w-8 h-0.5 sm:w-12 sm:h-1 bg-primary rounded"></div>
               </div>
             </div>
-            
+
             <div className="space-y-12 sm:space-y-16 lg:space-y-20">
               {services.filter(service => service.isActive).map((service, index) => {
                 const getServiceIcon = (iconType: string) => {
@@ -303,27 +303,26 @@ export default function ServicesPage() {
                     default: return <BuildingStorefrontIcon className="w-8 h-8 sm:w-10 sm:h-10 lg:w-12 lg:h-12" />
                   }
                 }
-                
+
                 const getServiceImage = (iconType: string) => {
                   switch (iconType) {
-                    case 'home': return 'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
-                    case 'building': return 'https://images.unsplash.com/photo-1565008447742-97f6f38c985c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
-                    case 'infrastructure': return 'https://images.unsplash.com/photo-1577495508048-b635879837f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
-                    case 'renovation': return 'https://images.unsplash.com/photo-1562259949-e8e7689d7828?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
-                    case 'design': return 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
-                    case 'maintenance': return 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
-                    default: return 'https://images.unsplash.com/photo-1541888946425-d81bb19240f5?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
+                    case 'home': return '/portfolio/page16_img1.jpg'
+                    case 'building': return '/portfolio/page9_img2.jpg'
+                    case 'infrastructure': return '/portfolio/page18_img2.jpg'
+                    case 'renovation': return '/portfolio/page20_img1.jpg'
+                    case 'design': return '/portfolio/page21_img1.jpg'
+                    case 'maintenance': return '/portfolio/page14_img1.jpg'
+                    default: return '/portfolio/page8_img7.jpg'
                   }
                 }
-                
+
                 return (
-                  <div key={service._id} className={`grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16 items-center animate-fade-in ${
-                    index % 2 === 1 ? 'lg:grid-flow-col-dense' : ''
-                  }`} style={{ animationDelay: `${index * 200}ms` }}>
+                  <div key={service._id} className={`grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16 items-center animate-fade-in ${index % 2 === 1 ? 'lg:grid-flow-col-dense' : ''
+                    }`} style={{ animationDelay: `${index * 200}ms` }}>
                     {/* Image Section */}
                     <div className={`relative ${index % 2 === 1 ? 'lg:col-start-2' : ''}`}>
                       <div className="relative overflow-hidden rounded-xl sm:rounded-2xl shadow-2xl transform hover:scale-102 transition-all duration-500">
-                        <img 
+                        <img
                           src={getServiceImage(service.icon)}
                           alt={service.title}
                           className="w-full h-[280px] sm:h-[350px] lg:h-[400px] object-cover"
@@ -339,7 +338,7 @@ export default function ServicesPage() {
                       {/* Background decoration */}
                       <div className="absolute -inset-1 sm:-inset-2 bg-gradient-to-r from-primary/5 to-secondary/5 rounded-2xl sm:rounded-3xl -z-10"></div>
                     </div>
-                    
+
                     {/* Content Section */}
                     <div className={`${index % 2 === 1 ? 'lg:col-start-1 lg:row-start-1' : ''} mt-8 lg:mt-0`}>
                       <div className="max-w-xl">
@@ -352,7 +351,7 @@ export default function ServicesPage() {
                         <p className="text-base sm:text-lg text-gray-600 mb-6 sm:mb-8 leading-relaxed">
                           {service.description}
                         </p>
-                        
+
                         {service.features && service.features.length > 0 && (
                           <div className="mb-6 sm:mb-8">
                             <h4 className="font-semibold text-gray-900 mb-3 sm:mb-4 text-base sm:text-lg">Our Capabilities:</h4>
@@ -371,7 +370,7 @@ export default function ServicesPage() {
                             )}
                           </div>
                         )}
-                        
+
                         <div className="flex flex-col xs:flex-row gap-3 sm:gap-4">
                           <Link href="/contact" className="btn-primary px-4 sm:px-6 py-3 text-sm sm:text-base">
                             Get Quote
@@ -395,7 +394,7 @@ export default function ServicesPage() {
           <div className="container-custom">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16 items-center">
               <div className="relative">
-                <img 
+                <img
                   src="https://images.unsplash.com/photo-1590725140246-20acdee442be?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
                   alt="Nigerian Construction Excellence"
                   className="rounded-xl sm:rounded-2xl shadow-2xl w-full h-[350px] sm:h-[400px] lg:h-[500px] object-cover"
@@ -404,16 +403,16 @@ export default function ServicesPage() {
                   <ShieldCheckIcon className="w-8 h-8 sm:w-10 sm:h-10 lg:w-12 lg:h-12" />
                 </div>
               </div>
-              
+
               <div className="mt-8 lg:mt-0">
                 <h2 className="text-3xl xs:text-4xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4 sm:mb-6">
                   Building <span className="text-primary">Excellence</span> in Nigeria
                 </h2>
                 <p className="text-base sm:text-lg text-gray-600 mb-6 sm:mb-8 leading-relaxed">
-                  As a proudly Nigerian construction company, we understand the unique challenges and opportunities 
+                  As a proudly Nigerian construction company, we understand the unique challenges and opportunities
                   of building in our climate, working with local materials, and serving our communities with integrity and excellence.
                 </p>
-                
+
                 <div className="space-y-4 sm:space-y-6">
                   <div className="flex items-start group">
                     <div className="bg-primary text-white w-10 h-10 sm:w-12 sm:h-12 rounded-lg sm:rounded-xl flex items-center justify-center mr-3 sm:mr-4 flex-shrink-0 group-hover:bg-secondary transition-colors">
@@ -424,7 +423,7 @@ export default function ServicesPage() {
                       <p className="text-sm sm:text-base text-gray-600">Certified with Corporate Affairs Commission and fully licensed by relevant Nigerian authorities with comprehensive insurance coverage.</p>
                     </div>
                   </div>
-                  
+
                   <div className="flex items-start group">
                     <div className="bg-secondary text-white w-10 h-10 sm:w-12 sm:h-12 rounded-lg sm:rounded-xl flex items-center justify-center mr-3 sm:mr-4 flex-shrink-0 group-hover:bg-primary transition-colors">
                       <ClockIcon className="w-5 h-5 sm:w-6 sm:h-6" />
@@ -434,7 +433,7 @@ export default function ServicesPage() {
                       <p className="text-sm sm:text-base text-gray-600">Specialized expertise in building for Nigeria's tropical climate with materials and methods that withstand heavy rains and high temperatures.</p>
                     </div>
                   </div>
-                  
+
                   <div className="flex items-start group">
                     <div className="bg-accent text-white w-10 h-10 sm:w-12 sm:h-12 rounded-lg sm:rounded-xl flex items-center justify-center mr-3 sm:mr-4 flex-shrink-0 group-hover:bg-primary transition-colors">
                       <BanknotesIcon className="w-5 h-5 sm:w-6 sm:h-6" />
@@ -444,7 +443,7 @@ export default function ServicesPage() {
                       <p className="text-sm sm:text-base text-gray-600">Clear, upfront pricing in Naira with no hidden costs. We work within Nigerian budgets and offer flexible payment terms.</p>
                     </div>
                   </div>
-                  
+
                   <div className="flex items-start group">
                     <div className="bg-green-500 text-white w-10 h-10 sm:w-12 sm:h-12 rounded-lg sm:rounded-xl flex items-center justify-center mr-3 sm:mr-4 flex-shrink-0 group-hover:bg-primary transition-colors">
                       <UserGroupIcon className="w-5 h-5 sm:w-6 sm:h-6" />
@@ -468,11 +467,11 @@ export default function ServicesPage() {
                 Our <span className="text-primary">Process</span>
               </h2>
               <p className="text-lg sm:text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed px-4">
-                From initial consultation to project completion, we follow a proven methodology that ensures 
+                From initial consultation to project completion, we follow a proven methodology that ensures
                 quality delivery while navigating Nigeria's regulatory environment and cultural considerations.
               </p>
             </div>
-            
+
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
               <div className="text-center group">
                 <div className="bg-primary text-white w-16 h-16 sm:w-20 sm:h-20 rounded-full flex items-center justify-center mx-auto mb-4 sm:mb-6 text-xl sm:text-2xl font-bold shadow-lg group-hover:scale-110 transition-transform">
@@ -483,7 +482,7 @@ export default function ServicesPage() {
                   Comprehensive discussion of your vision, budget analysis, site evaluation, and understanding of local regulations and requirements.
                 </p>
               </div>
-              
+
               <div className="text-center group">
                 <div className="bg-secondary text-white w-16 h-16 sm:w-20 sm:h-20 rounded-full flex items-center justify-center mx-auto mb-4 sm:mb-6 text-xl sm:text-2xl font-bold shadow-lg group-hover:scale-110 transition-transform">
                   2
@@ -493,7 +492,7 @@ export default function ServicesPage() {
                   Architectural planning with Nigerian building codes compliance, permit acquisition, and approval from relevant state authorities.
                 </p>
               </div>
-              
+
               <div className="text-center group">
                 <div className="bg-accent text-white w-16 h-16 sm:w-20 sm:h-20 rounded-full flex items-center justify-center mx-auto mb-4 sm:mb-6 text-xl sm:text-2xl font-bold shadow-lg group-hover:scale-110 transition-transform">
                   3
@@ -503,7 +502,7 @@ export default function ServicesPage() {
                   Quality construction with regular progress updates, safety compliance, and coordination with local suppliers and craftsmen.
                 </p>
               </div>
-              
+
               <div className="text-center group">
                 <div className="bg-green-500 text-white w-16 h-16 sm:w-20 sm:h-20 rounded-full flex items-center justify-center mx-auto mb-4 sm:mb-6 text-xl sm:text-2xl font-bold shadow-lg group-hover:scale-110 transition-transform">
                   4
@@ -525,11 +524,11 @@ export default function ServicesPage() {
                 Serving <span className="text-primary">Nigeria</span> Nationwide
               </h2>
               <p className="text-lg sm:text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed px-4">
-                From Lagos to Abuja, Port Harcourt to Kano, we bring our expertise to communities across Nigeria, 
+                From Lagos to Abuja, Port Harcourt to Kano, we bring our expertise to communities across Nigeria,
                 contributing to the nation's infrastructure and development goals.
               </p>
             </div>
-            
+
             <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3 sm:gap-4 mb-8 sm:mb-12">
               {[
                 'Lagos State', 'Abuja FCT', 'Rivers State', 'Kano State', 'Oyo State',
@@ -542,10 +541,10 @@ export default function ServicesPage() {
                 </div>
               ))}
             </div>
-            
+
             <div className="text-center">
               <p className="text-sm sm:text-base text-gray-600 mb-4 sm:mb-6 max-w-2xl mx-auto px-4">
-                Don't see your location? We're continuously expanding our reach across Nigeria. 
+                Don't see your location? We're continuously expanding our reach across Nigeria.
                 Contact us to discuss your project regardless of location.
               </p>
               <Link href="/contact" className="btn-primary text-base sm:text-lg px-6 sm:px-8 py-3 sm:py-4">
@@ -561,17 +560,17 @@ export default function ServicesPage() {
           <div className="absolute inset-0 bg-black/10"></div>
           <div className="absolute -top-10 -right-10 w-40 h-40 bg-secondary/20 rounded-full"></div>
           <div className="absolute -bottom-10 -left-10 w-32 h-32 bg-accent/20 rounded-full"></div>
-          
+
           <div className="container-custom text-center relative z-10">
             <div className="max-w-4xl mx-auto">
               <h2 className="text-3xl xs:text-4xl sm:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6">
                 Ready to Build Your <span className="text-secondary">Dream</span>?
               </h2>
               <p className="text-base sm:text-lg lg:text-xl xl:text-2xl mb-6 sm:mb-8 max-w-3xl mx-auto leading-relaxed text-gray-100 px-4">
-                Join hundreds of satisfied Nigerian clients who have trusted us with their construction dreams. 
+                Join hundreds of satisfied Nigerian clients who have trusted us with their construction dreams.
                 From concept to completion, we're here to make your vision a reality.
               </p>
-              
+
               <div className="grid grid-cols-1 xs:grid-cols-3 gap-4 sm:gap-6 mb-8 sm:mb-12 max-w-2xl mx-auto">
                 <div className="text-center">
                   <div className="bg-white/10 rounded-full w-12 h-12 sm:w-16 sm:h-16 flex items-center justify-center mx-auto mb-2 sm:mb-3">
@@ -592,7 +591,7 @@ export default function ServicesPage() {
                   <div className="text-xs sm:text-sm font-medium">Quality Guaranteed</div>
                 </div>
               </div>
-              
+
               <div className="flex flex-col xs:flex-row gap-4 sm:gap-6 justify-center">
                 <Link href="/contact" className="btn-secondary text-base sm:text-lg px-6 sm:px-8 lg:px-10 py-4 sm:py-5 transform hover:scale-105 transition-all duration-300 shadow-2xl">
                   Get Free Consultation
@@ -602,7 +601,7 @@ export default function ServicesPage() {
                   View Success Stories
                 </Link>
               </div>
-              
+
               <div className="mt-6 sm:mt-8 pt-6 sm:pt-8 border-t border-white/20">
                 <p className="text-gray-200 text-xs sm:text-sm">
                   🇳🇬 Proudly Nigerian • CAC Registered • Fully Insured • 15+ Years Experience
