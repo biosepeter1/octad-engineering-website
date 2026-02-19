@@ -1,4 +1,4 @@
-import Image from 'next/image'
+
 
 const services = [
     {
@@ -48,12 +48,10 @@ export default function WhatWeDo() {
                     {services.map((service) => (
                         <div key={service.title} className="bg-white group hover:shadow-2xl transition-all duration-500 border border-gray-100 transform hover:-translate-y-2 w-full md:w-[calc(50%-2rem)] lg:w-[calc(33.333%-2rem)]">
                             <div className="h-64 overflow-hidden relative">
-                                <Image
+                                <img
                                     src={service.image}
                                     alt={service.title}
-                                    fill
-                                    sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                                    className="object-cover transform group-hover:scale-110 transition-transform duration-700"
+                                    className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700"
                                 />
                                 <div className="absolute inset-0 bg-primary/0 group-hover:bg-primary/20 transition-colors duration-500"></div>
                             </div>

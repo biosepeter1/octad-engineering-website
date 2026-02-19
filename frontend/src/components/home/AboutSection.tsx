@@ -1,4 +1,4 @@
-import Image from 'next/image'
+
 
 export default function AboutSection() {
     return (
@@ -23,12 +23,10 @@ export default function AboutSection() {
 
                     {/* Image */}
                     <div className="relative h-[400px] lg:h-[500px] bg-gray-100 group transition-all duration-500 hover:shadow-2xl hover:-translate-y-2">
-                        <Image
+                        <img
                             src="/portfolio/page8_img7.jpg"
                             alt="OCTAD Engineering Team"
-                            fill
-                            sizes="(max-width: 1024px) 100vw, 50vw"
-                            className="object-cover grayscale group-hover:grayscale-0 transition-all duration-700"
+                            className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700"
                         />
                         {/* Solid accent border */}
                         <div className="absolute -bottom-4 -right-4 w-full h-full border-2 border-gray-900 -z-10 group-hover:bottom-[-20px] group-hover:right-[-20px] transition-all duration-500"></div>
