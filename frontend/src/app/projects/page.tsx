@@ -94,6 +94,45 @@ const portfolioProjects: Project[] = [
       '/portfolio/page20_img1.jpg', '/portfolio/page20_img2.jpg', '/portfolio/page20_img3.jpg', '/portfolio/page20_img4.jpg',
       '/portfolio/page21_img1.jpg', '/portfolio/page21_img2.jpg', '/portfolio/page21_img3.jpg'
     ]
+  },
+  {
+    id: 'sunbeth-energies',
+    title: 'Moyosoreanne Design Studio - Sunbeth Energies',
+    category: 'Interior Fit-Out',
+    status: 'completed',
+    location: 'Lagos',
+    description: 'A sleek corporate office transformation for Sunbeth Energies, delivered by Moyosoreanne Design Studio. The project features a stunning branded reception area with marble-effect wall cladding and warm alcove lighting, a modern executive office with dark wood panelling and pendant lighting, a glass-walled corridor with frosted orange accents, an inspiring workspace with motivational wall signage, and two premium conference rooms — one with orange leather chairs and city views, and another with wood-panel walls and presentation screen. Every space reflects energy, professionalism, and contemporary design.',
+    images: [
+      '/portfolio/sunbeth_1.jpg', '/portfolio/sunbeth_2.jpg', '/portfolio/sunbeth_3.jpg',
+      '/portfolio/sunbeth_4.jpg', '/portfolio/sunbeth_5.jpg'
+    ],
+    isFeature: true
+  },
+  {
+    id: 'punter-class-faaji',
+    title: 'Moyosoreanne Design Studio - Punter Class and Faaji Production',
+    category: 'Interior Fit-Out',
+    status: 'completed',
+    location: 'Lagos',
+    description: 'A vibrant and creative office space designed by Moyosoreanne Design Studio for Punter Class and Faaji Production. The fit-out showcases bold design choices including a "Reach Your Potential" motivational wall mural with orange graphic elements, a cosy break room with warm terracotta walls and wood-plank flooring, an elegant reception lobby with a circular mirror feature wall and mustard velvet sofa, a dynamic open-plan workspace with geometric wall art and planter dividers, glass-partitioned HR offices with slatted wood ceiling details, and a sleek kitchenette with louvred cabinetry and integrated seating.',
+    images: [
+      '/portfolio/punter_1.jpg', '/portfolio/punter_2.jpg', '/portfolio/punter_3.jpg',
+      '/portfolio/punter_4.jpg', '/portfolio/punter_5.jpg', '/portfolio/punter_6.jpg'
+    ],
+    isFeature: true
+  },
+  {
+    id: 'ballavista-luxury-residence',
+    title: 'Studio Emodi - Ballavista',
+    category: 'Interior Fit-Out',
+    status: 'completed',
+    location: 'Lagos',
+    description: 'An ultra-luxury residential interior delivered by Studio Emodi at the Ballavista residence. This breathtaking project features a dramatic double-height living room with polished Calacatta marble floors, glass balustrade mezzanine, and curated contemporary art throughout. Highlights include an elegant sitting room with a circular recessed ceiling, globe chandelier, and a curved cream sofa paired with a statement green accent chair, a designer art lounge with a unique bolster-cushion daybed and abstract portrait paintings, a refined dining room with modern globe pendant lighting and geometric area rug, and a luxurious master bedroom with cove lighting, built-in wardrobes, and marble flooring. Every finish exudes sophistication and grandeur.',
+    images: [
+      '/portfolio/ballavista_1.jpg', '/portfolio/ballavista_2.jpg', '/portfolio/ballavista_3.jpg',
+      '/portfolio/ballavista_4.jpg', '/portfolio/ballavista_5.jpg', '/portfolio/ballavista_6.jpg'
+    ],
+    isFeature: true
   }
 ]
 

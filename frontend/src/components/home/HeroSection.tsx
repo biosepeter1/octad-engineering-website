@@ -2,7 +2,6 @@
 
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
-import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/24/outline'
 
 const slides = [
     {
@@ -54,7 +53,7 @@ export default function HeroSection() {
     const prevSlide = () => setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length)
 
     return (
-        <section className="relative h-[80vh] sm:h-[85vh] md:h-screen min-h-[500px] sm:min-h-[600px] overflow-hidden bg-gray-900">
+        <section className="relative h-[60vh] sm:h-[85vh] md:h-screen min-h-[400px] sm:min-h-[600px] overflow-hidden bg-gray-900">
             {slides.map((slide, index) => (
                 <div
                     key={slide.id}
@@ -94,21 +93,7 @@ export default function HeroSection() {
                 </div>
             ))}
 
-            {/* Navigation Arrows (Minimal) */}
-            <button
-                onClick={prevSlide}
-                className="absolute z-[60] top-1/2 left-4 sm:left-10 transform -translate-y-1/2 text-white hover:text-primary transition-all p-3 bg-black/30 hover:bg-white/90 rounded-full"
-                aria-label="Previous slide"
-            >
-                <ChevronLeftIcon className="w-8 h-8 sm:w-10 sm:h-10" />
-            </button>
-            <button
-                onClick={nextSlide}
-                className="absolute z-[60] top-1/2 right-4 sm:right-10 transform -translate-y-1/2 text-white hover:text-primary transition-all p-3 bg-black/30 hover:bg-white/90 rounded-full"
-                aria-label="Next slide"
-            >
-                <ChevronRightIcon className="w-8 h-8 sm:w-10 sm:h-10" />
-            </button>
+
 
             {/* Indicators (Lines) */}
             <div className="absolute z-30 bottom-10 left-1/2 transform -translate-x-1/2 flex space-x-4">

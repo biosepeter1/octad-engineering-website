@@ -57,7 +57,7 @@ interface About {
 
 const defaultAbout: About = {
   _id: 'default',
-  companyInfo: 'OCTAD Engineering Limited is a Nigeria Incorporated company and locally owned. The company offers Engineering Construction and Construction Project Management. OCTAD is dedicated to organizations or individuals seeking construction services. We provide engineering construction services to power distribution and transmission companies, parastatals, oil and pipeline companies, public works agencies, municipalities, and commercial/residential real estate developers. Our area of expertise includes but is not limited to building technology, civil and structural engineering. We are committed to providing the best possible construction expertise & service to ensure cost effective and successful projects.',
+  companyInfo: 'OCTAD is a construction company that specializes in engineering construction and project management, offering services to public and private clients. Our expertise spans building technology, interior designing, civil engineering, and structural engineering, with a commitment to delivering cost-effective and successful projects.',
   mission: 'To be Nigeria\'s premier construction partner, delivering superior building solutions that exceed expectations while contributing to national development, job creation, and community growth through quality craftsmanship and innovative engineering.',
   vision: 'To transform Nigeria\'s skylines and communities by becoming the most trusted construction company, known for excellence, integrity, and our commitment to building a stronger, more prosperous nation.',
   values: [
@@ -188,8 +188,8 @@ export default function AboutPage() {
                 </span>
               </h1>
               <p className="text-base sm:text-lg lg:text-xl xl:text-2xl mb-8 sm:mb-10 lg:mb-12 text-gray-100 max-w-4xl mx-auto leading-relaxed">
-                Proudly Nigerian. Building excellence, innovation, and lasting relationships across our great nation
-                since {about.foundedYear || 2010}. From Lagos to Kano, from Port Harcourt to Abuja.
+                A construction company that specializes in engineering construction and project management,
+                offering services to public and private clients since {about.foundedYear || 2014}.
               </p>
 
               <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 mb-6 sm:mb-8 max-w-2xl mx-auto">
@@ -203,7 +203,7 @@ export default function AboutPage() {
                   <div className="bg-white/10 rounded-full w-12 h-12 sm:w-16 sm:h-16 flex items-center justify-center mx-auto mb-1 sm:mb-2">
                     <ShieldCheckIcon className="w-6 h-6 sm:w-8 sm:h-8" />
                   </div>
-                  <div className="text-xs sm:text-sm font-medium">CAC Certified</div>
+                  <div className="text-xs sm:text-sm font-medium">COREN Certified</div>
                 </div>
                 <div className="text-center">
                   <div className="bg-white/10 rounded-full w-12 h-12 sm:w-16 sm:h-16 flex items-center justify-center mx-auto mb-1 sm:mb-2">
@@ -276,7 +276,7 @@ export default function AboutPage() {
                   Why Choose <span className="text-primary">Octad Engineering</span>?
                 </h2>
                 <p className="text-base sm:text-lg text-gray-600 leading-relaxed mb-6 sm:mb-8">
-                  As a proudly Nigerian construction company, we understand the unique challenges and opportunities of building in our diverse climate and vibrant culture. We combine international best practices with deep local knowledge to deliver exceptional results.
+                  OCTAD is a construction company that specializes in engineering construction and project management, offering services to public and private clients. Our expertise spans building technology, interior designing, civil engineering, and structural engineering, with a commitment to delivering cost-effective and successful projects.
                 </p>
 
                 <div className="space-y-3 sm:space-y-4 mb-6 sm:mb-8">
@@ -284,7 +284,7 @@ export default function AboutPage() {
                     <div className="bg-green-500 text-white w-6 h-6 sm:w-8 sm:h-8 rounded-full flex items-center justify-center mr-2 sm:mr-3 flex-shrink-0">
                       <CheckCircleIcon className="w-4 h-4 sm:w-5 sm:h-5" />
                     </div>
-                    <span className="text-sm sm:text-base text-gray-700 font-medium">CAC Registered & Fully Licensed across Nigeria</span>
+                    <span className="text-sm sm:text-base text-gray-700 font-medium">COREN Registered & NSE Corporate Member</span>
                   </div>
                   <div className="flex items-center">
                     <div className="bg-green-500 text-white w-6 h-6 sm:w-8 sm:h-8 rounded-full flex items-center justify-center mr-2 sm:mr-3 flex-shrink-0">
@@ -533,7 +533,7 @@ export default function AboutPage() {
                   <div className="bg-white/10 rounded-full w-12 h-12 sm:w-16 sm:h-16 flex items-center justify-center mx-auto mb-2 sm:mb-3">
                     <ShieldCheckIcon className="w-6 h-6 sm:w-8 sm:h-8" />
                   </div>
-                  <div className="text-xs sm:text-sm font-medium">CAC Guaranteed</div>
+                  <div className="text-xs sm:text-sm font-medium">COREN Guaranteed</div>
                 </div>
               </div>
 
@@ -549,7 +549,7 @@ export default function AboutPage() {
 
               <div className="mt-6 sm:mt-8 pt-6 sm:pt-8 border-t border-white/20">
                 <p className="text-gray-200 text-xs sm:text-sm px-4">
-                  🇳🇬 Proudly Nigerian • CAC RC: 123456 • Fully Licensed • ISO Certified • 15+ Years Excellence
+                  🇳🇬 Proudly Nigerian • COREN Registered • Fully Licensed • NSE Member • 15+ Years Excellence
                 </p>
               </div>
             </div>

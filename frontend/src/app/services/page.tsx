@@ -419,7 +419,7 @@ export default function ServicesPage() {
                       <ShieldCheckIcon className="w-5 h-5 sm:w-6 sm:h-6" />
                     </div>
                     <div>
-                      <h3 className="font-bold text-gray-900 mb-1 sm:mb-2 text-base sm:text-lg">CAC Registered & Fully Licensed</h3>
+                      <h3 className="font-bold text-gray-900 mb-1 sm:mb-2 text-base sm:text-lg">COREN Registered & NSE Member</h3>
                       <p className="text-sm sm:text-base text-gray-600">Certified with Corporate Affairs Commission and fully licensed by relevant Nigerian authorities with comprehensive insurance coverage.</p>
                     </div>
                   </div>
@@ -604,7 +604,7 @@ export default function ServicesPage() {
 
               <div className="mt-6 sm:mt-8 pt-6 sm:pt-8 border-t border-white/20">
                 <p className="text-gray-200 text-xs sm:text-sm">
-                  🇳🇬 Proudly Nigerian • CAC Registered • Fully Insured • 15+ Years Experience
+                  🇳🇬 Proudly Nigerian • COREN Registered • Fully Insured • 15+ Years Experience
                 </p>
               </div>
             </div>

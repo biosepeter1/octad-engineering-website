@@ -182,7 +182,7 @@ export default function ContactPage() {
                   <div className="bg-white/10 rounded-full w-12 h-12 sm:w-16 sm:h-16 flex items-center justify-center mx-auto mb-1 sm:mb-2">
                     <ShieldCheckIcon className="w-6 h-6 sm:w-8 sm:h-8" />
                   </div>
-                  <div className="text-xs sm:text-sm font-medium">CAC Certified</div>
+                  <div className="text-xs sm:text-sm font-medium">COREN Certified</div>
                 </div>
                 <div className="text-center">
                   <div className="bg-white/10 rounded-full w-12 h-12 sm:w-16 sm:h-16 flex items-center justify-center mx-auto mb-1 sm:mb-2">
@@ -624,8 +624,8 @@ export default function ContactPage() {
                     answer: "Simply fill out our contact form above or call us directly. We'll schedule a free consultation to discuss your project and provide a detailed quote."
                   },
                   {
-                    question: "Are you CAC registered and insured?",
-                    answer: "Yes, we are fully CAC registered with the Corporate Affairs Commission and carry comprehensive insurance coverage including professional liability and workers' compensation."
+                    question: "Are you COREN registered and insured?",
+                    answer: "Yes, we are COREN registered with the Council for the Regulation of Engineering in Nigeria and a Corporate Member of the Nigerian Society of Engineers (NSE). We also carry comprehensive insurance coverage including professional liability and workers' compensation."
                   },
                   {
                     question: "What areas do you serve?",

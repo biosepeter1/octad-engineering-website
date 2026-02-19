@@ -4,12 +4,15 @@ import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
 import HeroSection from '@/components/home/HeroSection'
 import AboutSection from '@/components/home/AboutSection'
-import ServicesSection from '@/components/home/WhatWeDo' // Using the file we refactored
+import ServicesSection from '@/components/home/WhatWeDo'
 import PhilosophySection from '@/components/home/PhilosophySection'
 import ProjectsSection from '@/components/home/ProjectsSection'
 import FounderSection from '@/components/home/FounderSection'
 import FeedbackSection from '@/components/home/FeedbackSection'
 import ContactInfoSection from '@/components/home/ContactInfoSection'
+
+import ClientsSection from '@/components/home/ClientsSection'
+import ParallaxGallerySection from '@/components/home/ParallaxGallerySection'
 
 export default function HomePage() {
   return (
@@ -22,22 +25,28 @@ export default function HomePage() {
       {/* 2. About Section */}
       <AboutSection />
 
-      {/* 3. Services Section */}
+      {/* 3. Clients/Partners Section */}
+      <ClientsSection />
+
+      {/* 4. Featured Projects Parallax Gallery */}
+      <ParallaxGallerySection />
+
+      {/* 5. Services Section */}
       <ServicesSection />
 
-      {/* 4. Philosophy Section */}
+      {/* 6. Philosophy Section */}
       <PhilosophySection />
 
-      {/* 5. Projects Section */}
+      {/* 7. Projects Section */}
       <ProjectsSection />
 
-      {/* 6. Founder Section */}
+      {/* 8. Founder Section */}
       <FounderSection />
 
-      {/* 7. Client Feedback Section */}
+      {/* 9. Client Feedback Section */}
       <FeedbackSection />
 
-      {/* 8. Contact Info Section */}
+      {/* 10. Contact Info Section */}
       <ContactInfoSection />
 
       <Footer />

@@ -12,18 +12,10 @@ export default function AboutSection() {
                         </h2>
                         <div className="space-y-6 text-lg text-gray-700 leading-relaxed font-light">
                             <p>
-                                OCTAD Engineering Limited is a Nigeria Incorporated company and locally owned.
-                                The company offers Engineering Construction and Construction Project Management.
+                                OCTAD is a construction company that specializes in engineering construction and project management, offering services to public and private clients.
                             </p>
                             <p>
-                                OCTAD is dedicated to organizations or individuals seeking construction services.
-                                We provide engineering construction services to power distribution and transmission companies,
-                                parastatals, oil and pipeline companies, public works agencies, municipalities, and
-                                commercial/residential real estate developers.
-                            </p>
-                            <p>
-                                Our area of expertise includes but is not limited to building technology, civil and structural engineering.
-                                We are committed to providing the best possible construction expertise & service to ensure cost effective and successful projects.
+                                Our expertise spans building technology, interior designing, civil engineering, and structural engineering, with a commitment to delivering cost-effective and successful projects.
                             </p>
                         </div>
 

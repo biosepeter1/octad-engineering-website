@@ -26,14 +26,7 @@ export default function FounderSection() {
                             </p>
                             <div className="text-gray-700 leading-relaxed font-light space-y-4">
                                 <p>
-                                    Gbolahan Alimi is a graduate of Civil Engineering from the University of Ilorin, Ilorin, Kwara State.
-                                </p>
-                                <p>
-                                    He is a COREN Registered Engineer and a Corporate Member of the Nigerian Society of Engineers (NSE).
-                                    With over 20 years of experience in the construction industry, he has led numerous high-profile projects.
-                                </p>
-                                <p>
-                                    He is also a member of the Nigerian Institution of Civil Engineers.
+                                    With over a decade of experience in construction and interior design, I provide customized solutions for businesses — from functional factories to employee-friendly workspaces — and also craft dream homes for individuals.
                                 </p>
                             </div>
                         </div>

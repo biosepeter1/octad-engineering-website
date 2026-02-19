@@ -3,7 +3,18 @@
 import AnimatedCounter from '@/components/AnimatedCounter'
 
 export default function ClientsSection() {
-    const clients = ['Laider Pharmaceutical', 'Project Christine Benin', 'Twinning Ovaltin', 'Inbreetic Technologies', 'Vita Construction', 'OCTAD Engineering']
+    const clientLogos = [
+        { name: 'Inbreetic Technologies', logo: '/partners/inbreetic-technologies.jpg' },
+        { name: 'Tinc IT Solutions', logo: '/partners/tinc-it-solutions.png' },
+        { name: '143 Fitness', logo: '/partners/143-fitness.jpg' },
+        { name: 'Bamboo', logo: '/partners/bamboo.jpg' },
+        { name: 'Chrysalis', logo: '/partners/chrysalis.jpg' },
+        { name: 'Civic Centre', logo: '/partners/civic-centre.jpg' },
+        { name: 'Sunbeth Energies', logo: '/partners/sunbeth-energies.jpg' },
+        { name: 'Punter Class', logo: '' }, // No logo yet
+        { name: 'Faaji Production', logo: '/partners/faaji-production.jpg' },
+        { name: 'Vita Construction', logo: '/partners/vita-construction.jpg' }
+    ]
 
     return (
         <section className="section-padding bg-white">
@@ -17,36 +28,56 @@ export default function ClientsSection() {
                         real estate, and development.
                     </p>
                 </div>
+            </div>
 
-                {/* Marquee Container */}
-                <div className="relative overflow-hidden bg-gray-50 rounded-xl sm:rounded-2xl py-8 sm:py-12">
-                    <div className="flex space-x-8 sm:space-x-12 lg:space-x-16 animate-marquee">
-                        {/* Client Logos Row 1 */}
-                        <div className="flex items-center justify-center min-w-max space-x-8 sm:space-x-12 lg:space-x-16">
-                            {clients.map((name) => (
-                                <div key={name} className="bg-white p-3 sm:p-4 lg:p-6 rounded-lg sm:rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300">
-                                    <div className="w-24 h-12 sm:w-28 sm:h-14 lg:w-32 lg:h-16 bg-gray-200 rounded-lg flex items-center justify-center">
-                                        <span className="text-gray-600 font-bold text-sm sm:text-base lg:text-lg">{name}</span>
-                                    </div>
+            {/* Marquee Container - Full Width */}
+            <div className="w-full relative overflow-hidden bg-gray-50 py-8 sm:py-12 mb-12 sm:mb-16">
+                <div className="flex space-x-4 sm:space-x-8 lg:space-x-16 animate-marquee">
+                    {/* Client Logos Row 1 */}
+                    <div className="flex items-center justify-center min-w-max space-x-4 sm:space-x-8 lg:space-x-16">
+                        {clientLogos.map((client) => (
+                            <div key={client.name} className="bg-white p-2 sm:p-3 lg:p-4 rounded-lg sm:rounded-xl h-full flex items-center">
+                                <div className="w-32 sm:w-36 lg:w-44 h-auto min-h-[6rem] sm:min-h-[6rem] bg-white rounded-lg flex flex-col items-center justify-center p-2 gap-1.5">
+                                    {client.logo && (
+                                        <img
+                                            src={client.logo}
+                                            alt={client.name}
+                                            className="h-9 sm:h-10 w-auto object-contain transition-all duration-300"
+                                        />
+                                    )}
+                                    <span className="text-gray-600 font-medium text-xs text-center leading-tight line-clamp-2">
+                                        {client.name}
+                                    </span>
                                 </div>
-                            ))}
-                        </div>
+                            </div>
+                        ))}
+                    </div>
 
-                        {/* Duplicate for seamless loop */}
-                        <div className="flex items-center justify-center min-w-max space-x-8 sm:space-x-12 lg:space-x-16">
-                            {clients.map((name) => (
-                                <div key={`dup-${name}`} className="bg-white p-3 sm:p-4 lg:p-6 rounded-lg sm:rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300">
-                                    <div className="w-24 h-12 sm:w-28 sm:h-14 lg:w-32 lg:h-16 bg-gray-200 rounded-lg flex items-center justify-center">
-                                        <span className="text-gray-600 font-bold text-sm sm:text-base lg:text-lg">{name}</span>
-                                    </div>
+                    {/* Duplicate for seamless loop */}
+                    <div className="flex items-center justify-center min-w-max space-x-4 sm:space-x-8 lg:space-x-16">
+                        {clientLogos.map((client) => (
+                            <div key={`dup-${client.name}`} className="bg-white p-2 sm:p-3 lg:p-4 rounded-lg sm:rounded-xl h-full flex items-center">
+                                <div className="w-32 sm:w-36 lg:w-44 h-auto min-h-[6rem] sm:min-h-[6rem] bg-white rounded-lg flex flex-col items-center justify-center p-2 gap-1.5">
+                                    {client.logo && (
+                                        <img
+                                            src={client.logo}
+                                            alt={client.name}
+                                            className="h-9 sm:h-10 w-auto object-contain transition-all duration-300"
+                                        />
+                                    )}
+                                    <span className="text-gray-600 font-medium text-xs text-center leading-tight line-clamp-2">
+                                        {client.name}
+                                    </span>
                                 </div>
-                            ))}
-                        </div>
+                            </div>
+                        ))}
                     </div>
                 </div>
+            </div>
 
+            <div className="container-custom">
                 {/* Stats Row */}
-                <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8 mt-12 sm:mt-16 animate-fade-in" style={{ animationDelay: '300ms' }}>
+                <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8 animate-fade-in" style={{ animationDelay: '300ms' }}>
                     <div className="text-center">
                         <AnimatedCounter
                             end={200}
