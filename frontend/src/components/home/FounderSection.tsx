@@ -1,4 +1,4 @@
-'use client'
+import Image from 'next/image'
 
 export default function FounderSection() {
     return (
@@ -8,10 +8,12 @@ export default function FounderSection() {
                     <div className="flex flex-col md:flex-row items-center gap-10 md:gap-16">
                         {/* Image */}
                         <div className="w-64 h-64 md:w-80 md:h-80 flex-shrink-0 relative">
-                            <img
+                            <Image
                                 src="/portfolio/page5_img1.jpg"
                                 alt="Gbolahan Alimi - CEO"
-                                className="w-full h-full object-cover shadow-xl grayscale hover:grayscale-0 transition-all duration-500"
+                                fill
+                                sizes="(max-width: 768px) 256px, 320px"
+                                className="object-cover shadow-xl grayscale hover:grayscale-0 transition-all duration-500"
                             />
                             <div className="absolute top-4 -left-4 w-full h-full border-2 border-primary -z-10"></div>
                         </div>

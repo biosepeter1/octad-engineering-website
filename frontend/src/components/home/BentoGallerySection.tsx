@@ -50,18 +50,18 @@ const projects = [
 
 export default function BentoGallerySection() {
     return (
-        <section className="py-20 bg-gray-50">
+        <section className="py-10 md:py-20 bg-gray-50">
             <div className="container-custom">
-                <div className="text-center mb-16">
-                    <h2 className="text-3xl md:text-5xl font-bold text-gray-900 mb-6">
+                <div className="text-center mb-10 md:mb-16">
+                    <h2 className="text-3xl md:text-5xl font-bold text-gray-900 mb-4 md:mb-6">
                         Featured <span className="text-primary">Masterpieces</span>
                     </h2>
-                    <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+                    <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
                         A curated selection of our finest work, delivering excellence in every detail.
                     </p>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 auto-rows-[300px]">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 auto-rows-[250px] md:auto-rows-[300px]">
                     {projects.map((project, index) => (
                         <motion.div
                             key={project.id}

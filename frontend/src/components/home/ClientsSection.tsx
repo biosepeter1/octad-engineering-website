@@ -1,5 +1,4 @@
-'use client'
-
+import Image from 'next/image'
 import AnimatedCounter from '@/components/AnimatedCounter'
 
 export default function ClientsSection() {
@@ -36,14 +35,18 @@ export default function ClientsSection() {
                     {/* Client Logos Row 1 */}
                     <div className="flex items-center justify-center min-w-max space-x-4 sm:space-x-8 lg:space-x-16">
                         {clientLogos.map((client) => (
-                            <div key={client.name} className="bg-white p-2 sm:p-3 lg:p-4 rounded-lg sm:rounded-xl h-full flex items-center">
-                                <div className="w-32 sm:w-36 lg:w-44 h-auto min-h-[6rem] sm:min-h-[6rem] bg-white rounded-lg flex flex-col items-center justify-center p-2 gap-1.5">
+                            <div key={client.name} className="bg-white p-2 sm:p-3 lg:p-4 rounded-lg sm:rounded-xl h-full flex items-center will-change-transform">
+                                <div className="w-32 sm:w-36 lg:w-44 h-auto min-h-[6rem] sm:min-h-[6rem] bg-white rounded-lg flex flex-col items-center justify-center p-2 gap-1.5 ">
                                     {client.logo && (
-                                        <img
-                                            src={client.logo}
-                                            alt={client.name}
-                                            className="h-9 sm:h-10 w-auto object-contain transition-all duration-300"
-                                        />
+                                        <div className="relative h-9 sm:h-10 w-24 sm:w-32">
+                                            <Image
+                                                src={client.logo}
+                                                alt={client.name}
+                                                fill
+                                                sizes="(max-width: 768px) 96px, 128px"
+                                                className="object-contain transition-all duration-300"
+                                            />
+                                        </div>
                                     )}
                                     <span className="text-gray-600 font-medium text-xs text-center leading-tight line-clamp-2">
                                         {client.name}
@@ -56,14 +59,18 @@ export default function ClientsSection() {
                     {/* Duplicate for seamless loop */}
                     <div className="flex items-center justify-center min-w-max space-x-4 sm:space-x-8 lg:space-x-16">
                         {clientLogos.map((client) => (
-                            <div key={`dup-${client.name}`} className="bg-white p-2 sm:p-3 lg:p-4 rounded-lg sm:rounded-xl h-full flex items-center">
+                            <div key={`dup-${client.name}`} className="bg-white p-2 sm:p-3 lg:p-4 rounded-lg sm:rounded-xl h-full flex items-center will-change-transform">
                                 <div className="w-32 sm:w-36 lg:w-44 h-auto min-h-[6rem] sm:min-h-[6rem] bg-white rounded-lg flex flex-col items-center justify-center p-2 gap-1.5">
                                     {client.logo && (
-                                        <img
-                                            src={client.logo}
-                                            alt={client.name}
-                                            className="h-9 sm:h-10 w-auto object-contain transition-all duration-300"
-                                        />
+                                        <div className="relative h-9 sm:h-10 w-24 sm:w-32">
+                                            <Image
+                                                src={client.logo}
+                                                alt={client.name}
+                                                fill
+                                                sizes="(max-width: 768px) 96px, 128px"
+                                                className="object-contain transition-all duration-300"
+                                            />
+                                        </div>
                                     )}
                                     <span className="text-gray-600 font-medium text-xs text-center leading-tight line-clamp-2">
                                         {client.name}

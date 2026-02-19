@@ -13,18 +13,18 @@ const projects = [
 
 export default function ProjectsSection() {
     return (
-        <section id="projects" className="py-16 sm:py-24 bg-white">
+        <section id="projects" className="py-12 sm:py-20 bg-white">
             <div className="container-custom">
-                <div className="text-center mb-16">
+                <div className="text-center mb-10 sm:mb-16">
                     <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4 uppercase tracking-tight">
                         Our Projects
                     </h2>
                     <div className="w-24 h-1 bg-primary mx-auto"></div>
                 </div>
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
                     {projects.map((project) => (
-                        <div key={project.id} className="relative h-80 group overflow-hidden bg-gray-200">
+                        <div key={project.id} className="relative h-64 sm:h-80 group overflow-hidden bg-gray-200">
                             <img
                                 src={project.image}
                                 alt={project.title}

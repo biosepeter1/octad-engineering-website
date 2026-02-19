@@ -12,7 +12,7 @@ import FeedbackSection from '@/components/home/FeedbackSection'
 import ContactInfoSection from '@/components/home/ContactInfoSection'
 
 import ClientsSection from '@/components/home/ClientsSection'
-import ParallaxGallerySection from '@/components/home/ParallaxGallerySection'
+import BentoGallerySection from '@/components/home/BentoGallerySection'
 
 export default function HomePage() {
   return (
@@ -28,8 +28,8 @@ export default function HomePage() {
       {/* 3. Clients/Partners Section */}
       <ClientsSection />
 
-      {/* 4. Featured Projects Parallax Gallery */}
-      <ParallaxGallerySection />
+      {/* 4. Featured Projects Bento Gallery */}
+      <BentoGallerySection />
 
       {/* 5. Services Section */}
       <ServicesSection />
