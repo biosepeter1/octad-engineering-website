@@ -1,4 +1,4 @@
-
+import Image from 'next/image'
 import AnimatedCounter from '@/components/AnimatedCounter'
 
 export default function ClientsSection() {
@@ -39,10 +39,13 @@ export default function ClientsSection() {
                                 <div className="w-32 sm:w-36 lg:w-44 h-auto min-h-[6rem] sm:min-h-[6rem] bg-white rounded-lg flex flex-col items-center justify-center p-2 gap-1.5 ">
                                     {client.logo && (
                                         <div className="relative h-9 sm:h-10 w-24 sm:w-32">
-                                            <img
+                                            <Image
                                                 src={client.logo}
                                                 alt={client.name}
-                                                className="w-full h-full object-contain transition-all duration-300"
+                                                fill
+                                                sizes="128px"
+                                                className="object-contain transition-all duration-300"
+                                                loading="lazy"
                                             />
                                         </div>
                                     )}
@@ -61,10 +64,13 @@ export default function ClientsSection() {
                                 <div className="w-32 sm:w-36 lg:w-44 h-auto min-h-[6rem] sm:min-h-[6rem] bg-white rounded-lg flex flex-col items-center justify-center p-2 gap-1.5">
                                     {client.logo && (
                                         <div className="relative h-9 sm:h-10 w-24 sm:w-32">
-                                            <img
+                                            <Image
                                                 src={client.logo}
                                                 alt={client.name}
-                                                className="w-full h-full object-contain transition-all duration-300"
+                                                fill
+                                                sizes="128px"
+                                                className="object-contain transition-all duration-300"
+                                                loading="lazy"
                                             />
                                         </div>
                                     )}

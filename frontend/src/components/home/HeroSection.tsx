@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
-
+import Image from 'next/image'
 
 
 const slides = [
@@ -64,11 +64,17 @@ export default function HeroSection() {
                 >
                     {/* Image & Solid Overlay */}
                     <div className="absolute inset-0 pointer-events-none">
-                        <img
-                            src={slide.image}
-                            alt={slide.title}
-                            className="w-full h-full object-cover object-center animate-slow-zoom"
-                        />
+                        <div className="absolute inset-0 animate-slow-zoom">
+                            <Image
+                                src={slide.image}
+                                alt={slide.title}
+                                fill
+                                sizes="100vw"
+                                className="object-cover object-center"
+                                priority={index === 0}
+                                quality={75}
+                            />
+                        </div>
                         {/* Solid dark overlay for legibility, no gradients */}
                         <div className="absolute inset-0 bg-black/50"></div>
                     </div>

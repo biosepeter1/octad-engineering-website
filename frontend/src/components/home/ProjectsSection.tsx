@@ -1,6 +1,7 @@
 'use client'
 
 import Link from 'next/link'
+import Image from 'next/image'
 
 const projects = [
     { id: 1, image: '/portfolio/page16_img1.jpg', title: 'Commercial Complex' },
@@ -25,12 +26,16 @@ export default function ProjectsSection() {
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
                     {projects.map((project) => (
                         <div key={project.id} className="relative h-64 sm:h-80 group overflow-hidden bg-gray-200">
-                            <img
+                            <Image
                                 src={project.image}
                                 alt={project.title}
-                                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                                fill
+                                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                                className="object-cover transition-transform duration-700 group-hover:scale-110"
+                                loading="lazy"
+                                quality={75}
                             />
-                            <div className="absolute inset-0 bg-black/20 group-hover:bg-black/60 backdrop-blur-[1px] group-hover:backdrop-blur-sm transition-all duration-500 flex items-center justify-center">
+                            <div className="absolute inset-0 bg-black/20 group-hover:bg-black/60 transition-all duration-500 flex items-center justify-center">
                                 <h3 className="text-white text-xl font-bold uppercase tracking-wider translate-y-4 group-hover:translate-y-0 opacity-70 group-hover:opacity-100 transition-all duration-500 shadow-sm">
                                     {project.title}
                                 </h3>

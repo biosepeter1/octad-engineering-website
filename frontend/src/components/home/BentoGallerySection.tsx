@@ -1,6 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
+import Image from 'next/image'
 
 
 const projects = [
@@ -71,10 +72,14 @@ export default function BentoGallerySection() {
                             transition={{ duration: 0.5, delay: index * 0.1 }}
                             className={`group relative overflow-hidden rounded-2xl shadow-sm hover:shadow-xl transition-shadow duration-300 ${project.className}`}
                         >
-                            <img
+                            <Image
                                 src={project.image}
                                 alt={project.title}
-                                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                                fill
+                                sizes="(max-width: 768px) 100vw, 33vw"
+                                className="object-cover transition-transform duration-700 group-hover:scale-110"
+                                loading="lazy"
+                                quality={75}
                             />
 
                             {/* Overlay */}

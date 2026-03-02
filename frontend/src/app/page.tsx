@@ -1,18 +1,20 @@
 'use client'
 
+import dynamic from 'next/dynamic'
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
 import HeroSection from '@/components/home/HeroSection'
-import AboutSection from '@/components/home/AboutSection'
-import ServicesSection from '@/components/home/WhatWeDo'
-import PhilosophySection from '@/components/home/PhilosophySection'
-import ProjectsSection from '@/components/home/ProjectsSection'
-import FounderSection from '@/components/home/FounderSection'
-import FeedbackSection from '@/components/home/FeedbackSection'
-import ContactInfoSection from '@/components/home/ContactInfoSection'
 
-import ClientsSection from '@/components/home/ClientsSection'
-import BentoGallerySection from '@/components/home/BentoGallerySection'
+// Lazy-load below-the-fold sections for faster initial page load
+const AboutSection = dynamic(() => import('@/components/home/AboutSection'))
+const ServicesSection = dynamic(() => import('@/components/home/WhatWeDo'))
+const PhilosophySection = dynamic(() => import('@/components/home/PhilosophySection'))
+const ProjectsSection = dynamic(() => import('@/components/home/ProjectsSection'))
+const FounderSection = dynamic(() => import('@/components/home/FounderSection'))
+const FeedbackSection = dynamic(() => import('@/components/home/FeedbackSection'))
+const ContactInfoSection = dynamic(() => import('@/components/home/ContactInfoSection'))
+const ClientsSection = dynamic(() => import('@/components/home/ClientsSection'))
+const BentoGallerySection = dynamic(() => import('@/components/home/BentoGallerySection'))
 
 export default function HomePage() {
   return (
