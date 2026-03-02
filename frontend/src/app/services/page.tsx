@@ -141,8 +141,12 @@ export default function ServicesPage() {
     const fetchServices = async () => {
       try {
         const response = await servicesAPI.getServices()
+        // Only replace defaults if API returns active services
         if (response.success && response.data) {
-          setServices(response.data)
+          const activeServices = response.data.filter((s: Service) => s.isActive)
+          if (activeServices.length > 0) {
+            setServices(response.data)
+          }
         }
       } catch (error) {
         console.log('Using default services')
