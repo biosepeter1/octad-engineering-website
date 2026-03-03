@@ -178,10 +178,12 @@ export default function ServicesPage() {
         {/* Hero Section */}
         <section className="relative min-h-[70vh] flex items-center justify-center overflow-hidden pt-20">
           <div className="absolute inset-0 z-0">
-            <img
+            <Image
               src="https://images.unsplash.com/photo-1541976590-713941681591?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80"
               alt="Modern Nigerian Construction"
-              className="w-full h-full object-cover"
+              fill
+              className="object-cover"
+              priority
             />
             <div className="absolute inset-0 bg-black/60"></div>
             <div className="absolute inset-0 bg-gradient-to-r from-primary/30 to-secondary/30"></div>
@@ -325,11 +327,12 @@ export default function ServicesPage() {
                     }`} style={{ animationDelay: `${index * 200}ms` }}>
                     {/* Image Section */}
                     <div className={`relative ${index % 2 === 1 ? 'lg:col-start-2' : ''}`}>
-                      <div className="relative overflow-hidden rounded-xl sm:rounded-2xl shadow-2xl transform hover:scale-102 transition-all duration-500">
-                        <img
+                      <div className="relative w-full h-[280px] sm:h-[350px] lg:h-[400px] overflow-hidden rounded-xl sm:rounded-2xl shadow-2xl transform hover:scale-102 transition-all duration-500">
+                        <Image
                           src={getServiceImage(service.icon)}
                           alt={service.title}
-                          className="w-full h-[280px] sm:h-[350px] lg:h-[400px] object-cover"
+                          fill
+                          className="object-cover"
                         />
                         <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent"></div>
                         <div className="absolute -bottom-2 -right-2 sm:-bottom-4 sm:-right-4 bg-primary text-white p-3 sm:p-4 lg:p-6 rounded-lg sm:rounded-xl shadow-lg transform rotate-3 hover:rotate-0 transition-transform duration-300">
@@ -398,13 +401,13 @@ export default function ServicesPage() {
           <div className="container-custom">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16 items-center">
               <div className="relative">
-                <img
-                  src="https://images.unsplash.com/photo-1590725140246-20acdee442be?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-                  alt="Nigerian Construction Excellence"
-                  className="rounded-xl sm:rounded-2xl shadow-2xl w-full h-[350px] sm:h-[400px] lg:h-[500px] object-cover"
-                />
-                <div className="absolute -bottom-2 -right-2 sm:-bottom-4 sm:-right-4 bg-primary text-white p-3 sm:p-4 lg:p-6 rounded-lg sm:rounded-xl shadow-lg">
-                  <ShieldCheckIcon className="w-8 h-8 sm:w-10 sm:h-10 lg:w-12 lg:h-12" />
+                <div className="relative w-full h-[350px] sm:h-[400px] lg:h-[500px] rounded-xl sm:rounded-2xl shadow-[0_20px_50px_rgba(8,_112,_184,_0.1)] overflow-hidden">
+                  <Image
+                    src="https://images.unsplash.com/photo-1590725140246-20acdee442be?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                    alt="Nigerian Construction Excellence"
+                    fill
+                    className="object-cover"
+                  />
                 </div>
               </div>
 

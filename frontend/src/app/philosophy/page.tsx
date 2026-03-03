@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useRef } from 'react'
 import Link from 'next/link'
+import Image from 'next/image'
 import {
     ArrowRightIcon
 } from '@heroicons/react/24/outline'
@@ -98,10 +99,12 @@ export default function PhilosophyPage() {
                 {/* ====== HERO SECTION ====== */}
                 <section className="relative h-[55vh] sm:h-[65vh] md:h-[70vh] flex items-center justify-center overflow-hidden">
                     <div className="absolute inset-0 z-0">
-                        <img
+                        <Image
                             src="/portfolio/page11_img1.jpg"
                             alt="Philosophy Hero"
-                            className="w-full h-full object-cover animate-slow-zoom"
+                            fill
+                            className="object-cover animate-slow-zoom"
+                            priority
                         />
                         <div className="absolute inset-0 bg-primary/75"></div>
                         <div className="absolute inset-0 bg-black/30"></div>
@@ -253,11 +256,12 @@ export default function PhilosophyPage() {
                             </blockquote>
 
                             <div className="flex flex-col items-center gap-4">
-                                <div className="w-20 h-20 rounded-full overflow-hidden border-4 border-primary/20 shadow-lg">
-                                    <img
+                                <div className="relative w-20 h-20 rounded-full overflow-hidden border-4 border-primary/20 shadow-lg">
+                                    <Image
                                         src="/portfolio/page5_img1.jpg"
                                         alt="Founder"
-                                        className="w-full h-full object-cover"
+                                        fill
+                                        className="object-cover"
                                     />
                                 </div>
                                 <div>

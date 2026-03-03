@@ -4,8 +4,8 @@ import { useState, useEffect } from 'react'
 import { useForm } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
 import * as yup from 'yup'
-import { 
-  XMarkIcon, 
+import {
+  XMarkIcon,
   PhotoIcon,
   PlusIcon,
   TrashIcon,
@@ -14,6 +14,7 @@ import {
 import { uploadAPI, projectsAPI, handleApiError } from '@/lib/api'
 import { transformImageUrl } from '@/utils/imageUtils'
 import toast from 'react-hot-toast'
+import Image from 'next/image'
 
 interface Project {
   _id: string
@@ -89,7 +90,7 @@ interface Props {
 export default function ProjectModal({ isOpen, onClose, onSuccess, mode, project }: Props) {
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [isUploading, setIsUploading] = useState(false)
-  const [images, setImages] = useState<Array<{url: string, alt: string, isPrimary: boolean}>>([])
+  const [images, setImages] = useState<Array<{ url: string, alt: string, isPrimary: boolean }>>([])
 
   const {
     register,
@@ -189,27 +190,27 @@ export default function ProjectModal({ isOpen, onClose, onSuccess, mode, project
     try {
       setIsUploading(true)
       const response = await uploadAPI.uploadImages(files)
-      
+
       if (response.success && response.data) {
         console.log('🖼️ Upload response data:', response.data)
         const newImages = response.data.map((file: any, index: number) => {
           // Backend now returns fullUrl which includes the complete URL
           const imageUrl = file.fullUrl || file.url
-          
+
           return {
             url: imageUrl,
             alt: file.originalName.replace(/\.[^/.]+$/, ''), // Remove file extension for alt text
             isPrimary: images.length === 0 && index === 0 // First image is primary if no images exist
           }
         })
-        
+
         console.log('🇿️ New images created:', newImages)
-        
+
         const updatedImages = [...images, ...newImages]
         console.log('🖼️ Updated images array:', updatedImages)
         setImages(updatedImages)
         setValue('images', updatedImages)
-        
+
         toast.success(`${files.length} image(s) uploaded successfully!`)
       }
     } catch (error) {
@@ -225,11 +226,11 @@ export default function ProjectModal({ isOpen, onClose, onSuccess, mode, project
     console.log('🚀 Form submission started')
     console.log('📝 Form data:', data)
     console.log('🖼️ Images array:', images)
-    
+
     // Clean up empty images (remove images without URL or alt text)
     const cleanImages = images.filter(img => img.url && img.url.trim() !== '' && img.alt && img.alt.trim() !== '')
     console.log('🧽 Cleaned images:', cleanImages)
-    
+
     try {
       setIsSubmitting(true)
       const projectData = {
@@ -246,7 +247,7 @@ export default function ProjectModal({ isOpen, onClose, onSuccess, mode, project
         console.log('📡 Calling updateProject API...')
         response = await projectsAPI.updateProject(project._id, projectData)
       }
-      
+
       console.log('📨 API Response:', response)
 
       if (response?.success) {
@@ -290,7 +291,7 @@ export default function ProjectModal({ isOpen, onClose, onSuccess, mode, project
           console.log('❌ Form validation errors:', errors)
           console.log('🔍 Current images state:', images)
           console.log('🔍 Current form images:', watch('images'))
-          
+
           // Detailed image analysis
           images.forEach((img, index) => {
             console.log(`🔎 Image ${index}:`, {
@@ -314,9 +315,8 @@ export default function ProjectModal({ isOpen, onClose, onSuccess, mode, project
               <input
                 type="text"
                 {...register('title')}
-                className={`w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-primary ${
-                  errors.title ? 'border-red-500' : 'border-gray-300'
-                }`}
+                className={`w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-primary ${errors.title ? 'border-red-500' : 'border-gray-300'
+                  }`}
                 placeholder="Project title"
               />
               {errors.title && (
@@ -331,9 +331,8 @@ export default function ProjectModal({ isOpen, onClose, onSuccess, mode, project
               </label>
               <select
                 {...register('category')}
-                className={`w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-primary ${
-                  errors.category ? 'border-red-500' : 'border-gray-300'
-                }`}
+                className={`w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-primary ${errors.category ? 'border-red-500' : 'border-gray-300'
+                  }`}
               >
                 <option value="">Select category</option>
                 <option value="Residential">Residential</option>
@@ -354,9 +353,8 @@ export default function ProjectModal({ isOpen, onClose, onSuccess, mode, project
               </label>
               <select
                 {...register('status')}
-                className={`w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-primary ${
-                  errors.status ? 'border-red-500' : 'border-gray-300'
-                }`}
+                className={`w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-primary ${errors.status ? 'border-red-500' : 'border-gray-300'
+                  }`}
               >
                 <option value="planning">Planning</option>
                 <option value="in-progress">In Progress</option>
@@ -376,9 +374,8 @@ export default function ProjectModal({ isOpen, onClose, onSuccess, mode, project
               <input
                 type="number"
                 {...register('order')}
-                className={`w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-primary ${
-                  errors.order ? 'border-red-500' : 'border-gray-300'
-                }`}
+                className={`w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-primary ${errors.order ? 'border-red-500' : 'border-gray-300'
+                  }`}
                 min="0"
                 placeholder="0"
               />
@@ -446,9 +443,8 @@ export default function ProjectModal({ isOpen, onClose, onSuccess, mode, project
             <textarea
               rows={4}
               {...register('description')}
-              className={`w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-primary ${
-                errors.description ? 'border-red-500' : 'border-gray-300'
-              }`}
+              className={`w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-primary ${errors.description ? 'border-red-500' : 'border-gray-300'
+                }`}
               placeholder="Project description"
             />
             {errors.description && (
@@ -538,11 +534,10 @@ export default function ProjectModal({ isOpen, onClose, onSuccess, mode, project
                         <button
                           type="button"
                           onClick={() => setPrimary(index)}
-                          className={`inline-flex items-center px-2 py-1 text-xs rounded ${
-                            image.isPrimary 
-                              ? 'bg-yellow-100 text-yellow-800' 
+                          className={`inline-flex items-center px-2 py-1 text-xs rounded ${image.isPrimary
+                              ? 'bg-yellow-100 text-yellow-800'
                               : 'bg-gray-100 text-gray-600 hover:bg-yellow-100'
-                          }`}
+                            }`}
                         >
                           <StarIcon className={`w-3 h-3 mr-1 ${image.isPrimary ? 'fill-current' : ''}`} />
                           {image.isPrimary ? 'Primary' : 'Set Primary'}
@@ -556,7 +551,7 @@ export default function ProjectModal({ isOpen, onClose, onSuccess, mode, project
                         </button>
                       </div>
                     </div>
-                    
+
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                       <div>
                         <label className="block text-xs font-medium text-gray-700 mb-1">
@@ -570,7 +565,7 @@ export default function ProjectModal({ isOpen, onClose, onSuccess, mode, project
                           placeholder="https://example.com/image.jpg"
                         />
                       </div>
-                      
+
                       <div>
                         <label className="block text-xs font-medium text-gray-700 mb-1">
                           Alt Text *
@@ -584,16 +579,14 @@ export default function ProjectModal({ isOpen, onClose, onSuccess, mode, project
                         />
                       </div>
                     </div>
-                    
+
                     {image.url && (
-                      <div className="mt-2">
-                        <img
+                      <div className="mt-2 relative h-20 w-20">
+                        <Image
                           src={image.url}
                           alt={image.alt || 'Preview'}
-                          className="h-20 w-20 object-cover rounded-md border"
-                          onError={(e) => {
-                            e.currentTarget.style.display = 'none'
-                          }}
+                          fill
+                          className="object-cover rounded-md border"
                         />
                       </div>
                     )}
@@ -601,7 +594,7 @@ export default function ProjectModal({ isOpen, onClose, onSuccess, mode, project
                 ))}
               </div>
             )}
-            
+
             {errors.images && (
               <p className="mt-1 text-sm text-red-600">{errors.images.message}</p>
             )}

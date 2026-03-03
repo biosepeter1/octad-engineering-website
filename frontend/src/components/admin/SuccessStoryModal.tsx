@@ -1,15 +1,16 @@
 'use client'
 
 import React, { useState, useEffect } from 'react'
-import { 
-  XMarkIcon, 
-  PhotoIcon, 
-  TrashIcon, 
+import {
+  XMarkIcon,
+  PhotoIcon,
+  TrashIcon,
   PlusIcon,
   StarIcon
 } from '@heroicons/react/24/outline'
 import { successStoriesAPI, uploadAPI, handleApiError } from '@/lib/api'
 import toast from 'react-hot-toast'
+import Image from 'next/image'
 
 interface SuccessStory {
   _id: string
@@ -88,7 +89,7 @@ export default function SuccessStoryModal({ isOpen, onClose, onSuccess, mode, st
   const [formData, setFormData] = useState(defaultFormData)
   const [loading, setLoading] = useState(false)
   const [uploadingImages, setUploadingImages] = useState(false)
-  const [errors, setErrors] = useState<{[key: string]: string}>({})
+  const [errors, setErrors] = useState<{ [key: string]: string }>({})
 
   useEffect(() => {
     if (mode === 'edit' && story) {
@@ -119,7 +120,7 @@ export default function SuccessStoryModal({ isOpen, onClose, onSuccess, mode, st
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value, type } = e.target
-    
+
     if (name.startsWith('testimonial.')) {
       const field = name.split('.')[1]
       setFormData(prev => ({
@@ -153,7 +154,7 @@ export default function SuccessStoryModal({ isOpen, onClose, onSuccess, mode, st
   const handleMetricChange = (index: number, field: 'label' | 'value' | 'icon', value: string) => {
     setFormData(prev => ({
       ...prev,
-      metrics: prev.metrics.map((metric, i) => 
+      metrics: prev.metrics.map((metric, i) =>
         i === index ? { ...metric, [field]: value } : metric
       )
     }))
@@ -181,7 +182,7 @@ export default function SuccessStoryModal({ isOpen, onClose, onSuccess, mode, st
     try {
       // Upload all files in a single request instead of individual requests
       const response = await uploadAPI.uploadImages(files)
-      
+
       if (response.success && response.data && Array.isArray(response.data)) {
         const newImages = response.data.map((fileData, index) => ({
           url: fileData.fullUrl || fileData.url,
@@ -224,7 +225,7 @@ export default function SuccessStoryModal({ isOpen, onClose, onSuccess, mode, st
   }
 
   const validateForm = () => {
-    const newErrors: {[key: string]: string} = {}
+    const newErrors: { [key: string]: string } = {}
 
     if (!formData.title.trim()) newErrors.title = 'Title is required'
     if (!formData.client.trim()) newErrors.client = 'Client name is required'
@@ -253,7 +254,7 @@ export default function SuccessStoryModal({ isOpen, onClose, onSuccess, mode, st
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    
+
     if (!validateForm()) {
       toast.error('Please fix all validation errors')
       return
@@ -261,7 +262,7 @@ export default function SuccessStoryModal({ isOpen, onClose, onSuccess, mode, st
 
     setLoading(true)
     try {
-      const response = mode === 'add' 
+      const response = mode === 'add'
         ? await successStoriesAPI.createSuccessStory(formData)
         : await successStoriesAPI.updateSuccessStory(story!._id, formData)
 
@@ -308,9 +309,8 @@ export default function SuccessStoryModal({ isOpen, onClose, onSuccess, mode, st
                 name="title"
                 value={formData.title}
                 onChange={handleInputChange}
-                className={`w-full px-3 py-2 border rounded-md shadow-sm focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary ${
-                  errors.title ? 'border-red-500' : 'border-gray-300'
-                }`}
+                className={`w-full px-3 py-2 border rounded-md shadow-sm focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary ${errors.title ? 'border-red-500' : 'border-gray-300'
+                  }`}
                 placeholder="Enter project title"
               />
               {errors.title && <p className="mt-1 text-sm text-red-600">{errors.title}</p>}
@@ -325,9 +325,8 @@ export default function SuccessStoryModal({ isOpen, onClose, onSuccess, mode, st
                 name="client"
                 value={formData.client}
                 onChange={handleInputChange}
-                className={`w-full px-3 py-2 border rounded-md shadow-sm focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary ${
-                  errors.client ? 'border-red-500' : 'border-gray-300'
-                }`}
+                className={`w-full px-3 py-2 border rounded-md shadow-sm focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary ${errors.client ? 'border-red-500' : 'border-gray-300'
+                  }`}
                 placeholder="Enter client name"
               />
               {errors.client && <p className="mt-1 text-sm text-red-600">{errors.client}</p>}
@@ -342,9 +341,8 @@ export default function SuccessStoryModal({ isOpen, onClose, onSuccess, mode, st
                 name="location"
                 value={formData.location}
                 onChange={handleInputChange}
-                className={`w-full px-3 py-2 border rounded-md shadow-sm focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary ${
-                  errors.location ? 'border-red-500' : 'border-gray-300'
-                }`}
+                className={`w-full px-3 py-2 border rounded-md shadow-sm focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary ${errors.location ? 'border-red-500' : 'border-gray-300'
+                  }`}
                 placeholder="Enter project location"
               />
               {errors.location && <p className="mt-1 text-sm text-red-600">{errors.location}</p>}
@@ -377,9 +375,8 @@ export default function SuccessStoryModal({ isOpen, onClose, onSuccess, mode, st
                 name="duration"
                 value={formData.duration}
                 onChange={handleInputChange}
-                className={`w-full px-3 py-2 border rounded-md shadow-sm focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary ${
-                  errors.duration ? 'border-red-500' : 'border-gray-300'
-                }`}
+                className={`w-full px-3 py-2 border rounded-md shadow-sm focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary ${errors.duration ? 'border-red-500' : 'border-gray-300'
+                  }`}
                 placeholder="e.g., 12 months"
               />
               {errors.duration && <p className="mt-1 text-sm text-red-600">{errors.duration}</p>}
@@ -394,9 +391,8 @@ export default function SuccessStoryModal({ isOpen, onClose, onSuccess, mode, st
                 name="budget"
                 value={formData.budget}
                 onChange={handleInputChange}
-                className={`w-full px-3 py-2 border rounded-md shadow-sm focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary ${
-                  errors.budget ? 'border-red-500' : 'border-gray-300'
-                }`}
+                className={`w-full px-3 py-2 border rounded-md shadow-sm focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary ${errors.budget ? 'border-red-500' : 'border-gray-300'
+                  }`}
                 placeholder="e.g., ₦450 Million"
               />
               {errors.budget && <p className="mt-1 text-sm text-red-600">{errors.budget}</p>}
@@ -413,9 +409,8 @@ export default function SuccessStoryModal({ isOpen, onClose, onSuccess, mode, st
                 onChange={handleInputChange}
                 min="1900"
                 max={new Date().getFullYear() + 10}
-                className={`w-full px-3 py-2 border rounded-md shadow-sm focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary ${
-                  errors.completionYear ? 'border-red-500' : 'border-gray-300'
-                }`}
+                className={`w-full px-3 py-2 border rounded-md shadow-sm focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary ${errors.completionYear ? 'border-red-500' : 'border-gray-300'
+                  }`}
               />
               {errors.completionYear && <p className="mt-1 text-sm text-red-600">{errors.completionYear}</p>}
             </div>
@@ -445,9 +440,8 @@ export default function SuccessStoryModal({ isOpen, onClose, onSuccess, mode, st
               value={formData.description}
               onChange={handleInputChange}
               rows={3}
-              className={`w-full px-3 py-2 border rounded-md shadow-sm focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary ${
-                errors.description ? 'border-red-500' : 'border-gray-300'
-              }`}
+              className={`w-full px-3 py-2 border rounded-md shadow-sm focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary ${errors.description ? 'border-red-500' : 'border-gray-300'
+                }`}
               placeholder="Brief description of the project"
             />
             {errors.description && <p className="mt-1 text-sm text-red-600">{errors.description}</p>}
@@ -464,9 +458,8 @@ export default function SuccessStoryModal({ isOpen, onClose, onSuccess, mode, st
                 value={formData.challenge}
                 onChange={handleInputChange}
                 rows={3}
-                className={`w-full px-3 py-2 border rounded-md shadow-sm focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary ${
-                  errors.challenge ? 'border-red-500' : 'border-gray-300'
-                }`}
+                className={`w-full px-3 py-2 border rounded-md shadow-sm focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary ${errors.challenge ? 'border-red-500' : 'border-gray-300'
+                  }`}
                 placeholder="What challenges did this project face?"
               />
               {errors.challenge && <p className="mt-1 text-sm text-red-600">{errors.challenge}</p>}
@@ -481,9 +474,8 @@ export default function SuccessStoryModal({ isOpen, onClose, onSuccess, mode, st
                 value={formData.solution}
                 onChange={handleInputChange}
                 rows={3}
-                className={`w-full px-3 py-2 border rounded-md shadow-sm focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary ${
-                  errors.solution ? 'border-red-500' : 'border-gray-300'
-                }`}
+                className={`w-full px-3 py-2 border rounded-md shadow-sm focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary ${errors.solution ? 'border-red-500' : 'border-gray-300'
+                  }`}
                 placeholder="How were the challenges solved?"
               />
               {errors.solution && <p className="mt-1 text-sm text-red-600">{errors.solution}</p>}
@@ -498,9 +490,8 @@ export default function SuccessStoryModal({ isOpen, onClose, onSuccess, mode, st
                 value={formData.result}
                 onChange={handleInputChange}
                 rows={3}
-                className={`w-full px-3 py-2 border rounded-md shadow-sm focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary ${
-                  errors.result ? 'border-red-500' : 'border-gray-300'
-                }`}
+                className={`w-full px-3 py-2 border rounded-md shadow-sm focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary ${errors.result ? 'border-red-500' : 'border-gray-300'
+                  }`}
                 placeholder="What was the final outcome?"
               />
               {errors.result && <p className="mt-1 text-sm text-red-600">{errors.result}</p>}
@@ -520,9 +511,8 @@ export default function SuccessStoryModal({ isOpen, onClose, onSuccess, mode, st
                   value={formData.testimonial.quote}
                   onChange={handleInputChange}
                   rows={3}
-                  className={`w-full px-3 py-2 border rounded-md shadow-sm focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary ${
-                    errors['testimonial.quote'] ? 'border-red-500' : 'border-gray-300'
-                  }`}
+                  className={`w-full px-3 py-2 border rounded-md shadow-sm focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary ${errors['testimonial.quote'] ? 'border-red-500' : 'border-gray-300'
+                    }`}
                   placeholder="Client testimonial quote"
                 />
                 {errors['testimonial.quote'] && <p className="mt-1 text-sm text-red-600">{errors['testimonial.quote']}</p>}
@@ -537,9 +527,8 @@ export default function SuccessStoryModal({ isOpen, onClose, onSuccess, mode, st
                   name="testimonial.author"
                   value={formData.testimonial.author}
                   onChange={handleInputChange}
-                  className={`w-full px-3 py-2 border rounded-md shadow-sm focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary ${
-                    errors['testimonial.author'] ? 'border-red-500' : 'border-gray-300'
-                  }`}
+                  className={`w-full px-3 py-2 border rounded-md shadow-sm focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary ${errors['testimonial.author'] ? 'border-red-500' : 'border-gray-300'
+                    }`}
                   placeholder="Testimonial author name"
                 />
                 {errors['testimonial.author'] && <p className="mt-1 text-sm text-red-600">{errors['testimonial.author']}</p>}
@@ -554,9 +543,8 @@ export default function SuccessStoryModal({ isOpen, onClose, onSuccess, mode, st
                   name="testimonial.position"
                   value={formData.testimonial.position}
                   onChange={handleInputChange}
-                  className={`w-full px-3 py-2 border rounded-md shadow-sm focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary ${
-                    errors['testimonial.position'] ? 'border-red-500' : 'border-gray-300'
-                  }`}
+                  className={`w-full px-3 py-2 border rounded-md shadow-sm focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary ${errors['testimonial.position'] ? 'border-red-500' : 'border-gray-300'
+                    }`}
                   placeholder="Author's position/title"
                 />
                 {errors['testimonial.position'] && <p className="mt-1 text-sm text-red-600">{errors['testimonial.position']}</p>}
@@ -578,11 +566,10 @@ export default function SuccessStoryModal({ isOpen, onClose, onSuccess, mode, st
                       className="focus:outline-none"
                     >
                       <StarIcon
-                        className={`w-6 h-6 ${
-                          rating <= formData.testimonial.rating
+                        className={`w-6 h-6 ${rating <= formData.testimonial.rating
                             ? 'text-yellow-400 fill-current'
                             : 'text-gray-300'
-                        }`}
+                          }`}
                       />
                     </button>
                   ))}
@@ -597,7 +584,7 @@ export default function SuccessStoryModal({ isOpen, onClose, onSuccess, mode, st
           {/* Images */}
           <div className="border border-gray-200 rounded-lg p-4">
             <h4 className="text-md font-medium text-gray-900 mb-3">Images</h4>
-            
+
             {/* Upload Button */}
             <div className="mb-4">
               <input
@@ -611,9 +598,8 @@ export default function SuccessStoryModal({ isOpen, onClose, onSuccess, mode, st
               />
               <label
                 htmlFor="image-upload"
-                className={`inline-flex items-center px-4 py-2 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 cursor-pointer ${
-                  uploadingImages ? 'opacity-50 cursor-not-allowed' : ''
-                }`}
+                className={`inline-flex items-center px-4 py-2 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 cursor-pointer ${uploadingImages ? 'opacity-50 cursor-not-allowed' : ''
+                  }`}
               >
                 <PhotoIcon className="w-4 h-4 mr-2" />
                 {uploadingImages ? 'Uploading...' : 'Upload Images'}
@@ -624,11 +610,13 @@ export default function SuccessStoryModal({ isOpen, onClose, onSuccess, mode, st
             {formData.images.length > 0 && (
               <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-4">
                 {formData.images.map((image, index) => (
-                  <div key={index} className="relative group">
-                    <img
+                  <div key={index} className="relative group h-24 w-full">
+                    <Image
                       src={image.url}
                       alt={image.alt}
-                      className="w-full h-24 object-cover rounded-lg"
+                      fill
+                      className="object-cover rounded-lg"
+                      sizes="(max-width: 768px) 50vw, 25vw"
                     />
                     {image.isPrimary && (
                       <div className="absolute top-1 left-1 bg-primary text-white px-2 py-0.5 rounded text-xs">
@@ -659,7 +647,7 @@ export default function SuccessStoryModal({ isOpen, onClose, onSuccess, mode, st
                 ))}
               </div>
             )}
-            
+
             {errors.images && <p className="mt-1 text-sm text-red-600">{errors.images}</p>}
           </div>
 

@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
+import Image from 'next/image'
 import {
   TrophyIcon,
   StarIcon,
@@ -324,10 +325,12 @@ export default function SuccessStoriesPage() {
         {/* Hero Section */}
         <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20 px-4 xs:px-6 sm:px-8">
           <div className="absolute inset-0 z-0">
-            <img
+            <Image
               src="https://images.unsplash.com/photo-1590725140246-20acdee442be?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80"
               alt="Success Stories Hero"
-              className="w-full h-full object-cover"
+              fill
+              className="object-cover"
+              priority
             />
             <div className="absolute inset-0 bg-gradient-to-r from-primary/90 to-secondary/80"></div>
           </div>
@@ -448,10 +451,11 @@ export default function SuccessStoriesPage() {
               {/* Image Gallery */}
               <div className="relative order-1 lg:order-1">
                 <div className="relative aspect-video bg-gray-200 rounded-2xl overflow-hidden shadow-2xl">
-                  <img
+                  <Image
                     src={story.images[currentImageIndex]?.url}
                     alt={story.images[currentImageIndex]?.alt || story.title}
-                    className="w-full h-full object-cover"
+                    fill
+                    className="object-cover"
                   />
 
                   {/* Image Navigation */}
@@ -645,11 +649,12 @@ export default function SuccessStoriesPage() {
                     onClick={() => { setCurrentStory(stories.findIndex(s => s._id === storyItem._id)); setCurrentImageIndex(0); document.getElementById('featured-story')?.scrollIntoView({ behavior: 'smooth' }); }}
                     className="group cursor-pointer bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 overflow-hidden"
                   >
-                    <div className="relative h-40 xs:h-48">
-                      <img
+                    <div className="relative h-40 xs:h-48 overflow-hidden rounded-t-xl group">
+                      <Image
                         src={primaryImage?.url || storyItem.images[0]?.url}
                         alt={primaryImage?.alt || storyItem.title}
-                        className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                        fill
+                        className="object-cover transition-transform duration-500 group-hover:scale-110"
                       />
                       <div className="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-all duration-300"></div>
                       <div className="absolute top-3 left-3 xs:top-4 xs:left-4 bg-primary text-white px-2 py-1 xs:px-3 xs:py-1 rounded-full text-xs xs:text-sm font-medium">

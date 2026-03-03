@@ -7,6 +7,7 @@ import {
     LightBulbIcon,
     HeartIcon,
 } from '@heroicons/react/24/outline'
+import Image from 'next/image'
 
 export default function WhyChooseUs() {
     return (
@@ -91,11 +92,12 @@ export default function WhyChooseUs() {
 
                     {/* Right Side - Image */}
                     <div className="relative animate-slide-in-right mt-8 lg:mt-0">
-                        <div className="relative z-10">
-                            <img
+                        <div className="relative z-10 h-[300px] sm:h-[400px] lg:h-[600px] w-full rounded-2xl shadow-2xl overflow-hidden">
+                            <Image
                                 src="/portfolio/page5_img1.jpg"
                                 alt="Gbolahan Alimi - CEO, OCTAD Engineering"
-                                className="rounded-2xl shadow-2xl w-full h-[300px] sm:h-[400px] lg:h-[600px] object-cover object-top transform hover:scale-105 transition-transform duration-500"
+                                fill
+                                className="object-cover object-top transform hover:scale-105 transition-transform duration-500"
                             />
                         </div>
                         {/* Decorative Elements - Hidden on small screens */}

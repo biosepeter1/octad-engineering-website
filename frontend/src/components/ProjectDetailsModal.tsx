@@ -13,6 +13,7 @@ import {
   ClockIcon,
   ExclamationTriangleIcon
 } from '@heroicons/react/24/outline'
+import Image from 'next/image'
 
 interface Project {
   _id: string
@@ -133,14 +134,14 @@ export default function ProjectDetailsModal({ isOpen, onClose, project }: Props)
             {images.length > 0 && (
               <>
                 <div className="relative h-52 sm:h-64 lg:h-full flex items-center justify-center">
-                  <img
-                    src={images[currentImageIndex]?.url}
-                    alt={images[currentImageIndex]?.alt || project.title}
-                    className="max-h-full max-w-full object-contain"
-                    onError={(e) => {
-                      e.currentTarget.src = 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iODAwIiBoZWlnaHQ9IjYwMCIgdmlld0JveD0iMCAwIDgwMCA2MDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSI4MDAiIGhlaWdodD0iNjAwIiBmaWxsPSIjRjNGNEY2Ii8+CjxjaXJjbGUgY3g9IjQwMCIgY3k9IjI4MCIgcj0iNDAiIGZpbGw9IiM5Q0EzQUYiLz4KPHBhdGggZD0iTTM2MCAzNjBMMzgwIDM0MEw0MjAgMzgwTDQ2MCAzNDBMNDgwIDM2MEw0MjAgNDIwTDM2MCA0MjBMMzYwIDM2MFoiIGZpbGw9IiM5Q0EzQUYiLz4KPHR5eHQgeD0iNDAwIiB5PSI0NzAiIGZvbnQtZmFtaWx5PSJBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIyNCIgZmlsbD0iIzY3NzQ4RiIgdGV4dC1hbmNob3I9Im1pZGRsZSI+UHJvamVjdCBJbWFnZTwvdGV4dD4KPC9zdmc+'
-                    }}
-                  />
+                  <div className="absolute inset-0 m-2 sm:m-4">
+                    <Image
+                      src={images[currentImageIndex]?.url}
+                      alt={images[currentImageIndex]?.alt || project.title}
+                      fill
+                      className="object-contain"
+                    />
+                  </div>
 
                   {/* Navigation Arrows */}
                   {hasMultipleImages && (
@@ -177,18 +178,18 @@ export default function ProjectDetailsModal({ isOpen, onClose, project }: Props)
                           key={index}
                           onClick={() => goToImage(index)}
                           className={`flex-shrink-0 w-12 h-9 sm:w-16 sm:h-12 rounded overflow-hidden border-2 transition-all ${index === currentImageIndex
-                              ? 'border-white shadow-lg'
-                              : 'border-gray-400 hover:border-gray-200'
+                            ? 'border-white shadow-lg'
+                            : 'border-gray-400 hover:border-gray-200'
                             }`}
                         >
-                          <img
-                            src={image.url}
-                            alt={image.alt}
-                            className="w-full h-full object-cover"
-                            onError={(e) => {
-                              e.currentTarget.src = 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjQiIGhlaWdodD0iNDgiIHZpZXdCb3g9IjAgMCA2NCA0OCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjY0IiBoZWlnaHQ9IjQ4IiBmaWxsPSIjRjNGNEY2Ii8+Cjx0ZXh0IHg9IjMyIiB5PSIyOCIgZm9udC1mYW1pbHk9IkFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjEwIiBmaWxsPSIjNjc3NDhGIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj5JbWc8L3RleHQ+Cjwvc3ZnPg=='
-                            }}
-                          />
+                          <div className="relative w-full h-full">
+                            <Image
+                              src={image.url}
+                              alt={image.alt}
+                              fill
+                              className="object-cover"
+                            />
+                          </div>
                         </button>
                       ))}
                     </div>

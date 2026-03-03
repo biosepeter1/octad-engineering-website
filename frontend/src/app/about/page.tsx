@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from 'react'
 import Link from 'next/link'
+import Image from 'next/image'
 import {
   BuildingStorefrontIcon,
   UserGroupIcon,
@@ -166,10 +167,12 @@ export default function AboutPage() {
         {/* Hero Section */}
         <section className="relative min-h-[70vh] flex items-center justify-center overflow-hidden pt-20">
           <div className="absolute inset-0 z-0">
-            <img
+            <Image
               src="/portfolio/page8_img7.jpg"
               alt="OCTAD Engineering - Construction Site"
-              className="w-full h-full object-cover"
+              fill
+              className="object-cover"
+              priority
             />
             <div className="absolute inset-0 bg-black/60"></div>
             <div className="absolute inset-0 bg-gradient-to-r from-primary/30 to-secondary/30"></div>
@@ -255,17 +258,14 @@ export default function AboutPage() {
           <div className="container-custom relative z-10">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16 items-center">
               <div className="relative">
-                <img
-                  src="/portfolio/page5_img1.jpg"
-                  alt="Gbolahan Alimi - CEO, OCTAD Engineering"
-                  className="rounded-xl sm:rounded-2xl shadow-2xl w-full h-[350px] sm:h-[400px] lg:h-[500px] object-cover object-top transform hover:scale-105 transition-transform duration-500"
-                />
-                <div className="absolute -bottom-2 -right-2 sm:-bottom-4 sm:-right-4 bg-primary text-white p-3 sm:p-4 lg:p-6 rounded-lg sm:rounded-xl shadow-lg">
-                  <BuildingStorefrontIcon className="w-8 h-8 sm:w-10 sm:h-10 lg:w-12 lg:h-12" />
+                <div className="relative rounded-xl sm:rounded-2xl shadow-xl w-full h-[350px] sm:h-[400px] lg:h-[500px] overflow-hidden">
+                  <Image
+                    src="/portfolio/page5_img1.jpg"
+                    alt="Gbolahan Alimi - CEO, OCTAD Engineering"
+                    fill
+                    className="object-cover object-top"
+                  />
                 </div>
-                {/* Decorative elements */}
-                <div className="absolute top-3 left-3 sm:top-4 sm:left-4 w-6 h-6 sm:w-8 sm:h-8 border-2 border-white/50 rounded-full"></div>
-                <div className="absolute top-3 right-3 sm:top-4 sm:right-4 w-4 h-4 sm:w-6 sm:h-6 bg-secondary/30 rounded-full"></div>
               </div>
 
               <div className="mt-8 lg:mt-0">

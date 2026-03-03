@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useRef } from 'react'
 import Link from 'next/link'
+import Image from 'next/image'
 import { useForm } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
 import * as yup from 'yup'
@@ -156,10 +157,12 @@ export default function ContactPage() {
         <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
           {/* Background Image with Overlay */}
           <div className="absolute inset-0 z-0">
-            <img
+            <Image
               src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80"
               alt="Contact Octad Engineering - Nigerian Excellence"
-              className="w-full h-full object-cover"
+              fill
+              className="object-cover"
+              priority
             />
             <div className="absolute inset-0 bg-black/60"></div>
             <div className="absolute inset-0 bg-gradient-to-r from-primary/30 to-secondary/30"></div>

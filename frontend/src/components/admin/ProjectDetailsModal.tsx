@@ -1,8 +1,8 @@
 'use client'
 
 import { useState } from 'react'
-import { 
-  XMarkIcon, 
+import {
+  XMarkIcon,
   ChevronLeftIcon,
   ChevronRightIcon,
   CalendarIcon,
@@ -15,6 +15,7 @@ import {
   StarIcon
 } from '@heroicons/react/24/outline'
 import { transformImageUrl } from '@/utils/imageUtils'
+import Image from 'next/image'
 
 interface Project {
   _id: string
@@ -49,13 +50,13 @@ export default function ProjectDetailsModal({ isOpen, onClose, project }: Props)
   if (!isOpen) return null
 
   const nextImage = () => {
-    setCurrentImageIndex((prev) => 
+    setCurrentImageIndex((prev) =>
       prev === project.images.length - 1 ? 0 : prev + 1
     )
   }
 
   const previousImage = () => {
-    setCurrentImageIndex((prev) => 
+    setCurrentImageIndex((prev) =>
       prev === 0 ? project.images.length - 1 : prev - 1
     )
   }
@@ -127,15 +128,15 @@ export default function ProjectDetailsModal({ isOpen, onClose, project }: Props)
           <div className="lg:w-2/3 relative bg-gray-900 flex items-center justify-center min-h-[400px]">
             {project.images.length > 0 ? (
               <>
-                <img
-                  src={transformImageUrl(currentImage.url)}
-                  alt={currentImage.alt || project.title}
-                  className="max-w-full max-h-full object-contain"
-                          onError={(e) => {
-                            e.currentTarget.src = 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iODAwIiBoZWlnaHQ9IjYwMCIgdmlld0JveD0iMCAwIDgwMCA2MDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSI4MDAiIGhlaWdodD0iNjAwIiBmaWxsPSIjRjNGNEY2Ii8+CjxjaXJjbGUgY3g9IjQwMCIgY3k9IjI4MCIgcj0iNDAiIGZpbGw9IiM5Q0EzQUYiLz4KPHBhdGggZD0iTTM2MCAzNjBMMzgwIDM0MEw0MjAgMzgwTDQ2MCAzNDBMNDgwIDM2MEw0MjAgNDIwTDM2MCA0MjBMMzYwIDM2MFoiIGZpbGw9IiM5Q0EzQUYiLz4KPHR5eHQgeD0iNDAwIiB5PSI0NzAiIGZvbnQtZmFtaWx5PSJBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIyNCIgZmlsbD0iIzY3NzQ4RiIgdGV4dC1hbmNob3I9Im1pZGRsZSI+SW1hZ2UgTm90IEZvdW5kPC90ZXh0Pgo8L3N2Zz4K'
-                          }}
-                />
-                
+                <div className="absolute inset-0 m-4">
+                  <Image
+                    src={transformImageUrl(currentImage.url)}
+                    alt={currentImage.alt || project.title}
+                    fill
+                    className="object-contain"
+                  />
+                </div>
+
                 {/* Navigation Arrows */}
                 {project.images.length > 1 && (
                   <>
@@ -153,14 +154,14 @@ export default function ProjectDetailsModal({ isOpen, onClose, project }: Props)
                     </button>
                   </>
                 )}
-                
+
                 {/* Image Counter */}
                 {project.images.length > 1 && (
                   <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 bg-black bg-opacity-75 text-white px-4 py-2 rounded-full text-sm">
                     {currentImageIndex + 1} of {project.images.length}
                   </div>
                 )}
-                
+
                 {/* Image Thumbnails */}
                 {project.images.length > 1 && (
                   <div className="absolute bottom-4 right-4 flex space-x-2 max-w-xs overflow-x-auto">
@@ -168,20 +169,19 @@ export default function ProjectDetailsModal({ isOpen, onClose, project }: Props)
                       <button
                         key={index}
                         onClick={() => setCurrentImageIndex(index)}
-                        className={`flex-shrink-0 w-12 h-12 rounded-lg overflow-hidden border-2 transition-all duration-200 ${
-                          index === currentImageIndex 
-                            ? 'border-white shadow-lg' 
+                        className={`flex-shrink-0 w-12 h-12 rounded-lg overflow-hidden border-2 transition-all duration-200 ${index === currentImageIndex
+                            ? 'border-white shadow-lg'
                             : 'border-transparent opacity-60 hover:opacity-100'
-                        }`}
+                          }`}
                       >
-                        <img
-                          src={transformImageUrl(image.url)}
-                          alt={image.alt || `Thumbnail ${index + 1}`}
-                          className="w-full h-full object-cover"
-                          onError={(e) => {
-                            e.currentTarget.src = 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDgiIGhlaWdodD0iNDgiIHZpZXdCb3g9IjAgMCA0OCA0OCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjQ4IiBoZWlnaHQ9IjQ4IiBmaWxsPSIjRjNGNEY2Ii8+Cjx0ZXh0IHg9IjI0IiB5PSIyOCIgZm9udC1mYW1pbHk9IkFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjE4IiBmaWxsPSIjNjc3NDhGIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj4/PC90ZXh0Pgo8L3N2Zz4K'
-                          }}
-                        />
+                        <div className="relative w-full h-full">
+                          <Image
+                            src={transformImageUrl(image.url)}
+                            alt={image.alt || `Thumbnail ${index + 1}`}
+                            fill
+                            className="object-cover"
+                          />
+                        </div>
                       </button>
                     ))}
                   </div>
@@ -191,7 +191,7 @@ export default function ProjectDetailsModal({ isOpen, onClose, project }: Props)
               <div className="text-gray-400 text-center">
                 <div className="w-24 h-24 mx-auto mb-4 opacity-50">
                   <svg fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/>
+                    <path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z" />
                   </svg>
                 </div>
                 <p className="text-lg">No images available</p>
@@ -213,7 +213,7 @@ export default function ProjectDetailsModal({ isOpen, onClose, project }: Props)
                       {project.category}
                     </span>
                   </div>
-                  
+
                   {project.location && (
                     <div className="flex items-center">
                       <MapPinIcon className="w-5 h-5 text-gray-400 mr-3" />
@@ -221,7 +221,7 @@ export default function ProjectDetailsModal({ isOpen, onClose, project }: Props)
                       <span className="ml-2 text-sm font-medium">{project.location}</span>
                     </div>
                   )}
-                  
+
                   {project.client && (
                     <div className="flex items-center">
                       <UserIcon className="w-5 h-5 text-gray-400 mr-3" />
@@ -246,7 +246,7 @@ export default function ProjectDetailsModal({ isOpen, onClose, project }: Props)
                         </span>
                       </div>
                     )}
-                    
+
                     {project.endDate && (
                       <div className="flex items-center">
                         <CalendarIcon className="w-5 h-5 text-red-500 mr-3" />

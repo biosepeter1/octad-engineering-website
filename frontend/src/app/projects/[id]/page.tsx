@@ -3,6 +3,7 @@
 import { useEffect, useState } from 'react'
 import { notFound, useParams } from 'next/navigation'
 import Link from 'next/link'
+import Image from 'next/image'
 import {
   ArrowLeftIcon,
   CalendarIcon,
@@ -112,13 +113,12 @@ export default function ProjectDetailsPage() {
         {/* Hero Section with Overlay */}
         <section className="relative h-[50vh] min-h-[360px] flex items-end">
           <div className="absolute inset-0">
-            <img
+            <Image
               src={transformImageUrl(images[activeImageIndex]?.url)}
               alt={images[activeImageIndex]?.alt || project?.title || 'Project Image'}
-              className="w-full h-full object-cover"
-              onError={(e) => {
-                e.currentTarget.src = 'https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&w=1600&q=80'
-              }}
+              fill
+              className="object-cover"
+              priority
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
           </div>
@@ -150,10 +150,11 @@ export default function ProjectDetailsPage() {
             {/* Image Gallery */}
             <div className="bg-white rounded-2xl shadow-xl overflow-hidden mb-8">
               <div className="relative h-[480px] bg-gray-100">
-                <img
+                <Image
                   src={transformImageUrl(images[activeImageIndex]?.url)}
                   alt={images[activeImageIndex]?.alt || 'Project image'}
-                  className="w-full h-full object-cover"
+                  fill
+                  className="object-cover"
                 />
                 {images.length > 1 && (
                   <div className="absolute bottom-4 left-1/2 -translate-x-1/2 bg-black/50 text-white px-3 py-1 rounded-full text-xs">
@@ -170,11 +171,11 @@ export default function ProjectDetailsPage() {
                       className={`relative h-20 rounded-lg overflow-hidden border ${idx === activeImageIndex ? 'border-primary ring-2 ring-primary/40' : 'border-transparent'}`}
                       title={img.alt}
                     >
-                      <img
+                      <Image
                         src={transformImageUrl(img.url)}
                         alt={img.alt}
-                        className="w-full h-full object-cover"
-                        onError={(e) => { e.currentTarget.src = 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjE1MCIgdmlld0JveD0iMCAwIDIwMCAxNTAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSIyMDAiIGhlaWdodD0iMTUwIiBmaWxsPSIjRjNGNEY2Ii8+Cjx0ZXh0IHg9IjEwMCIgeT0iODAiIGZvbnQtZmFtaWx5PSJBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgZmlsbD0iIzY3NzQ4RiIgdGV4dC1hbmNob3I9Im1pZGRsZSI+SW1hZ2U8L3RleHQ+Cjwvc3ZnPg==' }}
+                        fill
+                        className="object-cover"
                       />
                     </button>
                   ))}

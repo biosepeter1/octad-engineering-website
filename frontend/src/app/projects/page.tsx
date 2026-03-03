@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useRef } from 'react'
 import Link from 'next/link'
+import Image from 'next/image'
 import {
   MagnifyingGlassIcon,
   MapPinIcon,
@@ -200,10 +201,12 @@ export default function ProjectsPage() {
         <section className="relative h-[50vh] sm:h-[60vh] md:h-[75vh] flex items-center justify-center overflow-hidden">
           {/* Background image */}
           <div className="absolute inset-0 z-0">
-            <img
+            <Image
               src="/portfolio/page10_img1.jpg"
               alt="Projects Hero"
-              className="w-full h-full object-cover animate-slow-zoom"
+              fill
+              className="object-cover animate-slow-zoom"
+              priority
             />
             <div className="absolute inset-0 bg-primary/70"></div>
             <div className="absolute inset-0 bg-black/40"></div>
@@ -300,10 +303,11 @@ export default function ProjectsPage() {
                   <div className="relative h-full bg-white rounded-2xl overflow-hidden z-10">
                     {/* Image with hover zoom */}
                     <div className="relative w-full h-full overflow-hidden">
-                      <img
+                      <Image
                         src={project.images[0]}
                         alt={project.title}
-                        className="w-full h-full object-cover transition-transform duration-[800ms] ease-out group-hover:scale-110"
+                        fill
+                        className="object-cover transition-transform duration-[800ms] ease-out group-hover:scale-110"
                       />
 
                       {/* Dark overlay */}

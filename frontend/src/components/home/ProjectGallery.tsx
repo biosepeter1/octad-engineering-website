@@ -1,6 +1,7 @@
 'use client'
 
 import Link from 'next/link'
+import Image from 'next/image'
 import { ArrowRightIcon } from '@heroicons/react/24/outline'
 import { transformImageUrl } from '@/utils/imageUtils'
 
@@ -66,13 +67,12 @@ export default function ProjectGallery({ galleryImages }: ProjectGalleryProps) {
                             >
                                 <div className="relative overflow-hidden rounded-xl sm:rounded-2xl shadow-xl bg-white hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2">
                                     <div className="relative h-64 sm:h-72 lg:h-80 overflow-hidden">
-                                        <img
+                                        <Image
                                             src={transformImageUrl(image.url)}
                                             alt={image.alt || displayData.title || 'Project Image'}
-                                            className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700"
-                                            onError={(e) => {
-                                                e.currentTarget.src = 'https://images.unsplash.com/photo-1541888946425-d81bb19240f5?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
-                                            }}
+                                            fill
+                                            className="object-cover transform group-hover:scale-110 transition-transform duration-700"
+                                            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                                         />
                                         <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                                         <div className="absolute bottom-3 left-3 right-3 sm:bottom-6 sm:left-6 sm:right-6 transform translate-y-6 group-hover:translate-y-0 transition-transform duration-500 opacity-0 group-hover:opacity-100">
