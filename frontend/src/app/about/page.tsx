@@ -1,8 +1,5 @@
-'use client'
-
-import { useEffect, useState } from 'react'
-import Link from 'next/link'
-import Image from 'next/image'
+import { Metadata } from 'next'
+import AboutClient from './AboutClient'
 import {
   BuildingStorefrontIcon,
   UserGroupIcon,

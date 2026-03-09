@@ -12,9 +12,13 @@ const inter = Inter({
 })
 
 export const metadata: Metadata = {
-  title: 'OCTAD Engineering Limited - Professional Construction Services',
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://octadengineering.com'),
+  title: {
+    default: 'OCTAD Engineering Limited - Professional Construction Services',
+    template: '%s | OCTAD Engineering Limited'
+  },
   description: 'OCTAD Engineering Limited - A Nigeria Incorporated company dedicated to engineering construction excellence. Building Design, General Contracting, Renovation, Project Management.',
-  keywords: 'OCTAD Engineering, construction, building design, general contracting, renovation, project management, interior design, Nigeria',
+  keywords: 'OCTAD Engineering, construction, building design, general contracting, renovation, project management, interior design, Nigeria, Lagos engineering',
   authors: [{ name: 'OCTAD Engineering Limited' }],
   icons: {
     icon: '/logo_blue_no_bg.png',
@@ -23,10 +27,42 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'OCTAD Engineering Limited - Professional Construction Services',
     description: 'A Nigeria Incorporated company dedicated to engineering construction excellence.',
+    url: 'https://octadengineering.com',
+    siteName: 'OCTAD Engineering Limited',
+    images: [
+      {
+        url: '/og-image.png',
+        width: 1200,
+        height: 630,
+        alt: 'OCTAD Engineering Limited - Professional Construction Services',
+      },
+    ],
     type: 'website',
     locale: 'en_US',
   },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'OCTAD Engineering Limited',
+    description: 'A Nigeria Incorporated company dedicated to engineering construction excellence.',
+    images: ['/og-image.png'],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
+  alternates: {
+    canonical: '/',
+  },
 }
+
+import OrganizationSchema from '@/components/seo/OrganizationSchema'
 
 export default function RootLayout({
   children,
@@ -37,6 +73,7 @@ export default function RootLayout({
     <html lang="en" className="scroll-smooth">
       <body className={`${inter.className} antialiased`}>
         <AuthProvider>
+          <OrganizationSchema />
           {children}
         </AuthProvider>
         <Toaster
