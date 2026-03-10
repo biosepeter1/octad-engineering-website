@@ -1,5 +1,8 @@
-import { Metadata } from 'next'
-import AboutClient from './AboutClient'
+'use client'
+
+import { useState, useEffect } from 'react'
+import Image from 'next/image'
+import Link from 'next/link'
 import {
   BuildingStorefrontIcon,
   UserGroupIcon,
