@@ -1,4 +1,4 @@
-"import { Metadata } from 'next'
+import { Metadata } from 'next'
 import { projectsAPI } from '@/lib/api'
 import { transformProjectImages } from '@/utils/imageUtils'
 
