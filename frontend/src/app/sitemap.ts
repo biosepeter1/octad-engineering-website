@@ -1,9 +1,7 @@
 import { MetadataRoute } from 'next'
 import { projectsAPI } from '@/lib/api'
-
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-    const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://octadengineering.com'
-
+    const baseUrl = 'https://octadengineering.com'
     // Static routes
     const routes = [
         '',

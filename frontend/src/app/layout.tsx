@@ -12,7 +12,7 @@ const inter = Inter({
 })
 
 export const metadata: Metadata = {
-  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://octadengineering.com'),
+  metadataBase: new URL('https://octadengineering.com'),
   title: {
     default: 'OCTAD Engineering Limited - Professional Construction Services',
     template: '%s | OCTAD Engineering Limited'
