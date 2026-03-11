@@ -6,11 +6,11 @@ const OrganizationSchema = () => {
         '@type': 'Organization',
         'name': 'OCTAD Engineering Limited',
         'url': 'https://octadengineering.com',
-        'logo': 'https://octadengineering.com/logo_blue_no_bg.png',
+        'logo': 'https://octadengineering.com/logo-solid.png',
         'contactPoint': [
             {
                 '@type': 'ContactPoint',
-                'telephone': '+234-805-555-5555', // Placeholder, should be updated with real data if possible
+                'telephone': '+234-701-262-9438',
                 'contactType': 'customer service',
                 'areaServed': 'NG',
                 'availableLanguage': 'English'

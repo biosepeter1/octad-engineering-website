@@ -21,8 +21,14 @@ export const metadata: Metadata = {
   keywords: 'OCTAD Engineering, construction, building design, general contracting, renovation, project management, interior design, Nigeria, Lagos engineering',
   authors: [{ name: 'OCTAD Engineering Limited' }],
   icons: {
-    icon: '/logo_blue_no_bg.png',
-    apple: '/logo_blue_no_bg.png',
+    icon: [
+      { url: '/favicon.ico', sizes: 'any' },
+      { url: '/favicon.png', type: 'image/png', sizes: '32x32' },
+      { url: '/logo_blue_no_bg.png', type: 'image/png', sizes: '192x192' },
+    ],
+    apple: [
+      { url: '/logo_blue_no_bg.png', sizes: '180x180', type: 'image/png' },
+    ],
   },
   openGraph: {
     title: 'OCTAD Engineering Limited - Professional Construction Services',
