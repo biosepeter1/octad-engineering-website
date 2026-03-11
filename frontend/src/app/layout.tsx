@@ -60,6 +60,9 @@ export const metadata: Metadata = {
   alternates: {
     canonical: '/',
   },
+  verification: {
+    google: 'i_bQwiHMNUdeyw1zlcI2kkvvGNipImqA1sVZryK36vk',
+  },
 }
 
 import OrganizationSchema from '@/components/seo/OrganizationSchema'
