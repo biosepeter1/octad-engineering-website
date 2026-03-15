@@ -79,13 +79,13 @@ const defaultAbout: About = {
       description: 'We embrace cutting-edge technology while adapting to Nigeria\'s climate, regulations, and cultural needs for optimal results.'
     }
   ],
-  foundedYear: 2014,
+  foundedYear: 2016,
   employeeCount: 45,
   contactInfo: {
     phone: '07012629438',
     email: 'octadengineering@gmail.com',
     address: {
-      street: '10 Alade Street, Alapere-Ketu',
+      street: 'Alapere-Ketu',
       city: 'Lagos',
       state: 'Lagos State',
       zipCode: '',
@@ -192,7 +192,7 @@ export default function AboutPage() {
               </h1>
               <p className="text-base sm:text-lg lg:text-xl xl:text-2xl mb-8 sm:mb-10 lg:mb-12 text-gray-100 max-w-4xl mx-auto leading-relaxed">
                 A construction company that specializes in engineering construction and project management,
-                offering services to public and private clients since {about.foundedYear || 2014}.
+                offering services to public and private clients since {about.foundedYear || 2016}.
               </p>
 
               <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 mb-6 sm:mb-8 max-w-2xl mx-auto">
@@ -370,7 +370,7 @@ export default function AboutPage() {
         </section>
 
         {/* Core Values - Enhanced */}
-        <section className="section-padding bg-gradient-to-br from-gray-50 to-gray-100 relative overflow-hidden">
+        <section className="section-padding bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-900 dark:to-gray-950 relative overflow-hidden">
           {/* Background decorative elements */}
           <div className="absolute top-10 left-10 w-20 h-20 bg-primary/5 rounded-full"></div>
           <div className="absolute bottom-10 right-10 w-32 h-32 bg-secondary/5 rounded-full"></div>
@@ -381,10 +381,10 @@ export default function AboutPage() {
               <div className="inline-flex items-center justify-center w-12 h-12 sm:w-16 sm:h-16 bg-primary text-white rounded-full mb-4 sm:mb-6">
                 <StarIcon className="w-6 h-6 sm:w-8 sm:h-8" />
               </div>
-              <h2 className="text-3xl xs:text-4xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4 sm:mb-6">
+              <h2 className="text-3xl xs:text-4xl sm:text-4xl lg:text-5xl font-bold text-gray-900 dark:text-gray-100 mb-4 sm:mb-6">
                 Our <span className="text-primary">Core Values</span>
               </h2>
-              <p className="text-lg sm:text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed px-4">
+              <p className="text-lg sm:text-xl text-gray-600 dark:text-gray-400 max-w-4xl mx-auto leading-relaxed px-4">
                 These principles guide everything we do and define who we are as a Nigerian company
                 committed to excellence, integrity, and community impact.
               </p>
@@ -406,16 +406,16 @@ export default function AboutPage() {
                 return (
                   <div
                     key={index}
-                    className="card text-center group hover:shadow-2xl transform hover:-translate-y-3 transition-all duration-500 animate-fade-in border-t-4 border-primary"
+                    className="card dark:bg-gray-800 dark:border-gray-700 text-center group hover:shadow-2xl transform hover:-translate-y-3 transition-all duration-500 animate-fade-in border-t-4 border-primary"
                     style={{ animationDelay: `${index * 150}ms` }}
                   >
                     <div className={`${colors[index % colors.length]} text-white w-16 h-16 sm:w-20 sm:h-20 rounded-full flex items-center justify-center mx-auto mb-4 sm:mb-6 ${hoverColors[index % hoverColors.length]} transition-all duration-300 shadow-lg group-hover:scale-110`}>
                       <IconComponent className="w-8 h-8 sm:w-10 sm:h-10" />
                     </div>
-                    <h3 className="text-lg sm:text-xl font-bold mb-3 sm:mb-4 group-hover:text-primary transition-colors">
+                    <h3 className="text-lg sm:text-xl font-bold mb-3 sm:mb-4 text-gray-900 dark:text-gray-100 group-hover:text-primary transition-colors">
                       {value.title}
                     </h3>
-                    <p className="text-sm sm:text-base text-gray-600 leading-relaxed">
+                    <p className="text-sm sm:text-base text-gray-600 dark:text-gray-400 leading-relaxed">
                       {value.description}
                     </p>
                     {/* Decorative corner element */}

@@ -126,7 +126,7 @@ export default function PhilosophyPage() {
                         </p>
                         <div className={`mt-8 flex items-center justify-center gap-3 transition-all duration-1000 delay-600 ${heroLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
                             <span className="w-8 h-[1px] bg-white/40"></span>
-                            <span className="text-white/50 text-sm tracking-widest uppercase">Since 1998</span>
+                            <span className="text-white/50 text-sm tracking-widest uppercase">Since 2016</span>
                             <span className="w-8 h-[1px] bg-white/40"></span>
                         </div>
                     </div>

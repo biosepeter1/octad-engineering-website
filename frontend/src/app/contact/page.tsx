@@ -47,7 +47,7 @@ const schema = yup.object({
 
 
 // Google Maps configuration - Nigerian Location
-const mapSrc = "https://maps.google.com/maps?q=10+Alade+Street,+Alapere-Ketu,+Lagos&t=&z=15&ie=UTF8&iwloc=&output=embed";
+const mapSrc = "https://maps.google.com/maps?q=Alapere-Ketu,+Lagos&t=&z=15&ie=UTF8&iwloc=&output=embed";
 
 export default function ContactPage() {
   const [isSubmitting, setIsSubmitting] = useState(false)
@@ -118,7 +118,7 @@ export default function ContactPage() {
       icon: PhoneIcon,
       title: 'Call Us',
       info: '07012629438',
-      subInfo: '07062404255 • Mon - Fri: 8:00 AM - 6:00 PM WAT',
+      subInfo: '07062404255 • Mon - Sat: 8:00 AM - 6:00 PM WAT',
       href: 'tel:07012629438'
     },
     {
@@ -131,15 +131,15 @@ export default function ContactPage() {
     {
       icon: MapPinIcon,
       title: 'Visit Our Lagos Office',
-      info: '10 Alade Street, Alapere-Ketu',
+      info: 'Alapere-Ketu',
       subInfo: 'Lagos State, Nigeria',
       href: 'https://maps.google.com'
     },
     {
       icon: ClockIcon,
       title: 'Business Hours',
-      info: 'Monday - Friday: 8:00 AM - 6:00 PM',
-      subInfo: 'Saturday: 9:00 AM - 4:00 PM (WAT)',
+      info: 'Monday - Saturday: 8:00 AM - 6:00 PM',
+      subInfo: 'Sunday: Closed (WAT)',
       href: null
     }
   ]
@@ -527,7 +527,7 @@ export default function ContactPage() {
                     </div>
                     <h3 className="text-lg sm:text-xl font-semibold text-gray-900 mb-2">Our Location</h3>
                     <address className="text-sm sm:text-base text-gray-600 not-italic leading-relaxed">
-                      10 Alade Street, Alapere-Ketu<br />
+                      Alapere-Ketu<br />
                       Lagos, Nigeria<br />
                       Nigeria
                     </address>
@@ -592,7 +592,7 @@ export default function ContactPage() {
                   {/* Directions link overlay */}
                   <div className="absolute bottom-2 sm:bottom-4 left-2 sm:left-4">
                     <a
-                      href={`https://www.google.com/maps/dir/?api=1&destination=10+Alade+Street,+Alapere-Ketu,+Lagos`}
+                      href={`https://www.google.com/maps/dir/?api=1&destination=Alapere-Ketu,+Lagos`}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="bg-primary text-white px-3 sm:px-4 py-2 rounded-lg text-xs sm:text-sm font-medium hover:bg-primary-700 transition-colors shadow-lg flex items-center"

@@ -3,12 +3,14 @@
 import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { Bars3Icon, XMarkIcon, CogIcon, ArrowRightOnRectangleIcon } from "@heroicons/react/24/outline";
+import { Bars3Icon, XMarkIcon, CogIcon, ArrowRightOnRectangleIcon, SunIcon, MoonIcon } from "@heroicons/react/24/outline";
 import { useAuth } from "@/contexts/AuthContext";
+import { useTheme } from "@/contexts/ThemeContext";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const { isAuthenticated, user, logout } = useAuth();
+  const { isDark, toggleDark } = useTheme();
 
   const navigation = [
     { name: "Home", href: "/" },
@@ -19,7 +21,7 @@ export default function Navbar() {
   ];
 
   return (
-    <nav className="bg-white/95 backdrop-blur-md shadow-lg fixed top-0 left-0 right-0 z-50 transition-all duration-300">
+    <nav className="bg-white/95 dark:bg-gray-900/95 backdrop-blur-md shadow-lg dark:shadow-gray-900 fixed top-0 left-0 right-0 z-50 transition-all duration-300">
       <div className="container-custom">
         <div className="flex justify-between items-center py-4">
           {/* Logo */}
@@ -38,13 +40,26 @@ export default function Navbar() {
             </span>
           </Link>
 
+          {/* Dark Mode Toggle (visible on both mobile and desktop) */}
+          <button
+            onClick={toggleDark}
+            className="ml-auto mr-3 md:ml-0 md:mr-0 p-2 rounded-full bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-yellow-300 hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors duration-200 shadow-sm"
+            aria-label="Toggle dark mode"
+          >
+            {isDark ? (
+              <SunIcon className="h-5 w-5" />
+            ) : (
+              <MoonIcon className="h-5 w-5" />
+            )}
+          </button>
+
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
             {navigation.map((item) => (
               <Link
                 key={item.name}
                 href={item.href}
-                className="text-gray-700 hover:text-primary font-medium transition-colors duration-200"
+                className="text-gray-700 dark:text-gray-200 hover:text-primary dark:hover:text-primary font-medium transition-colors duration-200"
               >
                 {item.name}
               </Link>
@@ -86,7 +101,7 @@ export default function Navbar() {
           <div className="md:hidden">
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="relative text-gray-700 hover:text-primary focus:outline-none focus:text-primary p-2 -m-2 rounded-md transition-all duration-300 hover:bg-gray-100 active:scale-95"
+              className="relative text-gray-700 dark:text-gray-200 hover:text-primary dark:hover:text-yellow-300 focus:outline-none p-2 -m-2 rounded-md transition-all duration-300 hover:bg-gray-100 dark:hover:bg-gray-800 active:scale-95"
               aria-label="Toggle navigation menu"
             >
               <div className="relative w-6 h-6">

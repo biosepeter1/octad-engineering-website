@@ -11,7 +11,7 @@ const services = [
         title: 'General Contracting',
         description:
             'Comprehensive project management and construction services from foundation to finish. Quality craftsmanship and timely delivery.',
-        image: '/portfolio/page16_img1.jpg',
+        image: '/portfolio/green-shirt-worker.jpeg',
     },
     {
         title: 'Renovation & Refurbishment',
@@ -23,7 +23,7 @@ const services = [
         title: 'Project Management',
         description:
             'End-to-end oversight of construction projects. coordinating timelines, budgets, resources, and quality.',
-        image: '/portfolio/page14_img1.jpg',
+        image: '/portfolio/project-management-new.jpeg',
     },
     {
         title: 'Interior Design',

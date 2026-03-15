@@ -4,7 +4,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 
 const projects = [
-    { id: 1, image: '/portfolio/page16_img1.jpg', title: 'Commercial Complex' },
+    { id: 1, image: '/portfolio/green-shirt-worker.jpeg', title: 'Commercial Complex' },
     { id: 2, image: '/portfolio/page14_img2.jpg', title: 'Residential Development' },
     { id: 3, image: '/portfolio/page18_img1.jpg', title: 'Factory Renovation' },
     { id: 4, image: '/portfolio/page10_img3.jpg', title: 'Interior Fit-out' },

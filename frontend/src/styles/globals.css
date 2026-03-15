@@ -11,6 +11,72 @@
   body {
     font-family: 'Inter', system-ui, sans-serif;
   }
+
+  /* Dark mode base overrides */
+  .dark body {
+    background-color: #000;
+    color: #f3f4f6;
+  }
+
+  /* General sections */
+  .dark section {
+    background-color: #030712;
+    color: #f3f4f6;
+  }
+
+  /* White backgrounds → darker equivalent */
+  .dark .bg-white {
+    background-color: #111827;
+  }
+
+  .dark .bg-gray-50 {
+    background-color: #0d1117;
+  }
+
+  .dark .bg-gray-100 {
+    background-color: #111827;
+  }
+
+  /* Borders */
+  .dark .border-gray-100 {
+    border-color: #374151;
+  }
+  .dark .border-gray-200 {
+    border-color: #374151;
+  }
+  .dark .border-gray-300 {
+    border-color: #4b5563;
+  }
+
+  /* Text colours */
+  .dark .text-gray-900 {
+    color: #f3f4f6;
+  }
+  .dark .text-gray-800 {
+    color: #e5e7eb;
+  }
+  .dark .text-gray-700 {
+    color: #d1d5db;
+  }
+  .dark .text-gray-600 {
+    color: #9ca3af;
+  }
+
+  /* Inputs & forms */
+  .dark input,
+  .dark textarea,
+  .dark select {
+    background-color: #111827;
+    border-color: #374151;
+    color: #f3f4f6;
+  }
+
+  /* Footer */
+  .dark footer,
+  .dark .footer {
+    background-color: #000;
+    color: #d1d5db;
+  }
 }
 
 @layer components {

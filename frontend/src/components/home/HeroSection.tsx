@@ -4,39 +4,69 @@ import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 
+type Slide = {
+    id: number;
+    image?: string;
+    video?: string;
+    title: string;
+    subtitle: string;
+    cta?: string;
+    link?: string;
+    objectFit: 'cover' | 'contain';
+};
 
-const slides = [
+const slides: Slide[] = [
     {
         id: 1,
-        image: '/portfolio/page9_img1.jpg',
+        image: '/portfolio/hero section 1.jpeg',
         title: 'OCTAD ENGINEERING LIMITED',
         subtitle: 'Building the Future, One Blueprint at a Time',
         cta: 'Our Projects',
-        link: '/projects'
+        link: '/projects',
+        objectFit: 'cover' as const
     },
     {
         id: 2,
-        image: '/portfolio/page12_img1.jpg',
+        image: '/portfolio/hero section 2.jpeg',
         title: 'Who Is OCTAD?',
         subtitle: 'A Nigeria Incorporated company dedicated to engineering construction excellence.',
         cta: 'Learn More',
-        link: '/about'
+        link: '/about',
+        objectFit: 'cover' as const
     },
     {
         id: 3,
-        image: '/portfolio/page11_img1.jpg',
+        image: '/portfolio/page12_img2.jpg',
         title: 'Our Services',
         subtitle: 'Building Design, General Contracting, Renovation, Project Management, Interior Design.',
         cta: 'Explore Services',
-        link: '/services'
+        link: '/services',
+        objectFit: 'cover'
     },
     {
         id: 4,
-        image: '/portfolio/page5_img1.jpg',
+        image: '/portfolio/hero-slide-4.png',
         title: 'We Think Differently',
         subtitle: 'Design begins with empathy. We aim to see what you see and feel what you feel.',
         cta: 'Our Philosophy',
-        link: '/philosophy'
+        link: '/philosophy',
+        objectFit: 'cover'
+    },
+    {
+        id: 5,
+        image: '/portfolio/hero-slide-5.png',
+        title: 'Building Excellence',
+        subtitle: 'Transforming visions into reality across Nigeria.',
+        objectFit: 'cover'
+    },
+    {
+        id: 6,
+        image: '/portfolio/hero-slide-6.png',
+        title: 'Engineering The Future',
+        subtitle: 'Watch our construction expertise in motion.',
+        cta: 'See Projects',
+        link: '/projects',
+        objectFit: 'cover'
     }
 ]
 
@@ -64,16 +94,38 @@ export default function HeroSection() {
                 >
                     {/* Image & Solid Overlay */}
                     <div className="absolute inset-0 pointer-events-none">
-                        <div className="absolute inset-0 animate-slow-zoom">
-                            <Image
-                                src={slide.image}
-                                alt={slide.title}
-                                fill
-                                sizes="100vw"
-                                className="object-cover object-center"
-                                priority={index === 0}
-                                quality={75}
+                        {/* Blurred background for portrait/contain images */}
+                        {slide.objectFit === 'contain' && (
+                            <div
+                                className="absolute inset-0 scale-110 blur-xl opacity-60"
+                                style={{
+                                    backgroundImage: `url(${slide.image})`,
+                                    backgroundSize: 'cover',
+                                    backgroundPosition: 'center'
+                                }}
                             />
+                        )}
+                        <div className="absolute inset-0 animate-slow-zoom">
+                            {slide.video ? (
+                                <video
+                                    src={slide.video}
+                                    autoPlay
+                                    loop
+                                    muted
+                                    playsInline
+                                    className={`w-full h-full ${slide.objectFit === 'contain' ? 'object-contain object-center' : 'object-cover object-center'}`}
+                                />
+                            ) : slide.image && (
+                                <Image
+                                    src={slide.image}
+                                    alt={slide.title}
+                                    fill
+                                    sizes="100vw"
+                                    className={slide.objectFit === 'contain' ? 'object-contain object-center' : 'object-cover object-center'}
+                                    priority={index === 0}
+                                    quality={85}
+                                />
+                            )}
                         </div>
                         {/* Solid dark overlay for legibility, no gradients */}
                         <div className="absolute inset-0 bg-black/50"></div>
@@ -89,13 +141,15 @@ export default function HeroSection() {
                             <p className="text-base sm:text-lg md:text-xl lg:text-2xl mb-6 sm:mb-10 text-gray-100 font-light max-w-2xl mx-auto">
                                 {slide.subtitle}
                             </p>
-                            {/* Minimalist Button */}
-                            <Link
-                                href={slide.link}
-                                className="inline-block border-2 border-white text-white hover:bg-white hover:text-primary px-6 sm:px-10 py-3 sm:py-4 text-sm sm:text-base md:text-lg font-medium transition-all duration-300 uppercase tracking-wider"
-                            >
-                                {slide.cta}
-                            </Link>
+                            {/* Minimalist Button - Conditionally Rendered */}
+                            {slide.cta && slide.link && (
+                                <Link
+                                    href={slide.link}
+                                    className="inline-block border-2 border-white text-white hover:bg-white hover:text-primary px-6 sm:px-10 py-3 sm:py-4 text-sm sm:text-base md:text-lg font-medium transition-all duration-300 uppercase tracking-wider"
+                                >
+                                    {slide.cta}
+                                </Link>
+                            )}
                         </div>
                     </div>
                 </div>

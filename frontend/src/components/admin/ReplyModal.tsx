@@ -65,7 +65,7 @@ Best regards,
 Octad Engineering Limited Team
 07012629438
 octadengineering@gmail.com
-10 Alade Street, Alapere-Ketu, Lagos, Nigeria`,
+Alapere-Ketu, Lagos, Nigeria`,
 
     residential: `Dear ${contact.name},
 
@@ -85,7 +85,7 @@ Best regards,
 Octad Engineering Limited Team
 07012629438
 octadengineering@gmail.com
-10 Alade Street, Alapere-Ketu, Lagos, Nigeria`,
+Alapere-Ketu, Lagos, Nigeria`,
 
     general: `Dear ${contact.name},
 
@@ -101,7 +101,7 @@ Best regards,
 Octad Engineering Limited Team
 07012629438
 octadengineering@gmail.com
-10 Alade Street, Alapere-Ketu, Lagos, Nigeria`
+Alapere-Ketu, Lagos, Nigeria`
   }
 
   // Determine template based on subject content

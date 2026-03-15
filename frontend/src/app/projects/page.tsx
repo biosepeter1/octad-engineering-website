@@ -28,11 +28,11 @@ interface Project {
 const portfolioProjects: Project[] = [
   {
     id: 'office-fitout-egbeda',
-    title: 'Corporate Office Interior Fit-Out',
+    title: 'Laider Pharmaceutical - Corporate Office Interior Fit-Out',
     category: 'Interior Fit-Out',
     status: 'completed',
     location: '133 Akowonjo Rd, Egbeda, Lagos',
-    description: 'A premium corporate office interior fit-out delivered by OCTAD Engineering. The project encompassed a complete transformation featuring a modern reception area with branded accent walls and a contemporary ring chandelier, an open-plan workspace with lush greenery dividers, a fully equipped boardroom with ergonomic chairs and linear pendant lighting, and a welcoming lounge area with a vibrant floral wall mural. Every detail, from the wood-grain vinyl flooring to the decorative POP ceiling, reflects OCTAD\'s commitment to quality craftsmanship.',
+    description: 'A premium corporate office interior fit-out delivered by OCTAD Engineering for Laider Pharmaceutical. The project encompassed a complete transformation featuring a modern reception area with branded accent walls and a contemporary ring chandelier, an open-plan workspace with lush greenery dividers, a fully equipped boardroom with ergonomic chairs and linear pendant lighting, and a welcoming lounge area with a vibrant floral wall mural. Every detail, from the wood-grain vinyl flooring to the decorative POP ceiling, reflects OCTAD\'s commitment to quality craftsmanship.',
     images: [
       '/portfolio/page10_img1.jpg', '/portfolio/page10_img2.jpg', '/portfolio/page10_img3.jpg', '/portfolio/page10_img4.jpg',
       '/portfolio/page11_img1.jpg', '/portfolio/page11_img2.jpg', '/portfolio/page11_img3.jpg', '/portfolio/page11_img4.jpg',
@@ -233,7 +233,7 @@ export default function ProjectsPage() {
 
             <div className={`mt-8 flex items-center justify-center gap-3 transition-all duration-1000 delay-700 ${heroLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
               <span className="w-8 h-[1px] bg-white/40"></span>
-              <span className="text-white/50 text-sm tracking-widest uppercase">Since 1998</span>
+              <span className="text-white/50 text-sm tracking-widest uppercase">Since 2016</span>
               <span className="w-8 h-[1px] bg-white/40"></span>
             </div>
           </div>

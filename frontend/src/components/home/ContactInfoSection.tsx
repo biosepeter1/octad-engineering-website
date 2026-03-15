@@ -13,7 +13,7 @@ export default function ContactInfoSection() {
                             Visit Us
                         </h3>
                         <p className="text-gray-600 font-light leading-relaxed">
-                            10 Alade Street, Alapere-Ketu<br />
+                            Alapere-Ketu<br />
                             Lagos, Nigeria
                         </p>
                     </div>

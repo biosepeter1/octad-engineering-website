@@ -60,7 +60,7 @@ const defaultAbout: About = {
         { title: 'Community Impact', description: '...' },
         { title: 'Innovation & Adaptation', description: '...' }
     ],
-    foundedYear: 2014,
+    foundedYear: 2016,
     employeeCount: 45,
     contactInfo: {
         phone: '07012629438',

@@ -3,16 +3,19 @@ import AnimatedCounter from '@/components/AnimatedCounter'
 
 export default function ClientsSection() {
     const clientLogos = [
+        { name: 'Laider Pharmaceutical', logo: '/partners/laider-pharmaceutical.webp' },
         { name: 'Inbreetic Technologies', logo: '/partners/inbreetic-technologies.jpg' },
         { name: 'Tinc IT Solutions', logo: '/partners/tinc-it-solutions.png' },
+        { name: 'Mysranne Design Studio', logo: '/partners/mysranne-design-studio.jpg' },
         { name: '143 Fitness', logo: '/partners/143-fitness.jpg' },
-        { name: 'Bamboo', logo: '/partners/bamboo.jpg' },
-        { name: 'Chrysalis', logo: '/partners/chrysalis.jpg' },
         { name: 'Civic Centre', logo: '/partners/civic-centre.jpg' },
         { name: 'Sunbeth Energies', logo: '/partners/sunbeth-energies.jpg' },
-        { name: 'Punter Class', logo: '' }, // No logo yet
+        { name: 'Punter Clash', logo: '/partners/punter-clash.jpg' },
         { name: 'Faaji Production', logo: '/partners/faaji-production.jpg' },
-        { name: 'Vita Construction', logo: '/partners/vita-construction.jpg' }
+        { name: 'Vita Construction', logo: '/partners/vita-construction.jpg' },
+        { name: 'Studio Emodi', logo: '/partners/studio-emodi.png' },
+        { name: 'Bamboo', logo: '/partners/bamboo.jpg' },
+        { name: 'Chrysalis', logo: '/partners/chrysalis.jpg' }
     ]
 
     return (
@@ -35,24 +38,22 @@ export default function ClientsSection() {
                     {/* Client Logos Row 1 */}
                     <div className="flex items-center justify-center min-w-max space-x-4 sm:space-x-8 lg:space-x-16">
                         {clientLogos.map((client) => (
-                            <div key={client.name} className="bg-white p-2 sm:p-3 lg:p-4 rounded-lg sm:rounded-xl h-full flex items-center will-change-transform">
-                                <div className="w-32 sm:w-36 lg:w-44 h-auto min-h-[6rem] sm:min-h-[6rem] bg-white rounded-lg flex flex-col items-center justify-center p-2 gap-1.5 ">
-                                    {client.logo && (
-                                        <div className="relative h-9 sm:h-10 w-24 sm:w-32">
-                                            <Image
-                                                src={client.logo}
-                                                alt={client.name}
-                                                fill
-                                                sizes="128px"
-                                                className="object-contain transition-all duration-300"
-                                                loading="lazy"
-                                            />
-                                        </div>
-                                    )}
-                                    <span className="text-gray-600 font-medium text-xs text-center leading-tight line-clamp-2">
-                                        {client.name}
-                                    </span>
-                                </div>
+                            <div key={client.name} className="group p-2 sm:p-3 lg:p-4 h-full flex flex-col items-center justify-center will-change-transform cursor-pointer">
+                                {client.logo && (
+                                    <div className="relative h-12 sm:h-14 lg:h-16 w-32 sm:w-36 lg:w-40 mb-3 transition-transform duration-500 group-hover:scale-105">
+                                        <Image
+                                            src={client.logo}
+                                            alt={client.name}
+                                            fill
+                                            sizes="160px"
+                                            className="object-contain mix-blend-multiply"
+                                            loading="lazy"
+                                        />
+                                    </div>
+                                )}
+                                <span className="text-gray-400 font-medium text-xs sm:text-sm text-center tracking-wide group-hover:text-primary transition-colors duration-300">
+                                    {client.name}
+                                </span>
                             </div>
                         ))}
                     </div>
@@ -60,24 +61,22 @@ export default function ClientsSection() {
                     {/* Duplicate for seamless loop */}
                     <div className="flex items-center justify-center min-w-max space-x-4 sm:space-x-8 lg:space-x-16">
                         {clientLogos.map((client) => (
-                            <div key={`dup-${client.name}`} className="bg-white p-2 sm:p-3 lg:p-4 rounded-lg sm:rounded-xl h-full flex items-center will-change-transform">
-                                <div className="w-32 sm:w-36 lg:w-44 h-auto min-h-[6rem] sm:min-h-[6rem] bg-white rounded-lg flex flex-col items-center justify-center p-2 gap-1.5">
-                                    {client.logo && (
-                                        <div className="relative h-9 sm:h-10 w-24 sm:w-32">
-                                            <Image
-                                                src={client.logo}
-                                                alt={client.name}
-                                                fill
-                                                sizes="128px"
-                                                className="object-contain transition-all duration-300"
-                                                loading="lazy"
-                                            />
-                                        </div>
-                                    )}
-                                    <span className="text-gray-600 font-medium text-xs text-center leading-tight line-clamp-2">
-                                        {client.name}
-                                    </span>
-                                </div>
+                            <div key={`dup-${client.name}`} className="group p-2 sm:p-3 lg:p-4 h-full flex flex-col items-center justify-center will-change-transform cursor-pointer">
+                                {client.logo && (
+                                    <div className="relative h-12 sm:h-14 lg:h-16 w-32 sm:w-36 lg:w-40 mb-3 transition-transform duration-500 group-hover:scale-105">
+                                        <Image
+                                            src={client.logo}
+                                            alt={client.name}
+                                            fill
+                                            sizes="160px"
+                                            className="object-contain mix-blend-multiply"
+                                            loading="lazy"
+                                        />
+                                    </div>
+                                )}
+                                <span className="text-gray-400 font-medium text-xs sm:text-sm text-center tracking-wide group-hover:text-primary transition-colors duration-300">
+                                    {client.name}
+                                </span>
                             </div>
                         ))}
                     </div>

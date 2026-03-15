@@ -216,13 +216,13 @@ export default function ServicesPage() {
         </section>
 
         {/* Statistics Section */}
-        <section className="section-padding bg-white">
+        <section className="section-padding bg-white dark:bg-gray-900">
           <div className="container-custom">
             <div className="text-center mb-12 sm:mb-16">
-              <h2 className="text-2xl xs:text-3xl sm:text-3xl lg:text-4xl font-bold text-gray-900 mb-3 sm:mb-4">
+              <h2 className="text-2xl xs:text-3xl sm:text-3xl lg:text-4xl font-bold text-gray-900 dark:text-gray-100 mb-3 sm:mb-4">
                 Trusted Across Nigeria
               </h2>
-              <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto px-4">
+              <p className="text-lg sm:text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto px-4">
                 Our commitment to excellence has earned us the trust of clients nationwide
               </p>
             </div>
@@ -235,7 +235,7 @@ export default function ServicesPage() {
                   duration={2500}
                   className="text-3xl xs:text-4xl sm:text-4xl lg:text-5xl font-bold text-primary mb-1 sm:mb-2"
                 />
-                <div className="text-sm sm:text-base text-gray-600 font-medium">Projects Completed</div>
+                <div className="text-sm sm:text-base text-gray-600 dark:text-gray-400 font-medium">Projects Completed</div>
               </div>
               <div className="text-center">
                 <AnimatedCounter
@@ -244,7 +244,7 @@ export default function ServicesPage() {
                   duration={2000}
                   className="text-3xl xs:text-4xl sm:text-4xl lg:text-5xl font-bold text-secondary mb-1 sm:mb-2"
                 />
-                <div className="text-sm sm:text-base text-gray-600 font-medium">Years Experience</div>
+                <div className="text-sm sm:text-base text-gray-600 dark:text-gray-400 font-medium">Years Experience</div>
               </div>
               <div className="text-center">
                 <AnimatedCounter
@@ -253,7 +253,7 @@ export default function ServicesPage() {
                   duration={2200}
                   className="text-3xl xs:text-4xl sm:text-4xl lg:text-5xl font-bold text-accent mb-1 sm:mb-2"
                 />
-                <div className="text-sm sm:text-base text-gray-600 font-medium">States Served</div>
+                <div className="text-sm sm:text-base text-gray-600 dark:text-gray-400 font-medium">States Served</div>
               </div>
               <div className="text-center">
                 <AnimatedCounter
@@ -262,15 +262,15 @@ export default function ServicesPage() {
                   duration={1800}
                   className="text-3xl xs:text-4xl sm:text-4xl lg:text-5xl font-bold text-green-500 mb-1 sm:mb-2"
                 />
-                <div className="text-sm sm:text-base text-gray-600 font-medium">Client Satisfaction</div>
+                <div className="text-sm sm:text-base text-gray-600 dark:text-gray-400 font-medium">Client Satisfaction</div>
               </div>
             </div>
           </div>
         </section>
 
         {/* Our Expertise - Enhanced Section */}
-        <section className="section-padding bg-gray-50 relative overflow-hidden">
-          <div className="absolute inset-0 bg-gradient-to-br from-gray-50 via-white to-gray-100"></div>
+        <section className="section-padding bg-gray-50 dark:bg-gray-950 relative overflow-hidden">
+          <div className="absolute inset-0 bg-gradient-to-br from-gray-50 via-white to-gray-100 dark:from-gray-950 dark:via-gray-900 dark:to-gray-950"></div>
           {/* Background decorative elements */}
           <div className="absolute top-20 left-10 w-24 h-24 bg-primary/5 rounded-full"></div>
           <div className="absolute bottom-20 right-10 w-32 h-32 bg-secondary/5 rounded-full"></div>
@@ -280,10 +280,10 @@ export default function ServicesPage() {
               <div className="inline-flex items-center justify-center w-12 h-12 sm:w-16 sm:h-16 bg-primary text-white rounded-full mb-4 sm:mb-6">
                 <BuildingStorefrontIcon className="w-6 h-6 sm:w-8 sm:h-8" />
               </div>
-              <h2 className="text-3xl xs:text-4xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4 sm:mb-6">
+              <h2 className="text-3xl xs:text-4xl sm:text-4xl lg:text-5xl font-bold text-gray-900 dark:text-gray-100 mb-4 sm:mb-6">
                 Our <span className="text-primary">Expertise</span>
               </h2>
-              <p className="text-lg sm:text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed px-4">
+              <p className="text-lg sm:text-xl text-gray-600 dark:text-gray-400 max-w-4xl mx-auto leading-relaxed px-4">
                 From traditional Nigerian architecture to modern commercial complexes, we deliver
                 construction solutions that combine international quality standards with local expertise and cultural understanding.
               </p>
@@ -312,12 +312,12 @@ export default function ServicesPage() {
 
                 const getServiceImage = (iconType: string) => {
                   switch (iconType) {
-                    case 'home': return '/portfolio/page16_img1.jpg'
+                    case 'home': return '/portfolio/residential-construction.jpeg'
                     case 'building': return '/portfolio/page9_img2.jpg'
                     case 'infrastructure': return '/portfolio/page18_img2.jpg'
                     case 'renovation': return '/portfolio/page20_img1.jpg'
                     case 'design': return '/portfolio/page21_img1.jpg'
-                    case 'maintenance': return '/portfolio/page14_img1.jpg'
+                    case 'maintenance': return '/portfolio/maintenance-service.jpeg'
                     default: return '/portfolio/page8_img7.jpg'
                   }
                 }
@@ -352,19 +352,19 @@ export default function ServicesPage() {
                         <div className="inline-flex items-center justify-center w-10 h-10 sm:w-12 sm:h-12 bg-primary/10 text-primary rounded-xl mb-3 sm:mb-4">
                           {getServiceIcon(service.icon)}
                         </div>
-                        <h3 className="text-2xl xs:text-3xl sm:text-3xl lg:text-4xl font-bold text-gray-900 mb-4 sm:mb-6 leading-tight">
+                        <h3 className="text-2xl xs:text-3xl sm:text-3xl lg:text-4xl font-bold text-gray-900 dark:text-gray-100 mb-4 sm:mb-6 leading-tight">
                           {service.title}
                         </h3>
-                        <p className="text-base sm:text-lg text-gray-600 mb-6 sm:mb-8 leading-relaxed">
+                        <p className="text-base sm:text-lg text-gray-600 dark:text-gray-400 mb-6 sm:mb-8 leading-relaxed">
                           {service.description}
                         </p>
 
                         {service.features && service.features.length > 0 && (
                           <div className="mb-6 sm:mb-8">
-                            <h4 className="font-semibold text-gray-900 mb-3 sm:mb-4 text-base sm:text-lg">Our Capabilities:</h4>
+                            <h4 className="font-semibold text-gray-900 dark:text-gray-100 mb-3 sm:mb-4 text-base sm:text-lg">Our Capabilities:</h4>
                             <div className="grid grid-cols-1 gap-2 sm:gap-3">
                               {service.features.slice(0, 6).map((feature, featureIndex) => (
-                                <div key={featureIndex} className="flex items-center text-gray-700">
+                                <div key={featureIndex} className="flex items-center text-gray-700 dark:text-gray-300">
                                   <CheckIcon className="w-4 h-4 sm:w-5 sm:h-5 text-green-500 mr-2 sm:mr-3 flex-shrink-0" />
                                   <span className="text-sm sm:text-sm font-medium">{feature}</span>
                                 </div>
@@ -397,7 +397,7 @@ export default function ServicesPage() {
         </section>
 
         {/* Why Choose Us - Nigerian Focus */}
-        <section className="section-padding bg-white">
+        <section className="section-padding bg-white dark:bg-gray-900">
           <div className="container-custom">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16 items-center">
               <div className="relative">
@@ -412,10 +412,10 @@ export default function ServicesPage() {
               </div>
 
               <div className="mt-8 lg:mt-0">
-                <h2 className="text-3xl xs:text-4xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4 sm:mb-6">
+                <h2 className="text-3xl xs:text-4xl sm:text-4xl lg:text-5xl font-bold text-gray-900 dark:text-gray-100 mb-4 sm:mb-6">
                   Building <span className="text-primary">Excellence</span> in Nigeria
                 </h2>
-                <p className="text-base sm:text-lg text-gray-600 mb-6 sm:mb-8 leading-relaxed">
+                <p className="text-base sm:text-lg text-gray-600 dark:text-gray-400 mb-6 sm:mb-8 leading-relaxed">
                   As a proudly Nigerian construction company, we understand the unique challenges and opportunities
                   of building in our climate, working with local materials, and serving our communities with integrity and excellence.
                 </p>
@@ -426,8 +426,8 @@ export default function ServicesPage() {
                       <ShieldCheckIcon className="w-5 h-5 sm:w-6 sm:h-6" />
                     </div>
                     <div>
-                      <h3 className="font-bold text-gray-900 mb-1 sm:mb-2 text-base sm:text-lg">COREN Registered & NSE Member</h3>
-                      <p className="text-sm sm:text-base text-gray-600">Certified with Corporate Affairs Commission and fully licensed by relevant Nigerian authorities with comprehensive insurance coverage.</p>
+                      <h3 className="font-bold text-gray-900 dark:text-gray-100 mb-1 sm:mb-2 text-base sm:text-lg">COREN Registered &amp; NSE Member</h3>
+                      <p className="text-sm sm:text-base text-gray-600 dark:text-gray-400">Certified with Corporate Affairs Commission and fully licensed by relevant Nigerian authorities with comprehensive insurance coverage.</p>
                     </div>
                   </div>
 
@@ -436,8 +436,8 @@ export default function ServicesPage() {
                       <ClockIcon className="w-5 h-5 sm:w-6 sm:h-6" />
                     </div>
                     <div>
-                      <h3 className="font-bold text-gray-900 mb-1 sm:mb-2 text-base sm:text-lg">Weather-Resilient Construction</h3>
-                      <p className="text-sm sm:text-base text-gray-600">Specialized expertise in building for Nigeria's tropical climate with materials and methods that withstand heavy rains and high temperatures.</p>
+                      <h3 className="font-bold text-gray-900 dark:text-gray-100 mb-1 sm:mb-2 text-base sm:text-lg">Weather-Resilient Construction</h3>
+                      <p className="text-sm sm:text-base text-gray-600 dark:text-gray-400">Specialized expertise in building for Nigeria's tropical climate with materials and methods that withstand heavy rains and high temperatures.</p>
                     </div>
                   </div>
 
@@ -446,8 +446,8 @@ export default function ServicesPage() {
                       <BanknotesIcon className="w-5 h-5 sm:w-6 sm:h-6" />
                     </div>
                     <div>
-                      <h3 className="font-bold text-gray-900 mb-1 sm:mb-2 text-base sm:text-lg">Transparent Naira Pricing</h3>
-                      <p className="text-sm sm:text-base text-gray-600">Clear, upfront pricing in Naira with no hidden costs. We work within Nigerian budgets and offer flexible payment terms.</p>
+                      <h3 className="font-bold text-gray-900 dark:text-gray-100 mb-1 sm:mb-2 text-base sm:text-lg">Transparent Naira Pricing</h3>
+                      <p className="text-sm sm:text-base text-gray-600 dark:text-gray-400">Clear, upfront pricing in Naira with no hidden costs. We work within Nigerian budgets and offer flexible payment terms.</p>
                     </div>
                   </div>
 
@@ -456,8 +456,8 @@ export default function ServicesPage() {
                       <UserGroupIcon className="w-5 h-5 sm:w-6 sm:h-6" />
                     </div>
                     <div>
-                      <h3 className="font-bold text-gray-900 mb-1 sm:mb-2 text-base sm:text-lg">Local Workforce Development</h3>
-                      <p className="text-sm sm:text-base text-gray-600">Committed to training and employing Nigerian workers, contributing to local economic growth and skill development.</p>
+                      <h3 className="font-bold text-gray-900 dark:text-gray-100 mb-1 sm:mb-2 text-base sm:text-lg">Local Workforce Development</h3>
+                      <p className="text-sm sm:text-base text-gray-600 dark:text-gray-400">Committed to training and employing Nigerian workers, contributing to local economic growth and skill development.</p>
                     </div>
                   </div>
                 </div>
@@ -467,13 +467,13 @@ export default function ServicesPage() {
         </section>
 
         {/* Process Section - Nigerian Context */}
-        <section className="section-padding bg-gradient-to-br from-gray-50 to-gray-100">
+        <section className="section-padding bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-900 dark:to-gray-950">
           <div className="container-custom">
             <div className="text-center mb-12 sm:mb-16 lg:mb-20">
-              <h2 className="text-3xl xs:text-4xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4 sm:mb-6">
+              <h2 className="text-3xl xs:text-4xl sm:text-4xl lg:text-5xl font-bold text-gray-900 dark:text-gray-100 mb-4 sm:mb-6">
                 Our <span className="text-primary">Process</span>
               </h2>
-              <p className="text-lg sm:text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed px-4">
+              <p className="text-lg sm:text-xl text-gray-600 dark:text-gray-400 max-w-4xl mx-auto leading-relaxed px-4">
                 From initial consultation to project completion, we follow a proven methodology that ensures
                 quality delivery while navigating Nigeria's regulatory environment and cultural considerations.
               </p>
@@ -484,8 +484,8 @@ export default function ServicesPage() {
                 <div className="bg-primary text-white w-16 h-16 sm:w-20 sm:h-20 rounded-full flex items-center justify-center mx-auto mb-4 sm:mb-6 text-xl sm:text-2xl font-bold shadow-lg group-hover:scale-110 transition-transform">
                   1
                 </div>
-                <h3 className="text-lg sm:text-xl font-bold mb-3 sm:mb-4 text-gray-900">Consultation & Site Assessment</h3>
-                <p className="text-sm sm:text-base text-gray-600 leading-relaxed">
+                <h3 className="text-lg sm:text-xl font-bold mb-3 sm:mb-4 text-gray-900 dark:text-gray-100">Consultation &amp; Site Assessment</h3>
+                <p className="text-sm sm:text-base text-gray-600 dark:text-gray-400 leading-relaxed">
                   Comprehensive discussion of your vision, budget analysis, site evaluation, and understanding of local regulations and requirements.
                 </p>
               </div>
@@ -494,8 +494,8 @@ export default function ServicesPage() {
                 <div className="bg-secondary text-white w-16 h-16 sm:w-20 sm:h-20 rounded-full flex items-center justify-center mx-auto mb-4 sm:mb-6 text-xl sm:text-2xl font-bold shadow-lg group-hover:scale-110 transition-transform">
                   2
                 </div>
-                <h3 className="text-lg sm:text-xl font-bold mb-3 sm:mb-4 text-gray-900">Design & Permits</h3>
-                <p className="text-sm sm:text-base text-gray-600 leading-relaxed">
+                <h3 className="text-lg sm:text-xl font-bold mb-3 sm:mb-4 text-gray-900 dark:text-gray-100">Design &amp; Permits</h3>
+                <p className="text-sm sm:text-base text-gray-600 dark:text-gray-400 leading-relaxed">
                   Architectural planning with Nigerian building codes compliance, permit acquisition, and approval from relevant state authorities.
                 </p>
               </div>
@@ -504,8 +504,8 @@ export default function ServicesPage() {
                 <div className="bg-accent text-white w-16 h-16 sm:w-20 sm:h-20 rounded-full flex items-center justify-center mx-auto mb-4 sm:mb-6 text-xl sm:text-2xl font-bold shadow-lg group-hover:scale-110 transition-transform">
                   3
                 </div>
-                <h3 className="text-lg sm:text-xl font-bold mb-3 sm:mb-4 text-gray-900">Construction Execution</h3>
-                <p className="text-sm sm:text-base text-gray-600 leading-relaxed">
+                <h3 className="text-lg sm:text-xl font-bold mb-3 sm:mb-4 text-gray-900 dark:text-gray-100">Construction Execution</h3>
+                <p className="text-sm sm:text-base text-gray-600 dark:text-gray-400 leading-relaxed">
                   Quality construction with regular progress updates, safety compliance, and coordination with local suppliers and craftsmen.
                 </p>
               </div>
@@ -514,8 +514,8 @@ export default function ServicesPage() {
                 <div className="bg-green-500 text-white w-16 h-16 sm:w-20 sm:h-20 rounded-full flex items-center justify-center mx-auto mb-4 sm:mb-6 text-xl sm:text-2xl font-bold shadow-lg group-hover:scale-110 transition-transform">
                   4
                 </div>
-                <h3 className="text-lg sm:text-xl font-bold mb-3 sm:mb-4 text-gray-900">Handover & Support</h3>
-                <p className="text-sm sm:text-base text-gray-600 leading-relaxed">
+                <h3 className="text-lg sm:text-xl font-bold mb-3 sm:mb-4 text-gray-900 dark:text-gray-100">Handover &amp; Support</h3>
+                <p className="text-sm sm:text-base text-gray-600 dark:text-gray-400 leading-relaxed">
                   Final inspection, documentation, project handover with warranties, and ongoing maintenance support services.
                 </p>
               </div>
@@ -524,13 +524,13 @@ export default function ServicesPage() {
         </section>
 
         {/* Service Areas - Nigerian States */}
-        <section className="section-padding bg-white">
+        <section className="section-padding bg-white dark:bg-gray-900">
           <div className="container-custom">
             <div className="text-center mb-12 sm:mb-16">
-              <h2 className="text-3xl xs:text-4xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4 sm:mb-6">
+              <h2 className="text-3xl xs:text-4xl sm:text-4xl lg:text-5xl font-bold text-gray-900 dark:text-gray-100 mb-4 sm:mb-6">
                 Serving <span className="text-primary">Nigeria</span> Nationwide
               </h2>
-              <p className="text-lg sm:text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed px-4">
+              <p className="text-lg sm:text-xl text-gray-600 dark:text-gray-400 max-w-4xl mx-auto leading-relaxed px-4">
                 From Lagos to Abuja, Port Harcourt to Kano, we bring our expertise to communities across Nigeria,
                 contributing to the nation's infrastructure and development goals.
               </p>
@@ -542,7 +542,7 @@ export default function ServicesPage() {
                 'Delta State', 'Kaduna State', 'Ogun State', 'Edo State', 'Plateau State',
                 'Anambra State', 'Imo State', 'Enugu State', 'Cross River', 'Bayelsa State'
               ].map((state, index) => (
-                <div key={index} className="text-center p-3 sm:p-4 rounded-lg sm:rounded-xl bg-gray-50 hover:bg-primary hover:text-white transition-all duration-300 transform hover:scale-105 shadow-sm">
+                <div key={index} className="text-center p-3 sm:p-4 rounded-lg sm:rounded-xl bg-gray-50 dark:bg-gray-800 dark:text-gray-300 hover:bg-primary hover:text-white transition-all duration-300 transform hover:scale-105 shadow-sm">
                   <MapPinIcon className="w-4 h-4 sm:w-6 sm:h-6 mx-auto mb-1 sm:mb-2 opacity-60" />
                   <div className="font-medium text-xs sm:text-sm">{state}</div>
                 </div>
@@ -550,7 +550,7 @@ export default function ServicesPage() {
             </div>
 
             <div className="text-center">
-              <p className="text-sm sm:text-base text-gray-600 mb-4 sm:mb-6 max-w-2xl mx-auto px-4">
+              <p className="text-sm sm:text-base text-gray-600 dark:text-gray-400 mb-4 sm:mb-6 max-w-2xl mx-auto px-4">
                 Don't see your location? We're continuously expanding our reach across Nigeria.
                 Contact us to discuss your project regardless of location.
               </p>
