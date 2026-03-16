@@ -19,7 +19,7 @@ export default function Footer() {
               <span className="text-xl sm:text-2xl font-bold">OCTAD Engineering</span>
             </div>
             <p className="text-gray-300 mb-6 max-w-md text-sm sm:text-base">
-              Nigeria's leading construction company with over 20 years of experience.
+              Nigeria's leading construction company with over 10 years of experience.
               We deliver quality projects across Lagos, Abuja, and major Nigerian cities.
             </p>
 
