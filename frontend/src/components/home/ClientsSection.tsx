@@ -34,10 +34,10 @@ export default function ClientsSection() {
             </div>
 
             {/* Marquee Container - Full Width */}
-            <div className="w-full relative overflow-hidden bg-gray-50 py-8 sm:py-12 mb-12 sm:mb-16">
-                <div className="flex space-x-4 sm:space-x-8 lg:space-x-16 animate-marquee">
+            <div className="w-full relative overflow-hidden bg-gray-50 dark:bg-gray-950 py-8 sm:py-12 mb-12 sm:mb-16 mask-gradient">
+                <div className="flex w-max animate-marquee hover:pause">
                     {/* Client Logos Row 1 */}
-                    <div className="flex items-center justify-center min-w-max space-x-4 sm:space-x-8 lg:space-x-16">
+                    <div className="flex items-center justify-center space-x-4 sm:space-x-8 lg:space-x-16 pr-4 sm:pr-8 lg:pr-16">
                         {clientLogos.map((client) => (
                             <div key={client.name} className="group p-2 sm:p-3 lg:p-4 h-full flex flex-col items-center justify-center will-change-transform cursor-pointer">
                                 {client.logo && (
@@ -60,7 +60,7 @@ export default function ClientsSection() {
                     </div>
 
                     {/* Duplicate for seamless loop */}
-                    <div className="flex items-center justify-center min-w-max space-x-4 sm:space-x-8 lg:space-x-16">
+                    <div className="flex items-center justify-center space-x-4 sm:space-x-8 lg:space-x-16 pr-4 sm:pr-8 lg:pr-16" aria-hidden="true">
                         {clientLogos.map((client) => (
                             <div key={`dup-${client.name}`} className="group p-2 sm:p-3 lg:p-4 h-full flex flex-col items-center justify-center will-change-transform cursor-pointer">
                                 {client.logo && (
