@@ -12,12 +12,17 @@ function generateImages(folder: string, count: number, ext: string = 'jpeg'): st
 
 // Special handling for Sunbeth which has mixed extensions
 function sunbethImages(): string[] {
-    const jpgIndices = [1, 2, 3, 4, 5]
-    const jpegIndices = [6, 7, 8, 9, 10]
+    // Current files: 1.jpeg, 2.jpg, 3.jpg, 4.jpg, 5.jpg
+    const jpegIndices = [1]
+    const jpgIndices = [2, 3, 4, 5]
     return [
-        ...jpgIndices.map(i => `/portfolio/projects/Sunbeth-Energies---Mysranne-Design-Studio/${i}.jpg`),
         ...jpegIndices.map(i => `/portfolio/projects/Sunbeth-Energies---Mysranne-Design-Studio/${i}.jpeg`),
-    ]
+        ...jpgIndices.map(i => `/portfolio/projects/Sunbeth-Energies---Mysranne-Design-Studio/${i}.jpg`),
+    ].sort((a, b) => {
+        const numA = parseInt(a.split('/').pop() || '0')
+        const numB = parseInt(b.split('/').pop() || '0')
+        return numA - numB
+    })
 }
 
 /*
@@ -41,7 +46,7 @@ function sunbethImages(): string[] {
 const projects = [
     {
         id: 1,
-        title: 'Inbritic Technology',
+        title: 'Inbreetic Technologies',
         category: 'Commercial',
         images: generateImages('Inbritic-Technology', 11),
         coverIndex: 0,
@@ -51,7 +56,7 @@ const projects = [
         id: 2,
         title: 'Tinc IT Solutions',
         category: 'Commercial',
-        images: generateImages('Tinc-IT-Solutions', 22),
+        images: generateImages('Tinc-IT-Solutions', 14),
         coverIndex: 0,
         gridClass: '',
     },
@@ -68,7 +73,7 @@ const projects = [
         title: 'Sunbeth Energies — Mysranne Design Studio',
         category: 'Commercial',
         images: sunbethImages(),
-        coverIndex: 0,
+        coverIndex: 3,
         gridClass: '',
     },
     {
@@ -99,21 +104,21 @@ const projects = [
         id: 8,
         title: '143 Fitness',
         category: 'Commercial',
-        images: generateImages('143-Fitness', 25),
-        coverIndex: 3,
+        images: generateImages('143-Fitness', 22),
+        coverIndex: 2,
         gridClass: '',
     },
     {
         id: 9,
-        title: 'Project Agbara',
+        title: 'Project Verge Agbara',
         category: 'Residential',
-        images: generateImages('Project-Agbara', 24),
+        images: generateImages('Project-Agbara', 16),
         coverIndex: 0,
         gridClass: '',
     },
     {
         id: 10,
-        title: 'Project Akure',
+        title: 'Project Kanmi Akure',
         category: 'Residential',
         images: generateImages('project-akure', 26, 'jpg'),
         coverIndex: 0,
