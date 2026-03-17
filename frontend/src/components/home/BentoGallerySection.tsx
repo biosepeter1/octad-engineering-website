@@ -1,100 +1,191 @@
 'use client'
 
+import { useState } from 'react'
 import { motion } from 'framer-motion'
 import Image from 'next/image'
+import GalleryLightbox from './GalleryLightbox'
 
+// Helper to generate image paths for a project folder
+function generateImages(folder: string, count: number, ext: string = 'jpeg'): string[] {
+    return Array.from({ length: count }, (_, i) => `/portfolio/projects/${folder}/${i + 1}.${ext}`)
+}
+
+// Special handling for Sunbeth which has mixed extensions
+function sunbethImages(): string[] {
+    const jpgIndices = [1, 2, 3, 4, 5]
+    const jpegIndices = [6, 7, 8, 9, 10]
+    return [
+        ...jpgIndices.map(i => `/portfolio/projects/Sunbeth-Energies---Mysranne-Design-Studio/${i}.jpg`),
+        ...jpegIndices.map(i => `/portfolio/projects/Sunbeth-Energies---Mysranne-Design-Studio/${i}.jpeg`),
+    ]
+}
+
+/*
+  Desktop 3-column bento layout (each row = 300px):
+  ┌────────────────────┬───────────┐
+  │ Inbritic (2×2)     │ Tinc (1×1)│
+  │   BIG HERO         ├───────────┤
+  │                    │Laider(1×1)│
+  ├──────────┬─────────┴───────────┤
+  │Sunbeth   │ Ballavista (2×1)    │
+  │ (1×1)    │       WIDE          │
+  ├──────────┼───────────┬─────────┤
+  │Punter    │Christine  │143 Fit  │
+  │ (1×1)    │ (1×2) BIG │ (1×1)   │
+  ├──────────┤           ├─────────┤
+  │Agbara    │           │ Akure   │
+  │ (1×1)    │           │ (1×1)   │
+  └──────────┴───────────┴─────────┘
+*/
 
 const projects = [
     {
         id: 1,
-        title: 'Moyosoreanne Design Studio - Sunbeth Energies',
+        title: 'Inbritic Technology',
         category: 'Commercial',
-        image: '/portfolio/sunbeth_5.jpg', // Using sunbeth_5 as it looked large/good size in file list
-        className: 'md:col-span-2 md:row-span-2'
+        images: generateImages('Inbritic-Technology', 11),
+        coverIndex: 0,
+        gridClass: 'md:col-span-2 md:row-span-2',
     },
     {
         id: 2,
-        title: 'Studio Emodi - Ballavista',
-        category: 'Residential',
-        image: '/portfolio/ballavista_1.jpg',
-        className: 'md:col-span-1 md:row-span-1'
+        title: 'Tinc IT Solutions',
+        category: 'Commercial',
+        images: generateImages('Tinc-IT-Solutions', 22),
+        coverIndex: 0,
+        gridClass: '',
     },
     {
         id: 3,
-        title: 'Punter Class & Faaji Production',
+        title: 'Laider Pharmaceutical',
         category: 'Commercial',
-        image: '/portfolio/punter_3.jpg',
-        className: 'md:col-span-1 md:row-span-1'
+        images: generateImages('Laider-Pharmaceutical', 15),
+        coverIndex: 1,
+        gridClass: '',
     },
     {
         id: 4,
-        title: 'Moyosoreanne Design Studio - Sunbeth Energies',
+        title: 'Sunbeth Energies — Mysranne Design Studio',
         category: 'Commercial',
-        image: '/portfolio/sunbeth_2.jpg',
-        className: 'md:col-span-1 md:row-span-1'
+        images: sunbethImages(),
+        coverIndex: 0,
+        gridClass: '',
     },
     {
         id: 5,
-        title: 'Punter Class & Faaji Production',
+        title: 'Punter Clash & Faaji Production',
         category: 'Commercial',
-        image: '/portfolio/punter_1.jpg',
-        className: 'md:col-span-1 md:row-span-1'
+        images: generateImages('Punter-Clash-and-Faaji-Production--Mysranne-Studio', 22),
+        coverIndex: 0,
+        gridClass: 'md:col-span-2',
     },
     {
         id: 6,
-        title: 'Studio Emodi - Ballavista',
+        title: 'Ballavista — Studio Emodi',
         category: 'Residential',
-        image: '/portfolio/ballavista_6.jpg',
-        className: 'md:col-span-1 md:row-span-1'
-    }
+        images: generateImages('Ballavista---Studio-Emodi', 9),
+        coverIndex: 2,
+        gridClass: '',
+    },
+    {
+        id: 7,
+        title: 'Project Christine Benin',
+        category: 'Residential',
+        images: generateImages('Project-Christine-Benin', 21).reverse(),
+        coverIndex: 16,
+        gridClass: 'md:row-span-2',
+    },
+    {
+        id: 8,
+        title: '143 Fitness',
+        category: 'Commercial',
+        images: generateImages('143-Fitness', 25),
+        coverIndex: 3,
+        gridClass: '',
+    },
+    {
+        id: 9,
+        title: 'Project Agbara',
+        category: 'Residential',
+        images: generateImages('Project-Agbara', 24),
+        coverIndex: 0,
+        gridClass: '',
+    },
+    {
+        id: 10,
+        title: 'Project Akure',
+        category: 'Residential',
+        images: generateImages('project-akure', 26, 'jpg'),
+        coverIndex: 0,
+        gridClass: '',
+    },
 ]
 
 export default function BentoGallerySection() {
+    const [selectedProject, setSelectedProject] = useState<typeof projects[0] | null>(null)
+
     return (
-        <section className="py-10 md:py-20 bg-gray-50">
-            <div className="container-custom">
-                <div className="text-center mb-10 md:mb-16">
-                    <h2 className="text-3xl md:text-5xl font-bold text-gray-900 mb-4 md:mb-6">
-                        Featured <span className="text-primary">Masterpieces</span>
-                    </h2>
-                    <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
-                        A curated selection of our finest work, delivering excellence in every detail.
-                    </p>
-                </div>
+        <>
+            <section className="py-10 md:py-20 bg-gray-50 dark:bg-gray-950">
+                <div className="container-custom">
+                    <div className="text-center mb-10 md:mb-16">
+                        <h2 className="text-3xl md:text-5xl font-bold text-gray-900 dark:text-gray-100 mb-4 md:mb-6">
+                            Featured <span className="text-primary">Masterpieces</span>
+                        </h2>
+                        <p className="text-lg md:text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
+                            A curated selection of our finest work, delivering excellence in every detail.
+                            Click any project to explore the full gallery.
+                        </p>
+                    </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 auto-rows-[250px] md:auto-rows-[300px]">
-                    {projects.map((project, index) => (
-                        <motion.div
-                            key={project.id}
-                            initial={{ opacity: 0, y: 20 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 0.5, delay: index * 0.1 }}
-                            className={`group relative overflow-hidden rounded-2xl shadow-sm hover:shadow-xl transition-shadow duration-300 ${project.className}`}
-                        >
-                            <Image
-                                src={project.image}
-                                alt={project.title}
-                                fill
-                                sizes="(max-width: 768px) 100vw, 33vw"
-                                className="object-cover transition-transform duration-700 group-hover:scale-110"
-                                loading="lazy"
-                                quality={75}
-                            />
+                    {/* Bento Grid: 1 col mobile, 3 col desktop */}
+                    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 md:gap-4 auto-rows-[250px] md:auto-rows-[280px]">
+                        {projects.map((project, index) => (
+                            <motion.div
+                                key={project.id}
+                                initial={{ opacity: 0, y: 20 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true }}
+                                transition={{ duration: 0.5, delay: index * 0.06 }}
+                                onClick={() => setSelectedProject(project)}
+                                className={`group relative overflow-hidden rounded-2xl shadow-md hover:shadow-2xl transition-all duration-500 cursor-pointer ${project.gridClass}`}
+                            >
+                                <Image
+                                    src={project.images[project.coverIndex]}
+                                    alt={project.title}
+                                    fill
+                                    sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, 33vw"
+                                    className="object-cover transition-transform duration-700 group-hover:scale-110"
+                                    loading="lazy"
+                                    quality={75}
+                                />
 
-                            {/* Overlay */}
-                            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
-                                <span className="text-accent text-sm font-medium mb-2 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
-                                    {project.category}
-                                </span>
-                                <h3 className="text-white text-xl font-bold leading-tight transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300 delay-75">
-                                    {project.title}
-                                </h3>
-                            </div>
-                        </motion.div>
-                    ))}
+                                {/* Title — always visible at bottom */}
+                                <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4 sm:p-5">
+                                    <h3 className="text-white text-sm sm:text-base lg:text-lg font-bold leading-tight">
+                                        {project.title}
+                                    </h3>
+                                </div>
+
+                                {/* Hover overlay — View Gallery */}
+                                <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                                    <span className="bg-white/90 dark:bg-white text-gray-900 px-5 py-2.5 rounded-full text-sm font-semibold shadow-lg transform scale-90 group-hover:scale-100 transition-transform duration-300">
+                                        View Gallery
+                                    </span>
+                                </div>
+                            </motion.div>
+                        ))}
+                    </div>
                 </div>
-            </div>
-        </section>
+            </section>
+
+            {/* Lightbox */}
+            <GalleryLightbox
+                isOpen={!!selectedProject}
+                onClose={() => setSelectedProject(null)}
+                images={selectedProject?.images || []}
+                title={selectedProject?.title || ''}
+            />
+        </>
     )
 }
