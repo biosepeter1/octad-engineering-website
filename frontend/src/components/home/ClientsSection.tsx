@@ -15,7 +15,8 @@ export default function ClientsSection() {
         { name: 'Vita Construction', logo: '/partners/vita-construction.jpg' },
         { name: 'Studio Emodi', logo: '/partners/studio-emodi.png' },
         { name: 'Bamboo', logo: '/partners/bamboo.jpg' },
-        { name: 'Chrysalis', logo: '/partners/chrysalis.jpg' }
+        { name: 'Chrysalis', logo: '/partners/chrysalis.jpg' },
+        { name: 'Verge Konstruktiv Bau', logo: '/partners/Verge konstrutiv bau.png' }
     ]
 
     return (
