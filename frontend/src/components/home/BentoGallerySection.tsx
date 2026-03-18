@@ -78,7 +78,7 @@ const projects = [
     },
     {
         id: 5,
-        title: 'Punter Clash & Faaji Production',
+        title: 'Punter Clash & Faaji Production — Mysranne Design Studio',
         category: 'Commercial',
         images: generateImages('Punter-Clash-and-Faaji-Production--Mysranne-Studio', 22),
         coverIndex: 0,
@@ -94,7 +94,7 @@ const projects = [
     },
     {
         id: 7,
-        title: 'Project Christine Benin',
+        title: 'Project Christine Benin ',
         category: 'Residential',
         images: generateImages('Project-Christine-Benin', 21).reverse(),
         coverIndex: 16,
@@ -102,7 +102,7 @@ const projects = [
     },
     {
         id: 8,
-        title: '143 Fitness',
+        title: '143 Fitness -Studio Emodi',
         category: 'Commercial',
         images: generateImages('143-Fitness', 22),
         coverIndex: 2,
@@ -118,7 +118,7 @@ const projects = [
     },
     {
         id: 10,
-        title: 'Project Kanmi Akure',
+        title: 'Project Kanmi Akure — Mysranne Design Studio',
         category: 'Residential',
         images: generateImages('project-akure', 26, 'jpg'),
         coverIndex: 0,
