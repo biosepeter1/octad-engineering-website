@@ -10,39 +10,6 @@ function generateImages(folder: string, count: number, ext: string = 'jpeg'): st
     return Array.from({ length: count }, (_, i) => `/portfolio/projects/${folder}/${i + 1}.${ext}`)
 }
 
-// Special handling for Sunbeth which has mixed extensions
-function sunbethImages(): string[] {
-    // Current files: 1.jpeg, 2.jpg, 3.jpg, 4.jpg, 5.jpg
-    const jpegIndices = [1]
-    const jpgIndices = [2, 3, 4, 5]
-    return [
-        ...jpegIndices.map(i => `/portfolio/projects/Sunbeth-Energies---Mysranne-Design-Studio/${i}.jpeg`),
-        ...jpgIndices.map(i => `/portfolio/projects/Sunbeth-Energies---Mysranne-Design-Studio/${i}.jpg`),
-    ].sort((a, b) => {
-        const numA = parseInt(a.split('/').pop() || '0')
-        const numB = parseInt(b.split('/').pop() || '0')
-        return numA - numB
-    })
-}
-
-/*
-  Desktop 3-column bento layout (each row = 300px):
-  ┌────────────────────┬───────────┐
-  │ Inbritic (2×2)     │ Tinc (1×1)│
-  │   BIG HERO         ├───────────┤
-  │                    │Laider(1×1)│
-  ├──────────┬─────────┴───────────┤
-  │Sunbeth   │ Ballavista (2×1)    │
-  │ (1×1)    │       WIDE          │
-  ├──────────┼───────────┬─────────┤
-  │Punter    │Christine  │143 Fit  │
-  │ (1×1)    │ (1×2) BIG │ (1×1)   │
-  ├──────────┤           ├─────────┤
-  │Agbara    │           │ Akure   │
-  │ (1×1)    │           │ (1×1)   │
-  └──────────┴───────────┴─────────┘
-*/
-
 const projects = [
     {
         id: 1,
@@ -67,22 +34,6 @@ const projects = [
         images: generateImages('Laider-Pharmaceutical', 15),
         coverIndex: 1,
         gridClass: '',
-    },
-    {
-        id: 4,
-        title: 'Sunbeth Energies — Mysranne Design Studio',
-        category: 'Commercial',
-        images: sunbethImages(),
-        coverIndex: 3,
-        gridClass: '',
-    },
-    {
-        id: 5,
-        title: 'Punter Clash & Faaji Production — Mysranne Design Studio',
-        category: 'Commercial',
-        images: generateImages('Punter-Clash-and-Faaji-Production--Mysranne-Studio', 22),
-        coverIndex: 0,
-        gridClass: 'md:col-span-2',
     },
     {
         id: 6,
@@ -117,10 +68,10 @@ const projects = [
         gridClass: '',
     },
     {
-        id: 10,
-        title: 'Project Kanmi Akure — Mysranne Design Studio',
+        id: 11,
+        title: 'Goodnews Opebi',
         category: 'Residential',
-        images: generateImages('project-akure', 26, 'jpg'),
+        images: generateImages('Goodnews-Opebi', 10),
         coverIndex: 0,
         gridClass: '',
     },

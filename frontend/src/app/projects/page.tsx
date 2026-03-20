@@ -97,28 +97,39 @@ const portfolioProjects: Project[] = [
     ]
   },
   {
-    id: 'sunbeth-energies',
-    title: 'Moyosoreanne Design Studio - Sunbeth Energies',
-    category: 'Interior Fit-Out',
+    id: 'project-christine-benin',
+    title: 'Project Christine Benin',
+    category: 'Residential',
     status: 'completed',
-    location: 'Lagos',
-    description: 'A sleek corporate office transformation for Sunbeth Energies, delivered by Moyosoreanne Design Studio. The project features a stunning branded reception area with marble-effect wall cladding and warm alcove lighting, a modern executive office with dark wood panelling and pendant lighting, a glass-walled corridor with frosted orange accents, an inspiring workspace with motivational wall signage, and two premium conference rooms — one with orange leather chairs and city views, and another with wood-panel walls and presentation screen. Every space reflects energy, professionalism, and contemporary design.',
+    location: 'Benin City, Edo State',
+    description: 'A sophisticated residential project in Benin City, showcasing OCTAD\'s expertise in modern building design and construction. The project features clean contemporary lines, premium exterior finishing, and detailed interior craftsmanship. From the initial foundation to the final decorative touches, every element reflects our commitment to creating high-quality, durable living spaces that blend functionality with aesthetic appeal.',
     images: [
-      '/portfolio/sunbeth_1.jpg', '/portfolio/sunbeth_2.jpg', '/portfolio/sunbeth_3.jpg',
-      '/portfolio/sunbeth_4.jpg', '/portfolio/sunbeth_5.jpg'
+      '/portfolio/projects/Project-Christine-Benin/1.jpeg', '/portfolio/projects/Project-Christine-Benin/2.jpeg', '/portfolio/projects/Project-Christine-Benin/3.jpeg',
+      '/portfolio/projects/Project-Christine-Benin/4.jpeg', '/portfolio/projects/Project-Christine-Benin/5.jpeg', '/portfolio/projects/Project-Christine-Benin/6.jpeg',
+      '/portfolio/projects/Project-Christine-Benin/7.jpeg', '/portfolio/projects/Project-Christine-Benin/8.jpeg', '/portfolio/projects/Project-Christine-Benin/9.jpeg',
+      '/portfolio/projects/Project-Christine-Benin/10.jpeg', '/portfolio/projects/Project-Christine-Benin/11.jpeg', '/portfolio/projects/Project-Christine-Benin/12.jpeg',
+      '/portfolio/projects/Project-Christine-Benin/13.jpeg', '/portfolio/projects/Project-Christine-Benin/14.jpeg', '/portfolio/projects/Project-Christine-Benin/15.jpeg',
+      '/portfolio/projects/Project-Christine-Benin/16.jpeg', '/portfolio/projects/Project-Christine-Benin/17.jpeg', '/portfolio/projects/Project-Christine-Benin/18.jpeg',
+      '/portfolio/projects/Project-Christine-Benin/19.jpeg', '/portfolio/projects/Project-Christine-Benin/20.jpeg', '/portfolio/projects/Project-Christine-Benin/21.jpeg'
     ],
     isFeature: true
   },
   {
-    id: 'punter-class-faaji',
-    title: 'Moyosoreanne Design Studio - Punter Class and Faaji Production',
-    category: 'Interior Fit-Out',
+    id: '143-fitness-studio-emodi',
+    title: '143 Fitness - Studio Emodi',
+    category: 'Commercial',
     status: 'completed',
     location: 'Lagos',
-    description: 'A vibrant and creative office space designed by Moyosoreanne Design Studio for Punter Class and Faaji Production. The fit-out showcases bold design choices including a "Reach Your Potential" motivational wall mural with orange graphic elements, a cosy break room with warm terracotta walls and wood-plank flooring, an elegant reception lobby with a circular mirror feature wall and mustard velvet sofa, a dynamic open-plan workspace with geometric wall art and planter dividers, glass-partitioned HR offices with slatted wood ceiling details, and a sleek kitchenette with louvred cabinetry and integrated seating.',
+    description: 'A cutting-edge commercial fitness centre fit-out delivered by OCTAD Engineering in collaboration with Studio Emodi. 143 Fitness features specialized flooring for high-impact training, custom industrial-style ceiling elements with integrated linear lighting, a minimalist reception area, and dedicated zones for pilates and strength training. The design focuses on raw materials, durability, and a clean modern aesthetic that promotes focus and high-performance energy.',
     images: [
-      '/portfolio/punter_1.jpg', '/portfolio/punter_2.jpg', '/portfolio/punter_3.jpg',
-      '/portfolio/punter_4.jpg', '/portfolio/punter_5.jpg', '/portfolio/punter_6.jpg'
+      '/portfolio/projects/143-Fitness/1.jpeg', '/portfolio/projects/143-Fitness/2.jpeg', '/portfolio/projects/143-Fitness/3.jpeg',
+      '/portfolio/projects/143-Fitness/4.jpeg', '/portfolio/projects/143-Fitness/5.jpeg', '/portfolio/projects/143-Fitness/6.jpeg',
+      '/portfolio/projects/143-Fitness/7.jpeg', '/portfolio/projects/143-Fitness/8.jpeg', '/portfolio/projects/143-Fitness/9.jpeg',
+      '/portfolio/projects/143-Fitness/10.jpeg', '/portfolio/projects/143-Fitness/11.jpeg', '/portfolio/projects/143-Fitness/12.jpeg',
+      '/portfolio/projects/143-Fitness/13.jpeg', '/portfolio/projects/143-Fitness/14.jpeg', '/portfolio/projects/143-Fitness/15.jpeg',
+      '/portfolio/projects/143-Fitness/16.jpeg', '/portfolio/projects/143-Fitness/17.jpeg', '/portfolio/projects/143-Fitness/18.jpeg',
+      '/portfolio/projects/143-Fitness/19.jpeg', '/portfolio/projects/143-Fitness/20.jpeg', '/portfolio/projects/143-Fitness/21.jpeg',
+      '/portfolio/projects/143-Fitness/22.jpeg'
     ],
     isFeature: true
   },
